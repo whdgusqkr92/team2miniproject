@@ -1,4 +1,4 @@
-package com.greedy.sysostory.test;
+package com.kkpjj.sysostory.test;
 
 import java.awt.*;
 import javax.swing.*;
