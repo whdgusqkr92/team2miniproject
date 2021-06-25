@@ -1,4 +1,4 @@
-package team2miniproject.com.greedy.sysostory.run;
+package com.greedy.sysostory.run;
 
 public class Application {
 
