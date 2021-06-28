@@ -55,6 +55,7 @@ public class CharacterView extends JFrame{
 		mf.getContentPane().add(charInfoPanel);
 		charInfoPanel.setLayout(null);
 		
+		
 		JButton exitButton = new JButton();
 		exitButton.setBounds(740, 10, 45, 45);
 		exitButton.setIcon(new ImageIcon("images/exit.png"));
