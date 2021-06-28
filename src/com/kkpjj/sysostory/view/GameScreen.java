@@ -66,6 +66,7 @@ public class GameScreen extends JFrame {
 	
 	
 		btnNewButton = new JButton("");
+		
 		skilPanel.add(btnNewButton);
 		btnNewButton.setIcon(new ImageIcon("images/스킬창2.png"));
 		
