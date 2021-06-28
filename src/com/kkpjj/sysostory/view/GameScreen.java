@@ -38,9 +38,12 @@ public class GameScreen extends JFrame {
 		
 		mf.setBounds(300, 75, 810, 630);
 		mf.getContentPane().setLayout(null);
+
 		
 		skilPanel = new JPanel();
 		skilPanel.setBounds(50, 100, 700, 220);
+
+
 		
 		
 		statusPanel = new JPanel();
@@ -49,17 +52,30 @@ public class GameScreen extends JFrame {
 		mapPanel = new JPanel();
 		mapPanel.setBounds(560, 420, 240, 180);
 		
+
 		
 		
 		Image background = new ImageIcon("images/skil.png").getImage().getScaledInstance(800, 600, 0);
 		Image statusBg = new ImageIcon("images/hp.png").getImage().getScaledInstance(560, 180, 0);
 		JLabel label2 = new JLabel(new ImageIcon(statusBg));
+
+		Image background = new ImageIcon("images/test.png").getImage().getScaledInstance(800, 600, 0);
+		JLabel label = new JLabel(new ImageIcon(background));
+		
+		Image statusBg = new ImageIcon("images/status.png").getImage().getScaledInstance(560, 180, 0);
+		JLabel label2 = new JLabel(new ImageIcon(statusBg));
+		
+		Image mapBg = new ImageIcon("images/map.png").getImage().getScaledInstance(240, 180, 0);
+		JLabel label3 = new JLabel(new ImageIcon(mapBg));
+//		mainPanel.setLayout(null);
+
 		
 		Image mapBg = new ImageIcon("images/money.png").getImage().getScaledInstance(240, 180, 0);
 		JLabel label3 = new JLabel(new ImageIcon(mapBg));
 		statusPanel.add(label2);
 		mapPanel.add(label3);
 				
+
 		mf.getContentPane().add(skilPanel);
 		skilPanel.setLayout(new GridLayout(0, 3 , 50, 50));
 		
@@ -111,6 +127,11 @@ public class GameScreen extends JFrame {
 		textField.setBounds(0, 0, 700, 63);
 		panel.add(textField);
 		textField.setColumns(10);
+
+		mf.getContentPane().add(mainPanel);
+		mf.getContentPane().add(statusPanel);
+		mf.getContentPane().add(mapPanel);
+
 		
 		mf.setVisible(true);
 		mf.setResizable(false);

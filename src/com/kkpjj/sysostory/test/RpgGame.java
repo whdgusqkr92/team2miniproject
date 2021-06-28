@@ -70,8 +70,8 @@ class RpgGame_frame extends JFrame implements Runnable, KeyListener {
 	}
 
 	public void init() {
-		x = 100;
-		y = 100;
+		x = 300;
+		y = 300;
 		moveStatus = 3;
 		// 케릭터가 시작할때 바라보는 방향은 아래쪽입니다.
 		// 0 : 위쪽, 1 : 오른쪽, 2 : 왼쪽, 3 : 아래쪽
