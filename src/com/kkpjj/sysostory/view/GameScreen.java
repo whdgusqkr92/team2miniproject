@@ -59,19 +59,19 @@ public class GameScreen extends JFrame {
 		Image statusBg = new ImageIcon("images/hp.png").getImage().getScaledInstance(560, 180, 0);
 		JLabel label2 = new JLabel(new ImageIcon(statusBg));
 
-		Image background = new ImageIcon("images/test.png").getImage().getScaledInstance(800, 600, 0);
+//		Image background = new ImageIcon("images/test.png").getImage().getScaledInstance(800, 600, 0);
 		JLabel label = new JLabel(new ImageIcon(background));
 		
-		Image statusBg = new ImageIcon("images/status.png").getImage().getScaledInstance(560, 180, 0);
-		JLabel label2 = new JLabel(new ImageIcon(statusBg));
+//		Image statusBg = new ImageIcon("images/status.png").getImage().getScaledInstance(560, 180, 0);
+//		JLabel label2 = new JLabel(new ImageIcon(statusBg));
 		
 		Image mapBg = new ImageIcon("images/map.png").getImage().getScaledInstance(240, 180, 0);
 		JLabel label3 = new JLabel(new ImageIcon(mapBg));
 //		mainPanel.setLayout(null);
 
 		
-		Image mapBg = new ImageIcon("images/money.png").getImage().getScaledInstance(240, 180, 0);
-		JLabel label3 = new JLabel(new ImageIcon(mapBg));
+//		Image mapBg = new ImageIcon("images/money.png").getImage().getScaledInstance(240, 180, 0);
+//		JLabel label3 = new JLabel(new ImageIcon(mapBg));
 		statusPanel.add(label2);
 		mapPanel.add(label3);
 				
@@ -128,7 +128,7 @@ public class GameScreen extends JFrame {
 		panel.add(textField);
 		textField.setColumns(10);
 
-		mf.getContentPane().add(mainPanel);
+//		mf.getContentPane().add(mainPanel);
 		mf.getContentPane().add(statusPanel);
 		mf.getContentPane().add(mapPanel);
 

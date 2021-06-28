@@ -12,13 +12,13 @@ public class Application {
 	public static void main(String[] args) {
 		
 
-//		new GameScreen();
-		new InventoryView();
+//new GameScreen();
+		//new InventoryView();
 		
-//		new RpgGame();
+//new RpgGame();
 		
 
-		new StartScreen();
+	//	new StartScreen();
 
 		
 	}
