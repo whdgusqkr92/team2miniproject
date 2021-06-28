@@ -11,6 +11,7 @@ public class Application {
 	public static void main(String[] args) {
 		
 
+
 //		new GameScreen();
 //		new RpgGame();
 //		new StartScreen();
@@ -20,6 +21,15 @@ public class Application {
 		
 		
 		
+
+//new GameScreen();
+		//new InventoryView();
+		
+//new RpgGame();
+		
+
+	//	new StartScreen();
+
 
 		
 	}

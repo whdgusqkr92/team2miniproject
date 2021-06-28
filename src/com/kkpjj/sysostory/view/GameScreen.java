@@ -41,20 +41,19 @@ public class GameScreen extends JFrame {
 		mapPanel = new JPanel();
 		mapPanel.setBounds(560, 420, 240, 180);
 
-		Image background = new ImageIcon("images/test.png").getImage().getScaledInstance(800, 600, 0);
-		JLabel label1 = new JLabel(new ImageIcon(background));
+
 		
-		Image statusBg = new ImageIcon("images/status.png").getImage().getScaledInstance(560, 180, 0);
-		JLabel label2 = new JLabel(new ImageIcon(statusBg));
+//		Image statusBg = new ImageIcon("images/status.png").getImage().getScaledInstance(560, 180, 0);
+//		JLabel label2 = new JLabel(new ImageIcon(statusBg));
 		
 		Image mapBg = new ImageIcon("images/map.png").getImage().getScaledInstance(240, 180, 0);
 		JLabel label3 = new JLabel(new ImageIcon(mapBg));
 		
-		mainPanel.add(label1);
+
 		statusPanel.add(label2);
 		mapPanel.add(label3);
 	
-		mf.getContentPane().add(mainPanel);
+
 		mf.getContentPane().add(statusPanel);
 		mf.getContentPane().add(mapPanel);
 		
