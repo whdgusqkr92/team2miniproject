@@ -1,67 +1,140 @@
 package com.kkpjj.sysostory.view;
 
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-
-import java.awt.Font;
-import java.awt.Panel;
-import javax.swing.JLabel;
-import javax.swing.Icon;
-import java.awt.Button;
-import javax.swing.Box;
-import java.awt.FlowLayout;
 import java.awt.Color;
-import javax.swing.JSplitPane;
-import javax.swing.JLayeredPane;
-import javax.swing.JInternalFrame;
-import java.awt.BorderLayout;
-import javax.swing.JMenuItem;
+import java.awt.Font;
+import java.awt.Graphics;
+import java.awt.Image;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextPane;
+import javax.swing.SwingConstants;
 
 public class InventoryView extends JFrame{
 	
 	private JFrame mf;
-	private JPanel mainPanel;
-	
+	private JPanel drenchPanel;
+	private JPanel statusPanel;
+	private JPanel mapPanel;
+
 	public InventoryView() {
 		
 		mf = new JFrame();
+		mf.setTitle("sysoStory");
+		mf.setFont(new Font("둥근모꼴", Font.PLAIN, 16));
+		
 		mf.setBounds(300, 75, 810, 630);
-		mf.getContentPane().setLayout(null);
 		
-		setFont(new Font("둥근모꼴", Font.PLAIN, 16));
+		statusPanel = new JPanel();
+		statusPanel.setBounds(0, 420, 560, 180);
 		
-		JPanel statusPanel = new JPanel();
-		statusPanel.setBounds(0, 387, 560, 180);
-		getContentPane().add(statusPanel);
+		mapPanel = new JPanel();
+		mapPanel.setBounds(560, 420, 240, 180);
+
+		Image statusBg = new ImageIcon("images/status.png").getImage().getScaledInstance(560, 180, 0);
+		JLabel label1 = new JLabel(new ImageIcon(statusBg));
 		
-		JLabel label2 = new JLabel((Icon) null);
-		statusPanel.add(label2);
+		Image mapBg = new ImageIcon("images/map.png").getImage().getScaledInstance(240, 180, 0);
+		JLabel label2 = new JLabel(new ImageIcon(mapBg));
 		
-		JPanel mapPanel = new JPanel();
-		mapPanel.setBounds(560, 387, 240, 180);
-		getContentPane().add(mapPanel);
+		statusPanel.add(label1);
+		mapPanel.add(label2);
 		
-		JLabel label3 = new JLabel((Icon) null);
-		mapPanel.add(label3);
+		mf.getContentPane().add(statusPanel);
+		mf.getContentPane().add(mapPanel);
+				
+		// 아이템 창, 나가기 버튼
+		
+		drenchPanel = new JPanel();
+		drenchPanel.setBounds(0, 0, 800, 419);
+		mf.getContentPane().add(drenchPanel);
+		drenchPanel.setLayout(null);
+		
+		JButton exitButton = new JButton();
+		exitButton.setBounds(750, 0, 45, 45);
+		exitButton.setIcon(new ImageIcon("images/exit.png"));
+		drenchPanel.add(exitButton);
+		
+		JPanel itemList = new JPanel();
+		itemList.setBackground(Color.LIGHT_GRAY);
+		itemList.setBounds(12, 50, 776, 275);
+		drenchPanel.add(itemList);
+		itemList.setLayout(null);
+		
+		Image itemWindowBg = new ImageIcon("images/itemWindow.png").getImage();
+		JLabel label3 = new JLabel(new ImageIcon(itemWindowBg));
+		
+		itemList.add(label3);
+		
+		JPanel itemDirection = new JPanel();
+		itemDirection.setLayout(null);
+		itemDirection.setBounds(0, 325, 800, 90);
+		drenchPanel.add(itemDirection);
+		
+		JTextPane textPane = new JTextPane();
+		textPane.setEditable(false);
+		textPane.setBackground(Color.LIGHT_GRAY);
+		textPane.setFont(new Font("둥근모꼴", Font.PLAIN, 18));
+		textPane.setText("여기는 아이템의 설명이 출력되는 화면이다.");
+		textPane.setToolTipText("");
+		textPane.setBounds(10, 8, 778, 80);
+		itemDirection.add(textPane);
 		
 		JPanel panel = new JPanel();
-		panel.setBounds(0, 0, 800, 70);
-		getContentPane().add(panel);
+		panel.setBackground(Color.LIGHT_GRAY);
+		panel.setBounds(12, 0, 136, 45);
+		drenchPanel.add(panel);
 		
-		JPanel panel_1 = new JPanel();
-		panel_1.setBounds(0, 317, 800, 70);
-		getContentPane().add(panel_1);
+		JTextPane textPane_1 = new JTextPane();
+		textPane_1.setEditable(false);
+		textPane_1.setBackground(Color.LIGHT_GRAY);
+		textPane_1.setFont(new Font("둥근모꼴", Font.PLAIN, 25));
+		textPane_1.setText("물약상점");
+		panel.add(textPane_1);
 		
-		JPanel panel_2 = new JPanel();
-		panel_2.setBounds(0, 80, 800, 227);
-		getContentPane().add(panel_2);
+		// 마을, 물약 상인
 		
-		mainPanel = new JPanel();
-		mainPanel.setBounds(0, 0, 800, 420);
+		JPanel itemPanel = new JPanel();
+		itemPanel.setBounds(0, 0, 810, 419);
+		mf.getContentPane().add(itemPanel);
+		itemPanel.setLayout(null);
 		
+		JButton drenchButton = new JButton();
+		drenchButton.setBounds(98, 55, 70, 100);
+		drenchButton.setIcon(new ImageIcon("images/물약상인.png"));
+		drenchButton.setBackground(Color.LIGHT_GRAY);
+		drenchButton.setFont(new Font("둥근모꼴", Font.PLAIN, 16));
+		itemPanel.add(drenchButton);
+		
+		drenchPanel.setVisible(false);
+		
+		drenchButton.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				
+				drenchPanel.setVisible(true);
+				itemPanel.setVisible(false);
+			}
+		});
+		
+		exitButton.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				itemPanel.setVisible(true);
+				drenchPanel.setVisible(false);
+				
+			}
+		});
 		
 		mf.setVisible(true);
 		mf.setResizable(false);
 		mf.setDefaultCloseOperation(EXIT_ON_CLOSE);
 	}
+
 }
