@@ -8,8 +8,6 @@ public class RpgGame {
 	public static void main(String[] ar) {
 		new RpgGame_frame();
 		
-		
-	
 	}
 }
 
@@ -22,10 +20,7 @@ class RpgGame_frame extends JFrame implements Runnable, KeyListener {
 	Toolkit tk = Toolkit.getDefaultToolkit();
 	
 	
-	
-	
 	Image background = new ImageIcon("images/test.png").getImage().getScaledInstance(800, 600, 0);
-	
 	
 	
 	Image img = new ImageIcon("images/2jo.PNG").getImage(); // 이미지를 불러옵니다.
@@ -57,7 +52,6 @@ class RpgGame_frame extends JFrame implements Runnable, KeyListener {
 		
 		init();
 		start();
-		
 		
 		
 		Dimension screen = tk.getScreenSize();
