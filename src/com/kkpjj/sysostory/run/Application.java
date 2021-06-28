@@ -1,4 +1,3 @@
-
 package com.kkpjj.sysostory.run;
 
 
@@ -8,7 +7,7 @@ public class Application {
 
 	public static void main(String[] args) {
 		
-new BattlePage();
+//		new BattlePage();
 
 //		new GameScreen();
 
@@ -20,8 +19,8 @@ new BattlePage();
 //		new StartScreen();
 		
 //		new InventoryView();
-		new CharacterView();
-		
+//		new CharacterView();
+	
 		
 		
 
