@@ -1,9 +1,6 @@
 package com.kkpjj.sysostory.run;
 
-import com.kkpjj.sysostory.test.RpgGame;
-import com.kkpjj.sysostory.view.CharacterView;
-import com.kkpjj.sysostory.view.GameScreen;
-import com.kkpjj.sysostory.view.InventoryView;
+
 import com.kkpjj.sysostory.view.StartScreen;
 
 public class Application {
@@ -13,6 +10,11 @@ public class Application {
 
 
 //		new GameScreen();
+
+//		new InventoryView();
+		
+
+
 //		new RpgGame();
 //		new StartScreen();
 		
@@ -29,6 +31,14 @@ public class Application {
 		
 
 	//	new StartScreen();
+
+
+		new StartScreen();
+//		new JoinPage();
+//		new AfterLogin();
+//		new NickName();
+//		new ResignCheckPwd();
+
 
 
 		
