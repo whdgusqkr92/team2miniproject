@@ -52,4 +52,5 @@ public class AfterLogin extends JFrame{
 		mf.setResizable(false);
 		mf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
+	
 }
