@@ -43,14 +43,14 @@ public class GameScreen extends JFrame {
 
 
 		
-//		Image statusBg = new ImageIcon("images/status.png").getImage().getScaledInstance(560, 180, 0);
-//		JLabel label2 = new JLabel(new ImageIcon(statusBg));
+		Image statusBg = new ImageIcon("images/status.png").getImage().getScaledInstance(560, 180, 0);
+		JLabel label2 = new JLabel(new ImageIcon(statusBg));
 		
 		Image mapBg = new ImageIcon("images/map.png").getImage().getScaledInstance(240, 180, 0);
 		JLabel label3 = new JLabel(new ImageIcon(mapBg));
 		
 
-		statusPanel.add(label2);
+		statusPanel.add(label3);
 		mapPanel.add(label3);
 	
 

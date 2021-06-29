@@ -1,13 +1,24 @@
 package com.kkpjj.sysostory.run;
 
 
+
 import com.kkpjj.sysostory.view.AfterLogin;
 import com.kkpjj.sysostory.view.CharacterView;
 import com.kkpjj.sysostory.view.InventoryView;
 import com.kkpjj.sysostory.view.NickName;
 import com.kkpjj.sysostory.view.ResignCheckPwd;
+
+
+import com.kkpjj.sysostory.test.RpgGame;
+import com.kkpjj.sysostory.view.BattlePage;
+import com.kkpjj.sysostory.view.InventoryView;
+import com.kkpjj.sysostory.view.JoinPage;
+
 import com.kkpjj.sysostory.view.StartScreen;
 import com.kkpjj.sysostory.view.pitionShopView;
+
+import com.kkpjj.sysostory.view.InventoryView;
+
 
 public class Application {
 
@@ -23,6 +34,7 @@ public class Application {
 //		new RpgGame();
 //		new StartScreen();
 		
+
 //		new InventoryView();
 //		new CharacterView().run();
 		
@@ -31,6 +43,17 @@ public class Application {
 		new pitionShopView();
 		
 		
+
+		new InventoryView();
+//		new CharacterView();
+	
+		
+		
+
+//		new GameScreen();
+		new InventoryView();
+		
+
 //		new RpgGame();
 		
 
@@ -45,7 +68,11 @@ public class Application {
 
 
 
+//		new ResignYesOrNo();
+//		new ResignedCheck();
+
 		
+
 	}
 }
 

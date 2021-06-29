@@ -22,7 +22,7 @@ public class Test2 extends JFrame {
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setTitle("색상변경");
 		setSize(330, 300);
-		
+		 
 		jl = new JLabel("<ENTER> 키를 누르면 배경 색상이 바뀝니다.");
 		c1.add(jl);
 		setFocusable(false);
