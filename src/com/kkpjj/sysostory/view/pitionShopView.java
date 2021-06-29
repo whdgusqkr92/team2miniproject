@@ -15,14 +15,14 @@ import javax.swing.JPanel;
 import javax.swing.JTextPane;
 import javax.swing.SwingConstants;
 
-public class InventoryView extends JFrame{
+public class pitionShopView extends JFrame{
 	
 	private JFrame mf;
 	private JPanel drenchPanel;
 	private JPanel statusPanel;
 	private JPanel mapPanel;
 
-	public InventoryView() {
+	public pitionShopView() {
 		
 		mf = new JFrame();
 		mf.setTitle("sysoStory");
@@ -62,7 +62,7 @@ public class InventoryView extends JFrame{
 		
 		JPanel itemList = new JPanel();
 		itemList.setBackground(Color.LIGHT_GRAY);
-		itemList.setBounds(12, 50, 776, 275);
+		itemList.setBounds(5, 50, 387, 275);
 		drenchPanel.add(itemList);
 		itemList.setLayout(null);
 		
@@ -73,7 +73,7 @@ public class InventoryView extends JFrame{
 		
 		JPanel itemDirection = new JPanel();
 		itemDirection.setLayout(null);
-		itemDirection.setBounds(0, 325, 800, 90);
+		itemDirection.setBounds(0, 325, 400, 90);
 		drenchPanel.add(itemDirection);
 		
 		JTextPane textPane = new JTextPane();
@@ -82,12 +82,12 @@ public class InventoryView extends JFrame{
 		textPane.setFont(new Font("둥근모꼴", Font.PLAIN, 18));
 		textPane.setText("여기는 아이템의 설명이 출력되는 화면이다.");
 		textPane.setToolTipText("");
-		textPane.setBounds(10, 8, 778, 80);
+		textPane.setBounds(5, 5, 389, 80);
 		itemDirection.add(textPane);
 		
 		JPanel panel = new JPanel();
 		panel.setBackground(Color.LIGHT_GRAY);
-		panel.setBounds(12, 0, 136, 45);
+		panel.setBounds(5, 0, 136, 45);
 		drenchPanel.add(panel);
 		
 		JTextPane textPane_1 = new JTextPane();
@@ -96,6 +96,11 @@ public class InventoryView extends JFrame{
 		textPane_1.setFont(new Font("둥근모꼴", Font.PLAIN, 25));
 		textPane_1.setText("물약상점");
 		panel.add(textPane_1);
+		
+		JPanel panel_1 = new JPanel();
+		panel_1.setBackground(Color.LIGHT_GRAY);
+		panel_1.setBounds(404, 50, 391, 365);
+		drenchPanel.add(panel_1);
 		
 		// 마을, 물약 상인
 		
@@ -126,9 +131,9 @@ public class InventoryView extends JFrame{
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				
 				itemPanel.setVisible(true);
 				drenchPanel.setVisible(false);
-				
 			}
 		});
 		
@@ -136,5 +141,4 @@ public class InventoryView extends JFrame{
 		mf.setResizable(false);
 		mf.setDefaultCloseOperation(EXIT_ON_CLOSE);
 	}
-
 }

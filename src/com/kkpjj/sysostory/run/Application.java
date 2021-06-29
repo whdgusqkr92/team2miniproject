@@ -1,7 +1,13 @@
 package com.kkpjj.sysostory.run;
 
 
+import com.kkpjj.sysostory.view.AfterLogin;
+import com.kkpjj.sysostory.view.CharacterView;
+import com.kkpjj.sysostory.view.InventoryView;
+import com.kkpjj.sysostory.view.NickName;
+import com.kkpjj.sysostory.view.ResignCheckPwd;
 import com.kkpjj.sysostory.view.StartScreen;
+import com.kkpjj.sysostory.view.pitionShopView;
 
 public class Application {
 
@@ -14,26 +20,24 @@ public class Application {
 //		new InventoryView();
 		
 
-
 //		new RpgGame();
 //		new StartScreen();
 		
 //		new InventoryView();
-//		new CharacterView();
-	
-		
+//		new CharacterView().run();
 		
 
-//new GameScreen();
-		//new InventoryView();
+//		new GameScreen();
+		new pitionShopView();
 		
-//new RpgGame();
+		
+//		new RpgGame();
 		
 
-	//	new StartScreen();
+//		new StartScreen();
 
 
-		new StartScreen();
+//		new StartScreen();
 //		new JoinPage();
 //		new AfterLogin();
 //		new NickName();
