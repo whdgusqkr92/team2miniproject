@@ -19,9 +19,28 @@ import com.kkpjj.sysostory.view.NickName;
 import com.kkpjj.sysostory.view.ResignCheckPwd;
 
 
+
+import com.kkpjj.sysostory.view.AfterLogin;
+import com.kkpjj.sysostory.view.CharacterView;
+import com.kkpjj.sysostory.view.GameScreen;
+import com.kkpjj.sysostory.view.NickName;
+import com.kkpjj.sysostory.view.ResignCheckPwd;
+
+
 import com.kkpjj.sysostory.test.RpgGame;
 import com.kkpjj.sysostory.view.BattlePage;
 import com.kkpjj.sysostory.view.JoinPage;
+
+import com.kkpjj.sysostory.view.StartScreen;
+import com.kkpjj.sysostory.view.VillageView;
+import com.kkpjj.sysostory.view.PotionShopView;
+
+
+
+import com.kkpjj.sysostory.test.RpgGame;
+import com.kkpjj.sysostory.view.BattlePage;
+import com.kkpjj.sysostory.view.JoinPage;
+
 
 import com.kkpjj.sysostory.view.StartScreen;
 import com.kkpjj.sysostory.view.pitionShopView;
@@ -35,6 +54,7 @@ import com.kkpjj.sysostory.view.StartScreen;
 
 
 
+
 public class Application {
 
 	public static void main(String[] args) {
@@ -43,18 +63,19 @@ public class Application {
 
 //		new GameScreen();
 
-//		new InventoryView();
-		
-
+//		new VillageView();
 //		new RpgGame();
 //		new StartScreen();
 		
 
-//		new InventoryView();
 //		new CharacterView().run();
-		
+//		new pitionShopView();
 
 //		new GameScreen();
+
+
+//		new RpgGame();
+
 //		new pitionShopView();
 		
 		
@@ -64,11 +85,15 @@ public class Application {
 
 //		new CharacterView();
 	
-		
-		
 
+		
+		new PotionShopView();
+//		new CharacterView();
+		
 //		new GameScreen();
+
 //		new InventoryView();
+
 		
 
 //		new RpgGame();

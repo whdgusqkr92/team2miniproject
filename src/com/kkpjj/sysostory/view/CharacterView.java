@@ -21,8 +21,8 @@ import javax.swing.JTextArea;
 
 public class CharacterView extends JFrame implements Runnable {
 	
-//	private JPanel statusPanel;
-//	private JPanel mapPanel;
+	private JPanel statusPanel;
+	private JPanel mapPanel;
 	
 	private ImageIcon status = null;
 	private ImageIcon map = null;
@@ -35,9 +35,7 @@ public class CharacterView extends JFrame implements Runnable {
 	
 
 	public CharacterView() {
-		
-		list = new JList<String>();
-		
+//		list = new JList<String>();
 	}
 
 	@Override
@@ -49,45 +47,43 @@ public class CharacterView extends JFrame implements Runnable {
 		mf.setBounds(300, 75, 810, 630);
 		mf.setLayout(null);
 		
-//		statusPanel = new JPanel();
-//		statusPanel.setBounds(0, 420, 560, 180);
-//		
-//		mapPanel = new JPanel();
-//		mapPanel.setBounds(560, 420, 240, 180);
-//
-//		Image statusBg = new ImageIcon("images/status.png").getImage().getScaledInstance(560, 180, 0);
-//		JLabel label1 = new JLabel(new ImageIcon(statusBg));
-//		
-//		Image mapBg = new ImageIcon("images/map.png").getImage().getScaledInstance(240, 180, 0);
-//		JLabel label2 = new JLabel(new ImageIcon(mapBg));
-//		
-//		statusPanel.add(label1);
-//		mapPanel.add(label2);
-//		
-//		mf.getContentPane().add(statusPanel);
-//		mf.getContentPane().add(mapPanel);
+		statusPanel = new JPanel();
+		statusPanel.setBounds(0, 420, 560, 180);
+		
+		mapPanel = new JPanel();
+		mapPanel.setBounds(560, 420, 240, 180);
+
+		Image statusBg = new ImageIcon("images/status.png").getImage().getScaledInstance(560, 180, 0);
+		JLabel label1 = new JLabel(new ImageIcon(statusBg));
+		
+		Image mapBg = new ImageIcon("images/map.png").getImage().getScaledInstance(240, 180, 0);
+		JLabel label2 = new JLabel(new ImageIcon(mapBg));
+		
+		statusPanel.add(label1);
+		mapPanel.add(label2);
+		
+		mf.getContentPane().add(statusPanel);
+		mf.getContentPane().add(mapPanel);
 		
 		// 캐릭터 정보 창, 나가기 버튼
 		
-//		JPanel charInfoPanel = new JPanel();
-//		charInfoPanel.setBounds(0, 0, 800, 410);
-//		mf.getContentPane().add(charInfoPanel);
-//		charInfoPanel.setLayout(null);
-//
-//		JPanel characterInfo = new JPanel();
-//		characterInfo.setBounds(12, 0, 780, 410);
-//		charInfoPanel.add(characterInfo);
-//		
-//		JPanel characterProfile = new JPanel();
-//		characterProfile.setBounds(88, 50, 136, 136);
-//		charInfoPanel.add(characterProfile);
-//		
-//		Image itemWindowBg = new ImageIcon("images/characterWindow.png").getImage();
-//		JLabel label3= new JLabel(new ImageIcon(itemWindowBg));
-//		label3.setBounds(398, 10, -1, -1);
-//		charInfoPanel.add(label3);
-//		
+		JPanel charInfoPanel = new JPanel();
+		charInfoPanel.setBounds(0, 0, 800, 410);
+		mf.getContentPane().add(charInfoPanel);
+		charInfoPanel.setLayout(null);
 
+		JPanel characterInfo = new JPanel();
+		characterInfo.setBounds(12, 0, 780, 410);
+		charInfoPanel.add(characterInfo);
+		
+		JPanel characterProfile = new JPanel();
+		characterProfile.setBounds(88, 50, 136, 136);
+		charInfoPanel.add(characterProfile);
+		
+		Image itemWindowBg = new ImageIcon("images/characterWindow.png").getImage();
+		JLabel label3= new JLabel(new ImageIcon(itemWindowBg));
+		label3.setBounds(398, 10, 50, 50);
+		charInfoPanel.add(label3);
 		
 		// 캐릭터 이미지
 		status = new ImageIcon("images/status.png");
@@ -103,7 +99,6 @@ public class CharacterView extends JFrame implements Runnable {
 			public void paintComponent(Graphics g) {
 				g.drawImage(status.getImage(), 0, 0, 560, 180, null);  // 이미지 원본 크기
 			}
-			
 		};
 		
 		panel1.setBounds(0, 420, 560, 180);
@@ -114,7 +109,6 @@ public class CharacterView extends JFrame implements Runnable {
 			public void paintComponent(Graphics g) {
 				g.drawImage(map.getImage(), 0, 0, 240, 180, null);
 			}
-			
 		};
 		
 		panel2.setBounds(560, 420, 240, 180);
@@ -125,7 +119,6 @@ public class CharacterView extends JFrame implements Runnable {
 			public void paintComponent(Graphics g) {
 				g.drawImage(characterWindow.getImage(), 0, 0, 800, 410, null);
 			}
-			
 		};
 		
 		panel3.setBounds(12, 0, 780, 410);
@@ -143,14 +136,9 @@ public class CharacterView extends JFrame implements Runnable {
 			public void paintComponent(Graphics g) {
 				g.drawImage(sysoIcon.getImage(), 0, 0, 136, 136, null);
 			}
-			
 		};
 		
 		panel4.setBounds(88, 50, 136, 136);
-		
-		
-		// 칭호
-		
 		
 
 		

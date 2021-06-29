@@ -21,3 +21,4 @@ public class BattleChrPanel extends JPanel {
 			g.drawImage(chr, 0, 0, getWidth(), getHeight(), this);
 		}
 	}
+ 
