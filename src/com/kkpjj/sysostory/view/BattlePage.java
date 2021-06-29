@@ -1,17 +1,18 @@
 package com.kkpjj.sysostory.view;
 
-import java.awt.Color;
-import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Image;
-import java.util.Scanner;
+import java.awt.Rectangle;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.List;
 
 import javax.swing.ImageIcon;
-import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-public class BattlePage extends JFrame {
+public class BattlePage extends JPanel {
 
 	private JFrame mf;
 	private JPanel mainPanel;
@@ -21,37 +22,30 @@ public class BattlePage extends JFrame {
 	//	private JPanel statusPanel;
 	//	private JPanel mapPanel;
 
-	public BattlePage() {
+	public BattlePage(JFrame mf) {
 		// 전투화면 프레임 생성
-		mf = new JFrame();
+		this.mf = mf;
 
-		mf.setSize(800, 600);
-		mf.setLayout(null);
-		mf.setTitle("sysoStory");
-		
-		// 메인 전투화면 구성
+		// 전투 메인화면 구성
 		mainPanel = new MainPanel();
 		mainPanel.setBounds(0, 0, 800, 420);
+				
 		// 캐릭터
 		chrPanel = new BattleChrPanel();
 		chrPanel.setBounds(150, 178, 64, 64);
 		// 몬스터
 		monPanel = new BattleMonPanel();
 		monPanel.setBounds(550, 60, 200, 300);
+		List<Rectangle> mon = ((BattleMonPanel) monPanel).monPosition();
 		// 전투 메뉴
-		battleMenuPanel = new BattleMenuPanel();
+		battleMenuPanel = new BattleMenuPanel(mon);
 		battleMenuPanel.setBounds(290, 80, 220, 240);
-
+		
 		mainPanel.add(chrPanel);
 		mainPanel.add(monPanel);
 		mainPanel.add(battleMenuPanel);
 
 		mf.add(mainPanel);
-
-		mf.setLocationRelativeTo(null);
-		mf.setResizable(false);
-		mf.setVisible(true);
-		mf.setDefaultCloseOperation(EXIT_ON_CLOSE);
 	}
 }
 
