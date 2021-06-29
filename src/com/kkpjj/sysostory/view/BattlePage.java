@@ -62,4 +62,5 @@ class MainPanel extends JPanel {
 	public void paintComponent(Graphics g) {
 		g.drawImage(bg, 0, 0, getWidth(), getHeight(), this);
 	}
+	
 }

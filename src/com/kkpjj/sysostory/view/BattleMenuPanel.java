@@ -152,4 +152,7 @@ class RunMenu extends JButton {
 	public void paintComponent(Graphics g) {
 		g.drawImage(runMenuIcon, 0, 0, getWidth(), getHeight(), this);
 	}
+	public static void main(String[] args) {
+		new BattleMenuPanel();
+	}
 }
