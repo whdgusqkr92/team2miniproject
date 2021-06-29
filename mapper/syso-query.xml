@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<comment/>
+	<entry key="selectStory">
+	SELECT
+		CHAP_SCRIPT
+		FROM TBL_STORY_LIST
+		WHERE STORY_CODE = ?
+	</entry>
+</properties>
