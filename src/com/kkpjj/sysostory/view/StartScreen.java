@@ -66,7 +66,7 @@ public class StartScreen extends JFrame {
 		loginButton.setFont(new Font("둥근모꼴", Font.PLAIN, 24));
 		loginButton.setBounds(235, 390, 150, 50);
 		loginButton.setLayout(null);
-		
+		 
 		loginButton.addActionListener(new ActionListener() {
 			
 			@Override
