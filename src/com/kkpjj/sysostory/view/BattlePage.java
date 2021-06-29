@@ -45,7 +45,7 @@ public class BattlePage extends JPanel {
 		mainPanel.add(monPanel);
 		mainPanel.add(battleMenuPanel);
 
-		mf.add(mainPanel);
+		this.mf.add(mainPanel);
 	}
 }
 

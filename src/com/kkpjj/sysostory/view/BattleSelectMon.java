@@ -9,9 +9,8 @@ public class BattleSelectMon {
 	private Rectangle thirdMon;
 	private Rectangle fourthMon;
 	
-	public void selectMon(List<Rectangle> mon) {		
-		this.firstMon = mon.get(0);
-		
+	public void selectMon(String attackType, String attackName, List<Rectangle> mon) {		
+		this.firstMon = mon.get(0);		
 		this.secondMon = mon.get(1);
 		this.thirdMon = mon.get(2);
 		this.fourthMon = mon.get(3);

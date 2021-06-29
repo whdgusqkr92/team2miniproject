@@ -14,7 +14,6 @@ import javax.swing.JPanel;
 
 class SubMenu extends JPanel {
 	private SubMenu subMenu;
-	private List<Rectangle> mon;
 	protected JButton button1;
 	protected JButton button2;
 	protected JButton button3;
@@ -22,18 +21,15 @@ class SubMenu extends JPanel {
 	protected String attackType;
 	protected String attackName;
 	
-	public SubMenu() {}
-
-	public SubMenu(List<Rectangle> mon2) {
+	public SubMenu() {
 		this.subMenu = this;
-		this.mon = mon;
 		this.setLayout(null);
 		this.setOpaque(false);
 		this.setBounds(24, 60, 170, 155);
 
 		Font font = new Font("둥근모꼴", Font.PLAIN, 16);
 		
-		this.button1 = new JButton();
+		button1 = new JButton();
 		button1.setBounds(0, 0, 170, 35);
 		button1.setForeground(Color.WHITE);
 		button1.setBackground(Color.BLACK);
@@ -77,7 +73,7 @@ class AttackButton extends SubMenu {
 			public void actionPerformed(ActionEvent e) {
 				attackType = "normal";
 				attackName = "기본 공격";
-				new BattleSelectMon();
+				new BattleSelectMon().selectMon(attackType, attackName, mon);;
 			}
 		});
 	}
