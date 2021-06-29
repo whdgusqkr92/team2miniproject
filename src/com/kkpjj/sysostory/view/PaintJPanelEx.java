@@ -22,6 +22,7 @@ public class PaintJPanelEx extends JFrame {
 			super.paintComponent(g);
 			
 			g.setColor(Color.BLUE);
+		
 			g.drawRect(10, 10, 50, 50);
 			g.drawRect(50, 50, 50, 50);
 			

@@ -5,27 +5,36 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
+
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+
 import java.util.Properties;
 
 public class JDBCTemplate {
 	
 	public static Connection getConnection() {
-		
+
 		Connection con = null;
 		
 		Properties prop = new Properties();
 		
 		try {
-			prop.load(new FileReader("conifg/connection-info.properties"));
-			
+
+			prop.load(new FileReader("config/connection-info.properties"));
+
 			String driver = prop.getProperty("driver");
 			String url = prop.getProperty("url");
 			
 			Class.forName(driver);
+
 			con = DriverManager.getConnection(url, prop);
 			
+
 			con.setAutoCommit(false);
 			
 		} catch (FileNotFoundException e) {
@@ -37,36 +46,71 @@ public class JDBCTemplate {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
+
+		
+		return con;
+	}
+	public static void close(Connection con) {
+		try {
+			if(con != null && !con.isClosed()) {
+
 		return con;
 	}
 	
 	public static void close(Connection con) {
 		try {
 			if(con != null && con.isClosed()) {
+
 				con.close();
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 	}
+
+	public static void close(Statement stmt) {
+		try {
+			if(stmt != null && !stmt.isClosed()) {
+				stmt.close();
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+	public static void close(ResultSet rset) {
+		try {
+			if(rset != null && !rset.isClosed()) {
+				rset.close();
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+	}
+	public static void commit(Connection con) {
+		try {
+			if(con != null && !con.isClosed()) {
+				con.commit();
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+	public static void rollback(Connection con) {
+		try {
+			if(con != null && !con.isClosed()) {
+				con.rollback();
+
 	
 	public static void close(PreparedStatement pstmt) {
 		try {
 			if(pstmt != null && pstmt.isClosed()) {
 				pstmt.close();
+
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 	}
 }
-
-
-
-
-
-
-
-
-
 
