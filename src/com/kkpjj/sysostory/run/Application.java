@@ -1,7 +1,6 @@
 package com.kkpjj.sysostory.run;
 
-
-import com.kkpjj.sysostory.view.StartScreen;
+import com.kkpjj.sysostory.view.InventoryView;
 
 public class Application {
 
@@ -24,24 +23,28 @@ public class Application {
 		
 		
 
-//new GameScreen();
-		//new InventoryView();
+//		new GameScreen();
+		new InventoryView();
 		
-//new RpgGame();
+//		new RpgGame();
 		
 
-	//	new StartScreen();
+//		new StartScreen();
 
 
-		new StartScreen();
+//		new StartScreen();
 //		new JoinPage();
 //		new AfterLogin();
 //		new NickName();
 //		new ResignCheckPwd();
+
+
+
 //		new ResignYesOrNo();
 //		new ResignedCheck();
 
 		
+
 	}
 }
 
