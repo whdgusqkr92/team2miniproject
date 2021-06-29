@@ -12,6 +12,14 @@ import javax.swing.JButton;
 import javax.swing.JPanel;
 
 // 전투메뉴 배경 추가, 레이아웃 설정, 전투 세부메뉴(버튼) 추가
+
+public class BattleMenuPanel extends JPanel {
+
+	private JPanel attackSubMenu;
+	private JPanel skillSubMenu;
+	private JPanel potionSubMenu;
+	private JPanel runSubMenu;
+
 class BattleMenuPanel extends JPanel {
 	
 	private SubMenu subMenu;
@@ -19,6 +27,7 @@ class BattleMenuPanel extends JPanel {
 //	private SubMenu skillSubMenu;
 //	private SubMenu potionSubMenu;
 //	private SubMenu runSubMenu;
+
 	
 	Image battleMenuBg = new ImageIcon("images/battle_menu.png").getImage();
 
