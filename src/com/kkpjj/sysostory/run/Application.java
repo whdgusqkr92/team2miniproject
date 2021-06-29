@@ -38,6 +38,13 @@ public class Application {
 //		new NickName();
 //		new ResignCheckPwd();
 
+
+
+//		new ResignYesOrNo();
+//		new ResignedCheck();
+
+		
+
 	}
 }
 
