@@ -50,7 +50,7 @@ public class GameScreen extends JFrame {
 		JLabel label3 = new JLabel(new ImageIcon(mapBg));
 		
 
-		statusPanel.add(label2);
+		statusPanel.add(label3);
 		mapPanel.add(label3);
 	
 
