@@ -2,6 +2,8 @@ package com.kkpjj.sysostory.view;
 
 import java.awt.Font;
 import java.awt.Image;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -11,10 +13,13 @@ import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
+import com.kkpjj.sysostory.model.dto.MemberDTO;
+
 public class StartScreen extends JFrame {
 	
 	private JFrame mf;
 	private JPanel loginPanel;
+	private MemberDTO memberDTO;
 
 	
 	public StartScreen() {
@@ -52,7 +57,8 @@ public class StartScreen extends JFrame {
 		idText.setBounds(320, 230, 300, 50);						
 		idText.setFont(new Font("굴림", Font.PLAIN, 30));
 		
-		JPasswordField pwdText = new JPasswordField(20);				/* pwd 입력란 */
+//		JPasswordField pwdText = new JPasswordField(20);				/* pwd 입력란 */
+		JTextField pwdText = new JTextField(12);
 		pwdText.setFont(new Font("굴림", Font.PLAIN, 30));
 		pwdText.setBounds(320, 300, 300, 50);
 		
@@ -61,20 +67,54 @@ public class StartScreen extends JFrame {
 		loginButton.setBounds(235, 390, 150, 50);
 		loginButton.setLayout(null);
 		
+		loginButton.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				if(idText.getText().equals(memberDTO.getUserId()) && pwdText.getText().equals(memberDTO.getUserPwd())) {
+					new AfterLogin();
+				} else {
+					System.out.println("로그인 실패!");
+				}
+			}
+		});
+		
 		
 		JButton joinButton = new JButton("회원가입");						/* 회원가입 버튼 */
 		joinButton.setFont(new Font("둥근모꼴", Font.PLAIN, 24));
 		joinButton.setBounds(435, 390, 150, 50);
 		
+		joinButton.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				new JoinPage();
+			}
+		});
 		
 		JButton findIdButton = new JButton("ID 찾기");					/* 아이디 찾기 버튼 */
 		findIdButton.setFont(new Font("둥근모꼴", Font.PLAIN, 24));
 		findIdButton.setBounds(265, 450, 120, 25);
 		
+		findIdButton.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				new FindIdView();
+			}
+		});
 		
 		JButton findPwdButton = new JButton("PWD 찾기");					/* 비밀번호 찾기 버튼 */
 		findPwdButton.setFont(new Font("둥근모꼴", Font.PLAIN, 24));
 		findPwdButton.setBounds(435, 450, 130, 25);
+		
+		findPwdButton.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				new FindPwdView();
+			}
+		});
 		
 		JButton ManagerButton = new JButton();							/* 관리자모드 접속 버튼 */
 		ManagerButton.setBounds(755, 0, 40, 41);

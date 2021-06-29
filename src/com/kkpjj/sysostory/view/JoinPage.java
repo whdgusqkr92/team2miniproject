@@ -1,6 +1,8 @@
 package com.kkpjj.sysostory.view;
 
 import java.awt.Image;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
@@ -105,10 +107,18 @@ public class JoinPage extends JFrame{
 		btnNewButton.setBounds(250, 410, 130, 50);
 		mf.getContentPane().add(btnNewButton);
 		
-		JButton btnNewButton_1 = new JButton("뒤로가기");				
-		btnNewButton_1.setFont(new Font("둥근모꼴", Font.PLAIN, 24));	/* 뒤로가기 버튼 */
-		btnNewButton_1.setBounds(420, 410, 130, 50);
-		mf.getContentPane().add(btnNewButton_1);
+		JButton backButton = new JButton("뒤로가기");				
+		backButton.setFont(new Font("둥근모꼴", Font.PLAIN, 24));		/* 뒤로가기 버튼 */
+		backButton.setBounds(420, 410, 130, 50);
+		mf.getContentPane().add(backButton);
+		
+		backButton.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				new StartScreen();
+			}
+		});
 		
 		
 		mf.getContentPane().add(label);
