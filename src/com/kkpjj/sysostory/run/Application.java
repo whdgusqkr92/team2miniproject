@@ -38,8 +38,8 @@ public class Application {
 //		new AfterLogin();
 //		new NickName();
 //		new ResignCheckPwd();
-
-
+//		new ResignYesOrNo();
+//		new ResignedCheck();
 
 		
 	}
