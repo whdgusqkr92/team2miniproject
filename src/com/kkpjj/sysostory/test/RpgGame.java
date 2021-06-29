@@ -5,7 +5,7 @@ import javax.swing.*;
 import java.awt.event.*;
 
 public class RpgGame {
-	public static void main(String[] ar) {
+	public static void main(String[] args) {
 		new RpgGame_frame();
 		
 	}
@@ -19,9 +19,7 @@ class RpgGame_frame extends JFrame implements Runnable, KeyListener {
 	boolean playerMove = false;
 	Toolkit tk = Toolkit.getDefaultToolkit();
 	
-	
-	Image background = new ImageIcon("images/test.png").getImage().getScaledInstance(800, 600, 0);
-	
+//	Image background = new ImageIcon("images/test.png").getImage().getScaledInstance(800, 600, 0);
 	
 	Image img = new ImageIcon("images/2jo.PNG").getImage(); // 이미지를 불러옵니다.
 	Image buffimg;// 더블버퍼링용 입니다.
@@ -40,15 +38,14 @@ class RpgGame_frame extends JFrame implements Runnable, KeyListener {
 		mf.setBounds(300, 75, 810, 630);
 		mf.setLayout(null);
 		
-		
 		mainPanel.setBounds(0, 0, 800, 420);
 		
-		Image background = new ImageIcon("images/map.png").getImage().getScaledInstance(800, 600, 0);
-		JLabel label = new JLabel(new ImageIcon(background));
+//		Image background = new ImageIcon("images/map.png").getImage().getScaledInstance(800, 600, 0);
+//		JLabel label = new JLabel(new ImageIcon(background));
 		
-		mainPanel.add(label);
+//		mainPanel.add(label);
 		
-		mf.add(mainPanel);
+//		mf.add(mainPanel);
 		
 		init();
 		start();
@@ -211,5 +208,6 @@ class RpgGame_frame extends JFrame implements Runnable, KeyListener {
 	}
 
 	public void keyTyped(KeyEvent e) {
+		
 	}
 }

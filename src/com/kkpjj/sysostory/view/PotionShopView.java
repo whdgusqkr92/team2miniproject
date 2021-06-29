@@ -15,39 +15,38 @@ import javax.swing.JPanel;
 import javax.swing.JTextPane;
 import javax.swing.SwingConstants;
 
-public class pitionShopView extends JFrame{
+public class PotionShopView extends JPanel {
 	
 	private JFrame mf;
 	private JPanel drenchPanel;
 	private JPanel statusPanel;
 	private JPanel mapPanel;
+	
+	private ImageIcon bg = null;
 
-	public pitionShopView() {
+	public PotionShopView() {
 		
-		mf = new JFrame();
-		mf.setTitle("sysoStory");
-		mf.setFont(new Font("둥근모꼴", Font.PLAIN, 16));
+//		mf.setBounds(300, 75, 810, 630);
 		
-		mf.setBounds(300, 75, 810, 630);
+//		statusPanel = new JPanel();
+//		statusPanel.setBounds(0, 420, 560, 180);
+//		
+//		mapPanel = new JPanel();
+//		mapPanel.setBounds(560, 420, 240, 180);
+//
+//		Image statusBg = new ImageIcon("images/status.png").getImage().getScaledInstance(560, 180, 0);
+//		JLabel label1 = new JLabel(new ImageIcon(statusBg));
+//		
+//		Image mapBg = new ImageIcon("images/map.png").getImage().getScaledInstance(240, 180, 0);
+//		JLabel label2 = new JLabel(new ImageIcon(mapBg));
+//		
+//		statusPanel.add(label1);
+//		mapPanel.add(label2);
+//		
+//		mf.getContentPane().add(statusPanel);
+//		mf.getContentPane().add(mapPanel);
 		
-		statusPanel = new JPanel();
-		statusPanel.setBounds(0, 420, 560, 180);
 		
-		mapPanel = new JPanel();
-		mapPanel.setBounds(560, 420, 240, 180);
-
-		Image statusBg = new ImageIcon("images/status.png").getImage().getScaledInstance(560, 180, 0);
-		JLabel label1 = new JLabel(new ImageIcon(statusBg));
-		
-		Image mapBg = new ImageIcon("images/map.png").getImage().getScaledInstance(240, 180, 0);
-		JLabel label2 = new JLabel(new ImageIcon(mapBg));
-		
-		statusPanel.add(label1);
-		mapPanel.add(label2);
-		
-		mf.getContentPane().add(statusPanel);
-		mf.getContentPane().add(mapPanel);
-				
 		// 아이템 창, 나가기 버튼
 		
 		drenchPanel = new JPanel();
@@ -102,9 +101,20 @@ public class pitionShopView extends JFrame{
 		panel_1.setBounds(404, 50, 391, 365);
 		drenchPanel.add(panel_1);
 		
+		
+		bg = new ImageIcon("images/test.png");
+		
 		// 마을, 물약 상인
 		
-		JPanel itemPanel = new JPanel();
+		JPanel itemPanel = new JPanel() {
+			
+			public void paintComponent(Graphics g) {
+				g.drawImage(bg.getImage(), 0, 0, 800, 520, null);
+			}
+			
+		};
+		
+		
 		itemPanel.setBounds(0, 0, 810, 419);
 		mf.getContentPane().add(itemPanel);
 		itemPanel.setLayout(null);
@@ -112,9 +122,9 @@ public class pitionShopView extends JFrame{
 		JButton drenchButton = new JButton();
 		drenchButton.setBounds(98, 55, 70, 100);
 		drenchButton.setIcon(new ImageIcon("images/물약상인.png"));
-		drenchButton.setBackground(Color.LIGHT_GRAY);
 		drenchButton.setFont(new Font("둥근모꼴", Font.PLAIN, 16));
 		itemPanel.add(drenchButton);
+		
 		
 		drenchPanel.setVisible(false);
 		
@@ -139,6 +149,5 @@ public class pitionShopView extends JFrame{
 		
 		mf.setVisible(true);
 		mf.setResizable(false);
-		mf.setDefaultCloseOperation(EXIT_ON_CLOSE);
 	}
 }
