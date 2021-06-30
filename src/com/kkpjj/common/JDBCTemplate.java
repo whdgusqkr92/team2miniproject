@@ -50,12 +50,12 @@ public class JDBCTemplate {
 		
 		return con;
 	}
-	public static void close(Connection con) {
-		try {
-			if(con != null && !con.isClosed()) {
-
-		return con;
-	}
+//	public static void close(Connection con) {
+//		try {
+//			if(con != null && !con.isClosed()) {
+//
+//		return con;
+//	}
 	
 	public static void close(Connection con) {
 		try {
@@ -96,10 +96,16 @@ public class JDBCTemplate {
 			e.printStackTrace();
 		}
 	}
+	
 	public static void rollback(Connection con) {
 		try {
 			if(con != null && !con.isClosed()) {
 				con.rollback();
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} 
+	}
 
 	
 	public static void close(PreparedStatement pstmt) {

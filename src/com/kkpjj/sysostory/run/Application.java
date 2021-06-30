@@ -1,7 +1,10 @@
 
 package com.kkpjj.sysostory.run;
 
+import com.kkpjj.sysostory.test.RpgGame;
 import com.kkpjj.sysostory.view.MainFrame;
+import com.kkpjj.sysostory.view.PotionShopView;
+import com.kkpjj.sysostory.view.VillageView;
 
 
 
@@ -9,7 +12,7 @@ public class Application {
 
 	public static void main(String[] args) {
 		
-		new MainFrame();
+//		new MainFrame();
 
 //		new GameScreen();
 
@@ -24,11 +27,7 @@ public class Application {
 //		new GameScreen();
 
 
-//		new RpgGame();
-
-//		new pitionShopView();
-		
-		
+		new RpgGame();		
 
 
 //		new InventoryView();

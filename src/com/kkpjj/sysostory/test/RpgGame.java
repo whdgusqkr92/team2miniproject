@@ -19,8 +19,6 @@ class RpgGame_frame extends JFrame implements Runnable, KeyListener {
 	boolean playerMove = false;
 	Toolkit tk = Toolkit.getDefaultToolkit();
 	
-//	Image background = new ImageIcon("images/test.png").getImage().getScaledInstance(800, 600, 0);
-	
 	Image img = new ImageIcon("images/2jo.PNG").getImage(); // 이미지를 불러옵니다.
 	Image buffimg;// 더블버퍼링용 입니다.
 	Graphics gc;
@@ -29,35 +27,21 @@ class RpgGame_frame extends JFrame implements Runnable, KeyListener {
 	int cnt; // 무한 루프를 카운터 하기 위한 변수
 	int moveStatus; // 케릭터가 어디를 바라보는지 방향을 받을 변수
 
-	RpgGame_frame() {
+	public RpgGame_frame() {
 		
-		JFrame mf = new JFrame();
-		
-		JPanel mainPanel = new JPanel();
-		
-		mf.setBounds(300, 75, 810, 630);
-		mf.setLayout(null);
-		
-		mainPanel.setBounds(0, 0, 800, 420);
-		
-//		Image background = new ImageIcon("images/map.png").getImage().getScaledInstance(800, 600, 0);
-//		JLabel label = new JLabel(new ImageIcon(background));
-		
-//		mainPanel.add(label);
-		
-//		mf.add(mainPanel);
+		setSize(800, 600);
 		
 		init();
 		start();
 		
-		
 		Dimension screen = tk.getScreenSize();
 		int xpos = (int) (screen.getWidth() / 2 - getWidth() / 2);
 		int ypos = (int) (screen.getHeight() / 2 - getHeight() / 2);
-		mf.setLocation(xpos, ypos);
-		mf.setResizable(false);
-		mf.setVisible(true);
-		mf.setDefaultCloseOperation(EXIT_ON_CLOSE);
+
+		setLocation(xpos, ypos);
+		setResizable(false);
+		setVisible(true);
+		setDefaultCloseOperation(EXIT_ON_CLOSE);
 	}
 
 	public void init() {
@@ -80,7 +64,7 @@ class RpgGame_frame extends JFrame implements Runnable, KeyListener {
 			try {
 				keyProcess();
 				repaint();
-				Thread.sleep(25);
+				Thread.sleep(30);
 				cnt++;
 			} catch (Exception e) {
 			}
@@ -207,7 +191,9 @@ class RpgGame_frame extends JFrame implements Runnable, KeyListener {
 		}
 	}
 
+	@Override
 	public void keyTyped(KeyEvent e) {
 		
 	}
+	
 }
