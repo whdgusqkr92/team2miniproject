@@ -16,11 +16,7 @@ public class BattlePage extends JPanel {
 
 	private JFrame mf;
 	private JPanel mainPanel;
-	private JPanel monPanel;
 	private JPanel chrPanel;
-	private JPanel battleMenuPanel;
-	//	private JPanel statusPanel;
-	//	private JPanel mapPanel;
 
 	public BattlePage(JFrame mf) {
 		// 전투화면 프레임 생성
@@ -30,20 +26,10 @@ public class BattlePage extends JPanel {
 		mainPanel = new MainPanel();
 		mainPanel.setBounds(0, 0, 800, 420);
 				
-		// 캐릭터
-		chrPanel = new BattleChrPanel();
-		chrPanel.setBounds(150, 178, 64, 64);
-		// 몬스터
-		monPanel = new BattleMonPanel();
-		monPanel.setBounds(550, 60, 200, 300);
-		List<Rectangle> mon = ((BattleMonPanel) monPanel).monPosition();
-		// 전투 메뉴
-		battleMenuPanel = new BattleMenuPanel(mon);
-		battleMenuPanel.setBounds(290, 80, 220, 240);
+		// 캐릭터 생성
+		chrPanel = new BattleChrPanel(mf);
 		
 		mainPanel.add(chrPanel);
-		mainPanel.add(monPanel);
-		mainPanel.add(battleMenuPanel);
 
 		this.mf.add(mainPanel);
 	}
@@ -62,5 +48,4 @@ class MainPanel extends JPanel {
 	public void paintComponent(Graphics g) {
 		g.drawImage(bg, 0, 0, getWidth(), getHeight(), this);
 	}
-	
 }
