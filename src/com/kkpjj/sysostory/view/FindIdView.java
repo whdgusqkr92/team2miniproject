@@ -81,6 +81,7 @@ public class FindIdView extends JFrame{
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				new StartScreen();
+				mf.setVisible(false);
 			}
 		});
 		

@@ -42,7 +42,12 @@ public class MemberDAO {
 		
 		try {
 			pstmt = con.prepareStatement(query);
-			
+//			pstmt.setString(1, "7"); /* 하드 코딩 */
+//			pstmt.setString(2, member.getUserId());
+//			pstmt.setString(3, member.getUserPwd());
+//			pstmt.setString(4, member.getUserName());
+//			pstmt.setString(5, member.getEmail());
+
 			pstmt.setString(1, member.getUserId());
 			pstmt.setString(2, member.getUserPwd());
 			pstmt.setString(3, member.getUserName());
@@ -52,6 +57,32 @@ public class MemberDAO {
 					
 		} catch (SQLException e) {
 			e.printStackTrace();
+			System.out.print(e.getLocalizedMessage());
+		} finally {
+			close(pstmt);
+		}
+		
+		return result;
+	}
+	
+public int loginMember(Connection con, MemberDTO member) {
+		
+		PreparedStatement pstmt = null;
+		
+		int result = 0;
+		
+		String query = prop.getProperty("loginMember");
+		
+		try {
+			pstmt = con.prepareStatement(query);
+			pstmt.setString(1, member.getUserId());
+			pstmt.setString(2, member.getUserPwd());
+		
+			result = pstmt.executeUpdate();
+					
+		} catch (SQLException e) {
+			e.printStackTrace();
+			System.out.print(e.getLocalizedMessage());
 		} finally {
 			close(pstmt);
 		}
