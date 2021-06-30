@@ -22,7 +22,7 @@ public class MemberService {
 		
 		int memberResult = memberDAO.insertMember(con, member);
 		
-		close(con);
+//		close(con);
 				
 		return memberResult;
 	}

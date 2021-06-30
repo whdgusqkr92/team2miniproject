@@ -5,6 +5,8 @@ import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -69,23 +71,33 @@ public class MiddleBoss extends JFrame{
 			btn.setVisible(false);
 		}
 	});
+
+	mf.setVisible(true); //계속 보임
+	mf.setResizable(false); //창변경 불가
+	mf.setDefaultCloseOperation(EXIT_ON_CLOSE); //닫으면 실행종료	
+
 	
 	btn2 = new JButton("다음");
 	btn2.setBounds(680, 300, 75, 57);
 	mainpanel.add(btn2);
-	btn.addActionListener(new ActionListener() {
-		@Override
-		public void actionPerformed(ActionEvent e) {
-			new BattlePage2();
-		}
-	});
-	
-	
-	mf.setVisible(true); //계속 보임
-	mf.setResizable(false); //창변경 불가
-	mf.setDefaultCloseOperation(EXIT_ON_CLOSE); //닫으면 실행종료	
+	//------------------------버튼 누르면 전투 패널 전환 기능--------------------
+//	btn2.addMouseListener(new battleActionListener());
+
+//	}
+//
+//	//---------------------버튼 누르면 전투 패널 전환 기능 --------------
+//	private class battleActionListener extends MouseAdapter{
+//		
+//		@Override
+//		public void mouseClicked(MouseEvent e) {
+//			ViewUtil.changePanel(mf, view, new battle();
+//			
+//		}
 	}
+	//---------------------------------------------------------
 	
+	
+
 //----------------------메인메소드-----------------	
 	public static void main(String[] args) {
 		new MiddleBoss();

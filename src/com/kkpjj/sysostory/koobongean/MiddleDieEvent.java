@@ -58,13 +58,7 @@ public class MiddleDieEvent extends JFrame {
 			btn.setBounds(680, 300, 75, 57);
 			mainpanel.add(btn);
 		//-------------------------버튼 누르면 대화창 넘기기-------------------------------------
-				btn.addActionListener(new ActionListener() {
-					@Override
-					public void actionPerformed(ActionEvent e) {
-						textLabel.setVisible(false); //버튼 누르면 대화창 사라지고
-													 // 마을로 가는 기능??
-					}
-				});
+//				btn.addActionListener();
 				
 //		} else if(bosshp ==0 ) {
 		
