@@ -94,15 +94,5 @@ public class JDBCTemplate {
 			e.printStackTrace();
 		} 
 	}
-			
-	public static void close(PreparedStatement pstmt) {
-		try {
-			if(pstmt != null && pstmt.isClosed()) {
-				pstmt.close();
-
-			}
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-	}
+		
 }
