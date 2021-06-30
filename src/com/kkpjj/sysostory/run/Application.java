@@ -27,7 +27,7 @@ public class Application {
 //		new GameScreen();
 
 
-		new RpgGame();		
+//		new RpgGame();		
 
 
 //		new InventoryView();
@@ -36,7 +36,7 @@ public class Application {
 	
 
 		
-//		new PotionShopView();
+		new PotionShopView();
 //		new CharacterView();
 		
 //		new GameScreen();
