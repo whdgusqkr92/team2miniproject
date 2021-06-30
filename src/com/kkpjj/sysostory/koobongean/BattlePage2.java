@@ -33,13 +33,13 @@ public class BattlePage2 extends JPanel {
 		mainPanel = new MainPanel();
 		mainPanel.setBounds(0, 0, 800, 420);
 		// 캐릭터
-		chrPanel = new BattleChrPanel();
-		chrPanel.setBounds(150, 178, 64, 64);
+//		chrPanel = new BattleChrPanel();
+//		chrPanel.setBounds(150, 178, 64, 64);
 		// 몬스터
 		monPanel = new BattleMonPanel();
 		monPanel.setBounds(550, 60, 200, 300);
 		// 전투 메뉴
-		battleMenuPanel = new BattleMenuPanel();
+//		battleMenuPanel = new BattleMenuPanel();
 		battleMenuPanel.setBounds(290, 80, 220, 240);
 
 		mainPanel.add(chrPanel);

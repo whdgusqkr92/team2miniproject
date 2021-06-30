@@ -1,7 +1,7 @@
 package com.kkpjj.sysostory.model.service;
 
-import static com.kkpjj.common.JDBCTemplate.getConnection;
 import static com.kkpjj.common.JDBCTemplate.close;
+import static com.kkpjj.common.JDBCTemplate.getConnection;
 
 import java.sql.Connection;
 
