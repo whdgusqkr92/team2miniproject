@@ -27,7 +27,7 @@ public class Application {
 //		new GameScreen();
 
 
-		new RpgGame();		
+//		new RpgGame();		
 
 
 //		new InventoryView();
