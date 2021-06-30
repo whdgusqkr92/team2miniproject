@@ -44,6 +44,7 @@ public class Application {
 //		new InventoryView();
 //		new RpgGame();
 		
+		
 //		new StartScreen();
 //		new JoinPage();
 //		new AfterLogin();
