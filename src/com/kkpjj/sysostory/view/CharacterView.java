@@ -140,8 +140,6 @@ public class CharacterView extends JFrame implements Runnable {
 		
 		panel4.setBounds(88, 50, 136, 136);
 		
-
-		
 		mf.add(panel1);
 		mf.add(panel2);
 		mf.add(panel4);
