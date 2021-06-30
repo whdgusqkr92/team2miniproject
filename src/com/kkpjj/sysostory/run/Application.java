@@ -43,7 +43,6 @@ public class Application {
 //		new GameScreen();
 //		new InventoryView();
 //		new RpgGame();
-
 		
 //		new StartScreen();
 //		new JoinPage();
