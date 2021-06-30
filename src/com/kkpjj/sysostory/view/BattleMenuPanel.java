@@ -16,10 +16,10 @@ import javax.swing.JPanel;
 public class BattleMenuPanel extends JPanel {
 	
 	private SubMenu subMenu;
-//	private SubMenu attackSubMenu;
-//	private SubMenu skillSubMenu;
-//	private SubMenu potionSubMenu;
-//	private SubMenu runSubMenu;
+	private SubMenu attackSubMenu;
+	private SubMenu skillSubMenu;
+	private SubMenu potionSubMenu;
+	private SubMenu runSubMenu;
 
 	
 	Image battleMenuBg = new ImageIcon("images/battle_menu.png").getImage();
@@ -39,73 +39,68 @@ public class BattleMenuPanel extends JPanel {
 		JButton runMenu = new RunMenu();
 		runMenu.setBounds(165, 20, 31, 31);
 		
-		subMenu = new SubMenu(mon);
-		subMenu.setBounds(24, 60, 170, 155);
-		subMenu.setVisible(true);
-		
-//		attackSubMenu = new AttackButton();
-//		attackSubMenu.setBounds(24, 60, 170, 155);
-//		attackSubMenu.setVisible(true);
-//		skillSubMenu = new SkillButton();
-//		skillSubMenu.setBounds(24, 60, 170, 155);
-//		skillSubMenu.setVisible(false);
-//		potionSubMenu = new PotionButton();
-//		potionSubMenu.setBounds(24, 60, 170, 155);
-//		potionSubMenu.setVisible(false);
-//		runSubMenu = new RunButton();
-//		runSubMenu.setBounds(24, 60, 170, 155);
-//		runSubMenu.setVisible(false);
+		attackSubMenu = new AttackButton(mon);
+		attackSubMenu.setBounds(24, 60, 170, 155);
+		attackSubMenu.setVisible(true);
+		skillSubMenu = new SkillButton(mon);
+		skillSubMenu.setBounds(24, 60, 170, 155);
+		skillSubMenu.setVisible(false);
+		potionSubMenu = new PotionButton(mon);
+		potionSubMenu.setBounds(24, 60, 170, 155);
+		potionSubMenu.setVisible(false);
+		runSubMenu = new RunButton(mon);
+		runSubMenu.setBounds(24, 60, 170, 155);
+		runSubMenu.setVisible(false);
 		
 		this.add(attackMenu);
 		this.add(skillMenu);
 		this.add(potionMenu);
 		this.add(runMenu);
-		this.add(subMenu);
-//		this.add(attackSubMenu);
-//		this.add(skillSubMenu);
-//		this.add(potionSubMenu);
-//		this.add(runSubMenu);
+		this.add(attackSubMenu);
+		this.add(skillSubMenu);
+		this.add(potionSubMenu);
+		this.add(runSubMenu);
 		
 		// 메뉴 선택 시 화면 전환
-//		attackMenu.addActionListener(new ActionListener() {
-//			@Override
-//			public void actionPerformed(ActionEvent e) {
-//				attackSubMenu.setVisible(true);
-//				skillSubMenu.setVisible(false);
-//				potionSubMenu.setVisible(false);
-//				runSubMenu.setVisible(false);
-//			}
-//		});
-//
-//		skillMenu.addActionListener(new ActionListener() {
-//			@Override
-//			public void actionPerformed(ActionEvent e) {
-//				attackSubMenu.setVisible(false);
-//				skillSubMenu.setVisible(true);
-//				potionSubMenu.setVisible(false);
-//				runSubMenu.setVisible(false);
-//			}
-//		});
-//
-//		potionMenu.addActionListener(new ActionListener() {
-//			@Override
-//			public void actionPerformed(ActionEvent e) {
-//				attackSubMenu.setVisible(false);
-//				skillSubMenu.setVisible(false);
-//				potionSubMenu.setVisible(true);
-//				runSubMenu.setVisible(false);
-//			}
-//		});
-//
-//		runMenu.addActionListener(new ActionListener() {
-//			@Override
-//			public void actionPerformed(ActionEvent e) {
-//				attackSubMenu.setVisible(false);
-//				skillSubMenu.setVisible(false);
-//				potionSubMenu.setVisible(false);
-//				runSubMenu.setVisible(true);
-//			}
-//		});
+		attackMenu.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				attackSubMenu.setVisible(true);
+				skillSubMenu.setVisible(false);
+				potionSubMenu.setVisible(false);
+				runSubMenu.setVisible(false);
+			}
+		});
+
+		skillMenu.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				attackSubMenu.setVisible(false);
+				skillSubMenu.setVisible(true);
+				potionSubMenu.setVisible(false);
+				runSubMenu.setVisible(false);
+			}
+		});
+
+		potionMenu.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				attackSubMenu.setVisible(false);
+				skillSubMenu.setVisible(false);
+				potionSubMenu.setVisible(true);
+				runSubMenu.setVisible(false);
+			}
+		});
+
+		runMenu.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				attackSubMenu.setVisible(false);
+				skillSubMenu.setVisible(false);
+				potionSubMenu.setVisible(false);
+				runSubMenu.setVisible(true);
+			}
+		});
 	}
 
 	// 전투메뉴 배경 추가
