@@ -45,7 +45,7 @@ public class Application {
 //		new RpgGame();
 
 		
-		new StartScreen();
+//		new StartScreen();
 //		new JoinPage();
 //		new AfterLogin();
 //		new NickName();
