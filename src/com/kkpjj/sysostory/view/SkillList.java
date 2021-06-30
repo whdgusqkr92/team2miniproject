@@ -16,8 +16,6 @@ public class SkillList extends JFrame  {
 
 	private JFrame mf;
 	private JPanel mainPanel;
-	private JPanel statusPanel;
-	private JPanel mapPanel;
 	private JPanel skilUpPanel;
 	private JPanel skilListPanel;
 	private JPanel skilExPanel;
@@ -28,50 +26,43 @@ public class SkillList extends JFrame  {
 
 	public SkillList() {
 		tf1 = new TextField();
+		
 
-		mf = new JFrame();
-		mf.setSize(800, 600);
-		mf.getContentPane().setLayout(null);
-		mf.setTitle("sysoStory");
+		mf = new JFrame();							//메인 프레임
+		mf.setSize(800, 600);						//메인 프레임 사이즈
+		mf.getContentPane().setLayout(null);		//
+		mf.setTitle("sysoStory");					//메인 프레임 타이틀 이름
 
-		mainPanel = new MainPanel();
-		mainPanel.setBounds(0, 0, 800, 420);
+		mainPanel = new MainPanel();								//메인 패널  밑에 인터페이스 패널 빼고
+		mainPanel.setBounds(0, 0, 800, 600);						//메인 패널 사이즈
 
-		skilUpPanel = new JPanel();
-		skilUpPanel.setBounds(50, 20, 700, 43);
+		skilUpPanel = new JPanel();									//스킬 창 상단부 패널
+		skilUpPanel.setBounds(50, 20, 700, 43);						//사이즈
 
-		skilListPanel = new JPanel();
-		skilListPanel.setBounds(50, 100, 700, 200);
+		skilListPanel = new JPanel();								//스킬 목록 리스트 패널
+		skilListPanel.setBounds(50, 100, 700, 300);
 
-		skilExPanel = new JPanel();
-		skilExPanel.setBounds(50, 330, 700, 65);
+		skilExPanel = new JPanel();									//스킬 설명 패널 스킬 목록 버튼 누르면 스킬설명 패널에서 스킬 설명이 나오게 구현
+		skilExPanel.setBounds(50, 420, 700, 100);
 
-		skilExLabel1 = new JLabel();
+		skilExLabel1 = new JLabel();								//스킬 설명 라벨
 		skilExLabel1.setBounds(0, 0, 600, 50);
 
-		statusPanel = new JPanel();
-		statusPanel.setBounds(0, 420, 560, 150);
-
-		mapPanel = new JPanel();
-		mapPanel.setBounds(560, 420, 240, 150);
-
-		mainPanel.add(skilUpPanel);
-		mainPanel.add(skilListPanel);
-		mainPanel.add(skilExPanel);
-
+		
+		
+		skilExPanel.add(skilExLabel1);
+		mainPanel.add(skilUpPanel);									//상단바 패널을 메인패널에 담아준다
+		mainPanel.add(skilListPanel);								//스킬 목록리스트 패널을 메인 패널에 담아준다
+		mainPanel.add(skilExPanel);									//스킬 설명 패널을 메인 패널에 담아준다
+		
+		
 		mf.getContentPane().add(mainPanel);
-		mf.getContentPane().add(statusPanel);
-		mf.getContentPane().add(mapPanel);
 
 //		Image mapBg = new ImageIcon("images/map.png").getImage().getScaledInstance(240, 180, 0);
 //		JLabel label2 = new JLabel(new ImageIcon(mapBg));
 
-		Image SkilExPanel = new ImageIcon("").getImage().getScaledInstance(700, 200, 0);	//스킬 화면 나오면 텍스트 출력 가림
-		skilExPanel.setLayout(null);
-		JLabel SkilExLabel = new JLabel(new ImageIcon(SkilExPanel));
-		SkilExLabel.setBounds(0, 0, 700, 65);
-
-		skilExPanel.add(SkilExLabel);
+//		Image SkilExPanel = new ImageIcon("").getImage().getScaledInstance(700, 200, 0);					//스킬 화면 나오면 텍스트 출력 가림
+//		skilExPanel.setLayout(null);
 		
 		JButton skilUpButton = new JButton(new ImageIcon("images/도망가기.png"));
 		skilUpButton.addActionListener(new ActionListener() {
@@ -108,8 +99,8 @@ public class SkillList extends JFrame  {
 //				skilExPanel.(btnNewButton.setText("정권아프다!"));
 //				btnNewButton.setText("정권아프다!");
 			
-				skilExPanel.add(SkilExLabel);
-				SkilExLabel.setText("정권 아프다");						//택스트 넘어가짐
+				skilExPanel.add(skilExLabel1);
+				skilExLabel1.setText("정권 : 주먹으로 가격하는 정통파 공격기술로 그만큼 안정감이 좋다 ");						//택스트 넘어가짐
 //				skilExPanel.add(skilExLabel1);
 //				
 
@@ -122,8 +113,8 @@ public class SkillList extends JFrame  {
 		btnNewButton1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-				skilExPanel.add(SkilExLabel);
-				SkilExLabel.setText("할퀴기 아프다");	
+				skilExPanel.add(skilExLabel1);
+				skilExLabel1.setText("할퀴기 : 대상으로 지목된 적에게 얼굴을 할퀴어 공격합니다.");	
 			}
 		});
 
@@ -133,8 +124,8 @@ public class SkillList extends JFrame  {
 		btnNewButton2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-				skilExPanel.add(SkilExLabel);
-				SkilExLabel.setText("돌려차기 아프다");
+				skilExPanel.add(skilExLabel1);
+				skilExLabel1.setText("돌려차기 : 파워를 중시하는 동작 큰 차기공격 틈이 많은게 흠");
 			}
 		});
 
@@ -143,8 +134,8 @@ public class SkillList extends JFrame  {
 		skilListPanel.add(btnNewButton3);
 		btnNewButton3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				skilExPanel.add(SkilExLabel);
-				SkilExLabel.setText("목후리기 아프다");
+				skilExPanel.add(skilExLabel1);
+				skilExLabel1.setText("목후리기 : 적에 목을 친다");
 			}
 		});
 
@@ -153,8 +144,8 @@ public class SkillList extends JFrame  {
 		skilListPanel.add(btnNewButton4);
 		btnNewButton4.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				skilExPanel.add(SkilExLabel);
-				SkilExLabel.setText(" 아프다");
+				skilExPanel.add(skilExLabel1);
+				skilExLabel1.setText("파이어볼 : 적에게 불을 날려 불태운다");
 				
 			}
 		});
@@ -164,8 +155,8 @@ public class SkillList extends JFrame  {
 		skilListPanel.add(btnNewButton5);
 		btnNewButton5.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				skilExPanel.add(SkilExLabel);
-				SkilExLabel.setText(" 아프다");
+				skilExPanel.add(skilExLabel1);
+				skilExLabel1.setText("아이스볼 : 적에게 아이스볼을 날려 얼린다");
 			}
 		});
 
@@ -174,8 +165,8 @@ public class SkillList extends JFrame  {
 		skilListPanel.add(btnNewButton6);
 		btnNewButton6.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				skilExPanel.add(SkilExLabel);
-				SkilExLabel.setText(" 아프다");
+				skilExPanel.add(skilExLabel1);
+				skilExLabel1.setText("라이트닝 볼트 : 적에게 라이트닝 볼트를 날려 감전 시킨다");
 			}
 		});
 
@@ -184,174 +175,175 @@ public class SkillList extends JFrame  {
 		skilListPanel.add(btnNewButton7);
 		btnNewButton7.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				skilExPanel.add(SkilExLabel);
-				SkilExLabel.setText(" 아프다");
+				skilExPanel.add(skilExLabel1);
+				skilExLabel1.setText("파이어볼Lv2 : 적에게 불을 날려 불태운다");
 			}
 		});
 
-		JButton btnNewButton8 = new JButton(new ImageIcon("images/번개 스킬Lv.2.png"));
+		JButton btnNewButton8 = new JButton(new ImageIcon("images/얼음 스킬Lv.2.png"));
 		btnNewButton8.setBounds(570, 35, 50, 50);
 		skilListPanel.add(btnNewButton8);
 		btnNewButton8.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				skilExPanel.add(SkilExLabel);
-				SkilExLabel.setText(" 아프다");
+				skilExPanel.add(skilExLabel1);
+				skilExLabel1.setText("아이스볼Lv2 : 적에게 아이스볼을 날려 얼린다");
 			}
 		});
 
-		JButton btnNewButton9 = new JButton(new ImageIcon("images/할퀴기.png"));
+		JButton btnNewButton9 = new JButton(new ImageIcon("images/돌려차기.png"));
 		btnNewButton9.setBounds(640, 35, 50, 50);
 		skilListPanel.add(btnNewButton9);
 		btnNewButton9.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				skilExPanel.add(SkilExLabel);
-				SkilExLabel.setText(" 아프다");
+				skilExPanel.add(skilExLabel1);
+				skilExLabel1.setText("다리후리기 : 서 있는 적을 넘어뜨리는 기술로 공중의 적은 효과가 없다");
 			}
 		});
 
-		JButton btnNewButton10 = new JButton(new ImageIcon("images/할퀴기.png"));
+		JButton btnNewButton10 = new JButton(new ImageIcon("images/스킬공격.png"));
 		btnNewButton10.setBounds(10, 115, 50, 50);
 		skilListPanel.add(btnNewButton10);
 		btnNewButton10.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {	
-				skilExPanel.add(SkilExLabel);
-				SkilExLabel.setText(" 아프다");
+				skilExPanel.add(skilExLabel1);
+				skilExLabel1.setText("호격권 : 기모아 사용하는 강력한 펀치공격 명중률이 높다");
 			}
 		});
 
-		JButton btnNewButton11 = new JButton(new ImageIcon("images/할퀴기.png"));
+		JButton btnNewButton11 = new JButton(new ImageIcon("images/스킬공격.png"));
 		btnNewButton11.setBounds(80, 115, 50, 50);
 		skilListPanel.add(btnNewButton11);
 		btnNewButton11.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				skilExPanel.add(SkilExLabel);
-				SkilExLabel.setText(" 아프다");
+				skilExPanel.add(skilExLabel1);
+				skilExLabel1.setText("맹호비상각 : 잽싸게 점프해서 그대로 차기 공격 명중률은 낮다");
 			}
 		});
 
-		JButton btnNewButton12 = new JButton(new ImageIcon("images/할퀴기.png"));
+		JButton btnNewButton12 = new JButton(new ImageIcon("images/스킬공격.png"));
 		btnNewButton12.setBounds(150, 115, 50, 50);
 		skilListPanel.add(btnNewButton12);
 		btnNewButton12.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				skilExPanel.add(SkilExLabel);
-				SkilExLabel.setText(" 아프다");
+				skilExPanel.add(skilExLabel1);
+				skilExLabel1.setText("폭전축 : 공중에서 호를 그리며 회전차기 틈은 많지만 효과적인 공격이다");
 			}
 		});
 
-		JButton btnNewButton13 = new JButton(new ImageIcon("images/할퀴기.png"));
+		JButton btnNewButton13 = new JButton(new ImageIcon("images/스킬공격.png"));
 		btnNewButton13.setBounds(220, 115, 50, 50);
 		skilListPanel.add(btnNewButton13);
 		btnNewButton13.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				skilExPanel.add(SkilExLabel);
-				SkilExLabel.setText(" 아프다");
+				skilExPanel.add(skilExLabel1);
+				skilExLabel1.setText("맹호스폐셜 : 때리고 차는 연속 공격기이다");
 			}
 		});
 
-		JButton btnNewButton14 = new JButton(new ImageIcon("images/할퀴기.png"));
+		JButton btnNewButton14 = new JButton(new ImageIcon("images/스킬공격.png"));
 		btnNewButton14.setBounds(290, 115, 50, 50);
 		skilListPanel.add(btnNewButton14);
 		btnNewButton14.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				skilExPanel.add(SkilExLabel);
-				SkilExLabel.setText(" 아프다");
+				skilExPanel.add(skilExLabel1);
+				skilExLabel1.setText("비기 맹호광파참 : 신성한 빛의 검으로 악을 멸하는 기술 파괴력이 강력하다");
 			}
 		});
 
-		JButton btnNewButton15 = new JButton(new ImageIcon("images/할퀴기.png"));
+		JButton btnNewButton15 = new JButton(new ImageIcon("images/스킬공격2.png"));
 		btnNewButton15.setBounds(360, 115, 50, 50);
 		skilListPanel.add(btnNewButton15);
 		btnNewButton15.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				skilExPanel.add(SkilExLabel);
-				SkilExLabel.setText(" 아프다");
+				skilExPanel.add(skilExLabel1);
+				skilExLabel1.setText("맹호난무 : 잽싸게 여러번 적 적체를 공격해 충격을 주는 기술");
 			}
 		});
 
-		JButton btnNewButton16 = new JButton(new ImageIcon("images/할퀴기.png"));
+		JButton btnNewButton16 = new JButton(new ImageIcon("images/스킬공격2.png"));
 		btnNewButton16.setBounds(430, 115, 50, 50);
 		skilListPanel.add(btnNewButton16);
 		btnNewButton16.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				skilExPanel.add(SkilExLabel);
-				SkilExLabel.setText(" 아프다");
+				skilExPanel.add(skilExLabel1);
+				skilExLabel1.setText("맹호의 울부짖음 : 우렁찬 소리로 위협해 주눅시키는 전체공격기 동물에게 효과가 크다");
 			}
 		});
 
-		JButton btnNewButton17 = new JButton(new ImageIcon("images/할퀴기.png"));
+		JButton btnNewButton17 = new JButton(new ImageIcon("images/스킬공격2.png"));
 		btnNewButton17.setBounds(500, 115, 50, 50);
 		skilListPanel.add(btnNewButton17);
 		btnNewButton17.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				skilExPanel.add(SkilExLabel);
-				SkilExLabel.setText(" 아프다");
+				skilExPanel.add(skilExLabel1);
+				skilExLabel1.setText("호포권 : 기를 모은 뢰격탄을 전 전체에게 공격! 공격속도는 느리다");
 			}
 		});
 
-		JButton btnNewButton18 = new JButton(new ImageIcon("images/할퀴기.png"));
+		JButton btnNewButton18 = new JButton(new ImageIcon("images/스킬공격2.png"));
 		btnNewButton18.setBounds(570, 115, 50, 50);
 		skilListPanel.add(btnNewButton18);
 		btnNewButton18.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				skilExPanel.add(SkilExLabel);
-				SkilExLabel.setText(" 아프다");
+				skilExPanel.add(skilExLabel1);
+				skilExLabel1.setText("맹호룬룬권 : 가벼운 스텝으로 가뿐히 적 전체를 공격해 큰 데미지를 준다");
 			}
 		});
 
-		JButton btnNewButton19 = new JButton(new ImageIcon("images/할퀴기.png"));
+		JButton btnNewButton19 = new JButton(new ImageIcon("images/스킬공격2.png"));
 		btnNewButton19.setBounds(640, 115, 50, 50);
 		skilListPanel.add(btnNewButton19);
 		btnNewButton19.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				skilExPanel.add(SkilExLabel);
-				SkilExLabel.setText(" 아프다");
+				skilExPanel.add(skilExLabel1);
+				skilExLabel1.setText("비기 맹호유성각 : 계속 별똥별을 뿌리며 연속으로 날아차는 기술");
 			}
 		});
 
 		Image SkilListPanel = new ImageIcon("images/스킬 상단부 배경1.png").getImage().getScaledInstance(700, 200, 0);
 		skilListPanel.setLayout(null);
 		JLabel SkilListLabel = new JLabel(new ImageIcon(SkilListPanel));
-		SkilListLabel.setBounds(0, 0, 700, 200);
+		SkilListLabel.setBounds(0, 0, 700, 300);
 		skilListPanel.add(SkilListLabel);
 
 		
 
-		Image statusBg = new ImageIcon("images/status.png").getImage().getScaledInstance(560, 180, 0);
-		statusPanel.setLayout(null);
-		JLabel statusBglabel1 = new JLabel(new ImageIcon(statusBg));
-		statusBglabel1.setBounds(0, 0, 560, 150);
-		statusPanel.add(statusBglabel1);
-
-		Image mapBg = new ImageIcon("images/map.png").getImage().getScaledInstance(240, 180, 0);
-		mapPanel.setLayout(null);
-		JLabel mapBglabel2 = new JLabel(new ImageIcon(mapBg));
-		mapBglabel2.setBounds(0, 0, 240, 150);
-		mapPanel.add(mapBglabel2);
+//		Image statusBg = new ImageIcon("images/status.png").getImage().getScaledInstance(560, 180, 0);
+//		statusPanel.setLayout(null);
+//		JLabel statusBglabel1 = new JLabel(new ImageIcon(statusBg));
+//		statusBglabel1.setBounds(0, 0, 560, 150);
+//		statusPanel.add(statusBglabel1);
+//
+//		Image mapBg = new ImageIcon("images/map.png").getImage().getScaledInstance(240, 180, 0);
+//		mapPanel.setLayout(null);
+//		JLabel mapBglabel2 = new JLabel(new ImageIcon(mapBg));
+//		mapBglabel2.setBounds(0, 0, 240, 150);
+//		mapPanel.add(mapBglabel2);
 
 		mf.setLocationRelativeTo(null);
 		mf.setResizable(false);
 		mf.setVisible(true);
 		mf.setDefaultCloseOperation(EXIT_ON_CLOSE);
 
-		class MainPanel extends JPanel {
-
-			Image bg = new ImageIcon("images/status.png").getImage().getScaledInstance(800, 420, 0);
-
-			public MainPanel() {
-				this.setLayout(null);
-				this.setOpaque(false);
-
-			}
-
-			@Override
-			public void paintComponent(Graphics g) {
-				g.drawImage(bg, 0, 0, getWidth(), getHeight(), this);
-			}
-		}
+		
 
 	}
 
+	class MainPanel extends JPanel {
+
+		Image bg = new ImageIcon("images/스킬목록 배경.png").getImage().getScaledInstance(800, 600, 0);
+
+		public MainPanel() {
+			this.setLayout(null);
+			this.setOpaque(false);
+
+		}
+
+		@Override
+		public void paintComponent(Graphics g) {
+			g.drawImage(bg, 0, 0, getWidth(), getHeight(), this);
+		}
+	}
 	public static void main(String[] args) {
 		new SkillList();
 	}

@@ -9,6 +9,7 @@ import java.util.List;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 // 전투메뉴 배경 추가, 레이아웃 설정, 전투 세부메뉴(버튼) 추가
@@ -24,8 +25,8 @@ public class BattleMenuPanel extends JPanel {
 	
 	Image battleMenuBg = new ImageIcon("images/battle_menu.png").getImage();
 
-	public BattleMenuPanel(List<Rectangle> mon) {
-		
+	public BattleMenuPanel(JFrame mf) {
+		this.setBounds(290, 80, 220, 240);
 		this.setLayout(null);
 		this.setOpaque(false);
 		
@@ -39,16 +40,16 @@ public class BattleMenuPanel extends JPanel {
 		JButton runMenu = new RunMenu();
 		runMenu.setBounds(165, 20, 31, 31);
 		
-		attackSubMenu = new AttackButton(mon);
+		attackSubMenu = new AttackButton(mf);
 		attackSubMenu.setBounds(24, 60, 170, 155);
 		attackSubMenu.setVisible(true);
-		skillSubMenu = new SkillButton(mon);
+		skillSubMenu = new SkillButton(mf);
 		skillSubMenu.setBounds(24, 60, 170, 155);
 		skillSubMenu.setVisible(false);
-		potionSubMenu = new PotionButton(mon);
+		potionSubMenu = new PotionButton(mf);
 		potionSubMenu.setBounds(24, 60, 170, 155);
 		potionSubMenu.setVisible(false);
-		runSubMenu = new RunButton(mon);
+		runSubMenu = new RunButton(mf);
 		runSubMenu.setBounds(24, 60, 170, 155);
 		runSubMenu.setVisible(false);
 		
@@ -60,6 +61,8 @@ public class BattleMenuPanel extends JPanel {
 		this.add(skillSubMenu);
 		this.add(potionSubMenu);
 		this.add(runSubMenu);
+		
+		mf.add(this);
 		
 		// 메뉴 선택 시 화면 전환
 		attackMenu.addActionListener(new ActionListener() {

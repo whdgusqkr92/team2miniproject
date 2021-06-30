@@ -2,16 +2,21 @@ package com.kkpjj.sysostory.controller;
 
 import java.util.Map;
 
+import javax.swing.JPasswordField;
+import javax.swing.JTextField;
+
 import com.kkpjj.sysostory.model.dto.MemberDTO;
 import com.kkpjj.sysostory.model.service.MemberService;
-import com.kkpjj.sysostory.view.JoinPage;
 import com.kkpjj.sysostory.view.MemberResultView;
+import com.kkpjj.sysostory.view.StartScreen;
 
 public class MemberController {
 	
 	private MemberResultView memberResultView;
 	private MemberService memberService;
+	private StartScreen startScreen;
 	MemberDTO memberDTO = null;
+	
 	
 	public MemberController() {
 		this.memberResultView = new MemberResultView();
@@ -35,5 +40,8 @@ public class MemberController {
 		}
 	}
 	
-	
+	public void Login(JTextField idTxet, JPasswordField pwdText) {
+		
+		
+	}
 }
