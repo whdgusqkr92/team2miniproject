@@ -45,6 +45,7 @@ public class JDBCTemplate {
 		return con;
 	}
 
+
 	public static void close(Connection con) {
 		try {
 			if(con != null && con.isClosed()) {
@@ -54,6 +55,7 @@ public class JDBCTemplate {
 			e.printStackTrace();
 		}
 	}
+
 
 	public static void close(Statement stmt) {
 		try {
@@ -89,6 +91,12 @@ public class JDBCTemplate {
 		try {
 			if(con != null && !con.isClosed()) {
 				con.rollback();
+			
+	public static void close(PreparedStatement pstmt) {
+		try {
+			if(pstmt != null && pstmt.isClosed()) {
+				pstmt.close();
+
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();

@@ -12,6 +12,9 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
+import javax.swing.text.AttributeSet;
+import javax.swing.text.BadLocationException;
+import javax.swing.text.PlainDocument;
 
 import com.kkpjj.sysostory.model.dto.MemberDTO;
 
@@ -53,12 +56,13 @@ public class StartScreen extends JFrame {
 		pwdPanel.add(pwdLabel);
 		pwdPanel.setBounds(200, 300, 100, 50);
 		
-		JTextField idText = new JTextField(12);							/* id 입력란 */
+		JTextField idText = new JTextField();/* id 입력란 */
+		idText.setDocument((new JTextFieldLimit(12))); /* ID 입력 갯수 제한 */
 		idText.setBounds(320, 230, 300, 50);						
 		idText.setFont(new Font("굴림", Font.PLAIN, 30));
 		
-//		JPasswordField pwdText = new JPasswordField(20);				/* pwd 입력란 */
-		JTextField pwdText = new JTextField(12);
+		JPasswordField pwdText = new JPasswordField(20);				/* pwd 입력란 */
+//		JTextField pwdText = new JTextField(12);
 		pwdText.setFont(new Font("굴림", Font.PLAIN, 30));
 		pwdText.setBounds(320, 300, 300, 50);
 		
@@ -69,8 +73,10 @@ public class StartScreen extends JFrame {
 		 
 		loginButton.addActionListener(new ActionListener() {
 			
+			
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				
 				if(idText.getText().equals(memberDTO.getUserId()) && pwdText.getText().equals(memberDTO.getUserPwd())) {
 					new AfterLogin();
 				} else {
@@ -85,10 +91,10 @@ public class StartScreen extends JFrame {
 		joinButton.setBounds(435, 390, 150, 50);
 		
 		joinButton.addActionListener(new ActionListener() {
-			
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				new JoinPage();
+				mf.setVisible(false);
 			}
 		});
 		
@@ -146,3 +152,34 @@ public class StartScreen extends JFrame {
 		
 	}
 }
+
+
+/* JTextField 입력수 제한 */
+class JTextFieldLimit extends PlainDocument {
+	   private int limit;
+	   private boolean toUppercase = false;
+
+	   JTextFieldLimit(int limit) {
+	      super();
+	      this.limit = limit;
+	   }
+
+	   JTextFieldLimit(int limit, boolean upper) {
+	      super();
+	      this.limit = limit;
+	      this.toUppercase = upper;
+	   }
+
+	   public void insertString(int offset, String str, AttributeSet attr) throws BadLocationException {
+	      if (str == null) {
+	         return;
+	      }
+
+	      if ( (getLength() + str.length()) <= limit) {
+	         if (toUppercase) {
+	            str = str.toUpperCase();
+	         }
+	         super.insertString(offset, str, attr);
+	      }
+	   }
+	}
