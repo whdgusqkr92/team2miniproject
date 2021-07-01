@@ -2,6 +2,7 @@
 package com.kkpjj.sysostory.run;
 
 
+import com.kkpjj.sysostory.view.SkillList;
 import com.kkpjj.sysostory.view.StartScreen;
 
 
@@ -32,7 +33,7 @@ public class Application {
 
 
 		
-		new PotionShopView();
+//		new PotionShopView();
 
 //		new InventoryView();
 //		new CharacterView();
@@ -45,10 +46,10 @@ public class Application {
 		
 
 
+		new SkillList();
 
 
-
-		new StartScreen();
+//		new StartScreen();
 
 //		new JoinPage();
 //		new AfterLogin();
