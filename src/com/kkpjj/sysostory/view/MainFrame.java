@@ -16,6 +16,9 @@ public class MainFrame extends JFrame {
 	private JPanel monPanel;
 	private JPanel chrPanel;
 	private JPanel battleMenuPanel;
+	
+	
+	
 
 	public MainFrame() {
 		mf = new JFrame();
@@ -24,9 +27,14 @@ public class MainFrame extends JFrame {
 		mf.setLayout(null);
 		mf.setTitle("sysoStory");
 
+
 //		new BattlePage(mf);
 //		new OpMainPage(mf);
 		new CharacterView(mf);
+
+
+		new BattlePage(mf);
+		
 
 		mf.setLocationRelativeTo(null);
 		mf.setResizable(false);
