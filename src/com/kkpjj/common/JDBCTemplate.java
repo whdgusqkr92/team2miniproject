@@ -90,12 +90,11 @@ public class JDBCTemplate {
 	public static void rollback(Connection con) {
 		try {
 			if(con != null && !con.isClosed()) {
-
-
-
-				con.rollback();			}
+				con.rollback();			
+				}
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} 
 	}
 
+}

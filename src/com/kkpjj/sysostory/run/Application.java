@@ -32,7 +32,7 @@ public class Application {
 
 
 		
-		new PotionShopView();
+//		new PotionShopView();
 
 //		new InventoryView();
 //		new CharacterView();

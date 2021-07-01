@@ -163,8 +163,7 @@ public class StartScreen extends JFrame {
 	}
 
 	/* 경고 다이얼로그 팝업 */
-	public static void infoBox(String infoMessage, String titleBar)
-	{
+	public static void infoBox(String infoMessage, String titleBar){
 		JOptionPane.showMessageDialog(null, infoMessage, /*"InfoBox: " +*/ titleBar, JOptionPane.INFORMATION_MESSAGE);
 	}
 }
