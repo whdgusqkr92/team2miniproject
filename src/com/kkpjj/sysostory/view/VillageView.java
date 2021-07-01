@@ -19,15 +19,11 @@ public class VillageView extends JFrame {
 	private JPanel statusPanel;
 	private JPanel mapPanel;
 
-	public VillageView() {
+	public VillageView(JFrame mf) {
 		
 		// 마을화면 프레임 생성
-		mf = new JFrame();
-
-		mf.setSize(810, 630);
-		mf.setLayout(null);
-		mf.setTitle("sysoStory");
-		mf.setFont(new Font("둥근모꼴", Font.PLAIN, 16));
+//		mf = new JFrame();
+		this.mf = mf;
 		
 		// 하단 상태 패널
 		statusPanel = new JPanel();
@@ -71,11 +67,12 @@ public class VillageView extends JFrame {
 
 		mf.add(mainPanel);
 
-		mf.setLocationRelativeTo(null);
-		mf.setResizable(false);
-		mf.setVisible(true);
-		mf.setDefaultCloseOperation(EXIT_ON_CLOSE);
+//		mf.setLocationRelativeTo(null);
+//		mf.setResizable(false);
+//		mf.setVisible(true);
+//		mf.setDefaultCloseOperation(EXIT_ON_CLOSE);
 	}
+
 }
 
 class MainView extends JPanel {
