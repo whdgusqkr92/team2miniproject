@@ -19,8 +19,9 @@ import java.awt.FlowLayout;
 import java.awt.BorderLayout;
 import javax.swing.JTextArea;
 
-public class CharacterView extends JFrame implements Runnable {
+public class CharacterView extends JFrame{
 	
+	private JFrame mf;
 	private JPanel statusPanel;
 	private JPanel mapPanel;
 	
@@ -30,22 +31,8 @@ public class CharacterView extends JFrame implements Runnable {
 	private ImageIcon sysoIcon = null;
 	private ImageIcon exit = null;
 	
-	
-	JList<String> list; // 데이터베이스 내용을 뿌려주기 위한 리스트 선언
-	
-
-	public CharacterView() {
-//		list = new JList<String>();
-	}
-
-	@Override
-	public void run() {
-		
-		JFrame mf = new JFrame();
-		mf.setTitle("sysoStory");
-		mf.setFont(new Font("둥근모꼴", Font.PLAIN, 16));
-		mf.setBounds(300, 75, 810, 630);
-		mf.setLayout(null);
+	public CharacterView(JFrame mf) {
+		this.mf = mf;
 		
 		statusPanel = new JPanel();
 		statusPanel.setBounds(0, 420, 560, 180);
@@ -148,5 +135,7 @@ public class CharacterView extends JFrame implements Runnable {
 		mf.setResizable(false);
 		mf.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		
+	
 	}
+
 }
