@@ -31,7 +31,6 @@ class RpgGame_frame extends JFrame implements Runnable, KeyListener {
 	public RpgGame_frame() {
 		
 		setSize(800, 600);
-		
 		init();
 		start();
 		
