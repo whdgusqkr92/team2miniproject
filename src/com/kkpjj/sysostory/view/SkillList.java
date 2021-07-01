@@ -13,22 +13,29 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
 public class SkillList extends JPanel {
+
+											
+
+	
+	//따로 클래스 만들어서 상속 받아도 될듯?
+				//  다 뜯어 고치자 집가서!!		
+
 																	//따로 클래스 만들어서 상속 받아도 될듯?
 	private JPanel SkillListPanel;					
+
 	private JPanel skilUpPanel;
 	private JPanel skilListPanel;
 	private JPanel skilExPanel;
 	private JLabel skilExLabel1;
 	private JFrame mf;
 		
-	
-	
-
-
 
 	public SkillList(JFrame mf) {
 		
 		this.mf = mf;
+
+//		MainFrame mf = new  MainFrame();
+
 
 
 		SkillListPanel = new MainPanel();								//메인 패널  밑에 인터페이스 패널 빼고
