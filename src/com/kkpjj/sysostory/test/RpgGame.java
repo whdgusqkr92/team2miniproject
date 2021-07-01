@@ -8,6 +8,7 @@ public class RpgGame {
 	public static void main(String[] args) {
 		new RpgGame_frame();
 		
+		
 	}
 }
 

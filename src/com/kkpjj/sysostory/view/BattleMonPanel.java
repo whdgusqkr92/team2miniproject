@@ -10,18 +10,25 @@ import java.awt.event.MouseMotionAdapter;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.swing.AbstractButton;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.border.LineBorder;
 
+import com.kkpjj.sysostory.controller.BattleController;
+
 // 몬스터 레이아웃 설정, 위치 설정
 public class BattleMonPanel extends JPanel {
 
-	protected JPanel firstMon;
-	protected JPanel secondMon;
-	protected JPanel thirdMon;
-	protected JPanel fourthMon;
+	private JPanel firstMon;
+	private JPanel secondMon;
+	private JPanel thirdMon;
+	private JPanel fourthMon;
+	protected JButton selectFirstMon;
+	protected JButton selectSecondMon;
+	protected JButton selectThirdMon;
+	protected JButton selectFourthMon;
 
 	public BattleMonPanel() {
 		this.setBounds(550, 60, 200, 300);
@@ -37,56 +44,44 @@ public class BattleMonPanel extends JPanel {
 		fourthMon = new FourthMon();
 		fourthMon.setBounds(0, 252, 64, 28);
 
-		JButton selectFirstMon = new JButton();
+		selectFirstMon = new JButton();
 		selectFirstMon.setBounds(firstMon.getBounds());
-		selectFirstMon.setBorderPainted(false);
-		selectFirstMon.setContentAreaFilled(false);
-
-		selectFirstMon.addMouseListener(new MouseListener() {
-			@Override
-			public void mouseReleased(MouseEvent e) {}
-
-			@Override
-			public void mousePressed(MouseEvent e) {}
-
-			@Override
-			public void mouseExited(MouseEvent e) {
-				selectFirstMon.setBorderPainted(false);
-			}
-
-			@Override
-			public void mouseEntered(MouseEvent e) {
-				selectFirstMon.setBorderPainted(true);
-				selectFirstMon.setBorder(new LineBorder(Color.RED, 3));
-			}
-
-			@Override
-			public void mouseClicked(MouseEvent e) {}
-		});
-
-		JButton selectSecondMon = new JButton();
+		selectSecondMon = new JButton();
 		selectSecondMon.setBounds(secondMon.getBounds());
-		JButton selectThirdMon = new JButton();
+		selectThirdMon = new JButton();
 		selectThirdMon.setBounds(thirdMon.getBounds());
-		JButton selectFourthMon = new JButton();
+		selectFourthMon = new JButton();
 		selectFourthMon.setBounds(fourthMon.getBounds());
 
-		this.add(selectFirstMon);
 		this.add(firstMon);
 		this.add(secondMon);
 		this.add(thirdMon);
 		this.add(fourthMon);
 	}
 
-	public List<Rectangle> monPosition() {
-		List<Rectangle> mon = new ArrayList<>();
-		mon.add(firstMon.getBounds());
-		mon.add(secondMon.getBounds());
-		mon.add(thirdMon.getBounds());
-		mon.add(fourthMon.getBounds());
+//	public void attackAction(String attackType, String attackName) {
+//		
+//		selectFirstMon.addMouseListener(new MyMouseListener(attackType, attackName, selectFirstMon, 1));
+//		selectSecondMon.addMouseListener(new MyMouseListener(attackType, attackName, selectSecondMon, 2));
+//		selectThirdMon.addMouseListener(new MyMouseListener(attackType, attackName, selectThirdMon, 3));
+//		selectFourthMon.addMouseListener(new MyMouseListener(attackType, attackName, selectFourthMon, 4));
+//
+//		this.add(selectFirstMon);
+//		this.add(selectSecondMon);
+//		this.add(selectThirdMon);
+//		this.add(selectFourthMon);
+//	}
 
-		return mon;
-	}
+
+//		public List<Rectangle> monPosition() {
+	//		List<Rectangle> mon = new ArrayList<>();
+	//		mon.add(firstMon.getBounds());
+	//		mon.add(secondMon.getBounds());
+	//		mon.add(thirdMon.getBounds());
+	//		mon.add(fourthMon.getBounds());
+	//
+	//		return mon;
+	//	}
 }
 
 // 몬스터 이미지 추가
@@ -130,3 +125,45 @@ class FourthMon extends JPanel {
 	}
 }
 
+class MyMouseListener implements MouseListener {
+
+	private String attackType;
+	private String attackName;
+	private JButton selectMon;
+	private int selectMonNo;
+
+	public MyMouseListener(String attackType, String attackName, JButton selectMon, int i) {
+		this.attackType = attackType;
+		this.attackName = attackName;		
+		this.selectMon = selectMon;
+		this.selectMonNo = i;
+		this.selectMon.setBorderPainted(false);
+		this.selectMon.setContentAreaFilled(false);
+//		BattleController.characterAttack(selectMon, );
+	}
+
+	@Override
+	public void mouseClicked(MouseEvent e) {
+	}
+
+	@Override
+	public void mousePressed(MouseEvent e) {
+	}
+
+	@Override
+	public void mouseReleased(MouseEvent e) {
+		BattleController bc = new BattleController();
+//		bc.characterAttack(attackType, attackName, selectMon);
+	}
+
+	@Override
+	public void mouseEntered(MouseEvent e) {
+		selectMon.setBorderPainted(true);
+		selectMon.setBorder(new LineBorder(Color.RED, 3));
+	}
+
+	@Override
+	public void mouseExited(MouseEvent e) {
+		selectMon.setBorderPainted(false);
+	}
+}

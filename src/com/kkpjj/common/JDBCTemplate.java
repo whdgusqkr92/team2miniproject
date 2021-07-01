@@ -31,7 +31,7 @@ public class JDBCTemplate {
 			con = DriverManager.getConnection(url, prop);
 
 
-			con.setAutoCommit(false);
+			con.setAutoCommit(true);
 
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
@@ -90,20 +90,12 @@ public class JDBCTemplate {
 	public static void rollback(Connection con) {
 		try {
 			if(con != null && !con.isClosed()) {
+
+
+
 				con.rollback();			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} 
 	}
-			
-	public static void close(PreparedStatement pstmt) {
-		try {
-			if(pstmt != null && pstmt.isClosed()) {
-				pstmt.close();
 
-			}
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-	}
-}
