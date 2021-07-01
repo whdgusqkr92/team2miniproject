@@ -82,10 +82,10 @@ public class FindIdView extends JFrame{
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				if(nameText.getText().length() > 0 && emailText.getText().length() > 0) {
-					int result = memberController.findId(nameText, emailText);
+					String resultId = memberController.findId(nameText, emailText);
 					
-					if(result > 0 ) {
-						mf.setVisible(false);
+					if(resultId.length() > 0) {
+						infoBox("회원님의 아이디는 '" + resultId + "' 입니다.","아이디 찾기 결과");
 					} else {
 						infoBox("이름과 이메일을 확인해주세요", "message");						
 					}
