@@ -10,8 +10,11 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+
+import com.kkpjj.sysostory.controller.MemberController;
 
 public class FindIdView extends JFrame{
 	private JFrame mf;
@@ -43,7 +46,8 @@ public class FindIdView extends JFrame{
 		nameLabel.setFont(new Font("둥근모꼴", Font.PLAIN, 24));
 		namePanel.add(nameLabel);
 		
-		nameText = new JTextField();								
+		JTextField nameText = new JTextField();
+//		nameText = new JTextField();								
 		nameText.setFont(new Font("둥근모꼴", Font.PLAIN, 20));		/* name 입력란 */
 		nameText.setBounds(300, 200, 300, 45);
 		mf.getContentPane().add(nameText);
@@ -60,16 +64,34 @@ public class FindIdView extends JFrame{
 		emailLabel.setFont(new Font("둥근모꼴", Font.PLAIN, 24));
 		emailPanel.add(emailLabel);
 		
-		emailText = new JTextField();								
+		JTextField emailText = new JTextField();
+//		emailText1 = new JTextField();								
 		emailText.setFont(new Font("둥근모꼴", Font.PLAIN, 20));		/* email 입력란 */
 		emailText.setBounds(300, 280, 300, 45);
 		mf.getContentPane().add(emailText);
-		emailText.setColumns(10);
+		emailText.setColumns(20);
 		
-		JButton btnNewButton = new JButton("ID 찾기");				
-		btnNewButton.setFont(new Font("둥근모꼴", Font.PLAIN, 24));	/* 회원가입 버튼 */
-		btnNewButton.setBounds(250, 360, 130, 50);
-		mf.getContentPane().add(btnNewButton);
+		JButton findIdButton = new JButton("ID 찾기");				
+		findIdButton.setFont(new Font("둥근모꼴", Font.PLAIN, 24));	/* id찾기 버튼 */
+		findIdButton.setBounds(250, 360, 130, 50);
+		mf.getContentPane().add(findIdButton);
+		
+		findIdButton.addActionListener(new ActionListener() {
+			
+			MemberController memberController = new MemberController();
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				if(nameText.getText().length() > 0 && emailText.getText().length() > 0) {
+					int result = memberController.findId(nameText, emailText);
+					
+					if(result > 0 ) {
+						mf.setVisible(false);
+					} else {
+						infoBox("이름과 이메일을 확인해주세요", "message");						
+					}
+				}
+			}
+		});
 		
 		JButton backButton = new JButton("뒤로가기");				
 		backButton.setFont(new Font("둥근모꼴", Font.PLAIN, 24));		/* 뒤로가기 버튼 */
@@ -94,4 +116,9 @@ public class FindIdView extends JFrame{
 		mf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 	}
+	public static void infoBox(String infoMessage, String titleBar){
+		JOptionPane.showMessageDialog(null, infoMessage, /*"InfoBox: " +*/ titleBar, JOptionPane.INFORMATION_MESSAGE);
+	}
 }
+
+

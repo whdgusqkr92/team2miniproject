@@ -76,6 +76,9 @@ public class FieldCharacterBattle extends JFrame {
 				}
 			};
 			
+
+		}
+
 			mainPanel.setBounds(0, 0, 800, 420);
 			mainPanel.setLayout(null);
 		mf.add(mainPanel); // 생성한 패널 프레임에 추가
@@ -97,5 +100,6 @@ public class FieldCharacterBattle extends JFrame {
 //	}
 	public static void main(String[] args) {
 		new FieldCharacterBattle();
+
 	}
 }

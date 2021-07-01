@@ -37,5 +37,16 @@ public class MemberService {
 				
 		return memberResult;
 	}
+
+	public int checkMemberId(MemberDTO member) {
+		
+		Connection con = getConnection();
+		
+		int memberResult = memberDAO.FindIdMember(con, member);
+		
+		close(con);
+		
+		return memberResult;
+	}
 	
 }
