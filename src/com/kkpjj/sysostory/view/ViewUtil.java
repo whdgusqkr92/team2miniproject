@@ -3,8 +3,6 @@ package com.kkpjj.sysostory.view;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
-import com.kkpjj.sysostory.view.op.OpMainFrame;
-
 public class ViewUtil {
 	
 	public static void changePanel(JFrame mf, JPanel op, JPanel np) {
