@@ -18,7 +18,7 @@ public class OpSubPage extends JPanel {
 //		this.setBackground(Color.YELLOW);
 		
 		JPanel panel1 = new JPanel();
-		panel1.setBounds(0, 0, 800, 410);
+		panel1.setBounds(0, 0, 800, 600);
 		omf.getContentPane().add(panel1);
 		panel1.setLayout(null);
 		

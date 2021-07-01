@@ -6,6 +6,9 @@ import java.awt.event.MouseEvent;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
+import com.kkpjj.sysostory.view.op.OpMainFrame;
+import com.kkpjj.sysostory.view.op.OpMainPage;
+
 public class MainFrame extends JFrame {
 	
 	private JFrame mf;
@@ -21,7 +24,9 @@ public class MainFrame extends JFrame {
 		mf.setLayout(null);
 		mf.setTitle("sysoStory");
 
-		new BattlePage(mf);
+//		new BattlePage(mf);
+//		new OpMainPage(mf);
+		new CharacterView(mf);
 
 		mf.setLocationRelativeTo(null);
 		mf.setResizable(false);
