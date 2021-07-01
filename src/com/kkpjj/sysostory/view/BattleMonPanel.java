@@ -3,14 +3,11 @@ package com.kkpjj.sysostory.view;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Image;
-import java.awt.Rectangle;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
-import java.awt.event.MouseMotionAdapter;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 
-import javax.swing.AbstractButton;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JPanel;
@@ -35,13 +32,20 @@ public class BattleMonPanel extends JPanel {
 		this.setLayout(null);
 		this.setOpaque(false);
 		
-		firstMon= new FirstMon();
+		Map<String, String> monList = new HashMap<>();
+		monList.put("빨간슬라임", "images/mon_red_slime.png");
+		monList.put("노란슬라임", "images/mon_yellow_slime.png");
+		
+		String monImgAddress1 = monList.get("빨간슬라임");
+		String monImgAddress2 = monList.get("노란슬라임");
+		
+		firstMon = new Monster(monImgAddress1);
 		firstMon.setBounds(0, 0, 64, 28);
-		secondMon = new SecondMon();
+		secondMon = new Monster(monImgAddress2);
 		secondMon.setBounds(25, 84, 64, 28);
-		thirdMon = new ThirdMon();
+		thirdMon = new Monster(monImgAddress1);
 		thirdMon.setBounds(25, 168, 64, 28);
-		fourthMon = new FourthMon();
+		fourthMon = new Monster(monImgAddress2);
 		fourthMon.setBounds(0, 252, 64, 28);
 
 		selectFirstMon = new JButton();
@@ -86,39 +90,15 @@ public class BattleMonPanel extends JPanel {
 }
 
 // 몬스터 이미지 추가
-class FirstMon extends JPanel {
-
-	Image mon = new ImageIcon("images/mon_yellow_slime.png").getImage();
-
-	@Override
-	public void paintComponent(Graphics g) {
-		g.drawImage(mon, 0, 0, getWidth(), getHeight(), this);
+class Monster extends JPanel {
+	
+	Image mon;
+	
+	public Monster(String monImgAddress) {
+		
+		this.mon = new ImageIcon(monImgAddress).getImage();
+		
 	}
-}
-
-class SecondMon extends JPanel {
-
-	Image mon = new ImageIcon("images/mon_red_slime.png").getImage();
-
-	@Override
-	public void paintComponent(Graphics g) {
-		g.drawImage(mon, 0, 0, getWidth(), getHeight(), this);
-	}
-}
-
-class ThirdMon extends JPanel {
-
-	Image mon = new ImageIcon("images/mon_yellow_slime.png").getImage();
-
-	@Override
-	public void paintComponent(Graphics g) {
-		g.drawImage(mon, 0, 0, getWidth(), getHeight(), this);
-	}
-}
-
-class FourthMon extends JPanel {
-
-	Image mon = new ImageIcon("images/mon_red_slime.png").getImage();
 
 	@Override
 	public void paintComponent(Graphics g) {

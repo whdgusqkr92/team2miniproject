@@ -1,12 +1,11 @@
 package com.kkpjj.sysostory.view;
 
-import java.awt.Color;
-import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.AbstractButton;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JPanel;
@@ -17,7 +16,11 @@ import com.kkpjj.sysostory.controller.BattleController;
 
 public class BattleMenuPanel extends JPanel {
 
-	private String attackType;
+	private JButton attackMenu;
+	private JButton skillMenu;
+	private JButton potionMenu;
+	private JButton runMenu;
+	private String selectMenu;
 
 	public BattleMenuPanel() {
 		this.setBounds(290, 80, 220, 240);
@@ -25,8 +28,8 @@ public class BattleMenuPanel extends JPanel {
 		this.setOpaque(false);
 
 		// 전투 메뉴 추가
-		JPanel battleMenu = new BattleMenu();
-		battleMenu.setBounds(24, 20, 196, 31);
+		JPanel battleMenu = new JPanel();
+		battleMenu.setBounds(24, 20, 172, 31);
 		battleMenu.setLayout(null);
 		battleMenu.setOpaque(false);
 
@@ -47,13 +50,12 @@ public class BattleMenuPanel extends JPanel {
 		this.add(battleMenu);
 
 		// 메뉴 선택 시 화면 전환
-		attackMenu.addActionListener(new SelectMenu(this, "normal"));
-		skillMenu.addActionListener(new SelectMenu(this, "skill"));
-		potionMenu.addActionListener(new SelectMenu(this, "potion"));
-		runMenu.addActionListener(new SelectMenu(this, "run"));
-
+		attackMenu.addActionListener(new SelectAttackMenu());
+		skillMenu.addActionListener(new SelectSkillMenu());
+		potionMenu.addActionListener(new SelectPotionMenu());
+		runMenu.addActionListener(new SelectRunMenu());
 	}
-
+	
 	// 전투메뉴 배경 추가
 	Image battleMenuBg = new ImageIcon("images/battle_menu.png").getImage();
 
@@ -63,30 +65,34 @@ public class BattleMenuPanel extends JPanel {
 	}
 }
 
-class SelectMenu implements ActionListener {
-	
-	BattleMenuPanel battleMenuPanel;
-	String attackType;
-
-	SelectMenu(BattleMenuPanel battleMenuPanel, String attackType) {
-		this.battleMenuPanel = battleMenuPanel;
-		this.attackType = attackType;
-	}
-
+class SelectAttackMenu implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		BattleSubMenu subMenu = new BattleSubMenu(battleMenuPanel, attackType);
-		subMenu.selectSubMenu(attackType);
+		String selectMenu = "normal";
 	}
 }
 
-class BattleMenu extends JPanel {
-
-	Image battleMenuBg = new ImageIcon("images/battle_menu.png").getImage();
-
+class SelectSkillMenu implements ActionListener {
+	
 	@Override
-	public void paintComponent(Graphics g) {
-		g.drawImage(battleMenuBg, 0, 0, getWidth(), getHeight(), this);
+	public void actionPerformed(ActionEvent e) {
+		String selectMenu = "skill";
+	}
+}
+
+class SelectPotionMenu implements ActionListener {
+	
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		String selectMenu = "potion";
+	}
+}
+
+class SelectRunMenu implements ActionListener {
+	
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		String selectMenu = "run";
 	}
 }
 

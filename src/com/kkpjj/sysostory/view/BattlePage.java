@@ -22,10 +22,10 @@ public class BattlePage extends JPanel {
 				
 		// 캐릭터 생성
 		JPanel chrPanel = new BattleChrPanel();
-		// 전투 메뉴 생성
-		JPanel menuPanel = new BattleMenuPanel();
 		// 몬스터 생성
 		JPanel monPanel = new BattleMonPanel();
+		// 전투 메뉴 생성
+		JPanel menuPanel = new BattleMenuPanel();
 		
 		this.add(chrPanel);
 		this.add(menuPanel);
