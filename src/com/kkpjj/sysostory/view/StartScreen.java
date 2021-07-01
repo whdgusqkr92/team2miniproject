@@ -4,13 +4,12 @@ import java.awt.Font;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.HashMap;
-import java.util.Map;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
@@ -20,8 +19,6 @@ import javax.swing.text.PlainDocument;
 
 import com.kkpjj.sysostory.controller.MemberController;
 import com.kkpjj.sysostory.model.dto.MemberDTO;
-
-import javax.swing.JOptionPane;
 
 public class StartScreen extends JFrame {
 
@@ -69,6 +66,7 @@ public class StartScreen extends JFrame {
 		//		JTextField pwdText = new JTextField(12);
 		pwdText.setFont(new Font("굴림", Font.PLAIN, 30));
 		pwdText.setBounds(320, 300, 300, 50);
+		
 
 		JButton loginButton = new JButton("로그인");						/* 로그인 버튼 */
 		loginButton.setFont(new Font("둥근모꼴", Font.PLAIN, 24));

@@ -31,6 +31,10 @@ public class RpgGame extends JPanel implements Runnable, KeyListener {
 		
 		this.mf = mf;
 		
+
+		
+		setSize(800, 600);
+
 		init();
 		start();
 		

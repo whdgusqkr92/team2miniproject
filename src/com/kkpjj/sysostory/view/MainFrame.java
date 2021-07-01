@@ -16,13 +16,16 @@ public class MainFrame extends JFrame {
 		mf.setLayout(null);
 		mf.setTitle("sysoStory");
 
-//		new BattlePage(mf);
-//		new SkillList(mf);
+
+
+
 		new CharacterView(mf);
-//		new VillageView(mf);
-//		new RpgGame(mf);
-//		mf.add(new RpgGame(mf));
-//		new StatusPanel(mf);
+
+		
+
+
+
+		new FieldCharacterBattle(mf);
 		
 
 		mf.setLocationRelativeTo(null);
