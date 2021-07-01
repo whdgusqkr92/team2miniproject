@@ -126,7 +126,7 @@ public class MemberDAO {
 			close(pstmt);
 		}
 
-		return userId;
+		return 0;
 	}
 }
 
