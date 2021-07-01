@@ -2,6 +2,7 @@
 package com.kkpjj.sysostory.run;
 
 import com.kkpjj.sysostory.view.CharacterView;
+import com.kkpjj.sysostory.view.MainFrame;
 import com.kkpjj.sysostory.view.PotionShopView;
 import com.kkpjj.sysostory.view.SkillList;
 import com.kkpjj.sysostory.view.StartScreen;
@@ -10,7 +11,7 @@ public class Application {
 
 	public static void main(String[] args) {
 		
-//		new MainFrame();
+		new MainFrame();
 //		new OpMainFrame();
 //		new GameScreen();
 //		new VillageView();

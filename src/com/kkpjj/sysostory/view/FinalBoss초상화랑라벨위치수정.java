@@ -1,5 +1,4 @@
-package com.kkpjj.sysostory.koobongean;
-
+package com.kkpjj.sysostory.view;
 import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Image;
@@ -15,7 +14,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-public class FinalBoss extends JFrame{
+public class FinalBoss초상화랑라벨위치수정 extends JPanel{
 
 	private JFrame mf;
 	private JPanel mainpanel;
@@ -29,19 +28,10 @@ public class FinalBoss extends JFrame{
 	private JLabel charaLabel;
 	private JLabel bossLabel;
 	
-//	private JButton btn1;
-//	private JButton btn2;
-//	private JButton btn3;
-//	private JButton btn4;
-//	private JButton btn5;
 	
-	public FinalBoss() {
-	//------------------------메인 프레임 생성---------------------------------	
-	mf = new JFrame();
-	mf.setTitle("sysoStory");
-	mf.setFont(new Font("둥근모꼴", Font.PLAIN, 16));
-	mf.setBounds(300, 75, 800, 600);
-
+	public FinalBoss초상화랑라벨위치수정(JFrame mf) {
+		this.mf = mf;
+		this.mainpanel=this;
 	
 	//--------------------------배경 필드 패널 만들기------------------------------	
 	Image field = new ImageIcon("Images/FinalBossField.png").getImage().getScaledInstance(800, 200, 0);
@@ -56,12 +46,12 @@ public class FinalBoss extends JFrame{
 	mainpanel.setLayout(null);
 	mf.add(mainpanel); // 생성한 패널 프레임에 추가
 	//---------------------------주인공 얼굴------------------------------------
-//		Image chara = new ImageIcon("images/주인공.png").getImage().getScaledInstance(100, 100, 0);
-//		charaLabel = new JLabel(new ImageIcon(chara));
-//		charaLabel.setBounds(0, 180, 100, 100);
-//		mainpanel.add(charaLabel);
+		Image chara = new ImageIcon("images/주인공.png").getImage().getScaledInstance(100, 100, 0);
+		charaLabel = new JLabel(new ImageIcon(chara));
+		charaLabel.setBounds(0, 180, 100, 100);
+		mainpanel.add(charaLabel);
 //---------------------------보스 얼굴------------------------------------
-		Image bossface = new ImageIcon("images/bossface.png").getImage().getScaledInstance(150, 150, 0);
+		Image bossface = new ImageIcon("images/Bossface_F.png").getImage().getScaledInstance(150, 150, 0);
 		bossLabel = new JLabel(new ImageIcon(bossface));
 		bossLabel.setBounds(620, 150, 150, 150);
 		mainpanel.add(bossLabel);
@@ -104,18 +94,9 @@ public class FinalBoss extends JFrame{
 	textLabel2.addMouseListener(new TwoActionListener());
 	textLabel3.addMouseListener(new ThdActionListener());
 	textLabel4.addMouseListener(new FourActionListener());
-//	btn5.addMouseListener(new BattleActionListener());
-		
-		
-	
-	mf.setVisible(true); //계속 보임
-	mf.setResizable(false); //창변경 불가
-	mf.setDefaultCloseOperation(EXIT_ON_CLOSE); //닫으면 실행종료	
-
+	mainpanel.addMouseListener(new BattleActionListener());
 	
 	}
-	//---------------------------------------------------------
-	
 	
 	
 private class OneActionListener extends MouseAdapter {
@@ -126,6 +107,7 @@ private class OneActionListener extends MouseAdapter {
 		textLabel.setVisible(false);
 		textLabel2.setVisible(true);
 //		charaLabel.setVisible(false);
+		bossLabel.setVisible(true);
 		}
 }
 private class TwoActionListener extends MouseAdapter {
@@ -134,7 +116,9 @@ private class TwoActionListener extends MouseAdapter {
 	public void mousePressed(MouseEvent e) {
 		textLabel2.setVisible(false);
 		textLabel3.setVisible(true);
-//		bossLabel.setVisible(true);
+		
+		charaLabel.setVisible(true);
+		bossLabel.setVisible(false);
 	}
 }
 private class ThdActionListener extends MouseAdapter {
@@ -155,22 +139,18 @@ private class FourActionListener extends MouseAdapter {
 		textLabel4.setVisible(false);
 		textLabel5.setVisible(true);
 		
+		charaLabel.setVisible(false);
+		bossLabel.setVisible(true);
+		
 	}
 }
-//private class BattleActionListener extends MouseAdapter {
-//	
-//	@Override
-//	public void mouseClicked(MouseEvent e) {
-//		btn5.setVisible(false);
-//		
-//		ViewUtil.changePanel(mf, view, new battle();
-//		
-//	}
-//}
-
-//----------------------메인메소드-----------------	
-	public static void main(String[] args) {
-		new FinalBoss();
+private class BattleActionListener extends MouseAdapter {
+	
+	@Override
+	public void mouseClicked(MouseEvent e) {
+		
+		ViewUtil.changePanel(mf, mainpanel, new BattlePage(mf));
+		
+		}
 	}
 }
-

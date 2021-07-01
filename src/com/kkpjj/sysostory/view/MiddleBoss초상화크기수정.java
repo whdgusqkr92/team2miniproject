@@ -15,7 +15,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 
-public class MiddleBoss extends JPanel{
+public class MiddleBoss초상화크기수정 extends JPanel{
 
 	private JFrame mf;
 	private JPanel mainpanel;
@@ -28,13 +28,9 @@ public class MiddleBoss extends JPanel{
 	private JButton btn;
 	private JButton btn2;
 	
-	public MiddleBoss(JFrame mf) {
+	public MiddleBoss초상화크기수정(JFrame mf) {
 		this.mf = mf;
-	//------------------------메인 프레임 생성---------------------------------	
-//	mf = new JFrame();
-//	mf.setTitle("sysoStory");
-//	mf.setFont(new Font("둥근모꼴", Font.PLAIN, 16));
-//	mf.setBounds(300, 75, 800, 600);
+		this.mainpanel = this;
 
 	
 	//--------------------------배경 필드 패널 만들기------------------------------	
@@ -57,7 +53,7 @@ public class MiddleBoss extends JPanel{
 	mainpanel.add(charaLabel);
 //	textLabel2.setVisible(false);
 	//---------------------------보스 얼굴------------------------------------
-		Image bossface = new ImageIcon("images/bossface.png").getImage().getScaledInstance(700, 180, 0);
+		Image bossface = new ImageIcon("images/Bossface_M.png").getImage().getScaledInstance(700, 180, 0);
 		bossLabel = new JLabel(new ImageIcon(bossface));
 		bossLabel.setBounds(0, 251, 792, 143);
 		mainpanel.add(bossLabel);
@@ -77,11 +73,8 @@ public class MiddleBoss extends JPanel{
 	//-------------------------버튼 누르면 대화창 넘기기-------------------------------------
 	
 	textLabel.addMouseListener(new OneActionListener());
-//	btn5.addMouseListener(new BattleActionListener());	
+	mainpanel.addMouseListener(new BattleActionListener());	
 	
-	mf.setVisible(true); //계속 보임
-	mf.setResizable(false); //창변경 불가
-//	mf.setDefaultCloseOperation(EXIT_ON_CLOSE); //닫으면 실행종료	
 
 	
 	
@@ -99,19 +92,13 @@ public class MiddleBoss extends JPanel{
 			bossLabel.setVisible(true);
 			}
 	}	
-	//----------배틀 전환---------------------------
-//private class BattleActionListener extends MouseAdapter {
-//	
-//	@Override
-//	public void mouseClicked(MouseEvent e) {
-//		
-//		
-//	}
-//}
-
-//----------------------메인메소드-----------------	
-//	public static void main(String[] args) {
-//		new MiddleBoss();
-//	}
+	private class BattleActionListener extends MouseAdapter {
+		
+		@Override
+		public void mouseClicked(MouseEvent e) {
+			
+			ViewUtil.changePanel(mf, mainpanel, new BattlePage(mf));
+			
+			}
+		}
 }
-
