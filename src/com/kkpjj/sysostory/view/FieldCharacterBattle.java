@@ -70,10 +70,10 @@ public class FieldCharacterBattle extends JFrame {
 	class Mypanel extends JPanel {
 		
 		
-		FieldCharacterBattle fi = new FieldCharacterBattle();
+		FieldCharacterBattle fi = new FieldCharacterBattle();  ///우어어어
 		
 		
-		Image chr = new ImageIcon("images/battle_chr.png").getImage();
+		Image chr = new ImageIcon("images/battle_chr.png").getImage(); //주석
 		
 		public void paintComponent(Graphics g) {
 			super.paintComponent(g);
@@ -81,9 +81,3 @@ public class FieldCharacterBattle extends JFrame {
 			
 		}
 	}
-
-	public static void main(String[] args) {
-		new FieldCharacterBattle();
-	}
-
-}
