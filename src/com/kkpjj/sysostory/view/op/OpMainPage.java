@@ -6,6 +6,7 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
 import javax.swing.ImageIcon;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
@@ -14,18 +15,18 @@ import com.kkpjj.sysostory.view.ViewUtil;
 
 public class OpMainPage extends JPanel {
 	
-	private OpMainFrame omf;
+	private JFrame mf;
 	private OpMainPage omp;
 	
-	public OpMainPage(OpMainFrame omf) {
-		this.omf = omf;
+	public OpMainPage(JFrame mf) {
+		this.mf = mf;
 		this.omp = this;	
 		
 		this.addMouseListener(new MyMouseAdapter());
 		
 		JPanel panel1 = new JPanel();
 		panel1.setBounds(0, 0, 800, 600);
-		omf.getContentPane().add(panel1);
+		mf.getContentPane().add(panel1);
 		panel1.setLayout(null);
 		
 		Image bg = new ImageIcon("images/openingBg1.png").getImage();
@@ -36,7 +37,7 @@ public class OpMainPage extends JPanel {
 //		this.setBackground(Color.BLUE);
 //		this.setSize(800, 600);
 		
-		omf.add(this);
+		mf.add(this);
 		
 	}
 	
@@ -44,7 +45,7 @@ public class OpMainPage extends JPanel {
 		
 		@Override
 		public void mouseClicked(MouseEvent e) {
-			 ViewUtil.changePanel(omf, omp, new OpSubPage());
+			 ViewUtil.changePanel(mf, omp, new OpSubPage(mf));
 		}
 	}
 

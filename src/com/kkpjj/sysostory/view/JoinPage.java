@@ -13,7 +13,11 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JPasswordField;
 import javax.swing.JTextField;
+import javax.swing.text.AttributeSet;
+import javax.swing.text.BadLocationException;
+import javax.swing.text.PlainDocument;
 
 import com.kkpjj.sysostory.controller.MemberController;
 
@@ -21,7 +25,7 @@ public class JoinPage extends JFrame{
 
 	private JFrame mf;
 	private JTextField idText;
-	private JTextField pwdText;
+	private JPasswordField pwdText;
 	private JTextField nameText;
 	private JTextField emailText;
 	
@@ -66,7 +70,7 @@ public class JoinPage extends JFrame{
 		pwdLabel.setFont(new Font("둥근모꼴", Font.PLAIN, 24));
 		pwdPanel.add(pwdLabel);
 		
-		pwdText = new JTextField();									
+		pwdText = new JPasswordField();									
 		pwdText.setFont(new Font("둥근모꼴", Font.PLAIN, 20));			/* pwd 입력란 */
 		pwdText.setBounds(300, 180, 300, 45);
 		mf.getContentPane().add(pwdText);
@@ -115,6 +119,8 @@ public class JoinPage extends JFrame{
 		btnNewButton.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
+//				String pwdString = new String(pwdText.getPassword());
+				
 				Map<String,String> joinMap = new HashMap<>();
 				joinMap.put("id", idText.getText());
 				joinMap.put("pwd", pwdText.getText());
@@ -147,4 +153,34 @@ public class JoinPage extends JFrame{
 		mf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 	}
+	/* JTextField 입력수 제한 */
+	class JTextFieldLimit extends PlainDocument {
+		private int limit;
+		private boolean toUppercase = false;
+		
+		JTextFieldLimit(int limit) {
+			super();
+			this.limit = limit;
+		}
+		
+		JTextFieldLimit(int limit, boolean upper) {
+			super();
+			this.limit = limit;
+			this.toUppercase = upper;
+		}
+		
+		public void insertString(int offset, String str, AttributeSet attr) throws BadLocationException {
+			if (str == null) {
+				return;
+			}
+			
+			if ( (getLength() + str.length()) <= limit) {
+				if (toUppercase) {
+					str = str.toUpperCase();
+				}
+				super.insertString(offset, str, attr);
+			}
+		}	
+	}
 }
+

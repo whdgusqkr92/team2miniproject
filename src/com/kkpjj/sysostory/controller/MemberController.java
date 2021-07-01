@@ -11,8 +11,6 @@ import com.kkpjj.sysostory.view.AfterLogin;
 import com.kkpjj.sysostory.view.MemberResultView;
 import com.kkpjj.sysostory.view.StartScreen;
 
-import oracle.sql.CHAR;
-
 public class MemberController {
 	
 	private MemberResultView memberResultView;
@@ -64,25 +62,26 @@ public class MemberController {
 		}
 	}
 
-	public int findId(JTextField nameText, JTextField emailText) {
+	public String findId(JTextField nameText, JTextField emailText) {
 		
 		memberDTO.setUserName(nameText.getText());
 		memberDTO.setEmail(emailText.getText());
 		
-		int result = memberService.checkMemberId(memberDTO);
+		String resultID = memberService.checkMemberId(memberDTO);
 		
-		if(result > 0) {
-			memberResultView.FindIdSucces();
-//			new showUserId();
-			
-			return 1;
-		} else {
-			
-			memberResultView.FindIdfail();
-			
-			return 0;
-		}
+		return resultID;
 		
+	}
+
+	public String FindPwd(JTextField idText, JTextField nameText, JTextField emailText) {
+		
+		memberDTO.setUserId(idText.getText());
+		memberDTO.setUserName(nameText.getText());
+		memberDTO.setEmail(emailText.getText());
+		
+		String resultPwd = memberService.checkMemberPwd(memberDTO);
+		
+		return resultPwd;
 	}
 
 

@@ -40,4 +40,13 @@
         WHERE USER_NAME = ?
           AND EMAIL = ?
     </entry>
+    
+    <entry key="FindPwdMember">
+    SELECT 
+           USER_PWD
+      FROM TBL_USER_INFO
+     WHERE USER_ID = ?
+       AND USER_NAME = ?
+       AND EMAIL = ?
+    </entry>
 </properties>
