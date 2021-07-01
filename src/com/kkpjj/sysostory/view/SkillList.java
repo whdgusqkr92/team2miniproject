@@ -12,31 +12,30 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
-public class SkillList extends JFrame {
-
-	private JFrame mf;											//따로 클래스 만들어서 상속 받아도 될듯?
-	private JPanel mainPanel;
+public class SkillList extends JPanel {
+																	//따로 클래스 만들어서 상속 받아도 될듯?
+	private JPanel SkillListPanel;					//  다 뜯어 고치자 집가서!!		
 	private JPanel skilUpPanel;
 	private JPanel skilListPanel;
 	private JPanel skilExPanel;
 	private JLabel skilExLabel1;
 		
 	
-	TextField tf1;
+	
 
 
 
 	public SkillList() {
-		tf1 = new TextField();
 		
+		 MainFrame mf = new  MainFrame();
 
-		mf = new JFrame();							//메인 프레임
-		mf.setSize(800, 600);						//메인 프레임 사이즈
-		mf.getContentPane().setLayout(null);		//
-		mf.setTitle("sysoStory");					//메인 프레임 타이틀 이름
+//		mf = new JFrame();							//메인 프레임
+//		mf.setSize(800, 600);						//메인 프레임 사이즈
+//		mf.getContentPane().setLayout(null);		//
+//		mf.setTitle("sysoStory");					//메인 프레임 타이틀 이름
 
-		mainPanel = new MainPanel();								//메인 패널  밑에 인터페이스 패널 빼고
-		mainPanel.setBounds(0, 0, 800, 600);						//메인 패널 사이즈
+		SkillListPanel = new MainPanel();								//메인 패널  밑에 인터페이스 패널 빼고
+		SkillListPanel.setBounds(0, 0, 800, 600);						//메인 패널 사이즈
 
 		skilUpPanel = new JPanel();									//스킬 창 상단부 패널
 		skilUpPanel.setBounds(50, 20, 700, 43);						//사이즈
@@ -65,12 +64,12 @@ public class SkillList extends JFrame {
 		
 		
 		skilExPanel.add(skilExLabel1);
-		mainPanel.add(skilUpPanel);									//상단바 패널을 메인패널에 담아준다
-		mainPanel.add(skilListPanel);								//스킬 목록리스트 패널을 메인 패널에 담아준다
-		mainPanel.add(skilExPanel);									//스킬 설명 패널을 메인 패널에 담아준다
+		SkillListPanel.add(skilUpPanel);									//상단바 패널을 메인패널에 담아준다
+		SkillListPanel.add(skilListPanel);								//스킬 목록리스트 패널을 메인 패널에 담아준다
+		SkillListPanel.add(skilExPanel);									//스킬 설명 패널을 메인 패널에 담아준다
 		
 		
-		mf.getContentPane().add(mainPanel);
+		mf.getContentPane().add(SkillListPanel);
 
 //		Image mapBg = new ImageIcon("images/map.png").getImage().getScaledInstance(240, 180, 0);
 //		JLabel label2 = new JLabel(new ImageIcon(mapBg));
@@ -334,13 +333,13 @@ public class SkillList extends JFrame {
 //		mapBglabel2.setBounds(0, 0, 240, 150);
 //		mapPanel.add(mapBglabel2);
 
-		mf.setLocationRelativeTo(null);
-		mf.setResizable(false);
-		mf.setVisible(true);
-		mf.setDefaultCloseOperation(EXIT_ON_CLOSE);
+//		mf.setLocationRelativeTo(null);
+//		mf.setResizable(false);
+//		mf.setVisible(true);
+//		mf.setDefaultCloseOperation(EXIT_ON_CLOSE);
 
 		
-
+		
 	}
 
 	class MainPanel extends JPanel {
@@ -358,9 +357,9 @@ public class SkillList extends JFrame {
 			g.drawImage(bg, 0, 0, getWidth(), getHeight(), this);
 		}
 	}
-	public static void main(String[] args) {
-		new SkillList();
-	}
+//	public static void main(String[] args) {
+//		new SkillList();
+//	}
 }
 
 //	class skilUpPanel extends JPanel {
