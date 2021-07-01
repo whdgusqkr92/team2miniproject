@@ -63,5 +63,28 @@ public class MemberController {
 			return 0;
 		}
 	}
+
+	public int findId(JTextField nameText, JTextField emailText) {
+		
+		memberDTO.setUserName(nameText.getText());
+		memberDTO.setEmail(emailText.getText());
+		
+		int result = memberService.checkMemberId(memberDTO);
+		
+		if(result > 0) {
+			memberResultView.FindIdSucces();
+//			new showUserId();
+			
+			return 1;
+		} else {
+			
+			memberResultView.FindIdfail();
+			
+			return 0;
+		}
+		
+	}
+
+
 }
 
