@@ -3,7 +3,7 @@ package com.kkpjj.sysostory.model.dto;
 public class SkillDTO implements java.io.Serializable{
 	
 	
-// 스킬명 적어야함!!!//
+// 스킬명 적어야함!!!!//
 	
 	private String skill1;
 	private String skill2;
