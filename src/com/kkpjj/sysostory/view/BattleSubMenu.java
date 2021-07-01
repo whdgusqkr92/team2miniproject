@@ -4,38 +4,38 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.HashMap;
+import java.util.Map;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
-class SubMenu extends JPanel {
-	private SubMenu subMenu;
+public class BattleSubMenu extends JPanel {
+	
 	protected JPanel monPanel;
 	protected JButton button1;
 	protected JButton button2;
 	protected JButton button3;
 	protected JButton button4;
-	protected String attackType;
-	protected String attackName;
-	
-	public SubMenu() {
-		this.subMenu = this;
+	private Font font;
+
+	public BattleSubMenu() {
 		this.setBounds(24, 60, 170, 155);
 		this.setLayout(null);
 		this.setOpaque(false);
 
-		Font font = new Font("둥근모꼴", Font.PLAIN, 16);
-		
-		// 몬스터 생성
-		monPanel = new BattleMonPanel();
-		
+		font = new Font("둥근모꼴", Font.PLAIN, 16);
+	}
+	
+	public void viewSubMenu() {
 		// 전투 세부메뉴 설정
 		button1 = new JButton();
 		button1.setBounds(0, 0, 170, 35);
 		button1.setForeground(Color.WHITE);
 		button1.setBackground(Color.BLACK);
 		button1.setFont(font);
+		
 		
 		button2 = new JButton();
 		button2.setBounds(0, 40, 170, 35);
@@ -54,7 +54,7 @@ class SubMenu extends JPanel {
 		button4.setForeground(Color.WHITE);
 		button4.setBackground(Color.BLACK);
 		button4.setFont(font);
-
+		
 		this.add(button1);
 		this.add(button2);
 		this.add(button3);
@@ -63,106 +63,123 @@ class SubMenu extends JPanel {
 	}
 }
 
-class AttackButton extends SubMenu {
-		
-	public AttackButton(JFrame mf) {
+
+
+
+
+
+
+
+
+
+
+class AttackButton extends BattleSubMenu {
+
+	private JPanel monPanel;
+	private String attackType;
+	private String attackName;
+
+	public AttackButton(JPanel mainPanel) {
 		super();
+		this.monPanel = super.monPanel;
+		
 		button1.setText("기본 공격");
 		button2.setVisible(false);
 		button3.setVisible(false);
 		button4.setVisible(false);
-		
-		mf.add(monPanel);
-		
-		button1.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				attackType = "normal";
-				attackName = "기본 공격";
-//				BattlePage().monpanel.selectMon(attackType, attackName, mon);;
-			}
-		});
+
+		attackType = "normal";
+
+		button1.addActionListener(new BattleAction(monPanel, attackType, button1.getText()));
+		mainPanel.add(monPanel);
 	}
 }
 
-class SkillButton extends SubMenu {
-	
-	public SkillButton(JFrame mf) {
+class SkillButton extends BattleSubMenu {
+
+	private JPanel monPanel;
+	private String attackType;
+	private String attackName;
+
+	public SkillButton(JPanel mainPanel) {
 		super();
+		this.monPanel = super.monPanel;
+
 		button1.setText("스킬 공격1");
 		button2.setText("스킬 공격2");
 		button3.setText("스킬 공격3");
 		button4.setText("스킬 공격4");
 		
-		mf.add(monPanel);
-
-		button1.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				attackType = "skill";
-				attackName = "스킬 공격1";
-			}
-		});
-
-		button2.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				attackType = "skill";
-				attackName = "스킬 공격2";
-				new BattleSelectMon();
-			}
-		});
+		attackType = "skill";
 		
-		button3.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				attackType = "skill";
-				attackName = "스킬 공격3";
-				new BattleSelectMon();
-			}
-		});
+		button1.addActionListener(new BattleAction(monPanel, attackType, button1.getText()));
+		button2.addActionListener(new BattleAction(monPanel, attackType, button2.getText()));
+		button3.addActionListener(new BattleAction(monPanel, attackType, button3.getText()));
+		button4.addActionListener(new BattleAction(monPanel, attackType, button4.getText()));
 		
-		button4.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				attackType = "skill";
-				attackName = "스킬 공격4";
-				new BattleSelectMon();
-			}
-		});
+		mainPanel.add(monPanel);
 	}
 }
 
-class PotionButton extends SubMenu {
-	
-	public PotionButton(JFrame mf) {
+class PotionButton extends BattleSubMenu {
+
+	private JPanel monPanel;
+	private String attackType;
+	private String attackName;
+
+	public PotionButton(JPanel mainPanel) {
 		super();
+		this.monPanel = super.monPanel;
+
 		button1.setText("HP 물약");
 		button2.setText("MP 물약");
 		button3.setVisible(false);
 		button4.setVisible(false);
-		
-		mf.add(monPanel);
 
+		mainPanel.add(monPanel);
 	}
 }
 
-class RunButton extends SubMenu {
-	
-	public RunButton(JFrame mf) {
+class RunButton extends BattleSubMenu {
+
+	private JPanel monPanel;
+	private String attackType;
+	private String attackName;
+
+	public RunButton(JPanel mainPanel) {
 		super();
+		this.monPanel = super.monPanel;
+
 		button1.setText("도망가기");
 		button2.setVisible(false);
 		button3.setVisible(false);
 		button4.setVisible(false);
-		
-		mf.add(monPanel);
-		
+
+		mainPanel.add(monPanel);
+
 		button1.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-//				ViewUtil.changePanel(mf, , new SubPage());
+				//				ViewUtil.changePanel(mf, , new SubPage());
 			}
 		});
 	}
+}
+
+class BattleAction implements ActionListener {
+	
+	private JPanel monPanel;
+	private String attackType;
+	private String attackName;
+	
+	BattleAction(JPanel monPanel, String attackType, String attackName) {
+		this.monPanel = monPanel;
+		this.attackType = attackType;
+		this.attackName = attackName;
+	}
+	
+	@Override
+	public void actionPerformed(ActionEvent e) {
+//		((BattleMonPanel) monPanel).attackAction(attackType, attackName);
+	}	
 }

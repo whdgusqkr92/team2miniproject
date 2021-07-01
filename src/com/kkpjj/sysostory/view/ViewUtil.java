@@ -10,4 +10,11 @@ public class ViewUtil {
 		mf.repaint();
 		mf.revalidate();
 	}
+	
+	public static void changePanel(JPanel panel, JPanel op, JPanel np) {
+		panel.remove(op);
+		panel.add(np);
+		panel.repaint();
+		panel.revalidate();
+	}
 }
