@@ -5,17 +5,28 @@
 	<entry key="insertMember">INSERT /* com.kkpjj.sysostory.model.dao.MemberDAO#insertMember() */
           INTO TBL_USER_INFO
           (
-		    USER_ID
+            USER_NO
+		  , USER_ID
 		  , USER_PWD
 		  , USER_NAME
 		  , EMAIL
           )
           VALUES
           (
-            ?
+            SEQ_USER_NO.NEXTVAL
+          , ?
           , ?
           , ?
           , ?
           )
+          </entry>
+          
+
+    <entry key="loginMember">
+    SELECT /* com.kkpjj.sysostory.model.dao.MemberDAO#insertMember() */
+		    USER_ID
+		  , USER_PWD
+  		FROM TBL_USER_INFO
+  		WHERE USER_ID = ? AND USER_PWD = ?
           </entry>
 </properties>
