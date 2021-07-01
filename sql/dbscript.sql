@@ -629,7 +629,20 @@ ALTER TABLE TBL_SOUND
 
 ALTER TABLE TBL_SOUND
  ADD CONSTRAINT TBL_SOUND_CK CHECK ( SND_CATEGORY IN ('효과음', '배경음') );
- 
+
+/* 시퀀스 생성 */
+CREATE SEQUENCE SEQ_USER_NO;
+CREATE SEQUENCE SEQ_CHR_CODE;
+CREATE SEQUENCE SEQ_ITEM_CODE;
+CREATE SEQUENCE SEQ_SKILL_CODE;
+CREATE SEQUENCE SEQ_ACH_CODE;
+CREATE SEQUENCE SEQ_STORY_CODE;
+CREATE SEQUENCE SEQ_MON_CODE;
+CREATE SEQUENCE SEQ_MAP_CODE;
+CREATE SEQUENCE SEQ_IMG_ID;
+CREATE SEQUENCE SEQ_SND_ID;
+
+
 /* 관리자 및 일반회원 입력 */
 INSERT
   INTO TBL_USER_INFO
@@ -644,7 +657,7 @@ INSERT
 )
 VALUES
 (
-  1
+  SEQ_USER_NO.NEXTVAL
 , '관리자'
 , 'ADMIN'
 , 'ADMIN'
@@ -675,7 +688,7 @@ VALUES
 , 'N'
 );
 
-/* 아이템 입력 */
+/* 캐릭터 정보 입력 */
 INSERT
   INTO TBL_CHR_INFO
 (
@@ -720,6 +733,8 @@ VALUES
 , '허름한 잠옷'
 );
 
+
+/* 아이템 입력 */
 INSERT
   INTO TBL_ITEM_LIST
 (
@@ -780,7 +795,6 @@ VALUES
 , '화염에 휩싸인 메이플스토리에서 가져온 무기'
 );
 
-
 INSERT
   INTO TBL_ITEM_LIST
 (
@@ -800,7 +814,6 @@ VALUES
 , 40
 , '리그오브레전드의 공수한 아이템'
 );
-
 
 INSERT
   INTO TBL_ITEM_LIST
@@ -822,7 +835,6 @@ VALUES
 , '맛없는 빨간 물약'
 );
 
-
 INSERT
   INTO TBL_ITEM_LIST
 (
@@ -842,6 +854,7 @@ VALUES
 , 50
 , '맛있어보이지만 맛없는 파란 물약'
 );
+
 
 /* 스킬 입력 */
 INSERT
@@ -918,6 +931,7 @@ VALUES
 , 1000
 );
 
+
 /* 게임스토리 입력 */
 INSERT
   INTO TBL_STORY_LIST
@@ -946,6 +960,7 @@ VALUES
 , '오프닝'
 , '갑자기 자라클 세력이 침입하여 가족을 끌고 갔다.'
 );
+
 
 /* 몬스터 입력 */
 INSERT
