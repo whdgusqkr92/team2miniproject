@@ -14,15 +14,10 @@ public class BattleChrPanel extends JPanel {
 
 	Image chr = new ImageIcon("images/battle_chr.png").getImage();
 
-	public BattleChrPanel(JFrame mf) {
+	public BattleChrPanel() {
 		this.setBounds(150, 178, 64, 64);
 		this.setLayout(null);
 		this.setOpaque(false);
-
-		// 전투 메뉴 생성
-		battleMenuPanel = new BattleMenuPanel(mf);
-		
-		mf.add(battleMenuPanel);
 	}
 
 	@Override

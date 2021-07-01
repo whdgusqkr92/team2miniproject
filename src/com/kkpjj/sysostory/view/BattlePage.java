@@ -2,14 +2,9 @@ package com.kkpjj.sysostory.view;
 
 import java.awt.Graphics;
 import java.awt.Image;
-import java.awt.Rectangle;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.util.List;
 
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
-import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 public class BattlePage extends JPanel {
@@ -17,6 +12,8 @@ public class BattlePage extends JPanel {
 	private JFrame mf;
 	private JPanel mainPanel;
 	private JPanel chrPanel;
+	private JPanel menuPanel;
+	private JPanel monPanel;
 
 	public BattlePage(JFrame mf) {
 		// 전투화면 프레임 생성
@@ -27,10 +24,16 @@ public class BattlePage extends JPanel {
 		mainPanel.setBounds(0, 0, 800, 420);
 				
 		// 캐릭터 생성
-		chrPanel = new BattleChrPanel(mf);
+		chrPanel = new BattleChrPanel();
+		// 전투 메뉴 생성
+		menuPanel = new BattleMenuPanel();
+		// 몬스터 생성
+		monPanel = new BattleMonPanel();
 		
 		mainPanel.add(chrPanel);
-
+		mainPanel.add(menuPanel);
+		mainPanel.add(monPanel);
+		
 		this.mf.add(mainPanel);
 	}
 }
