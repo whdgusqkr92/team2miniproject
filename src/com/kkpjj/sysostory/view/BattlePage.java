@@ -12,6 +12,7 @@ public class BattlePage extends JPanel {
 	private JFrame mf;
 	private JPanel mainPanel;
 	private JPanel chrPanel;
+
 	private JPanel menuPanel;
 	private JPanel monPanel;
 
@@ -51,4 +52,5 @@ class MainPanel extends JPanel {
 	public void paintComponent(Graphics g) {
 		g.drawImage(bg, 0, 0, getWidth(), getHeight(), this);
 	}
+
 }
