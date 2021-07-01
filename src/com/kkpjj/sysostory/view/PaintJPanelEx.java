@@ -7,6 +7,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 public class PaintJPanelEx extends JFrame {
+	
 	PaintJPanelEx() {
 		setTitle("paintComponent 예제");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

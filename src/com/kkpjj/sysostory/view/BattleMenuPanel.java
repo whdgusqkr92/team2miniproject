@@ -132,6 +132,7 @@ public class BattleMenuPanel extends JPanel {
 	public void paintComponent(Graphics g) {
 		g.drawImage(battleMenuBg, 0, 0, getWidth(), getHeight(), this);
 	}
+	
 }
 
 // 메뉴 이미지 추가

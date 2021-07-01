@@ -24,13 +24,19 @@ public class Application {
 
 
 
+
 //		new RpgGame();		
 
 
 
+
+		
+		new PotionShopView();
+
 //		new InventoryView();
 //		new CharacterView();
 //		new PotionShopView();
+
 //		new CharacterView();
 //		new GameScreen();
 //		new InventoryView();
