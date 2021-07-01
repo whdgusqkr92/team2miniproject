@@ -34,7 +34,7 @@ public class BattleMonPanel extends JPanel {
 		this.setBounds(550, 60, 200, 300);
 		this.setLayout(null);
 		this.setOpaque(false);
-
+		
 		firstMon= new FirstMon();
 		firstMon.setBounds(0, 0, 64, 28);
 		secondMon = new SecondMon();
@@ -58,6 +58,7 @@ public class BattleMonPanel extends JPanel {
 		this.add(thirdMon);
 		this.add(fourthMon);
 	}
+	
 
 //	public void attackAction(String attackType, String attackName) {
 //		

@@ -10,47 +10,34 @@ import javax.swing.JPanel;
 public class BattlePage extends JPanel {
 
 	private JFrame mf;
-	private JPanel mainPanel;
-	private JPanel chrPanel;
-
-	private JPanel menuPanel;
-	private JPanel monPanel;
-
+	
 	public BattlePage(JFrame mf) {
-		// 전투화면 프레임 생성
+		// 전투화면 패널 생성, 배경 추가, 레이아웃 설정
 		this.mf = mf;
 
 		// 전투 메인화면 구성
-		mainPanel = new MainPanel();
-		mainPanel.setBounds(0, 0, 800, 420);
-				
-		// 캐릭터 생성
-		chrPanel = new BattleChrPanel();
-		// 전투 메뉴 생성
-		menuPanel = new BattleMenuPanel();
-		// 몬스터 생성
-		monPanel = new BattleMonPanel();
-		
-		mainPanel.add(chrPanel);
-		mainPanel.add(menuPanel);
-		mainPanel.add(monPanel);
-		
-		this.mf.add(mainPanel);
-	}
-}
-
-// 메인 전투화면에 이미지 추가, 레이아웃 설정
-class MainPanel extends JPanel {
-
-	Image bg = new ImageIcon("images/battle_bg.png").getImage().getScaledInstance(800, 420, 0);
-
-	public MainPanel() {
+		this.setBounds(0, 0, 800, 420);
 		this.setLayout(null);
 		this.setOpaque(false);
+				
+		// 캐릭터 생성
+		JPanel chrPanel = new BattleChrPanel();
+		// 전투 메뉴 생성
+		JPanel menuPanel = new BattleMenuPanel();
+		// 몬스터 생성
+		JPanel monPanel = new BattleMonPanel();
+		
+		this.add(chrPanel);
+		this.add(menuPanel);
+		this.add(monPanel);
+		
+		mf.add(this);
 	}
+	
+	Image bg = new ImageIcon("images/battle_bg.png").getImage().getScaledInstance(800, 420, 0);
+	
 	@Override
 	public void paintComponent(Graphics g) {
 		g.drawImage(bg, 0, 0, getWidth(), getHeight(), this);
 	}
-
 }
