@@ -61,7 +61,7 @@ public class BossSkill extends JPanel{
 	mf.add(mainpanel); // 생성한 패널 프레임에 추가
 
 	
-	Image text1 = new ImageIcon("images/bossSkill.png").getImage().getScaledInstance(700, 180, 0);
+	Image text1 = new ImageIcon("images/bossSkill.gif").getImage().getScaledInstance(700, 180, 0);
 	textLabel = new JLabel(new ImageIcon(text1));
 	textLabel.setBounds(0, 251, 792, 143);
 	mainpanel.add(textLabel);
