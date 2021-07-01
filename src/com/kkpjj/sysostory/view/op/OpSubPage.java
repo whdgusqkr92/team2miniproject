@@ -10,16 +10,17 @@ import javax.swing.JPanel;
 
 public class OpSubPage extends JPanel {
 	
-	private OpMainFrame omf;
+	private JFrame mf;
 	private OpMainPage omp;
 	
-	public OpSubPage() {
+	public OpSubPage(JFrame mf) {
 //		this.setSize(300, 200);
 //		this.setBackground(Color.YELLOW);
+		this.mf = mf;
 		
 		JPanel panel1 = new JPanel();
 		panel1.setBounds(0, 0, 800, 600);
-		omf.getContentPane().add(panel1);
+		mf.getContentPane().add(panel1);
 		panel1.setLayout(null);
 		
 		Image bg = new ImageIcon("images/StartScreen2.png").getImage();
