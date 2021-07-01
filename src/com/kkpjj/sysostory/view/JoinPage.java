@@ -1,17 +1,21 @@
 package com.kkpjj.sysostory.view;
 
+import java.awt.Color;
+import java.awt.Font;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.HashMap;
+import java.util.Map;
 
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
-import java.awt.Color;
-import java.awt.Font;
-import javax.swing.JButton;
+
+import com.kkpjj.sysostory.controller.MemberController;
 
 public class JoinPage extends JFrame{
 
@@ -106,6 +110,19 @@ public class JoinPage extends JFrame{
 		btnNewButton.setFont(new Font("둥근모꼴", Font.PLAIN, 24));	/* 회원가입 버튼 */
 		btnNewButton.setBounds(250, 410, 130, 50);
 		mf.getContentPane().add(btnNewButton);
+		
+		MemberController memController = new MemberController();
+		btnNewButton.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				Map<String,String> joinMap = new HashMap<>();
+				joinMap.put("id", idText.getText());
+				joinMap.put("pwd", pwdText.getText());
+				joinMap.put("name", nameText.getText());
+				joinMap.put("email", emailText.getText());
+				memController.InputMember(joinMap);
+			}
+		});
 		
 		JButton backButton = new JButton("뒤로가기");				
 		backButton.setFont(new Font("둥근모꼴", Font.PLAIN, 24));		/* 뒤로가기 버튼 */

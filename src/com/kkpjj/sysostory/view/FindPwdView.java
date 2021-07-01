@@ -101,6 +101,7 @@ public class FindPwdView extends JFrame{
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				new StartScreen();
+				mf.setVisible(false);
 			}
 		});
 		
