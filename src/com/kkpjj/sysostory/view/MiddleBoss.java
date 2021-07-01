@@ -1,4 +1,4 @@
-package com.kkpjj.sysostory.koobongean;
+package com.kkpjj.sysostory.view;
 
 import java.awt.Font;
 import java.awt.Graphics;
@@ -15,23 +15,26 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 
-public class MiddleBoss extends JFrame{
+public class MiddleBoss extends JPanel{
 
 	private JFrame mf;
 	private JPanel mainpanel;
 	
+	private JLabel charaLabel;
+	private JLabel bossLabel;
 	private JLabel textLabel;
 	private JLabel textLabel2;
 	
 	private JButton btn;
 	private JButton btn2;
 	
-	public MiddleBoss() {
+	public MiddleBoss(JFrame mf) {
+		this.mf = mf;
 	//------------------------메인 프레임 생성---------------------------------	
-	mf = new JFrame();
-	mf.setTitle("sysoStory");
-	mf.setFont(new Font("둥근모꼴", Font.PLAIN, 16));
-	mf.setBounds(300, 75, 800, 600);
+//	mf = new JFrame();
+//	mf.setTitle("sysoStory");
+//	mf.setFont(new Font("둥근모꼴", Font.PLAIN, 16));
+//	mf.setBounds(300, 75, 800, 600);
 
 	
 	//--------------------------배경 필드 패널 만들기------------------------------	
@@ -47,7 +50,18 @@ public class MiddleBoss extends JFrame{
 	mainpanel.setLayout(null);
 	mf.add(mainpanel); // 생성한 패널 프레임에 추가
 
-	
+	//---------------------------주인공 얼굴------------------------------------
+	Image chara = new ImageIcon("images/주인공.png").getImage().getScaledInstance(700, 180, 0);
+	charaLabel = new JLabel(new ImageIcon(chara));
+	charaLabel.setBounds(0, 251, 792, 143);
+	mainpanel.add(charaLabel);
+//	textLabel2.setVisible(false);
+	//---------------------------보스 얼굴------------------------------------
+		Image bossface = new ImageIcon("images/bossface.png").getImage().getScaledInstance(700, 180, 0);
+		bossLabel = new JLabel(new ImageIcon(bossface));
+		bossLabel.setBounds(0, 251, 792, 143);
+		mainpanel.add(bossLabel);
+		bossLabel.setVisible(false);
 	//-------------------------대화 이미지1 출력------------------------------------------------	
 	Image text1 = new ImageIcon("images/text1.png").getImage().getScaledInstance(700, 180, 0);
 	textLabel = new JLabel(new ImageIcon(text1));
@@ -67,7 +81,7 @@ public class MiddleBoss extends JFrame{
 	
 	mf.setVisible(true); //계속 보임
 	mf.setResizable(false); //창변경 불가
-	mf.setDefaultCloseOperation(EXIT_ON_CLOSE); //닫으면 실행종료	
+//	mf.setDefaultCloseOperation(EXIT_ON_CLOSE); //닫으면 실행종료	
 
 	
 	
@@ -81,6 +95,8 @@ public class MiddleBoss extends JFrame{
 			
 			textLabel.setVisible(false);
 			textLabel2.setVisible(true);
+			charaLabel.setVisible(false);
+			bossLabel.setVisible(true);
 			}
 	}	
 	//----------배틀 전환---------------------------
@@ -94,8 +110,8 @@ public class MiddleBoss extends JFrame{
 //}
 
 //----------------------메인메소드-----------------	
-	public static void main(String[] args) {
-		new MiddleBoss();
-	}
+//	public static void main(String[] args) {
+//		new MiddleBoss();
+//	}
 }
 
