@@ -7,8 +7,11 @@ import javax.swing.JTextField;
 
 import com.kkpjj.sysostory.model.dto.MemberDTO;
 import com.kkpjj.sysostory.model.service.MemberService;
+import com.kkpjj.sysostory.view.AfterLogin;
 import com.kkpjj.sysostory.view.MemberResultView;
 import com.kkpjj.sysostory.view.StartScreen;
+
+import oracle.sql.CHAR;
 
 public class MemberController {
 	
@@ -23,6 +26,7 @@ public class MemberController {
 		this.memberService = new MemberService();
 		this.memberDTO = new MemberDTO();
 	}
+	
 	/* 회원가입 메소드 */
 	public void InputMember(Map<String, String> requestMap) {
 		
@@ -40,8 +44,24 @@ public class MemberController {
 		}
 	}
 	
-	public void Login(JTextField idTxet, JPasswordField pwdText) {
+	public int Login(JTextField idText, JPasswordField pwdText) {
+		String pwdString = new String(pwdText.getPassword());
 		
+		memberDTO.setUserId(idText.getText());
+		memberDTO.setUserPwd(pwdString);
 		
+		int result = memberService.loginMember(memberDTO);
+		
+		if(result > 0) {
+			memberResultView.loginSuccess();
+			new AfterLogin();
+			
+			return 1;
+		} else {
+			memberResultView.loginfail();
+			
+			return 0;
+		}
 	}
 }
+

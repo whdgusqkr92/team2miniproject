@@ -5,6 +5,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -30,7 +31,7 @@ public class JDBCTemplate {
 			con = DriverManager.getConnection(url, prop);
 
 
-			con.setAutoCommit(false);
+			con.setAutoCommit(true);
 
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
@@ -89,20 +90,12 @@ public class JDBCTemplate {
 	public static void rollback(Connection con) {
 		try {
 			if(con != null && !con.isClosed()) {
+
+
+
 				con.rollback();			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} 
 	}
-			
-	public static void close(PreparedStatement pstmt) {
-		try {
-			if(pstmt != null && pstmt.isClosed()) {
-				pstmt.close();
 
-			}
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-	}
-}

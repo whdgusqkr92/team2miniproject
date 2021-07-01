@@ -22,9 +22,20 @@ public class MemberService {
 		
 		int memberResult = memberDAO.insertMember(con, member);
 		
-//		close(con);
+		close(con);
 				
 		return memberResult;
 	}
 
+	public int loginMember(MemberDTO member) {
+		
+		Connection con = getConnection();
+		
+		int memberResult = memberDAO.loginMember(con, member);
+		
+		close(con);
+				
+		return memberResult;
+	}
+	
 }
