@@ -4,6 +4,7 @@ package com.kkpjj.sysostory.view;
 import javax.swing.JFrame;
 
 import com.kkpjj.sysostory.test.RpgGame;
+import com.kkpjj.sysostory.view.op.OpMainPage;
 
 public class MainFrame extends JFrame {
 
@@ -13,24 +14,15 @@ public class MainFrame extends JFrame {
 		
 		mf = new JFrame();
 
-		mf.setSize(805, 620);
+		mf.setSize(800, 600);
 		mf.setLayout(null);
 		mf.setTitle("sysoStory");
 
 
-		new BossDieText(mf);
-		
-
-
-
-
-		new CharacterView(mf);
-
-		
-
-
-
-		new FieldCharacterBattle(mf);
+//		new BossDieText(mf);
+//		new CharacterView(mf);
+//		new FieldCharacterBattle(mf);
+		new OpMainPage(mf);
 		
 
 

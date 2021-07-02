@@ -16,15 +16,13 @@ import com.kkpjj.sysostory.view.ViewUtil;
 public class OpMainPage extends JPanel {
 	
 	private JFrame mf;
-	private OpMainPage omp;
+	private JPanel panel1;
 	
 	public OpMainPage(JFrame mf) {
 		this.mf = mf;
-		this.omp = this;	
+//		this.omp = this;	
 		
-		this.addMouseListener(new MyMouseAdapter());
-		
-		JPanel panel1 = new JPanel();
+		panel1 = new JPanel();
 		panel1.setBounds(0, 0, 800, 600);
 		mf.getContentPane().add(panel1);
 		panel1.setLayout(null);
@@ -39,13 +37,15 @@ public class OpMainPage extends JPanel {
 		
 		mf.add(this);
 		
+		panel1.addMouseListener(new MyMouseAdapter());
+		
 	}
 	
 	private class MyMouseAdapter extends MouseAdapter {
 		
 		@Override
 		public void mouseClicked(MouseEvent e) {
-			 ViewUtil.changePanel(mf, omp, new OpSubPage(mf));
+			 ViewUtil.changePanel(mf, panel1, new OpSubPage(mf));
 		}
 	}
 
