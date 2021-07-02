@@ -10,6 +10,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
@@ -63,7 +64,13 @@ public class NickName extends JFrame{
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				if(nicknameText.getText().length() > 0) {
-					int nickname = loginController.createNickname(nicknameText);
+					int result = loginController.createNickname(nicknameText);
+						
+					if(result > 0) {
+						mf.setVisible(false);
+					} else {
+//						infoBox("중복된 닉네임으로 사용이 불가능합니다.", "중복검사");
+					}
 				}
 			}
 		});
@@ -74,5 +81,9 @@ public class NickName extends JFrame{
 		mf.setResizable(false);
 		mf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
+	}
+	/* 경고 다이얼로그 팝업 */
+	public static void infoBox(String infoMessage, String titleBar){
+		JOptionPane.showMessageDialog(null, infoMessage, /*"InfoBox: " +*/ titleBar, JOptionPane.INFORMATION_MESSAGE);
 	}
 }
