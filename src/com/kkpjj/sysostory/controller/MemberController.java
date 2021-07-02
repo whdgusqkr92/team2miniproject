@@ -15,7 +15,6 @@ public class MemberController {
 	
 	private MemberResultView memberResultView;
 	private MemberService memberService;
-	private StartScreen startScreen;
 	MemberDTO memberDTO = null;
 	
 	

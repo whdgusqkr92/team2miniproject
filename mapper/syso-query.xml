@@ -4,7 +4,9 @@
 <comment/>
 	<entry key="selectStory">
 	SELECT
+		
 		CHAP_SCRIPT
+		
 		FROM TBL_STORY_LIST
 		WHERE STORY_CODE = ?
 	</entry>

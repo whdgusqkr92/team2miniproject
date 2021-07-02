@@ -19,8 +19,10 @@ public class MainFrame extends JFrame {
 
 
 //		new BossDieText(mf);
-		
 
+
+//		new BossDieText(mf).CharaDie();
+		new MiddleBoss(mf);
 
 
 

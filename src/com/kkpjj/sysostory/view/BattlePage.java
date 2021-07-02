@@ -14,6 +14,7 @@ public class BattlePage extends JPanel {
 	private JPanel monPanel;
 	private JPanel menuPanel;
 	
+	
 	public BattlePage(JFrame mf) {
 		// 전투화면 패널 생성, 배경 추가, 레이아웃 설정
 		this.mf = mf;
@@ -48,6 +49,9 @@ public class BattlePage extends JPanel {
 		this.add(monPanel);
 	}
 	
+	
+	
+	
 	// 배경화면 추가
 	Image bg = new ImageIcon("images/battle_bg.png").getImage().getScaledInstance(800, 420, 0);
 	
@@ -56,3 +60,6 @@ public class BattlePage extends JPanel {
 		g.drawImage(bg, 0, 0, getWidth(), getHeight(), this);
 	}
 }
+
+	
+
