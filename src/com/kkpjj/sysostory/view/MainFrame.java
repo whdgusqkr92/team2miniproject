@@ -18,19 +18,21 @@ public class MainFrame extends JFrame {
 		mf.setTitle("sysoStory");
 
 
-		new BossDieText(mf);
+//		new BossDieText(mf);
+			
+
+//		new BossDieText(mf).CharaDie();
+		new MiddleBoss(mf);
+
+
+
+//		new CharacterView(mf);
+
 		
 
 
 
-
-		new CharacterView(mf);
-
-		
-
-
-
-		new FieldCharacterBattle(mf);
+//		new FieldCharacterBattle(mf);
 		
 
 
