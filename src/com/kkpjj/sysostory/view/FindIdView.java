@@ -87,7 +87,7 @@ public class FindIdView extends JFrame{
 					if(resultId.length() > 0) {
 						infoBox("회원님의 아이디는 '" + resultId + "' 입니다.","아이디 찾기 결과");
 					} else {
-						infoBox("이름과 이메일을 확인해주세요", "message");						
+						infoBox("이름과 이메일을 확인해주세요", "아이디 찾기 결과");						
 					}
 				}
 			}
