@@ -34,6 +34,8 @@ public class BossTurn extends JPanel{
 	Image field = new ImageIcon("Images/field.png").getImage().getScaledInstance(800, 200, 0);
 		
 	mainpanel = new JPanel() {
+		
+		
 		public void paintComponent(Graphics g) {
 			
 			g.drawImage(field,0,0,800,420,this);
@@ -45,13 +47,16 @@ public class BossTurn extends JPanel{
 	mf.add(mainpanel); // 생성한 패널 프레임에 추가
 
 	
-	Image skill = new ImageIcon("images/bossSkill2.gif").getImage().getScaledInstance(650, 350, 0);
-	skillLabel = new JLabel(new ImageIcon(skill));
-	skillLabel.setBounds(0, 100, 800, 300);
-	mainpanel.add(skillLabel);
-	skillLabel.setVisible(true);
 	
 	
+//	Image skill = new ImageIcon("images/bossSkill2.gif").getImage().getScaledInstance(650, 350, 0);
+//	skillLabel = new JLabel(new ImageIcon(skill));
+//	skillLabel.setBounds(0, 100, 800, 350);
+//	mainpanel.add(skillLabel);
+//	skillLabel.setVisible(true);
+	
+//	DieText bd = new DieText(mf, mainpanel);
+//	bd.CharaDie();
 	
 }
 	public void FinalBossSkill() {

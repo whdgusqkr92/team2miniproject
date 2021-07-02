@@ -17,7 +17,7 @@ import javax.swing.JPanel;
 import com.kkpjj.sysostory.model.dto.CharaDTO;
 import com.kkpjj.sysostory.model.dto.MonsterDTO;
 
-public class BossDieText extends JPanel {
+public class DieText extends JPanel {
 	
 	private JFrame mf;
 	private JPanel mainpanel;
@@ -25,51 +25,39 @@ public class BossDieText extends JPanel {
 	private JLabel textLabel;
 	private JLabel textLabel2;
 	private JButton btn;
-//	private StoryList code;
 	
-	public BossDieText(JFrame mf, JPanel mainpanel) {
+	public DieText(JFrame mf, JPanel mainpanel) {
 	
 		
 		this.mf = mf;
 		this.mainpanel = mainpanel ;
 		
 	}
-
-
-
 			public void CharaDie() {
 				
+				Image GameOver = new ImageIcon("images/text/GameOver.png").getImage().getScaledInstance(400, 200, 0);
+				textLabel2 = new JLabel(new ImageIcon(GameOver));
+				textLabel2.setBounds(200, 0, 400, 200);
+				mainpanel.add(textLabel2);
 				
-				btn = new JButton("YOU DIE");
-				btn.setBounds(300, 80, 150, 150);
-				mainpanel.add(btn);
 				
-				Image chrDieText = new ImageIcon("images/chrDieText.png").getImage().getScaledInstance(650, 250, 0);
+				
+				Image chrDieText = new ImageIcon("images/text/chrDieText.png").getImage().getScaledInstance(650, 180, 0);
 				textLabel = new JLabel(new ImageIcon(chrDieText));
 				textLabel.setBounds(0, 251, 792, 143);
 				mainpanel.add(textLabel);
 				
-				btn.addMouseListener(new BattleActionListener());
-
-				btn.setVisible(true);
-			
+				textLabel2.addMouseListener(new BattleActionListener());
 			}
 				
-		
-//			Image bossDieText = new ImageIcon("images/bossDieText.png").getImage().getScaledInstance(680, 200, 0);
-//			textLabel2 = new JLabel(new ImageIcon(bossDieText));
-//			textLabel2.setBounds(0, 251, 792, 143);
-//			mainpanel.add(textLabel2);
 			private class BattleActionListener extends MouseAdapter {
-				
 				public BattleActionListener() {
-		// TODO Auto-generated constructor stub
 	}
 
 				@Override
 				public void mouseClicked(MouseEvent e) {
 					
-					ViewUtil.changePanel(mf, mainpanel, new BossTurn(mf));
+					ViewUtil.changePanel(mf, mainpanel, new MiddleBoss(mf));
 				
 						}
 					}
