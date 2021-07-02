@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<comment/>
+	<entry key="insertNickname">
+	INSERT
+	  INTO TBL_CHR_INFO
+	       (
+	       CHR_CODE, USER_NO, CHR_NAME, CHR_HP, CHR_MP
+	     , CHR_EXP, CHR_LEVEL, CHR_GOLD, MAX_HP, MAX_MP
+	     , MAX_EXP, CHR_ATT, CHR_DEF, EQUIP_TITLE, EQUIP_WEAPON
+	     , EQUIP_ARMOR
+	       )
+	       VALUES
+	       (
+	       SEQ_CHR_CODE.NEXTVAL, SEQ_USER_NO.NEXTVAL, ?, 100, 100
+	     , 0, 1, 0, 100, 100
+	     , 100, 10, 10, NULL, '단검'
+	     , '갑옷'
+	       )
+	</entry>
+</properties>

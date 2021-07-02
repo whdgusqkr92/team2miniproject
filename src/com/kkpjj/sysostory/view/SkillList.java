@@ -113,7 +113,7 @@ public class SkillList extends JPanel {
 			
 				skilExPanel.add(skilexLabel);
 				skilExLabel1.setText("정권 : 주먹으로 가격하는 정통파 공격기술로 그만큼 안정감이 좋다 ");						//택스트 넘어가짐
-//				skilExPanel.add(skilExLabel1);
+				skilExPanel.add(skilExLabel1);
 //				
 
 			}
@@ -125,7 +125,7 @@ public class SkillList extends JPanel {
 		btnNewButton1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-				skilExPanel.add(skilexLabel);
+//				skilExPanel.add(skilexLabel);
 				skilExLabel1.setText("할퀴기 : 대상으로 지목된 적에게 얼굴을 할퀴어 공격합니다.");	
 			}
 		});
@@ -136,7 +136,7 @@ public class SkillList extends JPanel {
 		btnNewButton2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-				skilExPanel.add(skilexLabel);
+//				skilExPanel.add(skilexLabel);
 				skilExLabel1.setText("돌려차기 : 파워를 중시하는 동작 큰 차기공격 틈이 많은게 흠");
 			}
 		});

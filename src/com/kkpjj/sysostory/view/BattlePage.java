@@ -49,9 +49,6 @@ public class BattlePage extends JPanel {
 		this.add(monPanel);
 	}
 	
-	
-	
-	
 	// 배경화면 추가
 	Image bg = new ImageIcon("images/battle_bg.png").getImage().getScaledInstance(800, 420, 0);
 	

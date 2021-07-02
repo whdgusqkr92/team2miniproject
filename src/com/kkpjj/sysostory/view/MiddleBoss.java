@@ -47,24 +47,24 @@ public class MiddleBoss extends JPanel{
 	mf.add(mainpanel); // 생성한 패널 프레임에 추가
 
 	//---------------------------주인공 얼굴------------------------------------
-	Image chara = new ImageIcon("images/주인공.png").getImage().getScaledInstance(100, 100, 0);
+	Image chara = new ImageIcon("images/text/주인공.png").getImage().getScaledInstance(100, 100, 0);
 	charaLabel = new JLabel(new ImageIcon(chara));
 	charaLabel.setBounds(0, 120, 150, 143);
 	mainpanel.add(charaLabel);
 //	textLabel2.setVisible(false);
 	//---------------------------보스 얼굴------------------------------------
-		Image bossface = new ImageIcon("images/Bossface_M.png").getImage().getScaledInstance(200, 180, 0);
+		Image bossface = new ImageIcon("images/text/Bossface_M.png").getImage().getScaledInstance(200, 180, 0);
 		bossLabel = new JLabel(new ImageIcon(bossface));
 		bossLabel.setBounds(650, 110, 150, 143);
 		mainpanel.add(bossLabel);
 		bossLabel.setVisible(false);
 	//-------------------------대화 이미지1 출력------------------------------------------------	
-	Image text1 = new ImageIcon("images/text1.png").getImage().getScaledInstance(700, 180, 0);
+	Image text1 = new ImageIcon("images/text/text1.png").getImage().getScaledInstance(700, 180, 0);
 	textLabel = new JLabel(new ImageIcon(text1));
 	textLabel.setBounds(0, 251, 792, 143);
 	mainpanel.add(textLabel);
 	//-------------------------대화 이미지 2출력--------------------------------------------------
-	Image text2 = new ImageIcon("images/text2.png").getImage().getScaledInstance(700, 180, 0);
+	Image text2 = new ImageIcon("images/text/text2.png").getImage().getScaledInstance(700, 180, 0);
 	textLabel2 = new JLabel(new ImageIcon(text2));
 	textLabel2.setBounds(0, 251, 792, 143);
 	mainpanel.add(textLabel2);
@@ -74,8 +74,6 @@ public class MiddleBoss extends JPanel{
 	
 	textLabel.addMouseListener(new OneActionListener());
 	mainpanel.addMouseListener(new BattleActionListener());	
-	
-	
 	
 	}
 	//---------------------------------------------------------
@@ -88,6 +86,7 @@ public class MiddleBoss extends JPanel{
 			textLabel2.setVisible(true);
 			charaLabel.setVisible(false);
 			bossLabel.setVisible(true);
+			
 			}
 	}	
 	private class BattleActionListener extends MouseAdapter {
@@ -95,7 +94,7 @@ public class MiddleBoss extends JPanel{
 		@Override
 		public void mouseClicked(MouseEvent e) {
 			
-			ViewUtil.changePanel(mf, mainpanel, new FinalBoss(mf));
+			ViewUtil.changePanel(mf, mainpanel, new BossTurn(mf));
 			
 			
 			}
