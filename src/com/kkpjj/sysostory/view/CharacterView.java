@@ -19,7 +19,7 @@ import java.awt.FlowLayout;
 import java.awt.BorderLayout;
 import javax.swing.JTextArea;
 
-public class CharacterView extends JFrame{
+public class CharacterView extends JPanel {
 	
 	private JFrame mf;
 	private JPanel statusPanel;
@@ -32,6 +32,7 @@ public class CharacterView extends JFrame{
 	private ImageIcon exit = null;
 	
 	public CharacterView(JFrame mf) {
+		
 		this.mf = mf;
 		
 		statusPanel = new JPanel();
@@ -131,11 +132,8 @@ public class CharacterView extends JFrame{
 		mf.add(panel2);
 		mf.add(panel4);
 		mf.add(panel3);
-		mf.setVisible(true);
-		mf.setResizable(false);
-		mf.setDefaultCloseOperation(EXIT_ON_CLOSE);
-		
-	
+//		mf.setVisible(true);
+//		mf.setResizable(false);
 	}
 
 }

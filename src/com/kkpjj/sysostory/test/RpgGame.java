@@ -2,24 +2,21 @@ package com.kkpjj.sysostory.test;
 
 import java.awt.*;
 import javax.swing.*;
+
+import com.kkpjj.sysostory.view.StatusPanel;
+import com.kkpjj.sysostory.view.VillageView;
+
 import java.awt.event.*;
 
-public class RpgGame {
-	public static void main(String[] args) {
-		new RpgGame_frame();
-		
-		
-	}
-}
-
-class RpgGame_frame extends JFrame implements Runnable, KeyListener {
+public class RpgGame extends JPanel implements Runnable, KeyListener {
+	
 	boolean keyUp = false;
 	boolean keyDown = false;
 	boolean keyLeft = false;
 	boolean keyRight = false;
 	boolean playerMove = false;
 	Toolkit tk = Toolkit.getDefaultToolkit();
-	
+
 	Image img = new ImageIcon("images/2jo.PNG").getImage(); // 이미지를 불러옵니다.
 	Image buffimg;// 더블버퍼링용 입니다.
 	Graphics gc;
@@ -28,34 +25,39 @@ class RpgGame_frame extends JFrame implements Runnable, KeyListener {
 	int cnt; // 무한 루프를 카운터 하기 위한 변수
 	int moveStatus; // 케릭터가 어디를 바라보는지 방향을 받을 변수
 
-	public RpgGame_frame() {
+	private JFrame mf;
+
+	public RpgGame(JFrame mf) {
+		
+		this.mf = mf;
+		
+
 		
 		setSize(800, 600);
+
 		init();
 		start();
 		
-		Dimension screen = tk.getScreenSize();
-		int xpos = (int) (screen.getWidth() / 2 - getWidth() / 2);
-		int ypos = (int) (screen.getHeight() / 2 - getHeight() / 2);
+//		Dimension screen = tk.getScreenSize();
+//		int xpos = (int) (screen.getWidth() / 2 - getWidth() / 2);
+//		int ypos = (int) (screen.getHeight() / 2 - getHeight() / 2);
+//
+//		setLocation(xpos, ypos);
 
-		setLocation(xpos, ypos);
-		setResizable(false);
-		setVisible(true);
-		setDefaultCloseOperation(EXIT_ON_CLOSE);
 	}
 
 	public void init() {
-		x = 300;
-		y = 300;
+		x = 250;
+		y = 250;
 		moveStatus = 3;
 		// 케릭터가 시작할때 바라보는 방향은 아래쪽입니다.
 		// 0 : 위쪽, 1 : 오른쪽, 2 : 왼쪽, 3 : 아래쪽
 	}
 
 	public void start() { // 기본적인 명령처리
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+//		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.addKeyListener(this);
-		th = new Thread(this);
+		th = new Thread();
 		th.start();
 	}
 
@@ -81,19 +83,22 @@ class RpgGame_frame extends JFrame implements Runnable, KeyListener {
 		// 더블 버퍼링을 이용해 버퍼에 그려진것을 가져옵니다.
 		DrawImg();
 		g.drawImage(buffimg, 0, 0, this);
+		new StatusPanel(mf);
+
 	}
 
 	public void DrawImg() {
-		// gc.setFont(new Font("Default", Font.BOLD, 20));
-		// gc.drawString(Integer.toString(cnt), 50, 50);
-		// gc.drawString(Integer.toString((playerMove) ? 1 : 0), 200, 50);
+//		 gc.setFont(new Font("Default", Font.BOLD, 20));
+//		 gc.drawString(Integer.toString(cnt), 50, 50);
+//		 gc.drawString(Integer.toString((playerMove) ? 1 : 0), 200, 50);
 		// 위는 단순히 무한루프 적용여부와 케릭터 방향 체크를 위해
 		// 눈으로 보면서 테스트할 용도로 쓰이는 텍스트 표출입니다.
 
 		MoveImage(img, x, y, 90, 78);
 		// 케릭터를 걸어가게 만들기 위해 추가로 만든 메소드 입니다.
 	}
-
+	
+	// 0 : 위쪽, 1 : 오른쪽, 2 : 왼쪽, 3 : 아래쪽
 	public void MoveImage(Image img, int x, int y, int width, int height) {
 		// 케릭터 이미지, 케릭터 위치, 케릭터 크기를 받습니다.
 		// 받은 값을 이용해서 위의 이미지칩셋에서 케릭터를 잘라내
@@ -103,16 +108,16 @@ class RpgGame_frame extends JFrame implements Runnable, KeyListener {
 		// 현재 좌표에서 케릭터의 크기 만큼 이미지를 잘라 그립니다.
 
 		if (playerMove) { // 케릭터의 움직임 여부를 판단합니다.
-			if (cnt / 10 % 4 == 0) {
+			if ((cnt / 10 % 4 == 0) && y > 0) {
 				gc.drawImage(img, x - (width * 0), y - (height * moveStatus), this);
 
-			} else if (cnt / 10 % 4 == 1) {
+			} else if ((cnt / 10 % 4 == 1) && x < 750) {
 				gc.drawImage(img, x - (width * 1), y - (height * moveStatus), this);
 
-			} else if (cnt / 10 % 4 == 2) {
+			} else if ((cnt / 10 % 4 == 2) && y < 400) {
 				gc.drawImage(img, x - (width * 2), y - (height * moveStatus), this);
 
-			} else if (cnt / 10 % 4 == 3) {
+			} else if ((cnt / 10 % 4 == 3) && x > 0) {
 				gc.drawImage(img, x - (width * 1), y - (height * moveStatus), this);
 			}
 			// 케릭터의 방향에 따라 걸어가는 모션을 취하는
@@ -154,6 +159,7 @@ class RpgGame_frame extends JFrame implements Runnable, KeyListener {
 			moveStatus = 1;
 			playerMove = true;
 		}
+		
 	}
 
 	public void keyPressed(KeyEvent e) {
@@ -172,6 +178,7 @@ class RpgGame_frame extends JFrame implements Runnable, KeyListener {
 			keyDown = true;
 			break;
 		}
+		
 	}
 
 	public void keyReleased(KeyEvent e) {
@@ -189,11 +196,11 @@ class RpgGame_frame extends JFrame implements Runnable, KeyListener {
 			keyDown = false;
 			break;
 		}
+		
 	}
 
 	@Override
 	public void keyTyped(KeyEvent e) {
-		
+
 	}
-	
 }

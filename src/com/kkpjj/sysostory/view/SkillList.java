@@ -13,26 +13,30 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
 public class SkillList extends JPanel {
+
+											
+
+	
+	//따로 클래스 만들어서 상속 받아도 될듯?
+				//  다 뜯어 고치자 집가서!!		
+
 																	//따로 클래스 만들어서 상속 받아도 될듯?
-	private JPanel SkillListPanel;					//  다 뜯어 고치자 집가서!!		
+	private JPanel SkillListPanel;					
+
 	private JPanel skilUpPanel;
 	private JPanel skilListPanel;
 	private JPanel skilExPanel;
 	private JLabel skilExLabel1;
+	private JFrame mf;
 		
-	
-	
 
-
-
-	public SkillList() {
+	public SkillList(JFrame mf) {
 		
-		 MainFrame mf = new  MainFrame();
+		this.mf = mf;
 
-//		mf = new JFrame();							//메인 프레임
-//		mf.setSize(800, 600);						//메인 프레임 사이즈
-//		mf.getContentPane().setLayout(null);		//
-//		mf.setTitle("sysoStory");					//메인 프레임 타이틀 이름
+//		MainFrame mf = new  MainFrame();
+
+
 
 		SkillListPanel = new MainPanel();								//메인 패널  밑에 인터페이스 패널 빼고
 		SkillListPanel.setBounds(0, 0, 800, 600);						//메인 패널 사이즈
@@ -55,11 +59,6 @@ public class SkillList extends JPanel {
 		skilexLabel.setBounds(0, 0, 700, 100);
 		skilExPanel.add(skilexLabel);
 		
-		
-		
-		
-		
-	
 		
 		
 		

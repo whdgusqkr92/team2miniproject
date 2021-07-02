@@ -24,7 +24,7 @@ public class BattleSubMenu extends JPanel {
 	private String subMenu3;
 	private String subMenu4;
 
-	public BattleSubMenu(BattleMenuPanel battleMenuPanel, String attackType) {
+	public BattleSubMenu() {
 		this.subMenuPanel = new JPanel();
 		subMenuPanel.setBounds(24, 60, 170, 155);
 		subMenuPanel.setLayout(null);
@@ -56,16 +56,9 @@ public class BattleSubMenu extends JPanel {
 		button4.setBackground(Color.BLACK);
 		button4.setFont(font);
 
-		subMenuPanel.add(button1);
-		subMenuPanel.add(button2);
-		subMenuPanel.add(button3);
-		subMenuPanel.add(button4);
-
-		battleMenuPanel.add(subMenuPanel);
-
 	}
 
-	public void selectSubMenu(String attackType) {
+	public JPanel selectSubMenu(String attackType) {
 		switch(attackType) {
 			case "normal" : attackSubMenu(); break;
 			case "skill" : skillSubMenu(); break;
@@ -73,6 +66,7 @@ public class BattleSubMenu extends JPanel {
 			case "run" : runSubMenu(); break;
 			default : System.out.println("알 수 없는 오류가 발생했습니다.");
 		}
+		return null;
 	}
 
 	public void attackSubMenu() {
@@ -81,6 +75,11 @@ public class BattleSubMenu extends JPanel {
 		this.subMenu2 = "기본 공격2";
 		this.subMenu3 = "기본 공격3";
 		this.subMenu4 = "기본 공격4";
+		
+		subMenuPanel.add(button1);
+//		subMenuPanel.add(button2);
+//		subMenuPanel.add(button3);
+//		subMenuPanel.add(button4);
 
 		this.button1.setText(subMenu1);
 		this.button2.setText(subMenu2);
@@ -99,7 +98,12 @@ public class BattleSubMenu extends JPanel {
 		this.subMenu2 = "스킬 공격2";
 		this.subMenu3 = "스킬 공격3";
 		this.subMenu4 = "스킬 공격4";
-		System.out.println(subMenu2);
+		
+		subMenuPanel.add(button1);
+		subMenuPanel.add(button2);
+		subMenuPanel.add(button3);
+		subMenuPanel.add(button4);
+
 		this.button1.setText(subMenu1);
 		this.button2.setText(subMenu2);
 		this.button3.setText(subMenu3);
@@ -117,9 +121,8 @@ public class BattleSubMenu extends JPanel {
 		this.subMenu1 = "아이템사용";
 
 		this.button1.setText(subMenu1);
-		this.button2.setVisible(false);
-		this.button3.setVisible(false);
-		this.button4.setVisible(false);
+
+		subMenuPanel.add(button1);
 
 		button1.addActionListener(new attackAction(subMenu1));
 
@@ -130,9 +133,8 @@ public class BattleSubMenu extends JPanel {
 		this.subMenu1 = "도망가기";
 
 		this.button1.setText(subMenu1);
-		this.button2.setVisible(false);
-		this.button3.setVisible(false);
-		this.button4.setVisible(false);
+		
+		subMenuPanel.add(button1);
 
 		button1.addActionListener(new attackAction(subMenu1));
 
@@ -151,7 +153,5 @@ class attackAction implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 
 		System.out.println(attackName);
-		BattleController bc = new BattleController();
-		bc.characterAttack(attackName);
 	}	
 }

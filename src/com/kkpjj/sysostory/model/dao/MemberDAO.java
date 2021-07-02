@@ -93,17 +93,13 @@ public class MemberDAO {
 		return result;
 	}
 
-	public int FindIdMember(Connection con, MemberDTO member) {
-
+	public String FindIdMember(Connection con, MemberDTO member) {	
 		PreparedStatement pstmt = null;
-		
 		ResultSet rset = null;
 		
-		List<MemberDTO> userId = null;
-		
 		String query = prop.getProperty("FindIdMember");
-		
-		
+		String resultId = "";
+
 		try {
 			pstmt = con.prepareStatement(query);
 			pstmt.setString(1, member.getUserName());
@@ -111,22 +107,50 @@ public class MemberDAO {
 			
 			rset = pstmt.executeQuery();
 			
-			userId = new ArrayList<>();
-			
-			while(rset.next()) { 
-			MemberDTO memberId = new MemberDTO();
-			memberId.setUserId(rset.getString("id")); 
-			userId.add(memberId); 
+			while(rset.next()) {
+				resultId = rset.getString("USER_ID");
 			}
 
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+
+		}
+
+		return resultId;
+	}
+
+	public String FindPwdMember(Connection con, MemberDTO memberDTO) {
+		
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		
+		String resultPwd = "";;
+		
+		String query = prop.getProperty("FindPwdMember");
+		
+		try {
+			pstmt = con.prepareStatement(query);
+			pstmt.setString(1, memberDTO.getUserId());
+			pstmt.setString(2, memberDTO.getUserName());
+			pstmt.setString(3, memberDTO.getEmail());
+			
+			rset = pstmt.executeQuery();
+			
+			while(rset.next()) {
+				resultPwd = rset.getString("USER_PWD");
+			}
 			
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
+			close(rset);
 			close(pstmt);
 		}
-
-		return 0;
+		
+		return resultPwd;
 	}
 }
 
