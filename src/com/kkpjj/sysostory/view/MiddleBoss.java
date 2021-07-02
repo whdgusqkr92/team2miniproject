@@ -74,7 +74,9 @@ public class MiddleBoss extends JPanel{
 	
 	textLabel.addMouseListener(new OneActionListener());
 	mainpanel.addMouseListener(new BattleActionListener());	
-
+	
+	
+	
 	}
 	//---------------------------------------------------------
 	private class OneActionListener extends MouseAdapter {
@@ -93,8 +95,10 @@ public class MiddleBoss extends JPanel{
 		@Override
 		public void mouseClicked(MouseEvent e) {
 			
-			ViewUtil.changePanel(mf, mainpanel, new BattlePage(mf));
+			ViewUtil.changePanel(mf, mainpanel, new FinalBoss(mf));
+			
 			
 			}
 		}
 }
+
