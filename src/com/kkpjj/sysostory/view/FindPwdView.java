@@ -10,6 +10,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
@@ -103,7 +104,12 @@ public class FindPwdView extends JFrame{
 			public void actionPerformed(ActionEvent e) {
 				if(idText.getText().length() > 0 && nameText.getText().length() > 0 && emailText.getText().length() > 0) {
 					String resultPwd = memberController.FindPwd(idText, nameText, emailText);
-
+					
+					if(resultPwd.length() > 0) {
+						infoBox("회원님의 비밀번호는 '" + resultPwd + "' 입니다.","비밀번호 찾기 결과");
+					} else {
+						infoBox("이름과 이메일을 확인해주세요", "message");						
+					}
 				}
 				
 			}
@@ -131,6 +137,9 @@ public class FindPwdView extends JFrame{
 		mf.setResizable(false);
 		mf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
+	}
+	public static void infoBox(String infoMessage, String titleBar){
+		JOptionPane.showMessageDialog(null, infoMessage, /*"InfoBox: " +*/ titleBar, JOptionPane.INFORMATION_MESSAGE);
 	}
 
 }
