@@ -16,8 +16,10 @@ import javax.swing.border.LineBorder;
 import com.kkpjj.sysostory.controller.BattleController;
 
 // 몬스터 레이아웃 설정, 위치 설정
-public class BattleMonPanel extends JPanel {
+public class BattleMon extends JPanel {
 
+	private String monImgAddress1;
+	private String monImgAddress2;
 	private JPanel firstMon;
 	private JPanel secondMon;
 	private JPanel thirdMon;
@@ -27,77 +29,77 @@ public class BattleMonPanel extends JPanel {
 	protected JButton selectThirdMon;
 	protected JButton selectFourthMon;
 
-	public BattleMonPanel() {
-		this.setBounds(550, 60, 200, 300);
-		this.setLayout(null);
-		this.setOpaque(false);
+	public BattleMon() {
 		
+		init();
+		
+		// 전투에 등장할 몬스터 선택
 		Map<String, String> monList = new HashMap<>();
 		monList.put("빨간슬라임", "images/mon_red_slime.png");
 		monList.put("노란슬라임", "images/mon_yellow_slime.png");
+		// 몬스터 정보 호출
+		this.monImgAddress1 = monList.get("빨간슬라임");
+		this.monImgAddress2 = monList.get("노란슬라임");
 		
-		String monImgAddress1 = monList.get("빨간슬라임");
-		String monImgAddress2 = monList.get("노란슬라임");
-		
-		firstMon = new Monster(monImgAddress1);
+		createMonster();
+	}
+
+	private void init() {
+		this.setBounds(550, 60, 200, 300);
+		this.setLayout(null);
+		this.setOpaque(false);
+	}
+	
+	private void createMonster() {
+		// 몬스터 생성
+		this.firstMon = new Monster(monImgAddress1);
 		firstMon.setBounds(0, 0, 64, 28);
-		secondMon = new Monster(monImgAddress2);
+		this.secondMon = new Monster(monImgAddress2);
 		secondMon.setBounds(25, 84, 64, 28);
-		thirdMon = new Monster(monImgAddress1);
+		this.thirdMon = new Monster(monImgAddress1);
 		thirdMon.setBounds(25, 168, 64, 28);
-		fourthMon = new Monster(monImgAddress2);
+		this.fourthMon = new Monster(monImgAddress2);
 		fourthMon.setBounds(0, 252, 64, 28);
-
-		selectFirstMon = new JButton();
+		// 몬스터 선택 버튼 생성
+		this.selectFirstMon = new JButton();
 		selectFirstMon.setBounds(firstMon.getBounds());
-		selectSecondMon = new JButton();
+		selectFirstMon.setBorderPainted(false);
+		selectFirstMon.setContentAreaFilled(false);
+		this.selectSecondMon = new JButton();
 		selectSecondMon.setBounds(secondMon.getBounds());
-		selectThirdMon = new JButton();
+		selectSecondMon.setBorderPainted(false);
+		selectSecondMon.setContentAreaFilled(false);
+		this.selectThirdMon = new JButton();
 		selectThirdMon.setBounds(thirdMon.getBounds());
-		selectFourthMon = new JButton();
+		selectThirdMon.setBorderPainted(false);
+		selectThirdMon.setContentAreaFilled(false);
+		this.selectFourthMon = new JButton();
 		selectFourthMon.setBounds(fourthMon.getBounds());
+		selectFourthMon.setBorderPainted(false);
+		selectFourthMon.setContentAreaFilled(false);
+		
+		addMonster();
+	}
 
+	private void addMonster() {
 		this.add(firstMon);
 		this.add(secondMon);
 		this.add(thirdMon);
 		this.add(fourthMon);
+		
+		this.add(selectFirstMon);
+		this.add(selectSecondMon);
+		this.add(selectThirdMon);
+		this.add(selectFourthMon);
 	}
-	
-
-//	public void attackAction(String attackType, String attackName) {
-//		
-//		selectFirstMon.addMouseListener(new MyMouseListener(attackType, attackName, selectFirstMon, 1));
-//		selectSecondMon.addMouseListener(new MyMouseListener(attackType, attackName, selectSecondMon, 2));
-//		selectThirdMon.addMouseListener(new MyMouseListener(attackType, attackName, selectThirdMon, 3));
-//		selectFourthMon.addMouseListener(new MyMouseListener(attackType, attackName, selectFourthMon, 4));
-//
-//		this.add(selectFirstMon);
-//		this.add(selectSecondMon);
-//		this.add(selectThirdMon);
-//		this.add(selectFourthMon);
-//	}
-
-
-//		public List<Rectangle> monPosition() {
-	//		List<Rectangle> mon = new ArrayList<>();
-	//		mon.add(firstMon.getBounds());
-	//		mon.add(secondMon.getBounds());
-	//		mon.add(thirdMon.getBounds());
-	//		mon.add(fourthMon.getBounds());
-	//
-	//		return mon;
-	//	}
 }
 
 // 몬스터 이미지 추가
 class Monster extends JPanel {
-	
 	Image mon;
 	
 	public Monster(String monImgAddress) {
-		
 		this.mon = new ImageIcon(monImgAddress).getImage();
-		
 	}
 
 	@Override
@@ -106,6 +108,7 @@ class Monster extends JPanel {
 	}
 }
 
+// 공격 몬스터 표시 및 선택
 class MyMouseListener implements MouseListener {
 
 	private String attackType;
@@ -118,8 +121,6 @@ class MyMouseListener implements MouseListener {
 		this.attackName = attackName;		
 		this.selectMon = selectMon;
 		this.selectMonNo = i;
-		this.selectMon.setBorderPainted(false);
-		this.selectMon.setContentAreaFilled(false);
 //		BattleController.characterAttack(selectMon, );
 	}
 
@@ -133,7 +134,7 @@ class MyMouseListener implements MouseListener {
 
 	@Override
 	public void mouseReleased(MouseEvent e) {
-		BattleController bc = new BattleController();
+//		BattleController bc = new BattleController();
 //		bc.characterAttack(attackType, attackName, selectMon);
 	}
 

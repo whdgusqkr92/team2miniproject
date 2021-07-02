@@ -12,10 +12,10 @@ public class ViewUtil {
 		mf.revalidate();
 	}
 	
-//	public static void changePanel(JPanel panel, JPanel op, JPanel np) {
-//		panel.remove(op);
-//		panel.add(np);
-//		panel.repaint();
-//		panel.revalidate();
-//	}
+	public static void changePanel(JPanel panel, JPanel op, JPanel np) {
+		panel.remove(op);
+		panel.add(np);
+		panel.repaint();
+		panel.revalidate();
+	}
 }
