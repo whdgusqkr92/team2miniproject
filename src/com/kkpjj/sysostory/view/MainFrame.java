@@ -17,7 +17,8 @@ public class MainFrame extends JFrame {
 		mf.setLayout(null);
 		mf.setTitle("sysoStory");
 
-
+		new FieldCharacterBattle(mf);
+//		new SkillList(mf);
 		
 		mf.setLocationRelativeTo(null);
 		mf.setResizable(false);
