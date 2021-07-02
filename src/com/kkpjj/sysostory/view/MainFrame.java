@@ -1,4 +1,3 @@
-
 package com.kkpjj.sysostory.view;
 
 import javax.swing.JFrame;
@@ -17,24 +16,7 @@ public class MainFrame extends JFrame {
 		mf.setLayout(null);
 		mf.setTitle("sysoStory");
 
-
-//		new BossDieText(mf);
-
-
-//		new BossDieText(mf).CharaDie();
 		new MiddleBoss(mf);
-
-
-
-//		new CharacterView(mf);
-
-		
-
-
-
-//		new FieldCharacterBattle(mf);
-		
-//		new SkillList(mf);
 
 		new FieldCharacterBattle(mf);
 		
