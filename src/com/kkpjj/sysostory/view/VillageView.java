@@ -9,7 +9,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-public class VillageView extends JFrame {
+public class VillageView extends JPanel {
 	
 	private JFrame mf;
 	private JPanel mainPanel;

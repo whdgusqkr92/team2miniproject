@@ -3,6 +3,7 @@ package com.kkpjj.sysostory.view;
 import javax.swing.JFrame;
 
 import com.kkpjj.sysostory.test.RpgGame;
+import com.kkpjj.sysostory.view.op.OpMainPage;
 
 public class MainFrame extends JFrame {
 
@@ -16,9 +17,7 @@ public class MainFrame extends JFrame {
 		mf.setLayout(null);
 		mf.setTitle("sysoStory");
 
-		new MiddleBoss(mf);
 
-		new FieldCharacterBattle(mf);
 		
 		mf.setLocationRelativeTo(null);
 		mf.setResizable(false);
