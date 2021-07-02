@@ -1,6 +1,7 @@
 package com.kkpjj.sysostory.view;
 
 import java.awt.Font;
+import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -26,6 +27,8 @@ public class StartScreen extends JFrame {
 	private JPanel loginPanel;
 	private MemberDTO memberDTO;
 
+	
+	
 	public StartScreen() {
 		mf = new JFrame();
 		mf.setTitle("syso Story");
@@ -83,7 +86,7 @@ public class StartScreen extends JFrame {
 
 					if (result > 0) { // 로그인 성공시, 화면이동 처리 코드
 						mf.setVisible(false); 
-					}else {
+					} else {
 						infoBox("아이디와 패스워드를 확인하여주세요.", "message");
 					}
 
@@ -135,10 +138,12 @@ public class StartScreen extends JFrame {
 		JButton ManagerButton = new JButton();							/* 관리자모드 접속 버튼 */
 		ManagerButton.setBounds(755, 0, 40, 41);
 
-		Image optionButton = new ImageIcon("images/optionbutton.png").getImage().getScaledInstance(40, 41, 0);
+		Image optionButton = new ImageIcon("images/optionbutton2.png").getImage().getScaledInstance(35, 35, 0);
 		JLabel option = new JLabel(new ImageIcon(optionButton));		/* 관리자모드 접속 아이콘 */
 		option.setLayout(null);
-		option.setBounds(755, 0, 40, 41);
+		option.setBounds(0, 0, 35, 35);
+		
+		
 
 		ManagerButton.add(option);
 		mf.getContentPane().add(ManagerButton);
@@ -164,7 +169,9 @@ public class StartScreen extends JFrame {
 	public static void infoBox(String infoMessage, String titleBar){
 		JOptionPane.showMessageDialog(null, infoMessage, /*"InfoBox: " +*/ titleBar, JOptionPane.INFORMATION_MESSAGE);
 	}
+
 }
+
 
 
 /* JTextField 입력수 제한 */
@@ -195,6 +202,7 @@ class JTextFieldLimit extends PlainDocument {
 			super.insertString(offset, str, attr);
 		}
 	}	
+	
 }
 
 
