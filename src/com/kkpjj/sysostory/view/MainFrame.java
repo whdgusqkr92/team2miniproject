@@ -13,27 +13,29 @@ public class MainFrame extends JFrame {
 		
 		mf = new JFrame();
 
-		mf.setSize(805, 620);
+		mf.setSize(800, 600);
 		mf.setLayout(null);
 		mf.setTitle("sysoStory");
 
 
-		new BossDieText(mf);
+//		new BossDieText(mf);
 		
 
 
 
 
-		new CharacterView(mf);
+//		new CharacterView(mf);
 
 		
 
 
+
+//		new FieldCharacterBattle(mf);
+		
+//		new SkillList(mf);
 
 		new FieldCharacterBattle(mf);
 		
-
-
 		mf.setLocationRelativeTo(null);
 		mf.setResizable(false);
 		mf.setVisible(true);
