@@ -37,16 +37,8 @@ public class BattleMenu extends JPanel {
 	public BattleMenu() {
 		initMenuPanel();
 		createMenu();
-		createSubMenu();
+		//		createSubMenu();
 		selectMenu();
-
-
-
-		// 메뉴 선택 시 화면 전환
-//		attackMenu.addActionListener(new SelectAttackMenu());
-//		skillMenu.addActionListener(new SelectSkillMenu());
-//		potionMenu.addActionListener(new SelectPotionMenu());
-//		runMenu.addActionListener(new SelectRunMenu());
 	}
 
 	private void initMenuPanel() {
@@ -66,15 +58,17 @@ public class BattleMenu extends JPanel {
 		potionMenu.setBounds(118, 20, 31, 31);
 		this.runMenu = new RunMenu();
 		runMenu.setBounds(165, 20, 31, 31);
+
+		addMenu();
 	}
-	
+
 	private void createSubMenu() {
 		// 전투 세부메뉴 설정
 		this.subMenu = new JPanel();
 		subMenu.setBounds(24, 60, 170, 155);
 		subMenu.setLayout(null);
 		subMenu.setOpaque(false);
-		
+
 		this.subMenu1 = new JButton("기본 공격1");
 		subMenu1.setBounds(0, 0, 170, 35);
 		subMenu1.setForeground(Color.WHITE);
@@ -99,7 +93,7 @@ public class BattleMenu extends JPanel {
 		subMenu4.setBackground(Color.BLACK);
 		subMenu4.setFont(font);
 
-		addMenu();
+		addSubMenu();
 	}
 
 	private void addMenu() {
@@ -107,20 +101,24 @@ public class BattleMenu extends JPanel {
 		this.add(skillMenu);
 		this.add(potionMenu);
 		this.add(runMenu);
+	}
 
+	private void addSubMenu() {
 		subMenu.add(subMenu1);
 		subMenu.add(subMenu2);
 		subMenu.add(subMenu3);
 		subMenu.add(subMenu4);
-		
+
 		this.add(subMenu);
 	}
-	
+
 	private void selectMenu() {
 		attackMenu.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				remove(subMenu);
+				if(subMenu != null) {
+					remove(subMenu);
+				}
 				createSubMenu();
 				attackSubMenu();
 				repaint();
@@ -130,7 +128,9 @@ public class BattleMenu extends JPanel {
 		skillMenu.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				remove(subMenu);
+				if(subMenu != null) {
+					remove(subMenu);
+				}
 				createSubMenu();
 				skillSubMenu();
 				repaint();
@@ -140,7 +140,9 @@ public class BattleMenu extends JPanel {
 		potionMenu.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				remove(subMenu);
+				if(subMenu != null) {
+					remove(subMenu);
+				}
 				createSubMenu();
 				potionSubMenu();
 				repaint();
@@ -150,25 +152,21 @@ public class BattleMenu extends JPanel {
 		runMenu.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				remove(subMenu);
+				if(subMenu != null) {
+					remove(subMenu);
+				}
 				createSubMenu();
-				runSubMenu();
+				potionSubMenu();
 				repaint();
 				revalidate();
 			}
 		});
 	}
-	
+
 	void attackSubMenu() {
 		this.attackType = "normal";
-		
 		this.subMenuName = new String[] {"기본 공격1", "기본 공격2", "기본 공격3", "기본 공격4"};
-		
-		subMenu1.setVisible(true);
-		subMenu2.setVisible(true);
-		subMenu3.setVisible(true);
-		subMenu4.setVisible(true);
-		
+
 		subMenuName1 = subMenuName[0];
 		subMenuName2 = subMenuName[1];
 		subMenuName3 = subMenuName[2];
@@ -184,17 +182,11 @@ public class BattleMenu extends JPanel {
 		subMenu3.addActionListener(new SelectSubMenu(attackType, subMenuName3));
 		subMenu4.addActionListener(new SelectSubMenu(attackType, subMenuName4));		
 	}
-	
+
 	void skillSubMenu() {
 		this.attackType = "skill";
-		
 		this.subMenuName = new String[] {"스킬 공격1", "스킬 공격2", "스킬 공격3", "스킬 공격4"};
-		
-		subMenu1.setVisible(true);
-		subMenu2.setVisible(true);
-		subMenu3.setVisible(true);
-		subMenu4.setVisible(true);
-		
+
 		subMenuName1 = subMenuName[0];
 		subMenuName2 = subMenuName[1];
 		subMenuName3 = subMenuName[2];
@@ -210,30 +202,26 @@ public class BattleMenu extends JPanel {
 		subMenu3.addActionListener(new SelectSubMenu(attackType, subMenuName3));
 		subMenu4.addActionListener(new SelectSubMenu(attackType, subMenuName4));		
 	}
-	
+
 	void potionSubMenu() {
 		this.attackType = "potion";
-		
 		this.subMenuName = new String[] {"아이템 사용"};
 		
-		subMenu1.setVisible(true);
 		subMenu2.setVisible(false);
 		subMenu3.setVisible(false);
 		subMenu4.setVisible(false);
-		
+
 		subMenuName1 = subMenuName[0];
 
 		this.subMenu1.setText(subMenuName1);
 
 		subMenu1.addActionListener(new SelectSubMenu(attackType, subMenuName1));	
 	}
-	
+
 	void runSubMenu() {
 		this.attackType = "run";
-		
 		this.subMenuName = new String[] {"도망가기"};
 
-		subMenu1.setVisible(true);
 		subMenu2.setVisible(false);
 		subMenu3.setVisible(false);
 		subMenu4.setVisible(false);
@@ -244,7 +232,7 @@ public class BattleMenu extends JPanel {
 
 		subMenu1.addActionListener(new SelectSubMenu(attackType, subMenuName1));	
 	}
-	
+
 	// 전투메뉴 배경 추가
 	Image battleMenuBg = new ImageIcon("images/battle_menu.png").getImage();
 
@@ -255,10 +243,10 @@ public class BattleMenu extends JPanel {
 }
 
 class SelectSubMenu implements ActionListener {
-	
+
 	String attackType;
 	String subMenuName;
-	
+
 	public SelectSubMenu(String attackType, String subMenuName) {
 		this.attackType = attackType;
 		this.subMenuName = subMenuName;
@@ -267,9 +255,22 @@ class SelectSubMenu implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		BattleController bc = new BattleController();
-//		bc.selectSubMenu(attackType, subMenuName);
+		bc.selectSubMenu(attackType, subMenuName);
 	}
 }
+
+//class SelectMenuBtn implements ActionListener {
+//	@Override
+//	public void actionPerformed(ActionEvent e) {
+//		if(subMenu != null) {
+//			remove(subMenu);
+//		}
+//		createSubMenu();
+//		runSubMenu();
+//		repaint();
+//		revalidate();
+//	}
+//}
 
 // 메뉴 이미지 추가
 class AttackMenu extends JButton {
