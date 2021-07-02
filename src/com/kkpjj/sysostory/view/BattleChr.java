@@ -12,7 +12,6 @@ public class BattleChr extends JPanel {
 	
 	public BattleChr() {
 		init();
-	
 	}
 	
 	private void init() {
