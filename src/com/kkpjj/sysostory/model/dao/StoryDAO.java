@@ -49,7 +49,7 @@ public class StoryDAO {
 			
 			if(rset.next()) {
 				story = new StoryDTO();
-				story.setStoryCode(rset.getInt("STORY_CODE"));
+				story.setChapScript(rset.getString("CHAP_SCRIPT"));
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();

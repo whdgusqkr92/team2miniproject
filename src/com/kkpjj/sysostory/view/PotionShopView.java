@@ -24,27 +24,11 @@ public class PotionShopView extends JPanel {
 	
 	private ImageIcon bg = null;
 
-	public PotionShopView() {
+	public PotionShopView(JFrame mf) {
 		
-//		mf.setBounds(300, 75, 810, 630);
+		this.mf = mf;
 		
-//		statusPanel = new JPanel();
-//		statusPanel.setBounds(0, 420, 560, 180);
-//		
-//		mapPanel = new JPanel();
-//		mapPanel.setBounds(560, 420, 240, 180);
-//
-//		Image statusBg = new ImageIcon("images/status.png").getImage().getScaledInstance(560, 180, 0);
-//		JLabel label1 = new JLabel(new ImageIcon(statusBg));
-//		
-//		Image mapBg = new ImageIcon("images/map.png").getImage().getScaledInstance(240, 180, 0);
-//		JLabel label2 = new JLabel(new ImageIcon(mapBg));
-//		
-//		statusPanel.add(label1);
-//		mapPanel.add(label2);
-//		
-//		mf.getContentPane().add(statusPanel);
-//		mf.getContentPane().add(mapPanel);
+//		new StatusPanel(mf);	// 하단 패널 호출
 		
 		
 		// 아이템 창, 나가기 버튼
@@ -114,7 +98,6 @@ public class PotionShopView extends JPanel {
 			
 		};
 		
-		
 		itemPanel.setBounds(0, 0, 810, 419);
 		mf.getContentPane().add(itemPanel);
 		itemPanel.setLayout(null);
@@ -123,6 +106,11 @@ public class PotionShopView extends JPanel {
 		drenchButton.setBounds(98, 55, 70, 100);
 		drenchButton.setIcon(new ImageIcon("images/물약상인.png"));
 		drenchButton.setFont(new Font("둥근모꼴", Font.PLAIN, 16));
+		
+		drenchButton.setBorderPainted(false);
+//		drenchButton.setContentAreaFilled(false);
+//		drenchButton.setOpaque(true);
+		
 		itemPanel.add(drenchButton);
 		
 		
