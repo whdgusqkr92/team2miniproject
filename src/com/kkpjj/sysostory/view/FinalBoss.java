@@ -14,7 +14,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-public class FinalBoss초상화랑라벨위치수정 extends JPanel{
+public class FinalBoss extends JPanel{
 
 	private JFrame mf;
 	private JPanel mainpanel;
@@ -29,7 +29,7 @@ public class FinalBoss초상화랑라벨위치수정 extends JPanel{
 	private JLabel bossLabel;
 	
 	
-	public FinalBoss초상화랑라벨위치수정(JFrame mf) {
+	public FinalBoss(JFrame mf) {
 		this.mf = mf;
 		this.mainpanel=this;
 	
@@ -51,39 +51,40 @@ public class FinalBoss초상화랑라벨위치수정 extends JPanel{
 		charaLabel.setBounds(0, 180, 100, 100);
 		mainpanel.add(charaLabel);
 //---------------------------보스 얼굴------------------------------------
-		Image bossface = new ImageIcon("images/Bossface_F.png").getImage().getScaledInstance(150, 150, 0);
+		Image bossface = new ImageIcon("images/Bossface_F.png").getImage().getScaledInstance(180, 180, 0);
 		bossLabel = new JLabel(new ImageIcon(bossface));
-		bossLabel.setBounds(620, 150, 150, 150);
+		bossLabel.setBounds(620, 90, 180, 230);
 		mainpanel.add(bossLabel);
 		bossLabel.setVisible(false);		
 	
 	//-------------------------대화 이미지1 출력------------------------------------------------	
 	Image text1 = new ImageIcon("images/FinalBosstext1.png").getImage().getScaledInstance(600, 300, 0);
 	textLabel = new JLabel(new ImageIcon(text1));
-	textLabel.setBounds(0, 251, 792, 150);
+	textLabel.setBounds(0, 251, 792, 200);
 	mainpanel.add(textLabel);
 	//-------------------------대화 이미지 2출력--------------------------------------------------
-	Image text2 = new ImageIcon("images/FinalBosstext2.png").getImage().getScaledInstance(600, 230, 0);
+	Image text2 = new ImageIcon("images/FinalBosstext2.png").getImage().getScaledInstance(600, 220, 0);
 	textLabel2 = new JLabel(new ImageIcon(text2));
-	textLabel2.setBounds(0, 251, 792, 230);
+	textLabel2.setBounds(0, 251, 792, 150);
 	mainpanel.add(textLabel2);
 	textLabel2.setVisible(false);
 	//--------------------------대화 이미지 3 출력---------------------------------------------------
-	Image text3 = new ImageIcon("images/FinalBosstext3.png").getImage().getScaledInstance(600, 300, 0);
+	Image text3 = new ImageIcon("images/FinalBosstext3.png").getImage().getScaledInstance(600, 220, 0);
 	textLabel3 = new JLabel(new ImageIcon(text3));
-	textLabel3.setBounds(0, 251, 792, 104);
+	textLabel3.setBounds(0, 251, 792, 150);
 	mainpanel.add(textLabel3);
 	textLabel3.setVisible(false);
 	//--------------------------대화 이미지 4 출력---------------------------------------------------
-	Image text4 = new ImageIcon("images/FinalBosstext4.png").getImage().getScaledInstance(600, 300, 0);
+	Image text4 = new ImageIcon("images/FinalBosstext4.png").getImage().getScaledInstance(600, 220, 0);
 	textLabel4 = new JLabel(new ImageIcon(text4));
-	textLabel4.setBounds(0, 251, 792, 104);
+	textLabel4.setBounds(0, 251, 792, 150);
 	mainpanel.add(textLabel4);
 	textLabel4.setVisible(false);
 	//--------------------------대화 이미지 3 출력---------------------------------------------------
-	Image text5 = new ImageIcon("images/FinalBosstext5.png").getImage().getScaledInstance(600, 300, 0);
+	Image text5 = new ImageIcon("images/FinalBosstext5.png").getImage().getScaledInstance(600, 220, 0);
 	textLabel5 = new JLabel(new ImageIcon(text5));
-	textLabel5.setBounds(0, 251, 792, 104);
+	textLabel5.setBounds(0, 251, 792, 150);
+	
 	mainpanel.add(textLabel5);
 	textLabel5.setVisible(false);
 	
@@ -106,7 +107,7 @@ private class OneActionListener extends MouseAdapter {
 		
 		textLabel.setVisible(false);
 		textLabel2.setVisible(true);
-//		charaLabel.setVisible(false);
+		charaLabel.setVisible(false);
 		bossLabel.setVisible(true);
 		}
 }

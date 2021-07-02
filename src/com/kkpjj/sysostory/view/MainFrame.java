@@ -14,8 +14,8 @@ public class MainFrame extends JFrame {
 		mf.setLayout(null);
 		mf.setTitle("sysoStory");
 
-		new BattlePage(mf);
-
+		new BossDieText(mf);
+		
 		mf.setLocationRelativeTo(null);
 		mf.setResizable(false);
 		mf.setVisible(true);

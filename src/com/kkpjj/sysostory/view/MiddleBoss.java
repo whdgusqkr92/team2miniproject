@@ -15,7 +15,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 
-public class MiddleBoss초상화크기수정 extends JPanel{
+public class MiddleBoss extends JPanel{
 
 	private JFrame mf;
 	private JPanel mainpanel;
@@ -28,7 +28,7 @@ public class MiddleBoss초상화크기수정 extends JPanel{
 	private JButton btn;
 	private JButton btn2;
 	
-	public MiddleBoss초상화크기수정(JFrame mf) {
+	public MiddleBoss(JFrame mf) {
 		this.mf = mf;
 		this.mainpanel = this;
 
@@ -47,15 +47,15 @@ public class MiddleBoss초상화크기수정 extends JPanel{
 	mf.add(mainpanel); // 생성한 패널 프레임에 추가
 
 	//---------------------------주인공 얼굴------------------------------------
-	Image chara = new ImageIcon("images/주인공.png").getImage().getScaledInstance(700, 180, 0);
+	Image chara = new ImageIcon("images/주인공.png").getImage().getScaledInstance(100, 100, 0);
 	charaLabel = new JLabel(new ImageIcon(chara));
-	charaLabel.setBounds(0, 251, 792, 143);
+	charaLabel.setBounds(0, 120, 150, 143);
 	mainpanel.add(charaLabel);
 //	textLabel2.setVisible(false);
 	//---------------------------보스 얼굴------------------------------------
-		Image bossface = new ImageIcon("images/Bossface_M.png").getImage().getScaledInstance(700, 180, 0);
+		Image bossface = new ImageIcon("images/Bossface_M.png").getImage().getScaledInstance(200, 180, 0);
 		bossLabel = new JLabel(new ImageIcon(bossface));
-		bossLabel.setBounds(0, 251, 792, 143);
+		bossLabel.setBounds(650, 110, 150, 143);
 		mainpanel.add(bossLabel);
 		bossLabel.setVisible(false);
 	//-------------------------대화 이미지1 출력------------------------------------------------	
@@ -74,10 +74,6 @@ public class MiddleBoss초상화크기수정 extends JPanel{
 	
 	textLabel.addMouseListener(new OneActionListener());
 	mainpanel.addMouseListener(new BattleActionListener());	
-	
-
-	
-	
 
 	}
 	//---------------------------------------------------------

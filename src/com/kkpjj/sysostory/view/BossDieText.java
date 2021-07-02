@@ -12,7 +12,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-public class 내일수정내일수정내일수정 extends JPanel {
+public class BossDieText extends JPanel {
 	
 	private JFrame mf;
 	private JPanel mainpanel;
@@ -22,7 +22,7 @@ public class 내일수정내일수정내일수정 extends JPanel {
 	
 	private JButton btn;
 	
-	public 내일수정내일수정내일수정(JFrame mf) {
+	public BossDieText(JFrame mf) {
 		this.mf = mf;
 		this.mainpanel = this;
 		

@@ -12,14 +12,14 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 
-public class BossTurn내일수정내일수정내일수정 extends JPanel{
+public class BossTurn extends JPanel{
 	 
 //	boolean isSkill = true;
 	private JFrame mf;
 	private JPanel mainpanel;
 	private JLabel skillLabel;
 	
-	public BossTurn내일수정내일수정내일수정(JFrame mf) {
+	public BossTurn(JFrame mf) {
 		this.mf = mf;
 		this.mainpanel = this;
 		
