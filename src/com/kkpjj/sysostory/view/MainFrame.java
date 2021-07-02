@@ -1,38 +1,19 @@
-
 package com.kkpjj.sysostory.view;
 
 import javax.swing.JFrame;
-
-import com.kkpjj.sysostory.test.RpgGame;
 
 public class MainFrame extends JFrame {
 
 	private JFrame mf;
 
 	public MainFrame() {
-		
 		mf = new JFrame();
 
-		mf.setSize(805, 620);
+		mf.setSize(800, 600);
 		mf.setLayout(null);
 		mf.setTitle("sysoStory");
 
-
-		new BossDieText(mf);
-		
-
-
-
-
-		new CharacterView(mf);
-
-		
-
-
-
-		new FieldCharacterBattle(mf);
-		
-
+		new BattlePage(mf);
 
 		mf.setLocationRelativeTo(null);
 		mf.setResizable(false);

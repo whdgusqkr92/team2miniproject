@@ -1,7 +1,6 @@
 package com.kkpjj.sysostory.view;
 
 import javax.swing.JFrame;
-import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 public class ViewUtil {
@@ -11,5 +10,12 @@ public class ViewUtil {
 		mf.add(np);
 		mf.repaint();
 		mf.revalidate();
+	}
+	
+	public static void changePanel(JPanel panel, JPanel op, JPanel np) {
+		panel.remove(op);
+		panel.add(np);
+		panel.repaint();
+		panel.revalidate();
 	}
 }
