@@ -22,35 +22,16 @@ public class VillageView extends JPanel {
 	public VillageView(JFrame mf) {
 		
 		// 마을화면 프레임 생성
-//		mf = new JFrame();
 		this.mf = mf;
 		
-		// 하단 상태 패널
-		statusPanel = new JPanel();
-		statusPanel.setBounds(0, 420, 560, 180);
-		
-		// 하단 맵 정보 패널
-		mapPanel = new JPanel();
-		mapPanel.setBounds(560, 420, 240, 180);
-
-		Image statusBg = new ImageIcon("images/status.png").getImage().getScaledInstance(560, 180, 0);
-		JLabel label1 = new JLabel(new ImageIcon(statusBg));
-		
-		Image mapBg = new ImageIcon("images/map.png").getImage().getScaledInstance(240, 180, 0);
-		JLabel label2 = new JLabel(new ImageIcon(mapBg));
-		
-		statusPanel.add(label1);
-		mapPanel.add(label2);
-		
-//		mf.getContentPane().add(statusPanel);
-//		mf.getContentPane().add(mapPanel);
+		new StatusPanel(mf);	// 하단 패널 
 		
 		// 메인 화면 구성
-		mainPanel = new MainView();
+		mainPanel = new MainView(mf);
 		mainPanel.setBounds(0, 0, 800, 420);
 		
 		// 물약상인
-		posionShopPanel = new PotionShopView();
+		posionShopPanel = new PotionShopView(mf);
 		posionShopPanel.setBounds(98, 55, 70, 100);
 		
 		// 무기상인
@@ -76,10 +57,13 @@ public class VillageView extends JPanel {
 }
 
 class MainView extends JPanel {
+	
+	private JFrame mf;
 
-	Image bg = new ImageIcon("images/battle_bg.png").getImage().getScaledInstance(800, 420, 0);
+	Image bg = new ImageIcon("images/village.png").getImage().getScaledInstance(800, 420, 0);
 
-	public MainView() {
+	public MainView(JFrame mf) {
+		this.mf = mf;
 		this.setLayout(null);
 		this.setOpaque(false);
 	}

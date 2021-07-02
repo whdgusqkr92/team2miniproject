@@ -1,15 +1,21 @@
 package com.kkpjj.sysostory.view.op;
 
 import java.awt.Color;
+import java.awt.Font;
 import java.awt.Image;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+import com.kkpjj.sysostory.controller.StoryController;
+import com.kkpjj.sysostory.model.dto.StoryDTO;
 import com.kkpjj.sysostory.view.MainFrame;
 import com.kkpjj.sysostory.view.ViewUtil;
 
@@ -17,10 +23,14 @@ public class OpMainPage extends JPanel {
 	
 	private JFrame mf;
 	private JPanel panel1;
+	private StoryDTO storyDTO;
+	private StoryController storyController;
 	
 	public OpMainPage(JFrame mf) {
 		this.mf = mf;
-//		this.omp = this;	
+		
+		storyController = new StoryController();
+		storyDTO = new StoryDTO();
 		
 		panel1 = new JPanel();
 		panel1.setBounds(0, 0, 800, 600);
@@ -30,10 +40,22 @@ public class OpMainPage extends JPanel {
 		Image bg = new ImageIcon("images/openingBg1.png").getImage();
 		JLabel label= new JLabel(new ImageIcon(bg));
 		label.setBounds(0, 0, 800, 600);
+		
+		
+		//-------------------- 스토리 정보 출력 확인용---------------------
+		storyDTO.setStoryCode(1);
+		System.out.println(storyController.selectStoryContents(storyDTO.getStoryCode()));
+//		label1.setText(storyController.selectStoryContents(storyDTO.getStoryCode()));
+		
+		JLabel label2 = new JLabel();
+		label2.setBounds(50, 50, 700, 500);
+		label2.setFont(new Font("둥근모꼴", Font.PLAIN, 24));
+		
+		label2.setText(storyController.selectStoryContents(storyDTO.getStoryCode()));
+
+		panel1.add(label2);
 		panel1.add(label);
 		
-//		this.setBackground(Color.BLUE);
-//		this.setSize(800, 600);
 		
 		mf.add(this);
 		
