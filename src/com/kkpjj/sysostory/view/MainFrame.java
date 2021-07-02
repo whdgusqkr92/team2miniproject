@@ -17,6 +17,10 @@ public class MainFrame extends JFrame {
 		mf.setTitle("sysoStory");
 
 
+		new BossDieText(mf);
+		
+
+
 
 
 		new CharacterView(mf);
@@ -27,6 +31,7 @@ public class MainFrame extends JFrame {
 
 		new FieldCharacterBattle(mf);
 		
+
 
 		mf.setLocationRelativeTo(null);
 		mf.setResizable(false);

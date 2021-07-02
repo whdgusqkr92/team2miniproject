@@ -6,7 +6,7 @@ public class BattleController {
 
 	public void characterAttack(String attackType) {
 		
-		BattleSubMenu subMenu = new BattleSubMenu(null, attackType);
+//		BattleSubMenu subMenu = new BattleSubMenu(null, attackType);
 		
 		switch(attackType) {
 			case "normal" : System.out.println("기본공격"); break;

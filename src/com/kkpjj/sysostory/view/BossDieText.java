@@ -1,4 +1,4 @@
-package com.kkpjj.sysostory.koobongean;
+package com.kkpjj.sysostory.view;
 
 import java.awt.Font;
 import java.awt.Graphics;
@@ -12,7 +12,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-public class MiddleDieEvent extends JFrame {
+public class BossDieText extends JPanel {
 	
 	private JFrame mf;
 	private JPanel mainpanel;
@@ -22,14 +22,9 @@ public class MiddleDieEvent extends JFrame {
 	
 	private JButton btn;
 	
-	public MiddleDieEvent() {
-		
-		//------------------------메인 프레임 생성---------------------------------	
-		mf = new JFrame();
-		mf.setTitle("sysoStory");
-		mf.setFont(new Font("둥근모꼴", Font.PLAIN, 16));
-		mf.setBounds(300, 75, 800, 600);
-
+	public BossDieText(JFrame mf) {
+		this.mf = mf;
+		this.mainpanel = this;
 		
 		//--------------------------배경 필드 패널 만들기------------------------------	
 		Image field = new ImageIcon("Images/field.png").getImage().getScaledInstance(800, 200, 0);
@@ -57,7 +52,7 @@ public class MiddleDieEvent extends JFrame {
 			btn = new JButton("다음");
 			btn.setBounds(680, 300, 75, 57);
 			mainpanel.add(btn);
-		//-------------------------버튼 누르면 대화창 넘기기-------------------------------------
+		//-----------내일수정내일수정내일수정내일수정내일수정내일수정내일수정내일수정내일수정내일수정내일수정내일수정내일수정내일수정내일수정내일수정내일수정내일수정내일수정내일수정내일수정내일수정내일수정내일수정내일수정내일수정내일수정--------------내일수정-------------------------------------
 //				btn.addActionListener();
 				
 //		} else if(bosshp ==0 ) {
@@ -78,11 +73,5 @@ public class MiddleDieEvent extends JFrame {
 //						}
 //					});
 //		
-		mf.setVisible(true); //계속 보임
-		mf.setResizable(false); //창변경 불가
-		mf.setDefaultCloseOperation(EXIT_ON_CLOSE); //닫으면 실행종료	
 		}
-	public static void main(String[] args) {
-		new MiddleDieEvent();
-	}
 }

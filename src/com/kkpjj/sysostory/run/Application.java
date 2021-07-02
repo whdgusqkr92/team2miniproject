@@ -1,6 +1,5 @@
 package com.kkpjj.sysostory.run;
 
-
 import com.kkpjj.sysostory.view.MainFrame;
 
 
