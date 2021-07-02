@@ -1,3 +1,4 @@
+
 package com.kkpjj.sysostory.view;
 
 import javax.swing.JFrame;
@@ -40,4 +41,3 @@ public class MainFrame extends JFrame {
 
 	}
 }
-

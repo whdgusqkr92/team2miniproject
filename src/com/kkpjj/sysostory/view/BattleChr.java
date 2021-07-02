@@ -8,14 +8,19 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 // 캐릭터 이미지 추가, 레이아웃 설정
-public class BattleChrPanel extends JPanel {
+public class BattleChr extends JPanel {
 	
-	public BattleChrPanel() {
+	public BattleChr() {
+		init();
+	}
+	
+	private void init() {
 		this.setBounds(150, 178, 64, 64);
 		this.setLayout(null);
 		this.setOpaque(false);
 	}
 	
+	// 캐릭터 이미지 추가
 	Image chr = new ImageIcon("images/battle_chr.png").getImage();
 
 	@Override
