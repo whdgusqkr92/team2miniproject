@@ -7,6 +7,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
+// 전투 메인화면 레이아웃 설정, 캐릭터, 몬스터 생성, 배경 추가
 public class BattlePage extends JPanel {
 
 	private JFrame mf;
@@ -14,19 +15,18 @@ public class BattlePage extends JPanel {
 	private JPanel monPanel;
 	private JPanel menuPanel;
 	
-	
 	public BattlePage(JFrame mf) {
-		// 전투화면 패널 생성, 배경 추가, 레이아웃 설정
 		this.mf = mf;
-		
+		// 전투 메인화면 레이아웃 설정
 		init();
+		// 캐릭터, 몬스터 생성 후 프레임에 추가
 		createComponent();
-		
-		mf.add(this);
+		addComponents();
+		// 프레임에 전투 메인화면 추가
+		this.mf.add(this);
 	}
 	
 	private void init() {
-		// 전투 메인화면 구성
 		this.setBounds(0, 0, 800, 420);
 		this.setLayout(null);
 		this.setOpaque(false);
@@ -35,18 +35,17 @@ public class BattlePage extends JPanel {
 	private void createComponent() {
 		// 캐릭터 생성
 		chrPanel = new BattleChr();
-		// 전투 메뉴 생성
-		menuPanel = new BattleMenu();
 		// 몬스터 생성
-		monPanel = new BattleMon();
+//		monPanel = new BattleMon();
+		// 전투 메뉴 생성
+//		menuPanel = new BattleMenu();
 		
-		addComponents();
 	}
 
 	private void addComponents() {
 		this.add(chrPanel);
-		this.add(menuPanel);
-		this.add(monPanel);
+//		this.add(monPanel);
+//		this.add(menuPanel);
 	}
 	
 	// 배경화면 추가
@@ -57,6 +56,3 @@ public class BattlePage extends JPanel {
 		g.drawImage(bg, 0, 0, getWidth(), getHeight(), this);
 	}
 }
-
-	
-
