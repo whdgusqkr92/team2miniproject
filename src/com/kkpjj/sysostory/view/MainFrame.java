@@ -10,7 +10,8 @@ public class MainFrame extends JFrame {
 		
 		mf = new JFrame();
 		
-		new BattlePage(mf);
+
+
 		
 		mf.setTitle("sysoStory");
 		mf.setSize(800, 600);
