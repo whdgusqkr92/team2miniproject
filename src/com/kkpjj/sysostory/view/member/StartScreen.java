@@ -1,7 +1,6 @@
-package com.kkpjj.sysostory.view;
+package com.kkpjj.sysostory.view.member;
 
 import java.awt.Font;
-import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;

@@ -4,7 +4,7 @@ import javax.swing.JTextField;
 
 import com.kkpjj.sysostory.model.dto.CharaDTO;
 import com.kkpjj.sysostory.model.service.LoginService;
-import com.kkpjj.sysostory.view.LoginResultView;
+import com.kkpjj.sysostory.view.user.LoginResultView;
 
 public class LoginController {
 	

@@ -1,18 +1,17 @@
-package com.kkpjj.sysostory.view;
+package com.kkpjj.sysostory.view.member;
 
-import java.awt.Color;
-import java.awt.Font;
 import java.awt.Image;
 
 import javax.swing.ImageIcon;
-import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import java.awt.Font;
+import java.awt.Color;
+import javax.swing.JButton;
 
-public class ResignedCheck extends JFrame{
-
-	public ResignedCheck() {
-
+public class ResignYesOrNo extends JFrame{
+	
+	public ResignYesOrNo() {
 		
 		JFrame mf = new JFrame();
 		mf.setSize(800, 600);
@@ -30,18 +29,23 @@ public class ResignedCheck extends JFrame{
 		windowLabel.setBounds(150, 200, 500, 200);
 		windowLabel.setLayout(null);
 		
-		JLabel resignedLabel = new JLabel("탈퇴되었습니다.");						/* 회원탈퇴  라벨 */
-		resignedLabel.setForeground(Color.WHITE);
-		resignedLabel.setFont(new Font("둥근모꼴", Font.PLAIN, 24));
-		resignedLabel.setBounds(310, 250, 300, 30);
+		JLabel askLabel = new JLabel("정말 탈퇴 하시겠습니까?");				/* 회원탈퇴  라벨 */
+		askLabel.setForeground(Color.WHITE);
+		askLabel.setFont(new Font("둥근모꼴", Font.PLAIN, 24));
+		askLabel.setBounds(260, 250, 300, 30);
 		
-		JButton checkButton = new JButton("확인");							/* 예 버틀 */
-		checkButton.setFont(new Font("둥근모꼴", Font.PLAIN, 24));
-		checkButton.setBounds(340, 310, 100, 50);
-		mf.getContentPane().add(checkButton);
+		JButton yesButton = new JButton("예");						/* 예 버틀 */
+		yesButton.setFont(new Font("둥근모꼴", Font.PLAIN, 24));
+		yesButton.setBounds(270, 310, 100, 50);
+		mf.getContentPane().add(yesButton);
+		
+		JButton noButton = new JButton("아니오");					/* 아니오 버튼 */
+		noButton.setFont(new Font("둥근모꼴", Font.PLAIN, 24));
+		noButton.setBounds(430, 310, 110, 50);
+		mf.getContentPane().add(noButton);
 		
 		
-		mf.getContentPane().add(resignedLabel);
+		mf.getContentPane().add(askLabel);
 		mf.getContentPane().add(windowLabel);
 		mf.getContentPane().add(label);
 		
@@ -50,6 +54,5 @@ public class ResignedCheck extends JFrame{
 		mf.setResizable(false);
 		mf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
-	
 	}
 }
