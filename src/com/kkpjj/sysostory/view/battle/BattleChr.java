@@ -1,13 +1,10 @@
-package com.kkpjj.sysostory.view;
+package com.kkpjj.sysostory.view.battle;
 
 import java.awt.Graphics;
 import java.awt.Image;
 
 import javax.swing.ImageIcon;
-import javax.swing.JFrame;
 import javax.swing.JPanel;
-
-import com.kkpjj.sysostory.controller.BattleController;
 
 // 캐릭터 레이아웃 설정, 이미지 추가
 public class BattleChr extends JPanel {

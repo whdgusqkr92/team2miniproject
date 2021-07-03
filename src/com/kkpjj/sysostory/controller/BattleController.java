@@ -7,9 +7,9 @@ import javax.swing.JFrame;
 
 import com.kkpjj.sysostory.model.dto.MonsterDTO;
 import com.kkpjj.sysostory.model.service.BattleService;
-import com.kkpjj.sysostory.view.BattleChr;
-import com.kkpjj.sysostory.view.BattleMenu;
-import com.kkpjj.sysostory.view.BattleMon;
+import com.kkpjj.sysostory.view.battle.BattleChr;
+import com.kkpjj.sysostory.view.battle.BattleMenu;
+import com.kkpjj.sysostory.view.battle.BattleMon;
 
 public class BattleController {
 

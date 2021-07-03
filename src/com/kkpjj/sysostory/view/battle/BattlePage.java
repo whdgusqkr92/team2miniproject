@@ -1,4 +1,4 @@
-package com.kkpjj.sysostory.view;
+package com.kkpjj.sysostory.view.battle;
 
 import java.awt.Graphics;
 import java.awt.Image;
@@ -51,8 +51,8 @@ public class BattlePage extends JPanel {
 	private void addChrPanel() {
 		this.add(chrPanel);
 
-		this.add(monPanel);
-		this.add(menuPanel);
+//		this.add(monPanel);
+//		this.add(menuPanel);
 
 	}
 	
