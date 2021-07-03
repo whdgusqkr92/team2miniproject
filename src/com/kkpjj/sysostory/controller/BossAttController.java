@@ -7,7 +7,7 @@ import javax.swing.JPanel;
 import com.kkpjj.sysostory.model.dto.CharaDTO;
 import com.kkpjj.sysostory.model.dto.MonsterDTO;
 import com.kkpjj.sysostory.model.service.BossAttService;
-import com.kkpjj.sysostory.view.ResultView.BossSkillResultView;
+import com.kkpjj.sysostory.view.boss.BossSkillResultView;
 
 public class BossAttController extends JPanel{
 

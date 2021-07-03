@@ -2,8 +2,8 @@ package com.kkpjj.sysostory.view;
 
 import javax.swing.JFrame;
 
-import com.kkpjj.sysostory.view.ResultView.BossSkillResultView;
-import com.kkpjj.sysostory.view.op.OpMainPage;
+import com.kkpjj.sysostory.view.boss.BossSkillResultView;
+import com.kkpjj.sysostory.view.story.OpMainPage;
 
 public class MainFrame extends JFrame {
 

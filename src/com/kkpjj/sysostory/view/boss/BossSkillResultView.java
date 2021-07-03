@@ -1,4 +1,4 @@
-package com.kkpjj.sysostory.view.ResultView;
+package com.kkpjj.sysostory.view.boss;
 
 import java.awt.Graphics;
 import java.awt.Image;

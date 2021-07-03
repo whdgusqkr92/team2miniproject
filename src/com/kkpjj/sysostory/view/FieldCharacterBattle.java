@@ -13,7 +13,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.text.IconView;
 
-import com.kkpjj.sysostory.view.op.OpSubPage;
+import com.kkpjj.sysostory.view.story.OpSubPage;
 import javax.swing.SwingConstants;
 import java.awt.Button;
 

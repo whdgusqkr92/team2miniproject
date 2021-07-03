@@ -1,4 +1,4 @@
-package com.kkpjj.sysostory.view;
+package com.kkpjj.sysostory.view.member;
 
 import java.awt.Image;
 import java.awt.event.ActionEvent;
@@ -9,6 +9,10 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+
+import com.kkpjj.sysostory.view.StartScreen;
+import com.kkpjj.sysostory.view.user.NickName;
+
 import javax.swing.JButton;
 import java.awt.Font;
 

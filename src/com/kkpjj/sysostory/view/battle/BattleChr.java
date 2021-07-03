@@ -1,4 +1,4 @@
-package com.kkpjj.sysostory.view;
+package com.kkpjj.sysostory.view.battle;
 
 import java.awt.Graphics;
 import java.awt.Image;

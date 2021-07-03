@@ -1,6 +1,6 @@
 package com.kkpjj.sysostory.run;
 
-import com.kkpjj.sysostory.view.NickName;
+import com.kkpjj.sysostory.view.user.NickName;
 
 public class Application {
 
