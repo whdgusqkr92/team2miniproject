@@ -10,9 +10,6 @@ public class Application {
 		new MainFrame();
 		
 
-
-
-
 	}
 }
 

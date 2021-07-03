@@ -36,16 +36,16 @@ public class BattlePage extends JPanel {
 		// 캐릭터 생성
 		chrPanel = new BattleChr();
 		// 몬스터 생성
-//		monPanel = new BattleMon();
+		monPanel = new BattleMon();
 		// 전투 메뉴 생성
-//		menuPanel = new BattleMenu();
+		menuPanel = new BattleMenu();
 		
 	}
 
 	private void addComponents() {
 		this.add(chrPanel);
-//		this.add(monPanel);
-//		this.add(menuPanel);
+		this.add(monPanel);
+		this.add(menuPanel);
 	}
 	
 	// 배경화면 추가
