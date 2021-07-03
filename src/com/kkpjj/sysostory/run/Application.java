@@ -9,6 +9,7 @@ public class Application {
 
 		new NickName();
 		
+
 	}
 }
 

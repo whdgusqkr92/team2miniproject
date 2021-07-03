@@ -12,14 +12,13 @@ public class MainFrame extends JFrame {
 	public MainFrame() {
 		
 		mf = new JFrame();
-		
 
-		
 		mf.setTitle("sysoStory");
 		mf.setSize(800, 600);
 		mf.setLayout(null);
 		
-
+		new VillageView(mf);
+//		new BattlePage(mf);
 
 		mf.setLocationRelativeTo(null);
 		mf.setResizable(true);

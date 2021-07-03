@@ -1,144 +1,61 @@
 package com.kkpjj.sysostory.view;
 
-import java.awt.Color;
 import java.awt.Font;
-import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JTextPane;
-import javax.swing.SwingConstants;
 
-import com.kkpjj.sysostory.view.op.OpSubPage;
+import com.kkpjj.sysostory.model.dto.InventoroDTO;
 
 public class PotionShopView extends JPanel {
 	
 	private JFrame mf;
-	private JPanel potionDealerPanel;
+	private JPanel potionShopPanel;
+	private Image img;
 	
-	private ImageIcon bg = null;		// 마을 배경 다시 그리기용
-
-	public PotionShopView(JFrame mf) {
-		
+	public PotionShopView(MainFrame mf) {
 		this.mf = mf;
+//		potionShopPanel = new JPanel();
+//		potionShopPanel.setBounds(0, 0, 800, 420);
+//		potionShopPanel.setLayout(null);
+//		
+//		
+//		JButton exitButton = new JButton();
+//		exitButton.setBounds(750, 0, 45, 45);
+//		exitButton.setIcon(new ImageIcon("imagess/exit.png"));
+//		potionShopPanel.add(exitButton);
 		
-//		new StatusPanel(mf);	// 하단 패널 호출
+		JLabel label = new JLabel(new ImageIcon());
+		this.img = new ImageIcon("images/item/shopBg.png").getImage().getScaledInstance(400, 420, 0);
+		label.setIcon(new ImageIcon(img));
 		
-		// ----------------------------------------- 아이템 창
-		
-		potionDealerPanel = new JPanel();
-		potionDealerPanel.setBounds(0, 0, 800, 420);
-		mf.getContentPane().add(potionDealerPanel);
-		potionDealerPanel.setLayout(null);
-		
-		// ----------------------------------------- 나가기 버튼
-		
-		JButton exitButton = new JButton();
-		exitButton.setBounds(750, 0, 45, 45);
-		exitButton.setIcon(new ImageIcon("images/exit.png"));
-		potionDealerPanel.add(exitButton);
-		
-		JPanel itemList = new JPanel();
-		itemList.setBackground(Color.LIGHT_GRAY);
-		itemList.setBounds(5, 50, 387, 275);
-		potionDealerPanel.add(itemList);
-		itemList.setLayout(null);
-		
-		Image itemWindowBg = new ImageIcon("images/itemWindow.png").getImage();
-		JLabel label3 = new JLabel(new ImageIcon(itemWindowBg));
-		
-		itemList.add(label3);
-		
-		JPanel itemDirection = new JPanel();
-		itemDirection.setLayout(null);
-		itemDirection.setBounds(0, 325, 400, 90);
-		potionDealerPanel.add(itemDirection);
-		
-		JTextPane textPane = new JTextPane();
-		textPane.setEditable(false);
-		textPane.setBackground(Color.LIGHT_GRAY);
-		textPane.setFont(new Font("둥근모꼴", Font.PLAIN, 18));
-		textPane.setText("여기는 아이템의 설명이 출력되는 화면이다.");
-		textPane.setToolTipText("");
-		textPane.setBounds(5, 5, 389, 80);
-		itemDirection.add(textPane);
-		
-		JPanel panel = new JPanel();
-		panel.setBackground(Color.LIGHT_GRAY);
-		panel.setBounds(5, 0, 136, 45);
-		potionDealerPanel.add(panel);
-		
-		JTextPane textPane_1 = new JTextPane();
-		textPane_1.setEditable(false);
-		textPane_1.setBackground(Color.LIGHT_GRAY);
-		textPane_1.setFont(new Font("둥근모꼴", Font.PLAIN, 25));
-		textPane_1.setText("물약상점");
-		panel.add(textPane_1);
-		
-		JPanel panel_1 = new JPanel();
-		panel_1.setBackground(Color.LIGHT_GRAY);
-		panel_1.setBounds(404, 50, 391, 365);
-		potionDealerPanel.add(panel_1);
-		
-		bg = new ImageIcon("images/village.png");
-		
-		// 마을, 물약 상인 다시 그리기
-		
-		JPanel itemPanel = new JPanel()	{
-			
-			public void paintComponent(Graphics g) {
-				g.drawImage(bg.getImage(), 0, 0, 800, 420, null);
-			}
-			
-		};
-		
-		itemPanel.setBounds(0, 0, 800, 420);
-		mf.getContentPane().add(itemPanel);
-		itemPanel.setLayout(null);
-		
-		JButton potionDealerButton = new JButton();
-		potionDealerButton.setBounds(220, 250, 50, 80);
-		potionDealerButton.setIcon(new ImageIcon("images/npc/물약상인.png"));
-		
-		// 버튼의 배경 없애기
-		potionDealerButton.setBorderPainted(false);
-		potionDealerButton.setContentAreaFilled(false);
-		potionDealerButton.setFocusPainted(false);
-		potionDealerButton.setOpaque(false);
-		
-		itemPanel.add(potionDealerButton);
-		
-		
-		// -----------------------물약상인, 나가기 버튼 상호작용-------------------------
-		
-		potionDealerPanel.setVisible(false);
-		
-		potionDealerButton.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				
-				potionDealerPanel.setVisible(true);
-				itemPanel.setVisible(false);
-			}
-		});
-		
-		exitButton.addActionListener(new ActionListener() {
+		JLabel labelIcon = new JLabel(new ImageIcon());
 
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				
-				itemPanel.setVisible(true);
-				potionDealerPanel.setVisible(false);
-			}
-		});
+		Image img2 = new ImageIcon("images/shop/infoBoard.PNG").getImage().getScaledInstance(300, 615, 0);
+		labelIcon.setIcon(new ImageIcon(img2));
 
+		JButton buttonExit = new JButton(new ImageIcon("imagess/exit.png"));
+		JButton buttonItem1 = new JButton(new ImageIcon("images/item/potion/p1.png"));
+		JButton buttonItem2 = new JButton(new ImageIcon("images/item/potion/p2.png"));
+		JButton buttonItem3 = new JButton(new ImageIcon("images/item/potion/p3.png"));
+		JButton buttonItem4 = new JButton(new ImageIcon("images/item/potion/p4.png"));
+		JButton buttonItem5 = new JButton(new ImageIcon("images/item/potion/p5.png"));
+
+		buttonExit.setBounds(750, 10, 50, 50);
+		buttonItem1.setBounds(50, 100, 35, 35);
+		buttonItem2.setBounds(100, 100, 35, 35);
+		buttonItem3.setBounds(150, 100, 35, 35);
+		buttonItem4.setBounds(200, 100, 35, 35);
+		buttonItem5.setBounds(250, 100, 35, 35);
+
+		
 	}
+	
+
 }
