@@ -2,6 +2,9 @@ package com.kkpjj.sysostory.view;
 
 import javax.swing.JFrame;
 
+import com.kkpjj.sysostory.view.ResultView.BossSkillResultView;
+import com.kkpjj.sysostory.view.op.OpMainPage;
+
 public class MainFrame extends JFrame {
 
 	private JFrame mf;
@@ -10,7 +13,7 @@ public class MainFrame extends JFrame {
 		
 		mf = new JFrame();
 		
-		new SkillList(mf);
+
 		
 		mf.setTitle("sysoStory");
 		mf.setSize(800, 600);

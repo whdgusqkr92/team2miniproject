@@ -9,7 +9,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 
-public class BossSkill extends JPanel implements Runnable {
+public class BossSkillResultView extends JPanel {
 
 	//	boolean isSkill = true;
 	private JFrame mf;
@@ -17,23 +17,30 @@ public class BossSkill extends JPanel implements Runnable {
 	private JPanel subpanel;
 	private JLabel skillLabel;
 	Image field = new ImageIcon("Images/field.png").getImage().getScaledInstance(800, 200, 0);
-
-	public BossSkill(JFrame mf) {
+	
+	//						 (JFrame mf)
+	public BossSkillResultView(JFrame mf) {
 	
 
 		this.mf = mf;
 		this.mainpanel = this;
-
-		mainpanel.setBounds(0, 0, 600, 420);
+//
+//		mainpanel = new JPanel();
+		
+		mainpanel.setBounds(0, 0, 800, 420);
 		
 		mainpanel.setLayout(null);
 		
 		
 		mf.add(mainpanel); // 생성한 패널 프레임에 추가
 //		try {
+		
+//		skill1();
 	}	
 		//15
-		public void skill1() {
+			
+	
+			public void skill1(JFrame mainpanel) {
 			
 			this.subpanel = new JPanel();
 			subpanel.setBounds(80, 100, 600, 350);
@@ -52,12 +59,14 @@ public class BossSkill extends JPanel implements Runnable {
 			this.subpanel = new JPanel();
 			subpanel.setBounds(80, 100, 600, 350);
 			subpanel.setOpaque(false);
-			Image skill = new ImageIcon("images/skill2.gif").getImage().getScaledInstance(450, 350, 0);
+			Image skill = new ImageIcon("images/skilltest3.gif").getImage().getScaledInstance(450, 350, 0);
 			skillLabel = new JLabel(new ImageIcon(skill));
 			skillLabel.setBounds(0, 0, 100, 350);
 			
 			mainpanel.add(subpanel);
 			subpanel.add(skillLabel);
+			
+			
 		}
 			//0.01 즉사기
 			public void skill3() {
@@ -81,15 +90,6 @@ public class BossSkill extends JPanel implements Runnable {
 //			e.printStackTrace();
 //		}
 
-		
-
-	
-	@Override
-	public void run() {
-		
-	}
-	
-	
 	
 	public void paintComponent(Graphics g) {
 		

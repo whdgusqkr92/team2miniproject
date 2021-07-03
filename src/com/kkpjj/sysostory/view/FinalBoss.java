@@ -14,6 +14,9 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+import com.kkpjj.sysostory.controller.BossAttController;
+import com.kkpjj.sysostory.view.ResultView.BossSkillResultView;
+
 public class FinalBoss extends JPanel{
 
 	private JFrame mf;
@@ -39,11 +42,13 @@ public class FinalBoss extends JPanel{
 		mainpanel.setBounds(0, 0, 800, 420);
 		mainpanel.setLayout(null);
 		mf.add(mainpanel); // 생성한 패널 프레임에 추가
+		
 		//---------------------------주인공 얼굴------------------------------------
 		Image chara = new ImageIcon("images/text/주인공.png").getImage().getScaledInstance(100, 100, 0);
 		charaLabel = new JLabel(new ImageIcon(chara));
 		charaLabel.setBounds(0, 180, 100, 100);
 		mainpanel.add(charaLabel);
+		
 		//---------------------------보스 얼굴------------------------------------
 		Image bossface = new ImageIcon("images/text/Bossface_F.png").getImage().getScaledInstance(180, 180, 0);
 		bossLabel = new JLabel(new ImageIcon(bossface));
@@ -56,24 +61,28 @@ public class FinalBoss extends JPanel{
 		textLabel = new JLabel(new ImageIcon(text1));
 		textLabel.setBounds(0, 251, 792, 200);
 		mainpanel.add(textLabel);
+		
 		//-------------------------대화 이미지 2출력--------------------------------------------------
 		Image text2 = new ImageIcon("images/text/FinalBosstext2.png").getImage().getScaledInstance(600, 220, 0);
 		textLabel2 = new JLabel(new ImageIcon(text2));
 		textLabel2.setBounds(0, 251, 792, 150);
 		mainpanel.add(textLabel2);
 		textLabel2.setVisible(false);
+		
 		//--------------------------대화 이미지 3 출력---------------------------------------------------
 		Image text3 = new ImageIcon("images/text/FinalBosstext3.png").getImage().getScaledInstance(600, 220, 0);
 		textLabel3 = new JLabel(new ImageIcon(text3));
 		textLabel3.setBounds(0, 251, 792, 150);
 		mainpanel.add(textLabel3);
 		textLabel3.setVisible(false);
+		
 		//--------------------------대화 이미지 4 출력---------------------------------------------------
 		Image text4 = new ImageIcon("images/text/FinalBosstext4.png").getImage().getScaledInstance(600, 220, 0);
 		textLabel4 = new JLabel(new ImageIcon(text4));
 		textLabel4.setBounds(0, 251, 792, 150);
 		mainpanel.add(textLabel4);
 		textLabel4.setVisible(false);
+		
 		//--------------------------대화 이미지 3 출력---------------------------------------------------
 		Image text5 = new ImageIcon("images/text/FinalBosstext5.png").getImage().getScaledInstance(600, 220, 0);
 		textLabel5 = new JLabel(new ImageIcon(text5));
@@ -152,8 +161,10 @@ public class FinalBoss extends JPanel{
 
 		@Override
 		public void mouseClicked(MouseEvent e) {
-
-			ViewUtil.changePanel(mf, mainpanel, new BossTurn(mf));
+			
+//			new BossAttController(mf);
+			
+			ViewUtil.changePanel(mf, mainpanel, new BossTurn(mf,mainpanel));
 
 		}
 	}

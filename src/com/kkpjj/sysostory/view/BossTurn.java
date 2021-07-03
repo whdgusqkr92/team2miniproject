@@ -11,7 +11,8 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-import com.kkpjj.sysostory.view.ResultView.BossSkill;
+import com.kkpjj.sysostory.controller.BossAttController;
+import com.kkpjj.sysostory.view.ResultView.BossSkillResultView;
 
 
 public class BossTurn extends JPanel{
@@ -22,9 +23,9 @@ public class BossTurn extends JPanel{
 	private JLabel skillLabel;
 	private JLabel bossLabel;
 	
-	public BossTurn(JFrame mf) {
+	public BossTurn(JFrame mf, JPanel mainpanel) {
 		this.mf = mf;
-		this.mainpanel = this;
+		this.mainpanel = mainpanel;
 		
 //		if(스킬) {
 //			
@@ -55,8 +56,12 @@ public class BossTurn extends JPanel{
 	mainpanel.add(bossLabel);
 	bossLabel.setVisible(true);
 	
+	
+	new BossAttController(mf).attBoss();
+	
+//	new BossAttController(mf);
 //	try {
-		new BossSkill(mf).skill3();
+//		new BossSkillResultView().skill3();
 //		Thread.sleep(3000);
 //	} catch (InterruptedException e) {
 //		// TODO Auto-generated catch block
