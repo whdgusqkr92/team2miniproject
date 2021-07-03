@@ -15,7 +15,7 @@
 	       (
 	       SEQ_CHR_CODE.NEXTVAL, SEQ_USER_NO.NEXTVAL, ?, 100, 100
 	     , 0, 1, 0, 100, 100
-	     , 100, 10, 10, NULL, '단검'
+	     , 100, 10, 10, 'NULL', '단검'
 	     , '갑옷'
 	       )
 	</entry>

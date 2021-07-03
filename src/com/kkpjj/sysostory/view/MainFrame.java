@@ -2,6 +2,9 @@ package com.kkpjj.sysostory.view;
 
 import javax.swing.JFrame;
 
+import com.kkpjj.sysostory.view.ResultView.BossSkillResultView;
+import com.kkpjj.sysostory.view.op.OpMainPage;
+
 public class MainFrame extends JFrame {
 
 	private JFrame mf;

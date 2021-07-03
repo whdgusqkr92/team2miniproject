@@ -94,7 +94,7 @@ public class MiddleBoss extends JPanel{
 		@Override
 		public void mouseClicked(MouseEvent e) {
 			
-			ViewUtil.changePanel(mf, mainpanel, new BossTurn(mf));
+//			ViewUtil.changePanel(mf, mainpanel, new BossTurn(mf));
 			
 			
 			}

@@ -18,7 +18,7 @@ import java.awt.event.ActionEvent;
 public class SkillList extends JPanel {
 
 					
-	private JPanel SkillListPanel;					
+	private JPanel skillListPanel;					
 
 	private JPanel skilUpPanel;
 	private JPanel skilListPanel;
@@ -32,9 +32,11 @@ public class SkillList extends JPanel {
 	public SkillList(JFrame mf) {
 		
 		this.mf = mf;
+		
+		
 
-		SkillListPanel = new MainPanel();								//메인 패널  밑에 인터페이스 패널 빼고
-		SkillListPanel.setBounds(0, 0, 800, 600);						//메인 패널 사이즈
+		skillListPanel = new MainPanel();								//메인 패널  밑에 인터페이스 패널 빼고
+		skillListPanel.setBounds(0, 0, 800, 600);						//메인 패널 사이즈
 
 		skilUpPanel = new JPanel();									//스킬 창 상단부 패널
 		skilUpPanel.setBounds(50, 20, 700, 43);						//사이즈
@@ -49,6 +51,8 @@ public class SkillList extends JPanel {
 		
 		Image exImage = new ImageIcon("images/skill/스킬설명창.png").getImage().getScaledInstance(700, 100, 0);
 		skilExPanel.setLayout(null);
+		
+		
 		this.skilExLabel = new JLabel(new ImageIcon(exImage));
 		skilExLabel.setBounds(0, 0, 700, 100);								//스킬 설명 라벨
 		
@@ -57,12 +61,12 @@ public class SkillList extends JPanel {
 		
 		
 		skilExPanel.add(skilExLabel);
-		SkillListPanel.add(skilUpPanel);									//상단바 패널을 메인패널에 담아준다
-		SkillListPanel.add(skilListPanel);								//스킬 목록리스트 패널을 메인 패널에 담아준다
-		SkillListPanel.add(skilExPanel);									//스킬 설명 패널을 메인 패널에 담아준다
+		skillListPanel.add(skilUpPanel);									//상단바 패널을 메인패널에 담아준다
+		skillListPanel.add(skilListPanel);								//스킬 목록리스트 패널을 메인 패널에 담아준다
+		skillListPanel.add(skilExPanel);									//스킬 설명 패널을 메인 패널에 담아준다
 		
 		
-		mf.getContentPane().add(SkillListPanel);
+		mf.getContentPane().add(skillListPanel);
 
 //		Image mapBg = new ImageIcon("images/map.png").getImage().getScaledInstance(240, 180, 0);
 //		JLabel label2 = new JLabel(new ImageIcon(mapBg));

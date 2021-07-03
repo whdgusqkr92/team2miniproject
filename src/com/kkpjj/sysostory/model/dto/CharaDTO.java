@@ -7,6 +7,7 @@ public class CharaDTO implements java.io.Serializable{
 	private String chrName;
  	private int chrHp;
 	private int chrMp;
+	private int chrExp;
 	private int chrLevel;
 	private int chrGold;
 	private int chrMaxHp;
@@ -22,7 +23,7 @@ public class CharaDTO implements java.io.Serializable{
 	
 	public CharaDTO() {}
 
-	public CharaDTO(int chrCode, int userNo, String chrName, int chrHp, int chrMp, int chrLevel, int chrGold,
+	public CharaDTO(int chrCode, int userNo, String chrName, int chrHp, int chrMp, int chrExp, int chrLevel, int chrGold,
 			int chrMaxHp, int chrMaxMp, int chrMaxExp, int chrChrAtt, int chrDet, String chrSfx, String chrBmg,
 			String chrEquipTitle, String chrEquipWeapon, String chrArmor) {
 		super();
@@ -31,6 +32,7 @@ public class CharaDTO implements java.io.Serializable{
 		this.chrName = chrName;
 		this.chrHp = chrHp;
 		this.chrMp = chrMp;
+		this.chrExp = chrExp;
 		this.chrLevel = chrLevel;
 		this.chrGold = chrGold;
 		this.chrMaxHp = chrMaxHp;
@@ -180,11 +182,19 @@ public class CharaDTO implements java.io.Serializable{
 	public void setChrArmor(String chrArmor) {
 		this.chrArmor = chrArmor;
 	}
+	
+	public int getChrExp() {
+		return chrExp;
+	}
+
+	public void setChrExp(int chrExp) {
+		this.chrExp = chrExp;
+	}
 
 	@Override
 	public String toString() {
 		return "CharaDTO [chrCode=" + chrCode + ", userNo=" + userNo + ", chrName=" + chrName + ", chrHp=" + chrHp
-				+ ", chrMp=" + chrMp + ", chrLevel=" + chrLevel + ", chrGold=" + chrGold + ", chrMaxHp=" + chrMaxHp
+				+ ", chrMp=" + chrMp + ", chrExp=" + chrExp + ", chrLevel=" + chrLevel + ", chrGold=" + chrGold + ", chrMaxHp=" + chrMaxHp
 				+ ", chrMaxMp=" + chrMaxMp + ", chrMaxExp=" + chrMaxExp + ", chrChrAtt=" + chrChrAtt + ", chrDet="
 				+ chrDet + ", chrSfx=" + chrSfx + ", chrBmg=" + chrBmg + ", chrEquipTitle=" + chrEquipTitle
 				+ ", chrEquipWeapon=" + chrEquipWeapon + ", chrArmor=" + chrArmor + "]";
