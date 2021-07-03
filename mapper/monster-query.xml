@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<comment/>
+	<entry key="selectMonster">
+	SELECT
+	
+		 MON_CODE
+		,MON_NAME
+		,MON_HP
+		,MON_ATT
+		,MON_SKILL_ATT
+		,MON_DEF
+		,MON_EXP
+		,DROP_GOLD
+		FROM TBL_MON_INFO
+		
+		WHERE MON_CODE = ?
+		
+	</entry>
+</properties>	
