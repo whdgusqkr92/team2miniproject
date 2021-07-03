@@ -6,6 +6,8 @@ import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -15,14 +17,14 @@ import javax.swing.JPanel;
 import javax.swing.JTextPane;
 import javax.swing.SwingConstants;
 
+import com.kkpjj.sysostory.view.op.OpSubPage;
+
 public class PotionShopView extends JPanel {
 	
 	private JFrame mf;
-	private JPanel drenchPanel;
-	private JPanel statusPanel;
-	private JPanel mapPanel;
+	private JPanel potionDealerPanel;
 	
-	private ImageIcon bg = null;
+	private ImageIcon bg = null;		// 마을 배경 다시 그리기용
 
 	public PotionShopView(JFrame mf) {
 		
@@ -30,23 +32,24 @@ public class PotionShopView extends JPanel {
 		
 //		new StatusPanel(mf);	// 하단 패널 호출
 		
+		// ----------------------------------------- 아이템 창
 		
-		// 아이템 창, 나가기 버튼
+		potionDealerPanel = new JPanel();
+		potionDealerPanel.setBounds(0, 0, 800, 420);
+		mf.getContentPane().add(potionDealerPanel);
+		potionDealerPanel.setLayout(null);
 		
-		drenchPanel = new JPanel();
-		drenchPanel.setBounds(0, 0, 800, 419);
-		mf.getContentPane().add(drenchPanel);
-		drenchPanel.setLayout(null);
+		// ----------------------------------------- 나가기 버튼
 		
 		JButton exitButton = new JButton();
 		exitButton.setBounds(750, 0, 45, 45);
 		exitButton.setIcon(new ImageIcon("images/exit.png"));
-		drenchPanel.add(exitButton);
+		potionDealerPanel.add(exitButton);
 		
 		JPanel itemList = new JPanel();
 		itemList.setBackground(Color.LIGHT_GRAY);
 		itemList.setBounds(5, 50, 387, 275);
-		drenchPanel.add(itemList);
+		potionDealerPanel.add(itemList);
 		itemList.setLayout(null);
 		
 		Image itemWindowBg = new ImageIcon("images/itemWindow.png").getImage();
@@ -57,7 +60,7 @@ public class PotionShopView extends JPanel {
 		JPanel itemDirection = new JPanel();
 		itemDirection.setLayout(null);
 		itemDirection.setBounds(0, 325, 400, 90);
-		drenchPanel.add(itemDirection);
+		potionDealerPanel.add(itemDirection);
 		
 		JTextPane textPane = new JTextPane();
 		textPane.setEditable(false);
@@ -71,7 +74,7 @@ public class PotionShopView extends JPanel {
 		JPanel panel = new JPanel();
 		panel.setBackground(Color.LIGHT_GRAY);
 		panel.setBounds(5, 0, 136, 45);
-		drenchPanel.add(panel);
+		potionDealerPanel.add(panel);
 		
 		JTextPane textPane_1 = new JTextPane();
 		textPane_1.setEditable(false);
@@ -83,44 +86,46 @@ public class PotionShopView extends JPanel {
 		JPanel panel_1 = new JPanel();
 		panel_1.setBackground(Color.LIGHT_GRAY);
 		panel_1.setBounds(404, 50, 391, 365);
-		drenchPanel.add(panel_1);
+		potionDealerPanel.add(panel_1);
 		
+		bg = new ImageIcon("images/village.png");
 		
-		bg = new ImageIcon("images/test.png");
+		// 마을, 물약 상인 다시 그리기
 		
-		// 마을, 물약 상인
-		
-		JPanel itemPanel = new JPanel() {
+		JPanel itemPanel = new JPanel()	{
 			
 			public void paintComponent(Graphics g) {
-				g.drawImage(bg.getImage(), 0, 0, 800, 520, null);
+				g.drawImage(bg.getImage(), 0, 0, 800, 420, null);
 			}
 			
 		};
 		
-		itemPanel.setBounds(0, 0, 810, 419);
+		itemPanel.setBounds(0, 0, 800, 420);
 		mf.getContentPane().add(itemPanel);
 		itemPanel.setLayout(null);
 		
-		JButton drenchButton = new JButton();
-		drenchButton.setBounds(98, 55, 70, 100);
-		drenchButton.setIcon(new ImageIcon("images/물약상인.png"));
-		drenchButton.setFont(new Font("둥근모꼴", Font.PLAIN, 16));
+		JButton potionDealerButton = new JButton();
+		potionDealerButton.setBounds(220, 250, 50, 80);
+		potionDealerButton.setIcon(new ImageIcon("images/npc/물약상인.png"));
 		
-		drenchButton.setBorderPainted(false);
-//		drenchButton.setContentAreaFilled(false);
-//		drenchButton.setOpaque(true);
+		// 버튼의 배경 없애기
+		potionDealerButton.setBorderPainted(false);
+		potionDealerButton.setContentAreaFilled(false);
+		potionDealerButton.setFocusPainted(false);
+		potionDealerButton.setOpaque(false);
 		
-		itemPanel.add(drenchButton);
+		itemPanel.add(potionDealerButton);
 		
 		
-		drenchPanel.setVisible(false);
+		// -----------------------물약상인, 나가기 버튼 상호작용-------------------------
 		
-		drenchButton.addActionListener(new ActionListener() {
+		potionDealerPanel.setVisible(false);
+		
+		potionDealerButton.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				
-				drenchPanel.setVisible(true);
+				potionDealerPanel.setVisible(true);
 				itemPanel.setVisible(false);
 			}
 		});
@@ -131,11 +136,9 @@ public class PotionShopView extends JPanel {
 			public void actionPerformed(ActionEvent e) {
 				
 				itemPanel.setVisible(true);
-				drenchPanel.setVisible(false);
+				potionDealerPanel.setVisible(false);
 			}
 		});
-		
-		mf.setVisible(true);
-		mf.setResizable(false);
+
 	}
 }
