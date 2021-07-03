@@ -11,6 +11,8 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+import com.kkpjj.sysostory.view.ResultView.BossSkill;
+
 
 public class BossTurn extends JPanel{
 	 
@@ -18,6 +20,7 @@ public class BossTurn extends JPanel{
 	private JFrame mf;
 	private JPanel mainpanel;
 	private JLabel skillLabel;
+	private JLabel bossLabel;
 	
 	public BossTurn(JFrame mf) {
 		this.mf = mf;
@@ -46,23 +49,22 @@ public class BossTurn extends JPanel{
 	mainpanel.setLayout(null);
 	mf.add(mainpanel); // 생성한 패널 프레임에 추가
 
+	Image bossface = new ImageIcon("images/text/Bossface_M.png").getImage().getScaledInstance(200, 180, 0);
+	bossLabel = new JLabel(new ImageIcon(bossface));
+	bossLabel.setBounds(650, 110, 150, 143);
+	mainpanel.add(bossLabel);
+	bossLabel.setVisible(true);
 	
-	
-	
-//	Image skill = new ImageIcon("images/bossSkill2.gif").getImage().getScaledInstance(650, 350, 0);
-//	skillLabel = new JLabel(new ImageIcon(skill));
-//	skillLabel.setBounds(0, 100, 800, 350);
-//	mainpanel.add(skillLabel);
-//	skillLabel.setVisible(true);
-	
-//	DieText bd = new DieText(mf, mainpanel);
-//	bd.CharaDie();
-	
+//	try {
+		new BossSkill(mf).skill3();
+//		Thread.sleep(3000);
+//	} catch (InterruptedException e) {
+//		// TODO Auto-generated catch block
+//		e.printStackTrace();
+//	}
 }
-	public void FinalBossSkill() {
-			
 	}
-	
-	
-	}
-	
+
+
+//	DieText bd = new DieText(mf, mainpanel);
+//bd.Chara
