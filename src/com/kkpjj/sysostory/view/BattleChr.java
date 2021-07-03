@@ -4,6 +4,7 @@ import java.awt.Graphics;
 import java.awt.Image;
 
 import javax.swing.ImageIcon;
+import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 import com.kkpjj.sysostory.controller.BattleController;
@@ -14,9 +15,6 @@ public class BattleChr extends JPanel {
 	public BattleChr() {
 		// 레이아웃 설정
 		init();
-		// 몬스터 생성
-		BattleController bc = new BattleController();
-		bc.createMon();
 	}
 	
 	private void init() {
