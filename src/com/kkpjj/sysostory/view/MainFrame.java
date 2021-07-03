@@ -13,6 +13,9 @@ public class MainFrame extends JFrame {
 		mf = new JFrame();
 		
 //		new FinalBoss(mf);
+
+		new MiddleBoss(mf);
+
 		
 		mf.setSize(800, 600);
 		mf.setLayout(null);
