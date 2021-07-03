@@ -40,7 +40,10 @@ public class OpSubPage extends JPanel {
 		
 		
 		//-------------------- 스토리 정보 출력 확인용---------------------
-		storyDTO.setStoryCode(2);
+		
+		int skillCode = 2;		// 2번의 스토리 정보
+		
+		storyDTO.setStoryCode(skillCode);
 		System.out.println(storyController.selectStoryContents(storyDTO.getStoryCode()));
 //		label1.setText(storyController.selectStoryContents(storyDTO.getStoryCode()));
 		

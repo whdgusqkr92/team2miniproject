@@ -44,11 +44,12 @@ public class StoryDAO {
 		try {
 			pstmt = con.prepareStatement(query);
 			pstmt.setInt(1, storyCode);
-			
 			rset = pstmt.executeQuery();
 			
 			if(rset.next()) {
 				story = new StoryDTO();
+				story.setStoryCode(rset.getInt("STORY_CODE"));
+				story.setChapTitle(rset.getString("CHAP_TITLE"));
 				story.setChapScript(rset.getString("CHAP_SCRIPT"));
 			}
 		} catch (SQLException e) {
