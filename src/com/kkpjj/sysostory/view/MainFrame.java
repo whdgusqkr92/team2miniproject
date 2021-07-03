@@ -11,11 +11,13 @@ public class MainFrame extends JFrame {
 		mf = new JFrame();
 		
 
-
 		
 		mf.setTitle("sysoStory");
 		mf.setSize(800, 600);
 		mf.setLayout(null);
+		
+
+
 		mf.setLocationRelativeTo(null);
 		mf.setResizable(true);
 		mf.setVisible(true);

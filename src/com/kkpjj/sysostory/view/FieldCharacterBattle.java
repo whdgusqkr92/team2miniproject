@@ -72,9 +72,7 @@ public class FieldCharacterBattle extends JPanel {
 
 		
 		
-//		JButton monsterJbutton = new JButton(new ImageIcon("images/monster.png"));						//여기다 몬스터 버튼 만들기
-//		monsterJbutton.setBounds(600, 350, 50, 50);
-//		fieldJLabel.add(monsterJbutton);		
+
 		
 		JLabel monsterLabel = new JLabel(new ImageIcon("images/monster.png"));										// 버튼으로 만드려고햇는데 버튼은 이미지가 버튼 이미지까지 나와서 라벨에 이미지 넣음
 		monsterLabel.setBounds(600, 330, 60, 60);	
@@ -92,25 +90,11 @@ public class FieldCharacterBattle extends JPanel {
 		
 		
 		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
 		mf.getContentPane().add(mainPanel); 										// 메인 패널을 메인 프레임에 넣어준거
 //		mf.getContentPane().add(monsterLabel2);
-		monsterLabel2.addMouseListener(new MyMouseAdapter()); 							// 메인 패널 마우스 리스너 이벤트 생성
-		monsterLabel3.addMouseListener(new MyMouseAdapter());
+		monsterLabel.addMouseListener(new MyMouseAdapter()); 							// 라벨에 마우스 리스너 이벤트 생성
+		monsterLabel2.addMouseListener(new MyMouseAdapter()); 							// 라벨에 마우스 리스너 이벤트 생성
+		monsterLabel3.addMouseListener(new MyMouseAdapter());							// 라벨에 마우스 리스너 이벤트 생성
 		
 	}
 
