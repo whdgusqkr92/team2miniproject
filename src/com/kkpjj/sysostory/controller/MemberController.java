@@ -7,9 +7,8 @@ import javax.swing.JTextField;
 
 import com.kkpjj.sysostory.model.dto.MemberDTO;
 import com.kkpjj.sysostory.model.service.MemberService;
-import com.kkpjj.sysostory.view.AfterLogin;
-import com.kkpjj.sysostory.view.MemberResultView;
-import com.kkpjj.sysostory.view.StartScreen;
+import com.kkpjj.sysostory.view.member.AfterLogin;
+import com.kkpjj.sysostory.view.member.MemberResultView;
 
 public class MemberController {
 	
