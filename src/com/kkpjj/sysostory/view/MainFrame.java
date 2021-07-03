@@ -13,9 +13,7 @@ public class MainFrame extends JFrame {
 		
 		mf = new JFrame();
 		
-//		new FinalBoss(mf);
-		
-			new BossSkillResultView(mf).skill2();
+
 		
 		mf.setTitle("sysoStory");
 		mf.setSize(800, 600);
