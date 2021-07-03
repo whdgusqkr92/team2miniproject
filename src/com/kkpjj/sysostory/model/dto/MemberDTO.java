@@ -2,7 +2,7 @@ package com.kkpjj.sysostory.model.dto;
 
 public class MemberDTO implements java.io.Serializable{
 	
-	private String userNo;
+	private int userNo;
 	private String userGrade;
 	private String userId;
 	private String userPwd;
@@ -12,7 +12,7 @@ public class MemberDTO implements java.io.Serializable{
 	
 	public MemberDTO() {}
 
-	public MemberDTO(String userNo, String userGrade, String userId, String userPwd, String userName, String email,
+	public MemberDTO(int userNo, String userGrade, String userId, String userPwd, String userName, String email,
 			char userStatus) {
 		super();
 		this.userNo = userNo;
@@ -24,11 +24,11 @@ public class MemberDTO implements java.io.Serializable{
 		this.userStatus = userStatus;
 	}
 
-	public String getUserNo() {
+	public int getUserNo() {
 		return userNo;
 	}
 
-	public void setUserNo(String userNo) {
+	public void setUserNo(int userNo) {
 		this.userNo = userNo;
 	}
 
