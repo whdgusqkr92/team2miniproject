@@ -10,12 +10,14 @@ public class MainFrame extends JFrame {
 		
 		mf = new JFrame();
 		
-		new FinalBoss(mf);
+//		new FinalBoss(mf);
 		
 		mf.setSize(800, 600);
 		mf.setLayout(null);
 		mf.setTitle("sysoStory");
 
+//		new FieldCharacterBattle(mf);
+		new SkillList(mf);
 		
 		mf.setLocationRelativeTo(null);
 		mf.setResizable(true);
