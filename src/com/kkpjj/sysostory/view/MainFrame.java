@@ -10,7 +10,7 @@ public class MainFrame extends JFrame {
 		
 		mf = new JFrame();
 		
-
+		new SkillList(mf);
 		
 		mf.setTitle("sysoStory");
 		mf.setSize(800, 600);
