@@ -32,19 +32,21 @@ public class VillageView extends JPanel {
 		
 		// 물약상인
 		posionShopPanel = new PotionShopView(mf);
-		posionShopPanel.setBounds(98, 55, 70, 100);
+//		posionShopPanel.setBounds(200, 250, 55, 80);
 		
 		// 무기상인
-		weaponShopPanel = new WeaponShopView();
-		weaponShopPanel.setBounds(200, 60, 70, 100);
+		weaponShopPanel = new WeaponShopView(mf);
+//		weaponShopPanel.setBounds(400, 60, 55, 80);
 		
 		// 장비상인
-		armorShopPanel = new ArmorShopView();
-		armorShopPanel.setBounds(400, 80, 70, 100);
-
+		armorShopPanel = new ArmorShopView(mf);
+//		armorShopPanel.setBounds(200, 100, 50, 80);
+		
+		
 		mainPanel.add(posionShopPanel);
 		mainPanel.add(weaponShopPanel);
 		mainPanel.add(armorShopPanel);
+		
 
 		mf.add(mainPanel);
 
@@ -52,8 +54,15 @@ public class VillageView extends JPanel {
 //		mf.setResizable(false);
 //		mf.setVisible(true);
 //		mf.setDefaultCloseOperation(EXIT_ON_CLOSE);
+		
+//		posionShopPanel.setVisible(true);
+//		weaponShopPanel.setVisible(true);
+//		armorShopPanel.setVisible(true);
+		
+		mf.repaint();
+		mf.revalidate();
+		
 	}
-
 }
 
 class MainView extends JPanel {
@@ -71,4 +80,18 @@ class MainView extends JPanel {
 	public void paintComponent(Graphics g) {
 		g.drawImage(bg, 0, 0, getWidth(), getHeight(), this);
 	}
+	
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
