@@ -37,7 +37,7 @@ public class BattleMenu extends JPanel {
 	public BattleMenu() {
 		initMenuPanel();
 		createMenu();
-		//		createSubMenu();
+		addMenu();
 		selectMenu();
 	}
 
@@ -58,8 +58,6 @@ public class BattleMenu extends JPanel {
 		potionMenu.setBounds(118, 20, 31, 31);
 		this.runMenu = new RunMenu();
 		runMenu.setBounds(165, 20, 31, 31);
-
-		addMenu();
 	}
 
 	private void createSubMenu() {
@@ -69,25 +67,25 @@ public class BattleMenu extends JPanel {
 		subMenu.setLayout(null);
 		subMenu.setOpaque(false);
 
-		this.subMenu1 = new JButton("기본 공격1");
+		this.subMenu1 = new JButton();
 		subMenu1.setBounds(0, 0, 170, 35);
 		subMenu1.setForeground(Color.WHITE);
 		subMenu1.setBackground(Color.BLACK);
 		subMenu1.setFont(font);
 
-		this.subMenu2 = new JButton("기본 공격2");
+		this.subMenu2 = new JButton();
 		subMenu2.setBounds(0, 40, 170, 35);
 		subMenu2.setForeground(Color.WHITE);
 		subMenu2.setBackground(Color.BLACK);
 		subMenu2.setFont(font);
 
-		this.subMenu3 = new JButton("기본 공격3");
+		this.subMenu3 = new JButton();
 		subMenu3.setBounds(0, 80, 170, 35);
 		subMenu3.setForeground(Color.WHITE);
 		subMenu3.setBackground(Color.BLACK);
 		subMenu3.setFont(font);
 
-		this.subMenu4 = new JButton("기본 공격4");
+		this.subMenu4 = new JButton();
 		subMenu4.setBounds(0, 120, 170, 35);
 		subMenu4.setForeground(Color.WHITE);
 		subMenu4.setBackground(Color.BLACK);
@@ -156,7 +154,7 @@ public class BattleMenu extends JPanel {
 					remove(subMenu);
 				}
 				createSubMenu();
-				potionSubMenu();
+				runSubMenu();
 				repaint();
 				revalidate();
 			}
@@ -244,8 +242,8 @@ public class BattleMenu extends JPanel {
 
 class SelectSubMenu implements ActionListener {
 
-	String attackType;
-	String subMenuName;
+	private String attackType;
+	private String subMenuName;
 
 	public SelectSubMenu(String attackType, String subMenuName) {
 		this.attackType = attackType;
@@ -258,19 +256,6 @@ class SelectSubMenu implements ActionListener {
 		bc.selectSubMenu(attackType, subMenuName);
 	}
 }
-
-//class SelectMenuBtn implements ActionListener {
-//	@Override
-//	public void actionPerformed(ActionEvent e) {
-//		if(subMenu != null) {
-//			remove(subMenu);
-//		}
-//		createSubMenu();
-//		runSubMenu();
-//		repaint();
-//		revalidate();
-//	}
-//}
 
 // 메뉴 이미지 추가
 class AttackMenu extends JButton {

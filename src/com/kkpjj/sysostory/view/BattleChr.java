@@ -4,14 +4,19 @@ import java.awt.Graphics;
 import java.awt.Image;
 
 import javax.swing.ImageIcon;
-import javax.swing.JFrame;
 import javax.swing.JPanel;
 
-// 캐릭터 이미지 추가, 레이아웃 설정
+import com.kkpjj.sysostory.controller.BattleController;
+
+// 캐릭터 레이아웃 설정, 이미지 추가
 public class BattleChr extends JPanel {
 	
 	public BattleChr() {
+		// 레이아웃 설정
 		init();
+		// 몬스터 생성
+		BattleController bc = new BattleController();
+		bc.createMon();
 	}
 	
 	private void init() {
