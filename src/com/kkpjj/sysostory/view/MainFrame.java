@@ -2,6 +2,9 @@ package com.kkpjj.sysostory.view;
 
 import javax.swing.JFrame;
 
+import com.kkpjj.sysostory.view.boss.MiddleBossEvent;
+import com.kkpjj.sysostory.view.story.EndingPage;
+
 
 public class MainFrame extends JFrame {
 
@@ -15,10 +18,8 @@ public class MainFrame extends JFrame {
 		mf.setSize(800, 600);
 		mf.setLayout(null);
 		
-
-//		new VillageView(mf);
-//		new BattlePage(mf);
-		new com.kkpjj.sysostory.view.story.OpMainPage(mf);
+//		new MiddleBossEvent(mf);
+		new EndingPage(mf);
 
 		mf.setLocationRelativeTo(null);
 		mf.setResizable(true);

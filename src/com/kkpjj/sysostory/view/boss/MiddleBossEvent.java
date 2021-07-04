@@ -14,8 +14,10 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+import com.kkpjj.sysostory.view.ViewUtil;
 
-public class MiddleBoss extends JPanel{
+
+public class MiddleBossEvent extends JPanel{
 
 	private JFrame mf;
 	private JPanel mainpanel;
@@ -28,13 +30,13 @@ public class MiddleBoss extends JPanel{
 	private JButton btn;
 	private JButton btn2;
 	
-	public MiddleBoss(JFrame mf) {
+	public MiddleBossEvent(JFrame mf) {
 		this.mf = mf;
 		this.mainpanel = this;
 
 	
 	//--------------------------배경 필드 패널 만들기------------------------------	
-	Image field = new ImageIcon("Images/field.png").getImage().getScaledInstance(800, 200, 0);
+	Image field = new ImageIcon("Images/field/field.png").getImage().getScaledInstance(800, 200, 0);
 		
 	mainpanel = new JPanel() {
 		public void paintComponent(Graphics g) {
@@ -94,7 +96,7 @@ public class MiddleBoss extends JPanel{
 		@Override
 		public void mouseClicked(MouseEvent e) {
 			
-//			ViewUtil.changePanel(mf, mainpanel, new BossTurn(mf));
+			ViewUtil.changePanel(mf, mainpanel, new BossTurn(mf));
 			
 			
 			}
