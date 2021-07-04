@@ -2,6 +2,7 @@ package com.kkpjj.sysostory.view;
 
 import javax.swing.JFrame;
 
+
 public class MainFrame extends JFrame {
 
 	private JFrame mf;
@@ -14,6 +15,7 @@ public class MainFrame extends JFrame {
 		mf.setSize(800, 600);
 		mf.setLayout(null);
 		
+
 //		new VillageView(mf);
 //		new BattlePage(mf);
 		new com.kkpjj.sysostory.view.story.OpMainPage(mf);
