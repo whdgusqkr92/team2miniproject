@@ -88,31 +88,32 @@ public class BattleMenu extends JPanel {
 		subMenu.setBounds(24, 60, 170, 155);
 		subMenu.setLayout(null);
 		subMenu.setOpaque(false);
+//		subMenu.setVisible(false);
 
-		this.subMenu1 = new JButton("기본 공격1");
+		this.subMenu1 = new JButton();
 		subMenu1.setBounds(0, 0, 170, 35);
 		subMenu1.setForeground(Color.WHITE);
 		subMenu1.setBackground(Color.BLACK);
 		subMenu1.setFont(font);
 
-		this.subMenu2 = new JButton("기본 공격2");
+		this.subMenu2 = new JButton();
 		subMenu2.setBounds(0, 40, 170, 35);
 		subMenu2.setForeground(Color.WHITE);
 		subMenu2.setBackground(Color.BLACK);
 		subMenu2.setFont(font);
 
-		this.subMenu3 = new JButton("기본 공격3");
+		this.subMenu3 = new JButton();
 		subMenu3.setBounds(0, 80, 170, 35);
 		subMenu3.setForeground(Color.WHITE);
 		subMenu3.setBackground(Color.BLACK);
 		subMenu3.setFont(font);
 
-		this.subMenu4 = new JButton("기본 공격4");
+		this.subMenu4 = new JButton();
 		subMenu4.setBounds(0, 120, 170, 35);
 		subMenu4.setForeground(Color.WHITE);
 		subMenu4.setBackground(Color.BLACK);
 		subMenu4.setFont(font);
-
+		
 		addSubMenu();
 	}
 
@@ -131,8 +132,8 @@ public class BattleMenu extends JPanel {
 		potionMenu.addActionListener(new SelectMenu(this, subMenu, "potion"));
 		runMenu.addActionListener(new SelectMenu(this, subMenu, "run"));
 	}
-
-	void attackSubMenu(String attackType) {
+	
+	void attackSubMenu(BattleMenu battleMenu, String attackType) {
 		this.attackType = attackType;
 		this.subMenuName = new String[] {"기본 공격1", "기본 공격2", "기본 공격3", "기본 공격4"};
 
@@ -145,14 +146,14 @@ public class BattleMenu extends JPanel {
 		this.subMenu2.setText(subMenuName2);
 		this.subMenu3.setText(subMenuName3);
 		this.subMenu4.setText(subMenuName4);
-
+		
 		subMenu1.addActionListener(new SelectSubMenu(bc, attackType, subMenuName1));
 		subMenu2.addActionListener(new SelectSubMenu(bc, attackType, subMenuName2));
 		subMenu3.addActionListener(new SelectSubMenu(bc, attackType, subMenuName3));
 		subMenu4.addActionListener(new SelectSubMenu(bc, attackType, subMenuName4));		
 	}
 
-	void skillSubMenu(String attackType) {
+	void skillSubMenu(BattleMenu battleMenu, String attackType) {
 		this.attackType = attackType;
 		this.subMenuName = new String[] {"스킬 공격1", "스킬 공격2", "스킬 공격3", "스킬 공격4"};
 
@@ -165,14 +166,14 @@ public class BattleMenu extends JPanel {
 		this.subMenu2.setText(subMenuName2);
 		this.subMenu3.setText(subMenuName3);
 		this.subMenu4.setText(subMenuName4);
-
+		
 		subMenu1.addActionListener(new SelectSubMenu(bc, attackType, subMenuName1));
 		subMenu2.addActionListener(new SelectSubMenu(bc, attackType, subMenuName2));
 		subMenu3.addActionListener(new SelectSubMenu(bc, attackType, subMenuName3));
 		subMenu4.addActionListener(new SelectSubMenu(bc, attackType, subMenuName4));		
 	}
 
-	void potionSubMenu(String attackType) {
+	void potionSubMenu(BattleMenu battleMenu, String attackType) {
 		this.attackType = attackType;
 		this.subMenuName = new String[] {"아이템 사용"};
 
@@ -183,11 +184,11 @@ public class BattleMenu extends JPanel {
 		subMenuName1 = subMenuName[0];
 
 		this.subMenu1.setText(subMenuName1);
-
+		
 		subMenu1.addActionListener(new SelectSubMenu(bc, attackType, subMenuName1));	
 	}
 
-	void runSubMenu(String attackType) {
+	void runSubMenu(BattleMenu battleMenu, String attackType) {
 		this.attackType = attackType;
 		this.subMenuName = new String[] {"도망가기"};
 
@@ -198,7 +199,7 @@ public class BattleMenu extends JPanel {
 		subMenuName1 = subMenuName[0];
 
 		this.subMenu1.setText(subMenuName1);
-
+		
 		subMenu1.addActionListener(new SelectSubMenu(bc, attackType, subMenuName1));	
 	}
 }
@@ -220,18 +221,20 @@ class SelectMenu implements ActionListener {
 		if(subMenu != null) {
 			battleMenu.remove(subMenu);
 		}
-
+		
+		
 		switch(attackType) {
-		case "attack" : battleMenu.attackSubMenu(attackType); break;
-		case "skill" : battleMenu.skillSubMenu(attackType); break;
-		case "potion" : battleMenu.potionSubMenu(attackType); break;
-		case "run" : battleMenu.runSubMenu(attackType); break;
-		default : System.out.println("메뉴 선택 오류"); break;
+			case "attack" : battleMenu.attackSubMenu(battleMenu, attackType); break;
+			case "skill" : battleMenu.skillSubMenu(battleMenu, attackType); break;
+			case "potion" : battleMenu.potionSubMenu(battleMenu, attackType); break;
+			case "run" : battleMenu.runSubMenu(battleMenu, attackType); break;
+			default : System.out.println("메뉴 선택 오류"); break;
 		}
 		
-		battleMenu.add(subMenu);
 		battleMenu.repaint();
 		battleMenu.revalidate();
+
+
 	}
 }
 
