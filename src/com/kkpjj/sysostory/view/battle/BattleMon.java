@@ -4,6 +4,8 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.Rectangle;
+import java.awt.event.FocusEvent;
+import java.awt.event.FocusListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.util.ArrayList;
@@ -37,14 +39,14 @@ public class BattleMon extends JPanel {
 	public BattleMon(BattleController bc) {
 		this.bc = bc;
 		// 몬스터 레이아웃 설정
-		init();
+		initMonPanel();
 		// 전투에 등장할 몬스터 선택
 		appearMonInfo();
 		// 몬스터 레이아웃 및 위치 설정 후 패널에 추가
 		createMon();
 	}
 
-	private void init() {
+	private void initMonPanel() {
 		this.setBounds(550, 60, 200, 300);
 		this.setLayout(null);
 		this.setOpaque(false);
@@ -76,6 +78,17 @@ public class BattleMon extends JPanel {
 		selectFirstMon.setBounds(firstMon.getBounds());
 		selectFirstMon.setBorderPainted(false);
 		selectFirstMon.setContentAreaFilled(false);
+//		selectFirstMon.addFocusListener(new FocusListener() {
+//			@Override
+//			public void focusLost(FocusEvent e) {
+//				System.out.println("focusOut");
+//			}
+//
+//			@Override
+//			public void focusGained(FocusEvent e) {
+//				System.out.println("focusIn");
+//			}
+//		});
 
 		this.selectSecondMon = new JButton();
 		selectSecondMon.setBounds(secondMon.getBounds());
@@ -91,11 +104,7 @@ public class BattleMon extends JPanel {
 		selectFourthMon.setBounds(fourthMon.getBounds());
 		selectFourthMon.setBorderPainted(false);
 		selectFourthMon.setContentAreaFilled(false);
-		
-		addMon();
-	}
 
-	private void addMon() {
 		this.add(selectFirstMon);
 		this.add(selectSecondMon);
 		this.add(selectThirdMon);

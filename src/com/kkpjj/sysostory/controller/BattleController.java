@@ -57,11 +57,11 @@ public class BattleController {
 		
 		// 전투 메뉴 생성
 		this.battleMenu = new BattleMenu(this);
-		mf.add(battleMenu);		
+		mf.add(battleMenu);
 	}
 	
 	public void selectMenu() {
-		battleMenu.selectMenu();
+//		battleMenu.selectMenu();
 	}
 
 	public void selectSubMenu(String attackType, String subMenuName) {
@@ -114,7 +114,6 @@ public class BattleController {
 
 	private void attack(int chrMp, int mpConsume) {
 		chrMp = chrMp - mpConsume;
-
 	}
 
 	private void useItem() {
@@ -124,7 +123,6 @@ public class BattleController {
 	private void runAway() {
 		System.out.println("도망~");
 	}
-
 
 	private void checkMp(int chrMp, int mpConsume) {
 

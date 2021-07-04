@@ -11,10 +11,10 @@ public class BattleChr extends JPanel {
 	
 	public BattleChr() {
 		// 레이아웃 설정
-		init();
+		initChrPanel();
 	}
 	
-	private void init() {
+	private void initChrPanel() {
 		this.setBounds(150, 178, 64, 64);
 		this.setLayout(null);
 		this.setOpaque(false);

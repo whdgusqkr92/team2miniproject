@@ -26,7 +26,7 @@ public class BattleMenu extends JPanel {
 	private JButton skillMenu;
 	private JButton potionMenu;
 	private JButton runMenu;
-	private JPanel subMenu;
+	JPanel subMenu;
 	private JButton subMenu1;
 	private JButton subMenu2;
 	private JButton subMenu3;
@@ -48,10 +48,15 @@ public class BattleMenu extends JPanel {
 
 	public BattleMenu(BattleController bc) {
 		this.bc = bc;
+		this.attackType = "attack";
+		this.subMenuName = new String[] {"기본 공격1", "기본 공격2", "기본 공격3", "기본 공격4"}; 
 
 		initMenuPanel();
+		// 전투메뉴 추가
 		createMenu();
+		selectMenu();
 		createSubMenu();
+		selectSubMenu(bc, attackType, subMenuName);
 	}
 
 	private void initMenuPanel() {
@@ -62,7 +67,7 @@ public class BattleMenu extends JPanel {
 	}
 
 	private void createMenu() {
-		// 전투 메뉴 추가
+		// 전투메뉴 추가
 		this.attackMenu = new AttackMenu();
 		attackMenu.setBounds(24, 20, 31, 31);
 		this.skillMenu = new SkillMenu();
@@ -71,15 +76,18 @@ public class BattleMenu extends JPanel {
 		potionMenu.setBounds(118, 20, 31, 31);
 		this.runMenu = new RunMenu();
 		runMenu.setBounds(165, 20, 31, 31);
-		
-		addMenu();
-	}
-	
-	private void addMenu() {
+
 		this.add(attackMenu);
 		this.add(skillMenu);
 		this.add(potionMenu);
 		this.add(runMenu);
+	}
+	
+	private void selectMenu() {
+		attackMenu.addActionListener(new SelectMenu(this, subMenu, "attack"));
+		skillMenu.addActionListener(new SelectMenu(this, subMenu, "skill"));
+		potionMenu.addActionListener(new SelectMenu(this, subMenu, "potion"));
+		runMenu.addActionListener(new SelectMenu(this, subMenu, "run"));
 	}
 
 	private void createSubMenu() {
@@ -88,7 +96,6 @@ public class BattleMenu extends JPanel {
 		subMenu.setBounds(24, 60, 170, 155);
 		subMenu.setLayout(null);
 		subMenu.setOpaque(false);
-//		subMenu.setVisible(false);
 
 		this.subMenu1 = new JButton();
 		subMenu1.setBounds(0, 0, 170, 35);
@@ -114,10 +121,6 @@ public class BattleMenu extends JPanel {
 		subMenu4.setBackground(Color.BLACK);
 		subMenu4.setFont(font);
 		
-		addSubMenu();
-	}
-
-	void addSubMenu() {
 		subMenu.add(subMenu1);
 		subMenu.add(subMenu2);
 		subMenu.add(subMenu3);
@@ -125,32 +128,29 @@ public class BattleMenu extends JPanel {
 
 		this.add(subMenu);
 	}
-
-	public void selectMenu() {
-		attackMenu.addActionListener(new SelectMenu(this, subMenu, "attack"));
-		skillMenu.addActionListener(new SelectMenu(this, subMenu, "skill"));
-		potionMenu.addActionListener(new SelectMenu(this, subMenu, "potion"));
-		runMenu.addActionListener(new SelectMenu(this, subMenu, "run"));
-	}
 	
+	private void selectSubMenu(BattleController bc, String attackType, String[] subMenuName) {
+		subMenu1.addActionListener(new SelectSubMenu(bc, attackType, subMenuName[0]));
+		subMenu2.addActionListener(new SelectSubMenu(bc, attackType, subMenuName[1]));
+		subMenu3.addActionListener(new SelectSubMenu(bc, attackType, subMenuName[2]));
+		subMenu4.addActionListener(new SelectSubMenu(bc, attackType, subMenuName[3]));
+	}
+
 	void attackSubMenu(BattleMenu battleMenu, String attackType) {
 		this.attackType = attackType;
 		this.subMenuName = new String[] {"기본 공격1", "기본 공격2", "기본 공격3", "기본 공격4"};
 
-		subMenuName1 = subMenuName[0];
-		subMenuName2 = subMenuName[1];
-		subMenuName3 = subMenuName[2];
-		subMenuName4 = subMenuName[3];
-
-		this.subMenu1.setText(subMenuName1);
-		this.subMenu2.setText(subMenuName2);
-		this.subMenu3.setText(subMenuName3);
-		this.subMenu4.setText(subMenuName4);
+		this.subMenu1.setText(subMenuName[0]);
+		this.subMenu2.setText(subMenuName[1]);
+		this.subMenu3.setText(subMenuName[2]);
+		this.subMenu4.setText(subMenuName[3]);
+				
+		subMenu1.removeActionListener(new SelectSubMenu(bc, attackType, subMenuName[0]));
+		subMenu2.removeActionListener(new SelectSubMenu(bc, attackType, subMenuName[1]));
+		subMenu3.removeActionListener(new SelectSubMenu(bc, attackType, subMenuName[2]));
+		subMenu4.removeActionListener(new SelectSubMenu(bc, attackType, subMenuName[3]));
 		
-		subMenu1.addActionListener(new SelectSubMenu(bc, attackType, subMenuName1));
-		subMenu2.addActionListener(new SelectSubMenu(bc, attackType, subMenuName2));
-		subMenu3.addActionListener(new SelectSubMenu(bc, attackType, subMenuName3));
-		subMenu4.addActionListener(new SelectSubMenu(bc, attackType, subMenuName4));		
+		selectSubMenu(bc, attackType, subMenuName);
 	}
 
 	void skillSubMenu(BattleMenu battleMenu, String attackType) {
@@ -167,10 +167,11 @@ public class BattleMenu extends JPanel {
 		this.subMenu3.setText(subMenuName3);
 		this.subMenu4.setText(subMenuName4);
 		
-		subMenu1.addActionListener(new SelectSubMenu(bc, attackType, subMenuName1));
-		subMenu2.addActionListener(new SelectSubMenu(bc, attackType, subMenuName2));
-		subMenu3.addActionListener(new SelectSubMenu(bc, attackType, subMenuName3));
-		subMenu4.addActionListener(new SelectSubMenu(bc, attackType, subMenuName4));		
+//		subMenu1.addActionListener(new SelectSubMenu(bc, attackType, subMenuName1));
+//		subMenu2.addActionListener(new SelectSubMenu(bc, attackType, subMenuName2));
+//		subMenu3.addActionListener(new SelectSubMenu(bc, attackType, subMenuName3));
+//		subMenu4.addActionListener(new SelectSubMenu(bc, attackType, subMenuName4));
+		selectSubMenu(bc, attackType, subMenuName);
 	}
 
 	void potionSubMenu(BattleMenu battleMenu, String attackType) {
@@ -185,7 +186,8 @@ public class BattleMenu extends JPanel {
 
 		this.subMenu1.setText(subMenuName1);
 		
-		subMenu1.addActionListener(new SelectSubMenu(bc, attackType, subMenuName1));	
+		subMenu1.addActionListener(new SelectSubMenu(bc, attackType, subMenuName1));
+		selectSubMenu(bc, attackType, subMenuName);
 	}
 
 	void runSubMenu(BattleMenu battleMenu, String attackType) {
@@ -200,7 +202,8 @@ public class BattleMenu extends JPanel {
 
 		this.subMenu1.setText(subMenuName1);
 		
-		subMenu1.addActionListener(new SelectSubMenu(bc, attackType, subMenuName1));	
+		subMenu1.addActionListener(new SelectSubMenu(bc, attackType, subMenuName1));
+		selectSubMenu(bc, attackType, subMenuName);
 	}
 }
 
@@ -221,7 +224,7 @@ class SelectMenu implements ActionListener {
 		if(subMenu != null) {
 			battleMenu.remove(subMenu);
 		}
-		
+		System.out.println(battleMenu.subMenu);
 		
 		switch(attackType) {
 			case "attack" : battleMenu.attackSubMenu(battleMenu, attackType); break;
@@ -252,7 +255,8 @@ class SelectSubMenu implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		bc.selectSubMenu(attackType, subMenuName);
+		System.out.println("버튼 동작!");
+//		bc.selectSubMenu(attackType, subMenuName);
 	}
 }
 

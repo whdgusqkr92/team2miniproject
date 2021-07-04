@@ -25,14 +25,14 @@ public class BattlePage extends JPanel {
 	public BattlePage(JFrame mf) {
 		this.mf = mf;
 		// 전투 메인화면 레이아웃 설정
-		init();
+		initBattlePage();
 		// 캐릭터, 몬스터 생성 후 프레임에 추가
 		createComponents();
 		// 프레임에 전투 메인화면 추가
 		this.mf.add(this);
 	}
 	
-	private void init() {
+	private void initBattlePage() {
 		this.setBounds(0, 0, 800, 420);
 		this.setLayout(null);
 		this.setOpaque(false);
