@@ -54,7 +54,7 @@ public class FieldCharacterBattle extends JPanel {
 		fieldJLabel = new JLabel(new ImageIcon(Image)); 														// 필드 이미지 필드 라벨에 넣어준거
 		fieldJLabel.setBounds(0, 0, 800, 400);
 //		fieldJPanel.setLayout(null);
-		chLabel = new JLabel(new ImageIcon(chImage));
+		chLabel = new JLabel(new ImageIcon(chImage));															// 필드 캐릭터 필드 라벨에 넣기
 		chLabel.setBounds(100, 150, 100, 100);
 
 		

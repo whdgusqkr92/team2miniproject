@@ -2,6 +2,8 @@ package com.kkpjj.sysostory.view;
 
 import javax.swing.JFrame;
 
+import com.kkpjj.sysostory.view.skill.SkillList;
+
 
 
 
@@ -19,6 +21,8 @@ public class MainFrame extends JFrame {
 		
 
 
+
+		new SkillList(mf);
 		mf.setLocationRelativeTo(null);
 		mf.setResizable(true);
 		mf.setVisible(true);
