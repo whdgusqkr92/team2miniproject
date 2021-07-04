@@ -16,9 +16,9 @@ import javax.swing.JPanel;
 
 import com.kkpjj.sysostory.controller.BossAttController;
 import com.kkpjj.sysostory.view.ViewUtil;
-import com.kkpjj.sysostory.view.boss.BossSkillResultView;
+import com.kkpjj.sysostory.view.boss.BossSkillEffect;
 
-public class FinalBoss extends JPanel{
+public class FinalBossEvent extends JPanel{
 
 	private JFrame mf;
 	private JPanel mainpanel;
@@ -33,7 +33,7 @@ public class FinalBoss extends JPanel{
 	private JLabel bossLabel;
 
 
-	public FinalBoss(JFrame mf) {
+	public FinalBossEvent(JFrame mf) {
 		this.mf = mf;
 		//		this.mainpanel=this;
 		this.mainpanel = this;
@@ -165,7 +165,7 @@ public class FinalBoss extends JPanel{
 			
 //			new BossAttController(mf);
 			
-			ViewUtil.changePanel(mf, mainpanel, new BossTurn(mf,mainpanel));
+			ViewUtil.changePanel(mf, mainpanel, new BossTurn(mf));
 
 		}
 	}
