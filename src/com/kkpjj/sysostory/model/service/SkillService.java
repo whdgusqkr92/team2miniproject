@@ -1,12 +1,13 @@
 package com.kkpjj.sysostory.model.service;
 
+import static com.kkpjj.common.JDBCTemplate.close;
+import static com.kkpjj.common.JDBCTemplate.getConnection;
+
 import java.sql.Connection;
+import java.util.List;
 
 import com.kkpjj.sysostory.model.dao.SkillDAO;
 import com.kkpjj.sysostory.model.dto.SkillDTO;
-
-import static com.kkpjj.common.JDBCTemplate.close;
-import static com.kkpjj.common.JDBCTemplate.getConnection;
 
 public class SkillService {
 	
@@ -23,5 +24,13 @@ public class SkillService {
 		return skillScript;
 		
 	}
-	
+
+	public List<SkillDTO> selectAllSkills() {
+		Connection con = getConnection();
+		
+		List<SkillDTO> skillList = skillDAO.selectAllSkillList(con);
+		close(con);
+
+		return skillList;
+	}
 }

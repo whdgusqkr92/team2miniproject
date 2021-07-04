@@ -2,6 +2,8 @@ package com.kkpjj.sysostory.view;
 
 import javax.swing.JFrame;
 
+import com.kkpjj.sysostory.view.battle.BattlePage;
+
 
 public class MainFrame extends JFrame {
 
@@ -17,8 +19,8 @@ public class MainFrame extends JFrame {
 		
 
 //		new VillageView(mf);
-//		new BattlePage(mf);
-		new com.kkpjj.sysostory.view.story.OpMainPage(mf);
+		new BattlePage(mf);
+//		new com.kkpjj.sysostory.view.story.OpMainPage(mf);
 
 		mf.setLocationRelativeTo(null);
 		mf.setResizable(true);

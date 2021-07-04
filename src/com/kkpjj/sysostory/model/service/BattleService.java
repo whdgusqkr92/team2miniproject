@@ -4,6 +4,7 @@ import static com.kkpjj.common.JDBCTemplate.close;
 import static com.kkpjj.common.JDBCTemplate.getConnection;
 
 import java.sql.Connection;
+import java.util.List;
 
 import com.kkpjj.sysostory.model.dao.BattleDAO;
 import com.kkpjj.sysostory.model.dto.MonsterDTO;
@@ -16,14 +17,14 @@ public class BattleService {
 		this.battleDAO = new BattleDAO();
 	}
 
-	public MonsterDTO fightMonster() {
+	public List<MonsterDTO> fightMonster() {
 		Connection con = getConnection();
 		
 		BattleDAO battleDAO = new BattleDAO();
-		battleDAO.selectAllMonList(con);
+		List<MonsterDTO> monsterList = battleDAO.selectAllMonList(con);
 		
 		close(con);
 		
-		return null;
+		return monsterList;
 	}
 }
