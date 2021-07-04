@@ -13,7 +13,14 @@ import com.kkpjj.sysostory.controller.BattleController;
 public class BattlePage extends JPanel {
 
 	private JFrame mf;
-	private JPanel chrPanel;
+	
+	// 필드 배경화면 추가
+	Image bg = new ImageIcon("images/field/battle_bg.png").getImage().getScaledInstance(800, 420, 0);
+	
+	@Override
+	public void paintComponent(Graphics g) {
+		g.drawImage(bg, 0, 0, getWidth(), getHeight(), this);
+	}
 	
 	public BattlePage(JFrame mf) {
 		this.mf = mf;
@@ -36,31 +43,11 @@ public class BattlePage extends JPanel {
 		// 캐릭터 생성
 		bc.createChr();
 		// 몬스터 생성
-
-//		monPanel = new BattleMon();
-		// 전투 메뉴 생성
-//		menuPanel = new BattleMenu();
-		
-
 		bc.createMon();
 		// 전투메뉴 생성
 		bc.createMenu();
+		// 행동 선택
+		bc.selectMenu();
 
-	}
-
-	private void addChrPanel() {
-		this.add(chrPanel);
-
-//		this.add(monPanel);
-//		this.add(menuPanel);
-
-	}
-	
-	// 배경화면 추가
-	Image bg = new ImageIcon("images/battle_bg.png").getImage().getScaledInstance(800, 420, 0);
-	
-	@Override
-	public void paintComponent(Graphics g) {
-		g.drawImage(bg, 0, 0, getWidth(), getHeight(), this);
 	}
 }

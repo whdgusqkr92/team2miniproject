@@ -25,7 +25,6 @@ public class BattleController {
 
 	public BattleController(JFrame mf) {
 		this.mf = mf;
-		this.bs = new BattleService();
 	}
 
 	public void createChr() {
@@ -34,13 +33,16 @@ public class BattleController {
 	}
 
 	public void createMon() {
+		this.bs = new BattleService();
 		// 몬스터 생성
-		// (생성 몬스터 개체수 추가)
-		numOfMon = 4;
+		// (1 ~ 4 마리의 몬스터 생성)
+		numOfMon = 4;	// 1 ~ 4 사이의 난수로 변경
+		// 등장 확률이 0이 아닌 몬스터의 DTO를 가져오고, 몬스터를 생성(추후 구현)
+		
+		MonsterDTO fightMon = bs.fightMonster();
 		List<MonsterDTO> fightMonList= new ArrayList();
-		MonsterDTO fightMon = bs.fightMon(monCode);
-		for(int i = 1; i <= numOfMon; i++) {
-//			battleMonList.add(i, );
+		for(int i = 0; i < numOfMon; i++) {
+			fightMonList.add(i, fightMon);
 		}
 		
 		this.battleMon = new BattleMon(this);
@@ -48,9 +50,15 @@ public class BattleController {
 	}
 
 	public void createMenu() {
+		// skillDTO에서 보유 스킬 전달
+		
 		// 전투 메뉴 생성
 		this.battleMenu = new BattleMenu(this);
 		mf.add(battleMenu);		
+	}
+	
+	public void selectMenu() {
+		battleMenu.selectMenu();
 	}
 
 	public void selectSubMenu(String attackType, String subMenuName) {
@@ -121,7 +129,5 @@ public class BattleController {
 		} else {
 			System.out.println("MP가 부족합니다.");
 		}
-
-
 	}
 }
