@@ -1,9 +1,9 @@
 package com.kkpjj.sysostory.model.dto;
 
-public class InventoroDTO {
+public class InventoryDTO implements java.io.Serializable{
 	
+	private int chrCode;
 	private int gold;
-	private int chrNum;
 	private int inven1;
 	private int inven2;
 	private int inven3;
@@ -15,13 +15,13 @@ public class InventoroDTO {
 	private int inven9;
 	private int inven10;
 	
-	public InventoroDTO() {}
+	public InventoryDTO() {}
 
-	public InventoroDTO(int gold, int chrNum, int inven1, int inven2, int inven3, int inven4, int inven5, int inven6,
+	public InventoryDTO(int gold, int chrCode, int inven1, int inven2, int inven3, int inven4, int inven5, int inven6,
 			int inven7, int inven8, int inven9, int inven10) {
 		super();
 		this.gold = gold;
-		this.chrNum = chrNum;
+		this.chrCode = chrCode;
 		this.inven1 = inven1;
 		this.inven2 = inven2;
 		this.inven3 = inven3;
@@ -42,12 +42,12 @@ public class InventoroDTO {
 		this.gold = gold;
 	}
 
-	public int getChrNum() {
-		return chrNum;
+	public int getChrCode() {
+		return chrCode;
 	}
 
-	public void setChrNum(int chrNum) {
-		this.chrNum = chrNum;
+	public void setChrCode(int chrCode) {
+		this.chrCode = chrCode;
 	}
 
 	public int getInven1() {
@@ -132,7 +132,7 @@ public class InventoroDTO {
 
 	@Override
 	public String toString() {
-		return "InventoroDTO [gold=" + gold + ", chrNum=" + chrNum + ", inven1=" + inven1 + ", inven2=" + inven2
+		return "InventoryDTO [gold=" + gold + ", chrCode=" + chrCode + ", inven1=" + inven1 + ", inven2=" + inven2
 				+ ", inven3=" + inven3 + ", inven4=" + inven4 + ", inven5=" + inven5 + ", inven6=" + inven6
 				+ ", inven7=" + inven7 + ", inven8=" + inven8 + ", inven9=" + inven9 + ", inven10=" + inven10 + "]";
 	}

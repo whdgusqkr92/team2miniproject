@@ -37,7 +37,7 @@ public class OpMainPage extends JPanel {
 		mf.getContentPane().add(panel1);
 		panel1.setLayout(null);
 		
-		Image bg = new ImageIcon("images/openingBg1.png").getImage();
+		Image bg = new ImageIcon("images/story/openingBg1.png").getImage();
 		JLabel label= new JLabel(new ImageIcon(bg));
 		label.setBounds(0, 0, 800, 600);
 		
