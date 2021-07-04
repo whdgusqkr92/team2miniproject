@@ -1,4 +1,4 @@
-package com.kkpjj.sysostory.view;
+package com.kkpjj.sysostory.view.character;
 
 import java.awt.Graphics;
 import java.awt.Image;
@@ -8,6 +8,15 @@ import java.awt.event.MouseEvent;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+
+import com.kkpjj.sysostory.view.MainFrame;
+import com.kkpjj.sysostory.view.ViewUtil;
+import com.kkpjj.sysostory.view.shop.ArmorDealer;
+import com.kkpjj.sysostory.view.shop.ArmorShopView;
+import com.kkpjj.sysostory.view.shop.PotionDealer;
+import com.kkpjj.sysostory.view.shop.PotionShopView;
+import com.kkpjj.sysostory.view.shop.WeaponDealer;
+import com.kkpjj.sysostory.view.shop.WeaponShopView;
 
 public class VillageView extends JPanel {
 	
@@ -75,7 +84,7 @@ public class VillageView extends JPanel {
 		@Override
 		public void mouseClicked(MouseEvent e) {
 			if(e.getSource() == posionShopPanel) {
-				ViewUtil.changePanel(mf, posionShopPanel, new PotionShopView((MainFrame) mf));
+//				ViewUtil.changePanel(mf, posionShopPanel, new PotionShopView((MainFrame) mf));
 			} else if(e.getSource() == weaponShopPanel) {
 				ViewUtil.changePanel(mf, weaponShopPanel, new WeaponShopView());
 			} else if(e.getSource() == armorShopPanel) {

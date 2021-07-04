@@ -1,4 +1,4 @@
-package com.kkpjj.sysostory.view;
+package com.kkpjj.sysostory.view.character;
 
 import java.awt.Color;
 import java.awt.Font;

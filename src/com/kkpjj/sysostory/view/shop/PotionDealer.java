@@ -1,4 +1,4 @@
-package com.kkpjj.sysostory.view;
+package com.kkpjj.sysostory.view.shop;
 
 import java.awt.Color;
 import java.awt.Font;
@@ -18,7 +18,7 @@ import javax.swing.JTextPane;
 import javax.swing.SwingConstants;
 
 import com.kkpjj.sysostory.controller.BattleController;
-import com.kkpjj.sysostory.view.op.OpSubPage;
+import com.kkpjj.sysostory.view.story.OpSubPage;
 
 public class PotionDealer extends JPanel {
 

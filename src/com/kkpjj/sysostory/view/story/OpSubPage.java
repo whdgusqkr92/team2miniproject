@@ -1,4 +1,4 @@
-package com.kkpjj.sysostory.view.op;
+package com.kkpjj.sysostory.view.story;
 
 import java.awt.Color;
 import java.awt.Font;
@@ -14,7 +14,7 @@ import javax.swing.JPanel;
 import com.kkpjj.sysostory.controller.StoryController;
 import com.kkpjj.sysostory.model.dto.StoryDTO;
 import com.kkpjj.sysostory.view.ViewUtil;
-import com.kkpjj.sysostory.view.VillageView;
+import com.kkpjj.sysostory.view.character.VillageView;
 
 public class OpSubPage extends JPanel {
 	

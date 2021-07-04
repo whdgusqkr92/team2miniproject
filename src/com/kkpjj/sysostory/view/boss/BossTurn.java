@@ -1,4 +1,4 @@
-package com.kkpjj.sysostory.view;
+package com.kkpjj.sysostory.view.boss;
 
 import java.awt.Font;
 import java.awt.Graphics;
@@ -12,7 +12,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import com.kkpjj.sysostory.controller.BossAttController;
-import com.kkpjj.sysostory.view.ResultView.BossSkillResultView;
+import com.kkpjj.sysostory.view.boss.BossSkillResultView;
 
 
 public class BossTurn extends JPanel{
@@ -35,7 +35,7 @@ public class BossTurn extends JPanel{
 //			평타
 //		}
 	//--------------------------배경 필드 패널 만들기------------------------------	
-	Image field = new ImageIcon("Images/field.png").getImage().getScaledInstance(800, 200, 0);
+	Image field = new ImageIcon("Images/field/field.png").getImage().getScaledInstance(800, 200, 0);
 		
 	mainpanel = new JPanel() {
 		

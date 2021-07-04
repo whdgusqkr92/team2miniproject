@@ -1,4 +1,4 @@
-package com.kkpjj.sysostory.view;
+package com.kkpjj.sysostory.view.boss;
 
 import java.awt.Font;
 import java.awt.Graphics;

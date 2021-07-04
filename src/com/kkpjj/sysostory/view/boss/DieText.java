@@ -1,4 +1,4 @@
-package com.kkpjj.sysostory.view;
+package com.kkpjj.sysostory.view.boss;
 
 import java.awt.Font;
 import java.awt.Graphics;
@@ -16,6 +16,7 @@ import javax.swing.JPanel;
 
 import com.kkpjj.sysostory.model.dto.CharaDTO;
 import com.kkpjj.sysostory.model.dto.MonsterDTO;
+import com.kkpjj.sysostory.view.ViewUtil;
 
 public class DieText extends JPanel {
 	
