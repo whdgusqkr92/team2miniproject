@@ -7,9 +7,12 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.InvalidPropertiesFormatException;
+import java.util.List;
 import java.util.Properties;
 
+import com.kkpjj.sysostory.model.dto.MonsterDTO;
 import com.kkpjj.sysostory.model.dto.SkillDTO;
 
 import static com.kkpjj.common.JDBCTemplate.close;
@@ -71,7 +74,39 @@ public class SkillDAO {
 		
 		return skill;
 	}
-	
-	
+
+	public List<SkillDTO> selectAllSkillList(Connection con) {
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		List<SkillDTO> skillList = null;
+		
+		String query = prop.getProperty("selectAllSkillList");
+		
+		try {
+			pstmt = con.prepareStatement(query);
+			rset = pstmt.executeQuery();
+			
+			skillList = new ArrayList<>();
+			
+			while(rset.next()) {
+				SkillDTO skill = new SkillDTO();
+				
+				skill.setSkillCode(rset.getInt("SKILL_CODE"));
+				skill.setSkillName(rset.getString("SKILL_NAME"));
+				skill.setSkillAtt(rset.getInt("SKILL_ATT"));
+				skill.setMpConsum(rset.getInt("MP_CONSUM"));
+				skill.setSkillOpenLv(rset.getInt("SKILL_OPEN_LV"));
+				skill.setSkillScript(rset.getString("SKILL_SCRIPT"));
+				
+				skillList.add(skill);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		return skillList;
+	}
 }
 

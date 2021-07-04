@@ -6,7 +6,9 @@ import java.util.List;
 import javax.swing.JFrame;
 
 import com.kkpjj.sysostory.model.dto.MonsterDTO;
+import com.kkpjj.sysostory.model.dto.SkillDTO;
 import com.kkpjj.sysostory.model.service.BattleService;
+import com.kkpjj.sysostory.model.service.SkillService;
 import com.kkpjj.sysostory.view.battle.BattleChr;
 import com.kkpjj.sysostory.view.battle.BattleMenu;
 import com.kkpjj.sysostory.view.battle.BattleMon;
@@ -17,7 +19,6 @@ public class BattleController {
 	private BattleChr battleChr;
 	private BattleMon battleMon;
 	private BattleMenu battleMenu;
-	private BattleService bs;
 	private String attackType;
 	private String subMenuName;
 	int numOfMon;
@@ -33,16 +34,17 @@ public class BattleController {
 	}
 
 	public void createMon() {
-		this.bs = new BattleService();
+		BattleService bs = new BattleService();
 		// 몬스터 생성
 		// (1 ~ 4 마리의 몬스터 생성)
 		numOfMon = 4;	// 1 ~ 4 사이의 난수로 변경
 		// 등장 확률이 0이 아닌 몬스터의 DTO를 가져오고, 몬스터를 생성(추후 구현)
 		
-		MonsterDTO fightMon = bs.fightMonster();
-		List<MonsterDTO> fightMonList= new ArrayList();
+//		List<MonsterDTO> monsterList = bs.fightMonster();
+		List<MonsterDTO> fightMonList = new ArrayList<>();
+		
 		for(int i = 0; i < numOfMon; i++) {
-			fightMonList.add(i, fightMon);
+//			fightMonList.add(i, Mon);
 		}
 		
 		this.battleMon = new BattleMon(this);
@@ -50,7 +52,8 @@ public class BattleController {
 	}
 
 	public void createMenu() {
-		// skillDTO에서 보유 스킬 전달
+		SkillService ss = new SkillService();
+//		List<SkillDTO> skillList = ss.selectAllSkills();
 		
 		// 전투 메뉴 생성
 		this.battleMenu = new BattleMenu(this);
@@ -64,6 +67,8 @@ public class BattleController {
 	public void selectSubMenu(String attackType, String subMenuName) {
 		this.attackType = attackType;
 		this.subMenuName = subMenuName;
+		
+		System.out.println(attackType);
 
 		switch(attackType) {
 			case "attack" : battleMon.selectMon(); break;

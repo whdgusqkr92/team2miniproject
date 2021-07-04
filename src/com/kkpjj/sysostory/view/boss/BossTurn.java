@@ -12,7 +12,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import com.kkpjj.sysostory.controller.BossAttController;
-import com.kkpjj.sysostory.view.boss.BossSkillResultView;
+import com.kkpjj.sysostory.view.boss.BossSkillEffect;
 
 
 public class BossTurn extends JPanel{
@@ -22,10 +22,10 @@ public class BossTurn extends JPanel{
 	private JPanel mainpanel;
 	private JLabel skillLabel;
 	private JLabel bossLabel;
-	
-	public BossTurn(JFrame mf, JPanel mainpanel) {
+							//JPanel mainpanel
+	public BossTurn(JFrame mf) {
 		this.mf = mf;
-		this.mainpanel = mainpanel;
+		this.mainpanel = this;
 		
 //		if(스킬) {
 //			

@@ -1,6 +1,6 @@
 package com.kkpjj.sysostory.model.dto;
 
-public class InventoryDTO implements java.io.Serializable{
+public class InventoryDTO implements java.io.Serializable {
 	
 	private int chrCode;
 	private int gold;
@@ -14,14 +14,16 @@ public class InventoryDTO implements java.io.Serializable{
 	private int inven8;
 	private int inven9;
 	private int inven10;
+	private int inven11;
+	private int inven12;
 	
 	public InventoryDTO() {}
 
-	public InventoryDTO(int gold, int chrCode, int inven1, int inven2, int inven3, int inven4, int inven5, int inven6,
-			int inven7, int inven8, int inven9, int inven10) {
+	public InventoryDTO(int chrCode, int gold, int inven1, int inven2, int inven3, int inven4, int inven5, int inven6,
+			int inven7, int inven8, int inven9, int inven10, int inven11, int inven12) {
 		super();
-		this.gold = gold;
 		this.chrCode = chrCode;
+		this.gold = gold;
 		this.inven1 = inven1;
 		this.inven2 = inven2;
 		this.inven3 = inven3;
@@ -32,14 +34,8 @@ public class InventoryDTO implements java.io.Serializable{
 		this.inven8 = inven8;
 		this.inven9 = inven9;
 		this.inven10 = inven10;
-	}
-
-	public int getGold() {
-		return gold;
-	}
-
-	public void setGold(int gold) {
-		this.gold = gold;
+		this.inven11 = inven11;
+		this.inven12 = inven12;
 	}
 
 	public int getChrCode() {
@@ -48,6 +44,14 @@ public class InventoryDTO implements java.io.Serializable{
 
 	public void setChrCode(int chrCode) {
 		this.chrCode = chrCode;
+	}
+
+	public int getGold() {
+		return gold;
+	}
+
+	public void setGold(int gold) {
+		this.gold = gold;
 	}
 
 	public int getInven1() {
@@ -130,11 +134,29 @@ public class InventoryDTO implements java.io.Serializable{
 		this.inven10 = inven10;
 	}
 
+	public int getInven11() {
+		return inven11;
+	}
+
+	public void setInven11(int inven11) {
+		this.inven11 = inven11;
+	}
+
+	public int getInven12() {
+		return inven12;
+	}
+
+	public void setInven12(int inven12) {
+		this.inven12 = inven12;
+	}
+
 	@Override
 	public String toString() {
-		return "InventoryDTO [gold=" + gold + ", chrCode=" + chrCode + ", inven1=" + inven1 + ", inven2=" + inven2
+		return "InventoryDTO [chrCode=" + chrCode + ", gold=" + gold + ", inven1=" + inven1 + ", inven2=" + inven2
 				+ ", inven3=" + inven3 + ", inven4=" + inven4 + ", inven5=" + inven5 + ", inven6=" + inven6
-				+ ", inven7=" + inven7 + ", inven8=" + inven8 + ", inven9=" + inven9 + ", inven10=" + inven10 + "]";
+				+ ", inven7=" + inven7 + ", inven8=" + inven8 + ", inven9=" + inven9 + ", inven10=" + inven10
+				+ ", inven11=" + inven11 + ", inven12=" + inven12 + "]";
 	}
+
 
 }

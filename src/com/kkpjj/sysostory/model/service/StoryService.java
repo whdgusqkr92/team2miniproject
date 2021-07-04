@@ -24,4 +24,17 @@ public class StoryService {
 		return storyContent;
 	}
 
+	public StoryDTO selectTitleStory(String chapTitle) {
+
+		Connection con = getConnection();
+		
+		StoryDTO storyContent = storyDAO.selectTitleStory(con, chapTitle); 
+		
+		close(con);
+		
+		return storyContent;
+		
+	}
+
+
 }

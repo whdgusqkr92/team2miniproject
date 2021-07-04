@@ -60,5 +60,35 @@ public class StoryDAO {
 		}
 		return story;
 	}
+
+	public StoryDTO selectTitleStory(Connection con, String chapTitle) {
+		
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		
+		StoryDTO story = null;
+		
+		String query = prop.getProperty("selectTitle");
+		
+		try {
+			pstmt = con.prepareStatement(query);
+			pstmt.setString(1, chapTitle);
+			rset = pstmt.executeQuery();
+			
+			if(rset.next()) {
+				story = new StoryDTO();
+				story.setStoryCode(rset.getInt("STORY_CODE"));
+				story.setChapTitle(rset.getString("CHAP_TITLE"));
+				story.setChapScript(rset.getString("CHAP_SCRIPT"));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		return story;
+	}
+
 	
 }
