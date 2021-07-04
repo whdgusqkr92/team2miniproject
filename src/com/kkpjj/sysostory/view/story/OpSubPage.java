@@ -1,6 +1,5 @@
-package com.kkpjj.sysostory.view.op;
+package com.kkpjj.sysostory.view.story;
 
-import java.awt.Color;
 import java.awt.Font;
 import java.awt.Image;
 import java.awt.event.MouseAdapter;
@@ -14,7 +13,7 @@ import javax.swing.JPanel;
 import com.kkpjj.sysostory.controller.StoryController;
 import com.kkpjj.sysostory.model.dto.StoryDTO;
 import com.kkpjj.sysostory.view.ViewUtil;
-import com.kkpjj.sysostory.view.VillageView;
+import com.kkpjj.sysostory.view.character.VillageView;
 
 public class OpSubPage extends JPanel {
 	
@@ -34,7 +33,7 @@ public class OpSubPage extends JPanel {
 		mf.getContentPane().add(panel1);
 		panel1.setLayout(null);
 		
-		Image bg = new ImageIcon("images/openingBg1.png").getImage();
+		Image bg = new ImageIcon("images/story/openingBg1.png").getImage();
 		JLabel label= new JLabel(new ImageIcon(bg));
 		label.setBounds(0, 0, 800, 600);
 		

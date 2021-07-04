@@ -1,4 +1,4 @@
-package com.kkpjj.sysostory.view;
+package com.kkpjj.sysostory.view.inventory;
 
 import java.awt.Graphics;
 import java.awt.Image;
@@ -10,6 +10,7 @@ import javax.swing.JButton;
 import javax.swing.JPanel;
 
 public class InventoryView extends JPanel {
+	
 	
 	
 }
