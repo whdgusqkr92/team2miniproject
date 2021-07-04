@@ -21,7 +21,7 @@ public class BattleChr extends JPanel {
 	}
 	
 	// 캐릭터 이미지 추가
-	Image chr = new ImageIcon("images/battle_chr.png").getImage();
+	Image chr = new ImageIcon("images/battle/battle_chr.png").getImage();
 
 	@Override
 	public void paintComponent(Graphics g) {

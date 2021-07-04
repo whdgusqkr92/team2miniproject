@@ -657,7 +657,7 @@ INSERT
 )
 VALUES
 (
-  SEQ_USER_NO.NEXTVAL
+  1
 , '관리자'
 , 'ADMIN'
 , 'ADMIN'
@@ -768,11 +768,11 @@ INSERT
 VALUES
 (
   2
-, '방어구'
-, '허름한 잠옷'
-, 0
-, 0
-, '맨몸 가리개'
+, '무기'
+, '화염의 카타나'
+, 500
+, 100
+, '화염에 휩싸인 메이플스토리에서 가져온 무기'
 );
 
 INSERT
@@ -788,11 +788,11 @@ INSERT
 VALUES
 (
   3
-, '무기'
-, '화염의 카타나'
-, 500
-, 100
-, '화염에 휩싸인 메이플스토리에서 가져온 무기'
+, '방어구'
+, '허름한 잠옷'
+, 0
+, 0
+, '맨몸 가리개'
 );
 
 INSERT
@@ -855,6 +855,70 @@ VALUES
 , '맛있어보이지만 맛없는 파란 물약'
 );
 
+/* 인벤토리 입력 */
+INSERT
+  INTO TBL_INVENTORY
+(
+  CHR_CODE
+, INVEN_CATEGORY
+, INVEN_ID
+, ITEM_CODE
+)
+VALUES
+(
+  1
+, '무기'
+, 1
+, 2
+);
+
+INSERT
+  INTO TBL_INVENTORY
+(
+  CHR_CODE
+, INVEN_CATEGORY
+, INVEN_ID
+, ITEM_CODE
+)
+VALUES
+(
+  1
+, '방어구'
+, 1
+, 4
+);
+
+INSERT
+  INTO TBL_INVENTORY
+(
+  CHR_CODE
+, INVEN_CATEGORY
+, INVEN_ID
+, ITEM_CODE
+)
+VALUES
+(
+  1
+, 'HP물약'
+, 1
+, 5
+);
+
+INSERT
+  INTO TBL_INVENTORY
+(
+  CHR_CODE
+, INVEN_CATEGORY
+, INVEN_ID
+, ITEM_CODE
+)
+VALUES
+(
+  1
+, 'MP물약'
+, 2
+, 6
+);
 
 /* 스킬 입력 */
 INSERT

@@ -39,10 +39,9 @@ public class BattleMon extends JPanel {
 		// 몬스터 레이아웃 설정
 		init();
 		// 전투에 등장할 몬스터 선택
-		appearMon();
+		appearMonInfo();
 		// 몬스터 레이아웃 및 위치 설정 후 패널에 추가
 		createMon();
-		addMon();
 	}
 
 	private void init() {
@@ -51,11 +50,11 @@ public class BattleMon extends JPanel {
 		this.setOpaque(false);
 	}
 
-	private void appearMon() {
+	private void appearMonInfo() {
 		// 등장몬스터 정보 호출 (from MonDTO? / monCode)
 		Map<String, String> monList = new HashMap<>();
-		monList.put("빨간슬라임", "images/mon_red_slime.png");
-		monList.put("노란슬라임", "images/mon_yellow_slime.png");
+		monList.put("빨간슬라임", "images/monster/mon_red_slime.png");
+		monList.put("노란슬라임", "images/monster/mon_yellow_slime.png");
 
 		this.monImgAddress1 = monList.get("빨간슬라임");
 		this.monImgAddress2 = monList.get("노란슬라임");
@@ -92,6 +91,8 @@ public class BattleMon extends JPanel {
 		selectFourthMon.setBounds(fourthMon.getBounds());
 		selectFourthMon.setBorderPainted(false);
 		selectFourthMon.setContentAreaFilled(false);
+		
+		addMon();
 	}
 
 	private void addMon() {
@@ -112,17 +113,6 @@ public class BattleMon extends JPanel {
 		selectThirdMon.addMouseListener(new MyMouseListener(bc, thirdMon, 3, 1));
 		selectFourthMon.addMouseListener(new MyMouseListener(bc, fourthMon, 4, 2));
 	}
-
-	//	private List<Rectangle> monPosition() {
-	//		List<Rectangle> mon = new ArrayList<>();
-	//
-	//		mon.add(firstMon.getBounds());
-	//		mon.add(secondMon.getBounds());
-	//		mon.add(thirdMon.getBounds());
-	//		mon.add(fourthMon.getBounds());
-	//
-	//		return mon;
-	//	}
 }
 
 // 몬스터 이미지 추가
@@ -130,8 +120,6 @@ class Monster extends JButton {
 	Image mon;
 
 	public Monster(String monImgAddress) {
-		//		this.setBorderPainted(false);
-		//		this.setContentAreaFilled(false);
 		this.mon = new ImageIcon(monImgAddress).getImage();
 	}
 
@@ -149,7 +137,7 @@ class MyMouseListener implements MouseListener {
 	private int selectMonNo;
 	private int selectMonCode;
 
-	public MyMouseListener(BattleController bc, JButton selectMon, int i, int selectMonCode) {
+	MyMouseListener(BattleController bc, JButton selectMon, int i, int selectMonCode) {
 		this.bc = bc;
 		this.selectMon = selectMon;
 		this.selectMonNo = i;

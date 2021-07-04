@@ -1,12 +1,12 @@
 package com.kkpjj.sysostory.model.service;
 
+import static com.kkpjj.common.JDBCTemplate.close;
+import static com.kkpjj.common.JDBCTemplate.getConnection;
+
 import java.sql.Connection;
 
 import com.kkpjj.sysostory.model.dao.BattleDAO;
 import com.kkpjj.sysostory.model.dto.MonsterDTO;
-
-import static com.kkpjj.common.JDBCTemplate.getConnection;
-import static com.kkpjj.common.JDBCTemplate.close;
 
 public class BattleService {
 	
@@ -16,12 +16,14 @@ public class BattleService {
 		this.battleDAO = new BattleDAO();
 	}
 
-	public MonsterDTO fightMon(int monCode) {
+	public MonsterDTO fightMonster() {
 		Connection con = getConnection();
 		
-		
+		BattleDAO battleDAO = new BattleDAO();
+		battleDAO.selectAllMonList(con);
 		
 		close(con);
+		
 		return null;
 	}
 }
