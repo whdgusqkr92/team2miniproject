@@ -58,7 +58,7 @@ public class DieText extends JPanel {
 				@Override
 				public void mouseClicked(MouseEvent e) {
 					
-					ViewUtil.changePanel(mf, mainpanel, new MiddleBoss(mf));
+					ViewUtil.changePanel(mf, mainpanel, new MiddleBossEvent(mf));
 				
 						}
 					}

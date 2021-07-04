@@ -8,6 +8,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+
 import com.kkpjj.sysostory.view.MainFrame;
 
 public class PotionShopView extends JPanel {

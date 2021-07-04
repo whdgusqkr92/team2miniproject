@@ -8,8 +8,10 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+import com.kkpjj.sysostory.controller.BossAttController;
 
-public class BossSkillResultView extends JPanel {
+
+public class BossSkillEffect extends JPanel {
 
 	//	boolean isSkill = true;
 	private JFrame mf;
@@ -19,7 +21,7 @@ public class BossSkillResultView extends JPanel {
 	Image field = new ImageIcon("Images/field/field.png").getImage().getScaledInstance(800, 200, 0);
 	
 	//						 (JFrame mf)
-	public BossSkillResultView(JFrame mf) {
+	public BossSkillEffect(JFrame mf) {
 	
 
 		this.mf = mf;
@@ -40,31 +42,34 @@ public class BossSkillResultView extends JPanel {
 		//15
 			
 	
-			public void skill1(JFrame mainpanel) {
-			
+			public void skill1() {
+					
 			this.subpanel = new JPanel();
 			subpanel.setBounds(80, 100, 600, 350);
 			subpanel.setOpaque(false);
 			Image skill = new ImageIcon("images/skill/bossSkill2.gif").getImage().getScaledInstance(450, 350, 0);
 			skillLabel = new JLabel(new ImageIcon(skill));
 			skillLabel.setBounds(0, 0, 100, 350);
-			
 			mainpanel.add(subpanel);
 			subpanel.add(skillLabel);
+			
+//			return;
 		}
 			
 			//15
 			public void skill2() {
-			
+				
+				
 			this.subpanel = new JPanel();
 			subpanel.setBounds(80, 100, 600, 350);
 			subpanel.setOpaque(false);
-			Image skill = new ImageIcon("images/skill/bossSkill2.gif").getImage().getScaledInstance(450, 350, 0);
+			Image skill = new ImageIcon("images/skill/테스트스킬.gif").getImage().getScaledInstance(450, 350, 0);
 			skillLabel = new JLabel(new ImageIcon(skill));
 			skillLabel.setBounds(0, 0, 100, 350);
 			
 			mainpanel.add(subpanel);
 			subpanel.add(skillLabel);
+			
 			
 			
 		}
@@ -80,6 +85,9 @@ public class BossSkillResultView extends JPanel {
 				
 				mainpanel.add(subpanel);
 				subpanel.add(skillLabel);
+				
+				
+				
 			}
 			
 		
