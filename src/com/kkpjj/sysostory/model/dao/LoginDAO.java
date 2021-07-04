@@ -51,9 +51,9 @@ public class LoginDAO {
 			pstmt.setString(1, charaDTO.getChrName());
 //			pstmt.setInt(2, charaDTO.getUserNo());
 			
-//			if(charaDTO.getUserNo() == memberDTO.getUserNo()) {
+			if(charaDTO.getUserNo() == memberDTO.getUserNo()) {
 				result = pstmt.executeUpdate();
-//			}
+			}
 			
 		} catch (SQLException e) {
 			e.printStackTrace();

@@ -56,3 +56,4 @@ public class PotionShopView extends JPanel {
 	
 
 }
+

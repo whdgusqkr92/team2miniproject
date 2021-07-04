@@ -7,7 +7,7 @@ import javax.swing.JPanel;
 import com.kkpjj.sysostory.model.dto.CharaDTO;
 import com.kkpjj.sysostory.model.dto.MonsterDTO;
 import com.kkpjj.sysostory.model.service.BossAttService;
-import com.kkpjj.sysostory.view.boss.BossSkillResultView;
+import com.kkpjj.sysostory.view.boss.BossSkillEffect;
 
 public class BossAttController extends JPanel{
 
@@ -31,34 +31,48 @@ public class BossAttController extends JPanel{
 	}
 
 	public void attBoss() { //int Code
+		
 		MonsterDTO monsterDTO = new MonsterDTO();
-		int monCode = 99;
 		
-		
+		int monCode = 3;
 		monsterDTO = bossAttService.attBoss(monCode);
 		System.out.println(monsterDTO);
 		
-		int ranAtt = (int) (Math.random()*10)+1 ;
+		int ranAtt = (int) (Math.random()*100)+1 ;
 		
-//		int nomalAtt = monsterDTO.getMonAtt(); //일반공격
-//		int spAtt = monsterDTO.getSkillAtt();  //스킬공격계수
+		int nomalAtt = monsterDTO.getMonAtt(); //일반공격
+		int spAtt = monsterDTO.getSkillAtt();  //스킬공격계수
+		int damege = nomalAtt * ( 1 + spAtt); // 스킬 데미지
 		
-		new BossSkillResultView(mf).skill2();
+		int chrHp = chr.getChrHp();
 		
-		if(!(chr.getChrHp() == 0)) {
-			if(monCode == 99) {
-				if(ranAtt > 0 && ranAtt < 2 ) {
-					new BossSkillResultView(mf).skill1(mf);       //되긴되는데 패널이 아래로 꺼짐 mf하면 안되는듯
-						}else if(ranAtt > 2 && ranAtt < 3) {
-								}
-				
+		new BossSkillEffect(mf).skill2();//
+		
+		
+		System.out.println(ranAtt);
+		if(!(monsterDTO.getMonHp() == 0)) {
 			
+			if(monCode == 3) {
+				
+				
+				if(ranAtt > 0 && ranAtt < 10 ) {      		//10프로
+					new BossSkillEffect(mf).skill2();
+					//약간 속도 늦춰주면 좋을듯. 이펙트가 다 끝나고 체력이 닳게
+					chrHp = chr.getChrHp() - damege;
+						
+					}else if(ranAtt == 10) {			//1프로
+						new BossSkillEffect(mf).skill3();
+						chrHp = chr.getChrHp() - damege;
+						
+					}else if(ranAtt >10 && ranAtt <= 20 ) {  //10프로
+						new BossSkillEffect(mf).skill1();
+						chrHp = chr.getChrHp() - damege;
+						
+					}else { 				 			//나머지 일반공격
+						chrHp = chr.getChrHp() - monsterDTO.getMonAtt();
+					}
 			
 				}
 		}
-//			int damege = monster * 100;
-			//기본공격력  *( 1 + 스킬계수 ) = 스킬데미지
-			
-			
 	}
 }

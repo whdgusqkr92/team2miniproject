@@ -39,7 +39,7 @@ public class StartScreen extends JFrame {
 		loginPanel = new JPanel();
 		loginPanel.setBounds(0, 0, 800, 600);
 
-		Image background = new ImageIcon("images/StartScreen.png").getImage().getScaledInstance(800, 600, 0);
+		Image background = new ImageIcon("images/login/StartScreen.png").getImage().getScaledInstance(800, 600, 0);
 		JLabel label = new JLabel(new ImageIcon(background));
 		label.setBounds(0, 0, 800, 600);
 
@@ -137,7 +137,7 @@ public class StartScreen extends JFrame {
 		JButton ManagerButton = new JButton();							/* 관리자모드 접속 버튼 */
 		ManagerButton.setBounds(755, 0, 40, 41);
 
-		Image optionButton = new ImageIcon("images/optionbutton2.png").getImage().getScaledInstance(35, 35, 0);
+		Image optionButton = new ImageIcon("images/login/optionbutton2.png").getImage().getScaledInstance(35, 35, 0);
 		JLabel option = new JLabel(new ImageIcon(optionButton));		/* 관리자모드 접속 아이콘 */
 		option.setLayout(null);
 		option.setBounds(0, 0, 35, 35);
