@@ -1,5 +1,6 @@
 package com.kkpjj.sysostory.view.skill;
 
+import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.TextField;
@@ -39,7 +40,7 @@ public class SkillList extends JPanel {
 		skillListPanel.setBounds(0, 0, 800, 600);						//메인 패널 사이즈
 
 		skilUpPanel = new JPanel();									//스킬 창 상단부 패널
-		skilUpPanel.setBounds(50, 20, 700, 43);						//사이즈
+		skilUpPanel.setBounds(50, 20, 700, 45);						//사이즈
 
 		skilListPanel = new JPanel();								//스킬 목록 리스트 패널
 		skilListPanel.setBounds(50, 100, 700, 300);
@@ -88,6 +89,16 @@ public class SkillList extends JPanel {
 		skilUpPanel.setLayout(null);
 		JLabel skilUpLabel11 = new JLabel(new ImageIcon(SkilUpPanel1));
 		skilUpLabel11.setBounds(0, 0, 700, 45);
+		
+		JLabel skilUpLabel111 = new JLabel("스킬 목록");								
+		Font font = new Font("궁서 보통", Font.BOLD,30);									//폰트생성
+		skilUpLabel111.setFont(font);													//폰트 라벨에 넣기
+		
+		
+		
+		
+		skilUpLabel111.setBounds(300, 0, 350, 30);
+		skilUpPanel.add(skilUpLabel111);
 		skilUpPanel.add(skilUpLabel11);
 
 		JButton btnNewButton = new JButton(new ImageIcon("images/skill/정권.png"));
@@ -95,11 +106,13 @@ public class SkillList extends JPanel {
 		skilListPanel.add(btnNewButton);
 		this.skillCode = 1;
 		btnNewButton.addActionListener(new ActionListener() {
+		
 			public void actionPerformed(ActionEvent e) {
 
 			String skillScript = sc.selectSkillScript(skillCode);
-			skilExLabel.setName(skillScript);
-				
+//			skilExPanel.add(skilExLabel);
+//			skilExLabel.setName(skillScript);
+			skilExLabel.setText(skillScript);
 			
 //				skilExPanel.add(skilExLabel);
 //				skilExLabel.setText("정권 : 주먹으로 가격하는 정통파 공격기술로 그만큼 안정감이 좋다 ");						//택스트 넘어가짐
@@ -116,7 +129,7 @@ public class SkillList extends JPanel {
 		skilListPanel.add(btnNewButton1);
 		btnNewButton1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+				String skillScript = sc.selectSkillScript(skillCode);
 //				skilExPanel.add(skilExLabel);
 				skilExLabel.setText("할퀴기 : 대상으로 지목된 적에게 얼굴을 할퀴어 공격합니다.");	
 			}
