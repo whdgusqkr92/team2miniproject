@@ -1,4 +1,4 @@
-package com.kkpjj.sysostory.view;
+package com.kkpjj.sysostory.view.shop;
 
 import java.awt.Font;
 import java.awt.Image;
@@ -12,6 +12,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import com.kkpjj.sysostory.model.dto.InventoroDTO;
+import com.kkpjj.sysostory.view.MainFrame;
 
 public class PotionShopView extends JPanel {
 	

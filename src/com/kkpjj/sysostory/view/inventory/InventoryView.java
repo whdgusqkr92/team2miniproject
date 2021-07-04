@@ -1,4 +1,4 @@
-package com.kkpjj.sysostory.view;
+package com.kkpjj.sysostory.view.inventory;
 
 import java.awt.Graphics;
 import java.awt.Image;

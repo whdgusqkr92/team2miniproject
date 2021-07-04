@@ -1,4 +1,4 @@
-package com.kkpjj.sysostory.view;
+package com.kkpjj.sysostory.view.character;
 
 import java.awt.Graphics;
 import java.awt.Image;
@@ -13,7 +13,9 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.text.IconView;
 
-import com.kkpjj.sysostory.view.op.OpSubPage;
+import com.kkpjj.sysostory.view.ViewUtil;
+import com.kkpjj.sysostory.view.battle.BattlePage;
+import com.kkpjj.sysostory.view.story.OpSubPage;
 import javax.swing.SwingConstants;
 import java.awt.Button;
 

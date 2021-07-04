@@ -2,8 +2,10 @@ package com.kkpjj.sysostory.view;
 
 import javax.swing.JFrame;
 
-import com.kkpjj.sysostory.view.ResultView.BossSkillResultView;
-import com.kkpjj.sysostory.view.op.OpMainPage;
+import com.kkpjj.sysostory.view.boss.BossSkillResultView;
+import com.kkpjj.sysostory.view.boss.FinalBoss;
+import com.kkpjj.sysostory.view.character.VillageView;
+import com.kkpjj.sysostory.view.story.OpMainPage;
 
 public class MainFrame extends JFrame {
 
@@ -17,7 +19,8 @@ public class MainFrame extends JFrame {
 		mf.setSize(800, 600);
 		mf.setLayout(null);
 		
-		new VillageView(mf);
+		new FinalBoss(mf);
+//		new VillageView(mf);
 //		new BattlePage(mf);
 
 		mf.setLocationRelativeTo(null);

@@ -1,4 +1,4 @@
-package com.kkpjj.sysostory.view;
+package com.kkpjj.sysostory.view.boss;
 import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Image;
@@ -15,7 +15,8 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import com.kkpjj.sysostory.controller.BossAttController;
-import com.kkpjj.sysostory.view.ResultView.BossSkillResultView;
+import com.kkpjj.sysostory.view.ViewUtil;
+import com.kkpjj.sysostory.view.boss.BossSkillResultView;
 
 public class FinalBoss extends JPanel{
 
@@ -104,7 +105,7 @@ public class FinalBoss extends JPanel{
 
 	}
 		
-	Image field = new ImageIcon("Images/FinalBossField.png").getImage().getScaledInstance(800, 200, 0);
+	Image field = new ImageIcon("Images/field/FinalBossField.png").getImage().getScaledInstance(800, 200, 0);
 
 
 	public void paintComponent(Graphics g) {

@@ -7,7 +7,7 @@ import javax.swing.JPanel;
 import com.kkpjj.sysostory.model.dto.CharaDTO;
 import com.kkpjj.sysostory.model.dto.MonsterDTO;
 import com.kkpjj.sysostory.model.service.BossAttService;
-import com.kkpjj.sysostory.view.ResultView.BossSkillResultView;
+import com.kkpjj.sysostory.view.boss.BossSkillResultView;
 
 public class BossAttController extends JPanel{
 
@@ -40,8 +40,8 @@ public class BossAttController extends JPanel{
 		
 		int ranAtt = (int) (Math.random()*10)+1 ;
 		
-		int nomalAtt = monsterDTO.getMonAtt(); //일반공격
-		int spAtt = monsterDTO.getSkillAtt();  //스킬공격계수
+//		int nomalAtt = monsterDTO.getMonAtt(); //일반공격
+//		int spAtt = monsterDTO.getSkillAtt();  //스킬공격계수
 		
 		new BossSkillResultView(mf).skill2();
 		
