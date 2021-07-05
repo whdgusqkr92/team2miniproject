@@ -41,13 +41,12 @@ public class BattlePage extends JPanel {
 	private void createComponents() {
 		BattleController bc = new BattleController(mf);
 		// 캐릭터 생성
-		bc.createChr();
-		// 몬스터 생성
-		bc.createMon();
-		// 전투메뉴 생성
+//		bc.createChr();
+//		// 몬스터 생성
+//		bc.createMon();
+//		// 전투메뉴 생성
 		bc.createMenu();
-		// 행동 선택
-//		bc.selectSubMenu();
+
 
 	}
 }

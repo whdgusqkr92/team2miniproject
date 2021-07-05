@@ -21,10 +21,13 @@ import com.kkpjj.sysostory.controller.BattleController;
 import com.kkpjj.sysostory.view.story.OpSubPage;
 
 public class PotionDealer extends JPanel {
+	
+	private JFrame mf;
 
-	public PotionDealer() {
+	public PotionDealer(JFrame mf) {
 		
 		// 레이아웃 설정
+		this.mf = mf;
 		init();
 		// 아이템 리스트
 		

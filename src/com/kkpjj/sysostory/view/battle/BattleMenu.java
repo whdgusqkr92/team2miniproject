@@ -118,6 +118,7 @@ public class BattleMenu extends JPanel {
 		subMenu4.setBackground(Color.BLACK);
 		subMenu4.setFont(font);
 
+
 		groupSubMenu.add(subMenu1);
 		groupSubMenu.add(subMenu2);
 		groupSubMenu.add(subMenu3);
@@ -128,7 +129,9 @@ public class BattleMenu extends JPanel {
 		subMenuPanel.add(subMenu3);
 		subMenuPanel.add(subMenu4);
 
+
 		this.add(subMenuPanel);
+
 	}
 
 	private void addActionMenu() {
@@ -167,6 +170,7 @@ public class BattleMenu extends JPanel {
 		private void attackSubMenu(BattleMenu battleMenu) {
 			subMenuName = new String[] {"기본 공격1", "기본 공격2", "기본 공격3", "기본 공격4"};
 
+
 			subMenu2.setVisible(true);
 			subMenu3.setVisible(true);
 			subMenu4.setVisible(true);
@@ -176,6 +180,7 @@ public class BattleMenu extends JPanel {
 			subMenu3.setText(subMenuName[2]);
 			subMenu4.setText(subMenuName[3]);
 		}
+
 	}
 
 

@@ -16,7 +16,7 @@ public class PotionShopView extends JPanel {
 	private JPanel potionShopPanel;
 	private Image img;
 	
-	public PotionShopView(MainFrame mf) {
+	public PotionShopView(JFrame mf) {
 		this.mf = mf;
 //		potionShopPanel = new JPanel();
 //		potionShopPanel.setBounds(0, 0, 800, 420);

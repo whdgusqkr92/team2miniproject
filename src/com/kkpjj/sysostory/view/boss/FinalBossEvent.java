@@ -165,7 +165,7 @@ public class FinalBossEvent extends JPanel{
 			
 //			new BossAttController(mf);
 			
-			ViewUtil.changePanel(mf, mainpanel, new BossTurn(mf));
+			ViewUtil.changePanel(mf, mainpanel, new MiddleBossEvent(mf));
 
 		}
 	}

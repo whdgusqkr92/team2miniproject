@@ -67,9 +67,10 @@ public class BattleController {
 	}
 
 	public void selectSubMenu(String attackType, String subMenuName) {
-		this.attackType = attackType;
+//		this.attackType = attackType;
 		this.subMenuName = subMenuName;
 		
+
 		switch(attackType) {
 			case "attack" : battleMon.selectMon(); break;
 			case "skill" : battleMon.selectMon(); break;
