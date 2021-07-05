@@ -22,7 +22,9 @@ public class MainFrame extends JFrame {
 		mf.setSize(800, 600);
 		mf.setLayout(null);
 		
-
+//		new SkillList(mf);
+//		new FieldCharacterBattle(mf);
+		new SkillList(mf);
 		mf.setLocationRelativeTo(null);
 		mf.setResizable(true);
 		mf.setVisible(true);
