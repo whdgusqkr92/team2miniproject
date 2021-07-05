@@ -1,5 +1,6 @@
 package com.kkpjj.sysostory.model.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import com.kkpjj.sysostory.model.dto.ArmorDTO;
@@ -12,25 +13,32 @@ public class InventoryService {
 	public List<WeaponDTO> WeaponListInfo() {
 		
 		WeaponDTO wItem1 = new WeaponDTO();
-		return null;
+		
+		List<WeaponDTO> weaponList = new ArrayList<>();
+		
+		return weaponList;
 	}
 
 	public List<ArmorDTO> ArmorListInfo() {
 		
 		ArmorDTO aItem1 = new ArmorDTO();
+		
+		List<ArmorDTO> armorList = new ArrayList<>();
 		return null;
 	}
 
 	public List<PotionDTO> PotionListInfo() {
 		
 		PotionDTO pItem1 = new PotionDTO();
-		return null;
+		
+		List<PotionDTO> potionList = new ArrayList<>();
+		
+		return potionList;
 	}
 
 	public CharacterDTO EquipInfo() {
 		CharacterDTO equip = new CharacterDTO();
-		
-		return null;
+		return equip;
 	}
 
 }

@@ -14,7 +14,10 @@ import javax.swing.JPanel;
 import javax.swing.text.IconView;
 
 import com.kkpjj.sysostory.view.ViewUtil;
+import com.kkpjj.sysostory.view.achievements.Achievements;
 import com.kkpjj.sysostory.view.battle.BattlePage;
+import com.kkpjj.sysostory.view.inventory.InventoryView;
+import com.kkpjj.sysostory.view.skill.SkillList;
 import com.kkpjj.sysostory.view.story.OpSubPage;
 import javax.swing.SwingConstants;
 import java.awt.Button;
@@ -48,8 +51,8 @@ public class FieldCharacterBattle extends JPanel {
 		fieldJPanel.setBounds(0, 0, 800, 400); 																// 필드 패널 사이즈
 		fieldJPanel.setLayout(null);
 
-		Image = new ImageIcon("images/Field1.png").getImage().getScaledInstance(800, 400, 0); 				// 필드 이미지 생성해서 넣어준거
-		chImage = new ImageIcon("images/battle_chr.png").getImage().getScaledInstance(100, 100, 0);
+		Image = new ImageIcon("images/field/Field1.png").getImage().getScaledInstance(800, 400, 0); 				// 필드 이미지 생성해서 넣어준거
+		chImage = new ImageIcon("images/battle/battle_chr.png").getImage().getScaledInstance(100, 100, 0);
 
 		fieldJLabel = new JLabel(new ImageIcon(Image)); 														// 필드 이미지 필드 라벨에 넣어준거
 		fieldJLabel.setBounds(0, 0, 800, 400);
@@ -65,15 +68,29 @@ public class FieldCharacterBattle extends JPanel {
 		fieldJPanel.add(fieldJLabel);													 	// 필드 라벨을 필드 패널에 넣어준거
 		mainPanel.add(fieldJPanel); 														// 필드 패널을 메인패널에 넣어준거
 
-
 		
 		
-		JButton setJbutton = new JButton(new ImageIcon("images/optionbutton.png"));				//설정 버튼 생성과 동시에 이미지넣기
-		setJbutton.setBounds(765, 0, 35, 35);
+		
+		
+		
+		/*-------------------------------버튼 생성 ---------------------------------------*/
+		
+		JButton setJbutton = new JButton(new ImageIcon("images/login/optionbutton.png"));				//설정 버튼 생성과 동시에 이미지넣기
+		setJbutton.setBounds(750, 1, 35, 35);
 		fieldJLabel.add(setJbutton);															//필드 라벨에 넣어주기
 
+		JButton	inventoryButton = new JButton(new ImageIcon());													//인벤토리 버튼
+		inventoryButton.setBounds(300, 1, 35, 35);
+		fieldJLabel.add(inventoryButton);	
 		
+		JButton	skillButton = new JButton(new ImageIcon());													//스킬 버튼
+		skillButton.setBounds(335, 1, 35, 35);
+		fieldJLabel.add(skillButton);
 		
+		JButton	AchievementsButton = new JButton(new ImageIcon());													//업적 버튼
+		AchievementsButton.setBounds(370, 1, 35, 35);
+		fieldJLabel.add(AchievementsButton);
+		/*-------------------------------라벨 생성 ---------------------------------------*/
 
 		
 		JLabel monsterLabel = new JLabel(new ImageIcon("images/monster.png"));										// 버튼으로 만드려고햇는데 버튼은 이미지가 버튼 이미지까지 나와서 라벨에 이미지 넣음
@@ -88,28 +105,95 @@ public class FieldCharacterBattle extends JPanel {
 		monsterLabel3.setBounds(440, 330, 60, 60);	
 		fieldJLabel.add(monsterLabel3);	
 		
-	
+		mf.getContentPane().add(mainPanel); 	
+		
+		/*-------------------------------라벨,버튼에 마우스 리스너 이벤트 생성 ---------------------------------------*/
 		
 		
-		
-		mf.getContentPane().add(mainPanel); 										// 메인 패널을 메인 프레임에 넣어준거
+											// 메인 패널을 메인 프레임에 넣어준거
 //		mf.getContentPane().add(monsterLabel2);
-		monsterLabel.addMouseListener(new MyMouseAdapter()); 							// 라벨에 마우스 리스너 이벤트 생성
-		monsterLabel2.addMouseListener(new MyMouseAdapter()); 							// 라벨에 마우스 리스너 이벤트 생성
-		monsterLabel3.addMouseListener(new MyMouseAdapter());							// 라벨에 마우스 리스너 이벤트 생성
-		
+		monsterLabel.addMouseListener(new Monster1()); 									// 라벨에 마우스 리스너 이벤트 생성
+		monsterLabel2.addMouseListener(new midBossMonster()); 							// 라벨에 마우스 리스너 이벤트 생성
+		monsterLabel3.addMouseListener(new FinalBossMonster());							// 라벨에 마우스 리스너 이벤트 생성
+		setJbutton.addMouseListener(new SetChange());								
+//		inventoryButton.addMouseListener(new InventoryChange());						// 인벤토리 연결 아직 안됨
+		skillButton.addMouseListener(new SkillChange());
+		AchievementsButton.addMouseListener(new AchievementsChange());
 	}
 
-	private class MyMouseAdapter extends MouseAdapter { 									// 마우스 클릭시 전투 패널로 넘어감
+	/*-------------------------------버튼 이벤트 ---------------------------------------*/
 
-		@Override
-		public void mouseReleased(MouseEvent e) {
-			ViewUtil.changePanel(mf, fieldJPanel, new BattlePage(mf));
+	private class Monster1 extends MouseAdapter { 									// 마우스 클릭시 전투 패널로 넘어감
+
+		@Override																					
+		public void mouseReleased(MouseEvent e) {								
+			ViewUtil.changePanel(mf, fieldJPanel, new BattlePage(mf));						//배틀 페이지로 넘어가는거
 			mainPanel.setVisible(false);
 			
 		}
-	
 	}
+	private class midBossMonster extends MouseAdapter { 									// 마우스 클릭시 전투 패널로 넘어감
+
+		@Override																					
+		public void mouseReleased(MouseEvent e) {								
+			ViewUtil.changePanel(mf, fieldJPanel, new BattlePage(mf));						//배틀 페이지로 넘어가는거
+			mainPanel.setVisible(false);
+			
+		}
+	}
+	private class FinalBossMonster extends MouseAdapter { 									// 마우스 클릭시 전투 패널로 넘어감
+
+		@Override																					
+		public void mouseReleased(MouseEvent e) {								
+			ViewUtil.changePanel(mf, fieldJPanel, new BattlePage(mf));						//배틀 페이지로 넘어가는거
+			mainPanel.setVisible(false);
+			
+		}
+	}
+	private class SetChange extends MouseAdapter { 									
+
+		@Override																					
+		public void mouseReleased(MouseEvent e) {								
+			ViewUtil.changePanel(mf, fieldJPanel, new SkillList(mf));						//설정 페이지 넘어가는거 아직 설정 안함 new 부분 수정해야함
+			mainPanel.setVisible(false);
+			
+		}
+	}
+//	private class InventoryChange extends MouseAdapter { 									// //인벤토리 버튼
+//
+//		@Override																					
+//		public void mouseReleased(MouseEvent e) {								
+//			ViewUtil.changePanel(mf, fieldJPanel, new InventoryView(mf));						//설정 페이지 넘어가는거 아직 설정 안함 new 부분 수정해야함
+//			mainPanel.setVisible(false);
+//			
+//		}
+//	}
+	private class SkillChange extends MouseAdapter { 									//스킬 버튼
+		@Override																					
+		public void mouseReleased(MouseEvent e) {								
+			ViewUtil.changePanel(mf, fieldJPanel, new SkillList(mf));						//설정 페이지 넘어가는거 아직 설정 안함 new 부분 수정해야함
+			mainPanel.setVisible(false);
+			
+		}
+	}
+	private class AchievementsChange extends MouseAdapter { 									//업적 버튼
+
+		@Override																					
+		public void mouseReleased(MouseEvent e) {								
+			ViewUtil.changePanel(mf, fieldJPanel, new Achievements(mf));						//설정 페이지 넘어가는거 아직 설정 안함 new 부분 수정해야함
+			mainPanel.setVisible(false);
+			
+		}
+	}
+//		private class MyMouseAdapter1 extends MouseAdapter { 									// 마우스 클릭시 전투 패널로 넘어감
+//
+//		@Override																					
+//		public void mouseReleased(MouseEvent e) {								
+//			ViewUtil.changePanel(mf, fieldJPanel, new InventoryView(mf));						//인벤토리 넘어가는거
+//			mainPanel.setVisible(false);
+//			
+//		}
+//	}
 
 //	private class MyMouseAdapter2 extends MouseAdapter { 									// 마우스 클릭시 전투 패널로 넘어감
 //
