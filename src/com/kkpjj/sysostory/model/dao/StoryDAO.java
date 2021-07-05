@@ -51,6 +51,7 @@ public class StoryDAO {
 
 			if(rset.next()) {
 
+
 				story = new StoryDTO();
 				story.setStoryCode(rset.getInt("STORY_CODE"));
 				story.setChapTitle(rset.getString("CHAP_TITLE"));
