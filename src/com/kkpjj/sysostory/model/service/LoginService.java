@@ -7,6 +7,7 @@ import java.sql.Connection;
 
 import com.kkpjj.sysostory.model.dao.LoginDAO;
 import com.kkpjj.sysostory.model.dto.CharacterDTO;
+import com.kkpjj.sysostory.model.dto.MemberDTO;
 
 
 public class LoginService {

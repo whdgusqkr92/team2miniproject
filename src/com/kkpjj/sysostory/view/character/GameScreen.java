@@ -42,7 +42,6 @@ public class GameScreen extends JFrame {
 		mapPanel.setBounds(560, 420, 240, 180);
 
 
-		
 		Image statusBg = new ImageIcon("images/status.png").getImage().getScaledInstance(560, 180, 0);
 		JLabel label2 = new JLabel(new ImageIcon(statusBg));
 		
@@ -53,7 +52,6 @@ public class GameScreen extends JFrame {
 		statusPanel.add(label3);
 		mapPanel.add(label3);
 	
-
 		mf.getContentPane().add(statusPanel);
 		mf.getContentPane().add(mapPanel);
 		

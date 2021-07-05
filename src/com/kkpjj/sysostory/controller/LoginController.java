@@ -1,9 +1,7 @@
 package com.kkpjj.sysostory.controller;
 
-import javax.swing.JTextField;
-
 import com.kkpjj.sysostory.model.dto.CharacterDTO;
-
+import com.kkpjj.sysostory.model.dto.MemberDTO;
 import com.kkpjj.sysostory.model.service.LoginService;
 import com.kkpjj.sysostory.view.user.LoginResultView;
 

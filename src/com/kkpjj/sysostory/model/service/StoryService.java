@@ -12,7 +12,11 @@ import static com.kkpjj.common.JDBCTemplate.getConnection;
 
 public class StoryService {
 
-	StoryDAO storyDAO = new StoryDAO();
+	private StoryDAO storyDAO; 
+	
+	public StoryService() {
+		this.storyDAO = new StoryDAO();
+	}
 
 	public StoryDTO selectStoryContent(int storyCode) {
 

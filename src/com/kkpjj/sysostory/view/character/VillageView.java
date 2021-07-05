@@ -2,6 +2,8 @@ package com.kkpjj.sysostory.view.character;
 
 import java.awt.Graphics;
 import java.awt.Image;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
@@ -10,6 +12,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JTextField;
 
 import com.kkpjj.sysostory.view.ViewUtil;
 import com.kkpjj.sysostory.view.shop.ArmorDealer;
@@ -19,7 +22,7 @@ import com.kkpjj.sysostory.view.shop.PotionShopView;
 import com.kkpjj.sysostory.view.shop.WeaponDealer;
 import com.kkpjj.sysostory.view.shop.WeaponShopView;
 
-public class VillageView extends JPanel {
+public class VillageView extends JPanel implements KeyListener {
 	
 	private JFrame mf;
 	private JPanel chrPanel;
@@ -27,6 +30,9 @@ public class VillageView extends JPanel {
 	private JPanel weaponShopPanel;
 	private JPanel armorShopPanel;
 	private JPanel moveFieldPanel;
+	private CharacterView characterView;
+	
+	private JTextField tf;
 
 	public VillageView(JFrame mf) {
 		
@@ -43,9 +49,11 @@ public class VillageView extends JPanel {
 		weaponShopPanel.addMouseListener(new MyMouseAdapter(this));
 		armorShopPanel.addMouseListener(new MyMouseAdapter(this));
 		moveFieldPanel.addMouseListener(new MyMouseAdapter(this));
-		}
 		
+		tf.addKeyListener(this);
+	}
 	
+		
 	private void init() {
 		this.setBounds(0, 0, 800, 420);
 		this.setLayout(null);
@@ -64,14 +72,23 @@ public class VillageView extends JPanel {
 		// 화살표 생성
 		moveFieldPanel = new MoveField(mf);
 		
+		// 캐릭터 키보드 이벤트 생성
+		tf = new JTextField();
+		
+		this.setVisible(true);
+		
 	}
-
+	
+	// 각 생성한 컴포넌트들에 대해 add
 	private void addComponents() {
+		this.add(tf);
 		this.add(chrPanel);
 		this.add(posionShopPanel);
 		this.add(weaponShopPanel);
 		this.add(armorShopPanel);
 		this.add(moveFieldPanel);
+		
+		
 	}
 	
 //	 배경화면 추가
@@ -104,6 +121,34 @@ public class VillageView extends JPanel {
 				ViewUtil.changePanel(mf, villageView, new FieldCharacterBattle(mf));
 			}
 		}
+	}
+	
+	public void display(String s, KeyEvent e) {
+		
+		int keyCode = e.getKeyCode();
+		
+		// 키보드 이벤트 출력값 확인용
+		System.out.println("키보드 입력값 : " + keyCode);
+		
+		if(e.getKeyCode() == 69) {
+			ViewUtil.changePanel(mf, this, new CharacterView(mf));
+		}
+	}
+
+	@Override
+	public void keyTyped(KeyEvent e) {
+		
+	}
+
+	@Override
+	public void keyPressed(KeyEvent e) {
+		this.display("keyPressed", e);
+		
+	}
+
+	@Override
+	public void keyReleased(KeyEvent e) {
+		
 	}
 }
 

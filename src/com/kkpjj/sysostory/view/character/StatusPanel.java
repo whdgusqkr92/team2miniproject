@@ -24,11 +24,11 @@ public class StatusPanel extends JPanel {
 		mapPanel.setBounds(560, 420, 240, 180);
 		
 		// 상태 이미지
-		Image statusBg = new ImageIcon("images/status.png").getImage().getScaledInstance(560, 180, 0);
+		Image statusBg = new ImageIcon("images/character/status.png").getImage().getScaledInstance(560, 180, 0);
 		JLabel label1 = new JLabel(new ImageIcon(statusBg));
 
 		// 맵 정보 이미지
-		Image mapBg = new ImageIcon("images/map.png").getImage().getScaledInstance(240, 180, 0);
+		Image mapBg = new ImageIcon("images/character/map.png").getImage().getScaledInstance(240, 180, 0);
 		JLabel label2 = new JLabel(new ImageIcon(mapBg));
 
 		statusPanel.add(label1);
