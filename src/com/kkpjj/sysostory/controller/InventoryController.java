@@ -32,5 +32,6 @@ public class InventoryController {
 		CharacterDTO equip = invenService.EquipInfo();
 		return equip;
 	}
+	
 
 }

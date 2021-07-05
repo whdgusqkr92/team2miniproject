@@ -130,6 +130,7 @@ public class BattleMenu extends JPanel {
 	}
 	
 	private void selectSubMenu(BattleController bc, String attackType, String[] subMenuName) {
+		System.out.println(attackType);
 		subMenu1.addActionListener(new SelectSubMenu(bc, attackType, subMenuName[0]));
 		subMenu2.addActionListener(new SelectSubMenu(bc, attackType, subMenuName[1]));
 		subMenu3.addActionListener(new SelectSubMenu(bc, attackType, subMenuName[2]));
@@ -167,10 +168,10 @@ public class BattleMenu extends JPanel {
 		this.subMenu3.setText(subMenuName3);
 		this.subMenu4.setText(subMenuName4);
 		
-//		subMenu1.addActionListener(new SelectSubMenu(bc, attackType, subMenuName1));
-//		subMenu2.addActionListener(new SelectSubMenu(bc, attackType, subMenuName2));
-//		subMenu3.addActionListener(new SelectSubMenu(bc, attackType, subMenuName3));
-//		subMenu4.addActionListener(new SelectSubMenu(bc, attackType, subMenuName4));
+		subMenu1.addActionListener(new SelectSubMenu(bc, attackType, subMenuName1));
+		subMenu2.addActionListener(new SelectSubMenu(bc, attackType, subMenuName2));
+		subMenu3.addActionListener(new SelectSubMenu(bc, attackType, subMenuName3));
+		subMenu4.addActionListener(new SelectSubMenu(bc, attackType, subMenuName4));
 		selectSubMenu(bc, attackType, subMenuName);
 	}
 
@@ -236,7 +237,6 @@ class SelectMenu implements ActionListener {
 		
 		battleMenu.repaint();
 		battleMenu.revalidate();
-
 
 	}
 }

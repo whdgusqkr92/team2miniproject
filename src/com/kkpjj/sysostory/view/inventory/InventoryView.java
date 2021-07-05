@@ -9,7 +9,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import com.kkpjj.sysostory.controller.InventoryController;
-import com.kkpjj.sysostory.model.dto.CharaDTO;
+import com.kkpjj.sysostory.model.dto.CharacterDTO;
 import com.kkpjj.sysostory.model.dto.EquipDTO;
 import com.kkpjj.sysostory.model.dto.InventoryDTO;
 import com.kkpjj.sysostory.model.dto.WeaponDTO;
@@ -21,7 +21,7 @@ public class InventoryView extends JPanel {
 	private InventoryView mainPage;
 	private Image img;
 	private Image img2;
-	private CharaDTO equip;
+	private CharacterDTO equip;
 	private InventoryController ic;
 
 	public InventoryView(MainFrame mf, InventoryDTO inven, EquipDTO equip) {

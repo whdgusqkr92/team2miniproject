@@ -65,10 +65,10 @@ public class BattleController {
 	}
 
 	public void selectSubMenu(String attackType, String subMenuName) {
-		this.attackType = attackType;
+//		this.attackType = attackType;
 		this.subMenuName = subMenuName;
 		
-		System.out.println(attackType);
+//		System.out.println(attackType);
 
 		switch(attackType) {
 			case "attack" : battleMon.selectMon(); break;
