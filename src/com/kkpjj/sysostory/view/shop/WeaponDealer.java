@@ -15,10 +15,13 @@ import javax.swing.JPanel;
 import javax.swing.JTextPane;
 
 public class WeaponDealer extends JPanel {
+	
+	private JFrame mf;
 
-	public WeaponDealer() {
+	public WeaponDealer(JFrame mf) {
 		
 		// 레이아웃 설정
+		this.mf = mf;
 		init();
 		// 아이템 리스트
 		
