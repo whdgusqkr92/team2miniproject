@@ -2,6 +2,9 @@ package com.kkpjj.sysostory.view;
 
 import javax.swing.JFrame;
 
+import com.kkpjj.sysostory.view.boss.FinalBossEvent;
+import com.kkpjj.sysostory.view.boss.MiddleBossEvent;
+
 
 
 public class MainFrame extends JFrame {
@@ -17,7 +20,8 @@ public class MainFrame extends JFrame {
 		mf.setSize(800, 600);
 		mf.setLayout(null);
 		
-
+		new MiddleBossEvent(mf);
+		
 		mf.setLocationRelativeTo(null);
 		mf.setResizable(true);
 		mf.setVisible(true);

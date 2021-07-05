@@ -48,11 +48,14 @@ public class BossTurn extends JPanel{
 	bossLabel.setBounds(650, 110, 150, 143);
 	mainpanel.add(bossLabel);
 //	bossLabel.setVisible(true);
+
 	
 	
-	new BossAttController(mf).attFinalBoss();
+	new BossAttController(mf).attMiddleBoss();
 	
-//	new DieText(mf, mainpanel).middleDie();
+
+	
+//	new DieText(mf, mainpanel).charaDie(); 캐릭터디지면 보이는메세지
 //}
 	}
 }
