@@ -49,14 +49,16 @@ public class StoryDAO {
 			rset = pstmt.executeQuery();
 
 			if(rset.next()) {
+
 				story = new StoryDTO();
 				story.setStoryCode(rset.getInt("STORY_CODE"));
 				story.setChapTitle(rset.getString("CHAP_TITLE"));
 				story.setChapScript(rset.getString("CHAP_SCRIPT"));
-
 			}
+
 			
 		} catch (SQLException e) {
+
 			e.printStackTrace();
 		} finally {
 			close(rset);
@@ -64,7 +66,6 @@ public class StoryDAO {
 		}
 		return story;
 	}
-	
 
 	public List<StoryDTO> selectTitleStory(Connection con, String chapTitle) {
 
@@ -99,6 +100,4 @@ public class StoryDAO {
 		}
 		return storylist;
 	}
-
-
 }

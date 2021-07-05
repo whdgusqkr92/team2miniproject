@@ -66,29 +66,22 @@ public class BattleMon extends JPanel {
 		// 몬스터 생성
 		this.firstMon = new Monster(monImgAddress1);
 		firstMon.setBounds(0, 0, 64, 28);
+		firstMon.setBorderPainted(false);
 		this.secondMon = new Monster(monImgAddress2);
 		secondMon.setBounds(25, 84, 64, 28);
+		secondMon.setBorderPainted(false);
 		this.thirdMon = new Monster(monImgAddress1);
 		thirdMon.setBounds(25, 168, 64, 28);
+		thirdMon.setBorderPainted(false);
 		this.fourthMon = new Monster(monImgAddress2);
 		fourthMon.setBounds(0, 252, 64, 28);
+		fourthMon.setBorderPainted(false);
 
 		// 몬스터 선택 버튼 생성
 		this.selectFirstMon = new JButton();
 		selectFirstMon.setBounds(firstMon.getBounds());
 		selectFirstMon.setBorderPainted(false);
 		selectFirstMon.setContentAreaFilled(false);
-//		selectFirstMon.addFocusListener(new FocusListener() {
-//			@Override
-//			public void focusLost(FocusEvent e) {
-//				System.out.println("focusOut");
-//			}
-//
-//			@Override
-//			public void focusGained(FocusEvent e) {
-//				System.out.println("focusIn");
-//			}
-//		});
 
 		this.selectSecondMon = new JButton();
 		selectSecondMon.setBounds(secondMon.getBounds());

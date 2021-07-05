@@ -44,9 +44,28 @@ public class BossSkillEffect extends JPanel {
 		skillLabel.setBounds(0, 0, 100, 350);
 		mainpanel.add(subpanel);
 		subpanel.add(skillLabel);
-
+		
+//		new Thread(new Runnable() {
+//			
+//			@Override
+//			public void run() {
+//				int cnt = 0;
+//				while(true) {
+//					try {
+//						Thread.sleep(1000);
+//						cnt++;
+//						if(cnt == 3) {
+//							
+//						}
+//					} catch (InterruptedException e) {
+//						e.printStackTrace();
+//					}
+//				}
+//			}
+//		}).start();
+//		setVisible(true);
 	}
-
+	
 	//15
 	public void finalSkill2() {
 

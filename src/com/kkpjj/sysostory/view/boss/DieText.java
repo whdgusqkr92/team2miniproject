@@ -17,6 +17,7 @@ import javax.swing.JPanel;
 import com.kkpjj.sysostory.model.dto.CharacterDTO;
 import com.kkpjj.sysostory.model.dto.MonsterDTO;
 import com.kkpjj.sysostory.view.ViewUtil;
+import com.kkpjj.sysostory.view.character.VillageView;
 
 public class DieText extends JPanel {
 	
@@ -73,7 +74,7 @@ public class DieText extends JPanel {
 				@Override
 				public void mouseClicked(MouseEvent e) {
 					
-					ViewUtil.changePanel(mf, mainpanel, new FinalBossEvent(mf)); //여기에 마을or필드 부르면됨.
+					ViewUtil.changePanel(mf, mainpanel, new VillageView(mf)); //여기에 마을or필드 부르면됨.
 				
 						}
 					}

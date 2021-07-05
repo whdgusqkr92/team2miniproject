@@ -12,13 +12,13 @@ import static com.kkpjj.common.JDBCTemplate.close;
 public class BossAttService {
 
 	private BossAttDAO bossAttDAO;
-//	public BossAttService() {
-//	}
+	public BossAttService() {
+	this.bossAttDAO = new BossAttDAO();
+	}
 
 	
 	public MonsterDTO attBoss(int monCode) {
 		
-		this.bossAttDAO = new BossAttDAO();
 		Connection con = getConnection();
 		
 		MonsterDTO monster = bossAttDAO.selectattBoss(con , monCode);
