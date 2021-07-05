@@ -27,13 +27,6 @@ public class BossTurn extends JPanel{
 		this.mf = mf;
 		this.mainpanel = this;
 		
-//		if(스킬) {
-//			
-//		}else if(스킬) {
-//			
-//		}else {
-//			평타
-//		}
 	//--------------------------배경 필드 패널 만들기------------------------------	
 	Image field = new ImageIcon("Images/field/field.png").getImage().getScaledInstance(800, 200, 0);
 		
@@ -54,22 +47,15 @@ public class BossTurn extends JPanel{
 	bossLabel = new JLabel(new ImageIcon(bossface));
 	bossLabel.setBounds(650, 110, 150, 143);
 	mainpanel.add(bossLabel);
-	bossLabel.setVisible(true);
+//	bossLabel.setVisible(true);
 	
 	
-	new BossAttController(mf).attBoss();
+	new BossAttController(mf).attFinalBoss();
 	
-//	new BossAttController(mf);
-//	try {
-//		new BossSkillResultView().skill3();
-//		Thread.sleep(3000);
-//	} catch (InterruptedException e) {
-//		// TODO Auto-generated catch block
-//		e.printStackTrace();
-//	}
-}
+//	new DieText(mf, mainpanel).middleDie();
+//}
 	}
-
+}
 
 //	DieText bd = new DieText(mf, mainpanel);
 //bd.Chara

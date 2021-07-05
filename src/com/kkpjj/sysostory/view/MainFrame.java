@@ -2,16 +2,19 @@ package com.kkpjj.sysostory.view;
 
 import javax.swing.JFrame;
 
-import com.kkpjj.sysostory.view.achievements.Achievements;
-import com.kkpjj.sysostory.view.character.FieldCharacterBattle;
-import com.kkpjj.sysostory.view.skill.SkillList;
+import com.kkpjj.sysostory.controller.BossAttController;
+import com.kkpjj.sysostory.view.battle.BattleMenu;
+import com.kkpjj.sysostory.view.battle.BattlePage;
+import com.kkpjj.sysostory.view.boss.BossTurn;
 import com.kkpjj.sysostory.view.story.EndingPage;
+import com.kkpjj.sysostory.view.story.OpMainPage;
 
 
 
 
 public class MainFrame extends JFrame {
 
+	
 	private JFrame mf;
 
 	public MainFrame() {
@@ -22,6 +25,7 @@ public class MainFrame extends JFrame {
 		mf.setSize(800, 600);
 		mf.setLayout(null);
 		
+		new OpMainPage(mf);
 
 		mf.setLocationRelativeTo(null);
 		mf.setResizable(true);
