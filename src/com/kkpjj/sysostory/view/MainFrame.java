@@ -2,16 +2,11 @@ package com.kkpjj.sysostory.view;
 
 import javax.swing.JFrame;
 
-import com.kkpjj.sysostory.view.achievements.Achievements;
-import com.kkpjj.sysostory.view.character.FieldCharacterBattle;
-import com.kkpjj.sysostory.view.skill.SkillList;
-import com.kkpjj.sysostory.view.story.EndingPage;
-
-
 
 
 public class MainFrame extends JFrame {
 
+	
 	private JFrame mf;
 
 	public MainFrame() {

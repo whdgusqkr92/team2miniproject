@@ -7,7 +7,7 @@ import java.sql.Connection;
 
 import com.kkpjj.sysostory.model.dao.LoginDAO;
 import com.kkpjj.sysostory.model.dto.CharacterDTO;
-import com.kkpjj.sysostory.model.dto.MemberDTO;
+
 
 public class LoginService {
 	
@@ -17,7 +17,9 @@ public class LoginService {
 		this.loginDAO = new LoginDAO();
 	}
 
+
 	public int checkNickname(CharacterDTO characterDTO, MemberDTO memberDTO) {
+
 
 		Connection con = getConnection();
 		System.out.println("Serveice : " + characterDTO.getChrName());

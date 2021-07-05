@@ -57,23 +57,24 @@ public class BattleController {
 		
 		// 전투 메뉴 생성
 		this.battleMenu = new BattleMenu(this);
+//		battleMenu.createMenu();
 		mf.add(battleMenu);
 	}
 	
-	public void selectMenu() {
-//		battleMenu.selectMenu();
+	public void createSubMenu(String attackType) {
+		System.out.println("sub메뉴 만들자");
+//		battleMenu.createSubMenu();
 	}
 
 	public void selectSubMenu(String attackType, String subMenuName) {
-		this.attackType = attackType;
+//		this.attackType = attackType;
 		this.subMenuName = subMenuName;
 		
-		System.out.println(attackType);
 
 		switch(attackType) {
 			case "attack" : battleMon.selectMon(); break;
 			case "skill" : battleMon.selectMon(); break;
-			case "potion" : useItem(); break;
+			case "item" : useItem(); break;
 			case "run" : runAway(); break;
 			default : System.out.println("서브 메뉴 선택 오류");
 		}
