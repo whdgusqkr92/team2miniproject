@@ -24,7 +24,10 @@ public class EndingPage extends JPanel {
 	private JFrame mf;
 	private JPanel mainpanel;
 	private JPanel mainpanel2;
-	private JTextArea textArea;
+//	private JTextArea textArea;
+	private JLabel textLabel;
+	private JLabel textLabel2;
+	
 	private StoryDTO storyDTO;
 	private StoryController storyController;
 	
@@ -49,12 +52,29 @@ public class EndingPage extends JPanel {
 		JLabel charaLabel = new JLabel(new ImageIcon(chara));
 		charaLabel.setBounds(0, 180, 100, 100);
 		mainpanel.add(charaLabel);
-		Image bossface = new ImageIcon("images/text/Bossface_M.png").getImage().getScaledInstance(200, 180, 0);
+		Image bossface = new ImageIcon("images/text/bossDie.png").getImage().getScaledInstance(200, 180, 0);
 		
 		JLabel bossLabel = new JLabel(new ImageIcon(bossface));
-		bossLabel.setBounds(650, 110, 150, 143);
+		bossLabel.setBounds(650, 230, 150, 143);
 		mainpanel.add(bossLabel);
-		bossLabel.setVisible(false);
+		
+		//-------------------------대화 이미지1 출력------------------------------------------------	
+		Image text1 = new ImageIcon("images/text/내가지다니.png").getImage().getScaledInstance(600, 300, 0);
+		textLabel = new JLabel(new ImageIcon(text1));
+		textLabel.setBounds(0, 251, 792, 200);
+		mainpanel.add(textLabel);
+				
+		//-------------------------대화 이미지 2출력--------------------------------------------------
+		Image text2 = new ImageIcon("images/text/세상을구했다.png").getImage().getScaledInstance(600, 220, 0);
+		textLabel2 = new JLabel(new ImageIcon(text2));
+		textLabel2.setBounds(0, 251, 792, 150);
+		mainpanel.add(textLabel2);
+		textLabel2.setVisible(false);
+		
+		textLabel.addMouseListener(new OneActionListener());
+		textLabel2.addMouseListener(new TwoActionListener());
+		
+		
 		
 		mainpanel.addMouseListener(new MouseAdapter() {
 			
@@ -64,9 +84,6 @@ public class EndingPage extends JPanel {
 			}
 		});
 		
-		
-		
-//		EndingPage2(mf);
 	}
 
 		
@@ -123,7 +140,25 @@ public class EndingPage extends JPanel {
 //
 //		g.drawImage(background,0,0,800,420,this);
 //	}
+	
+	private class OneActionListener extends MouseAdapter {
 
+		@Override
+		public void mousePressed(MouseEvent e) {
+
+			textLabel.setVisible(false);
+			textLabel2.setVisible(true);
+		}
+	}
+	private class TwoActionListener extends MouseAdapter {
+
+		@Override
+		public void mousePressed(MouseEvent e) {
+			textLabel2.setVisible(false);
+
+		}
+	}
+	
 	private class MyMouseAdapter extends MouseAdapter {
 
 		@Override

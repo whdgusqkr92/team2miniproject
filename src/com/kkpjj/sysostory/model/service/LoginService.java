@@ -6,7 +6,7 @@ import static com.kkpjj.common.JDBCTemplate.getConnection;
 import java.sql.Connection;
 
 import com.kkpjj.sysostory.model.dao.LoginDAO;
-import com.kkpjj.sysostory.model.dto.CharaDTO;
+import com.kkpjj.sysostory.model.dto.CharacterDTO;
 
 public class LoginService {
 	
@@ -16,7 +16,7 @@ public class LoginService {
 		this.loginDAO = new LoginDAO();
 	}
 
-	public int checkNickname(CharaDTO charaDTO) {
+	public int checkNickname(CharacterDTO charaDTO) {
 
 		Connection con = getConnection();
 		
