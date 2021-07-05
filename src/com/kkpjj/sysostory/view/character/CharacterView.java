@@ -41,10 +41,10 @@ public class CharacterView extends JPanel {
 		mapPanel = new JPanel();
 		mapPanel.setBounds(560, 420, 240, 180);
 
-		Image statusBg = new ImageIcon("images/status.png").getImage().getScaledInstance(560, 180, 0);
+		Image statusBg = new ImageIcon("images/character/status.png").getImage().getScaledInstance(560, 180, 0);
 		JLabel label1 = new JLabel(new ImageIcon(statusBg));
 		
-		Image mapBg = new ImageIcon("images/map.png").getImage().getScaledInstance(240, 180, 0);
+		Image mapBg = new ImageIcon("images/character/map.png").getImage().getScaledInstance(240, 180, 0);
 		JLabel label2 = new JLabel(new ImageIcon(mapBg));
 		
 		statusPanel.add(label1);
@@ -68,17 +68,17 @@ public class CharacterView extends JPanel {
 		characterProfile.setBounds(88, 50, 136, 136);
 		charInfoPanel.add(characterProfile);
 		
-		Image itemWindowBg = new ImageIcon("images/characterWindow.png").getImage();
+		Image itemWindowBg = new ImageIcon("images/character/characterWindow.png").getImage();
 		JLabel label3= new JLabel(new ImageIcon(itemWindowBg));
 		label3.setBounds(398, 10, 50, 50);
 		charInfoPanel.add(label3);
 		
 		// 캐릭터 이미지
-		status = new ImageIcon("images/status.png");
-		map = new ImageIcon("images/map.png");
-		characterWindow = new ImageIcon("images/characterWindow.png");
-		sysoIcon = new ImageIcon("images/sysoIcon.png");
-		exit = new ImageIcon("images/status.png");
+		status = new ImageIcon("images/character/status.png");
+		map = new ImageIcon("images/character/map.png");
+		characterWindow = new ImageIcon("images/character/characterWindow.png");
+		sysoIcon = new ImageIcon("images/character/sysoIcon.png");
+		exit = new ImageIcon("images/character/exit.png");
 		
 		
 		// 캐릭터 상태
@@ -114,7 +114,7 @@ public class CharacterView extends JPanel {
 		// 나가기 버튼
 		JButton exitButton = new JButton();
 		exitButton.setBounds(720, 15, 50, 50);
-		exitButton.setIcon(new ImageIcon("images/exit.png"));
+		exitButton.setIcon(new ImageIcon("images/character/exit.png"));
 		mf.add(exitButton);
 		
 		
@@ -132,8 +132,8 @@ public class CharacterView extends JPanel {
 		mf.add(panel2);
 		mf.add(panel4);
 		mf.add(panel3);
-//		mf.setVisible(true);
-//		mf.setResizable(false);
+		mf.setVisible(true);
+		mf.setResizable(false);
 	}
 
 }

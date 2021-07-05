@@ -11,7 +11,6 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-import com.kkpjj.sysostory.view.MainFrame;
 import com.kkpjj.sysostory.view.ViewUtil;
 import com.kkpjj.sysostory.view.shop.ArmorDealer;
 import com.kkpjj.sysostory.view.shop.ArmorShopView;
@@ -40,24 +39,12 @@ public class VillageView extends JPanel {
 		// 프레임에 마을 메인화면 추가
 		this.mf.add(this);
 		
-		posionShopPanel.addMouseListener(new MyMouseAdapter());
-		weaponShopPanel.addMouseListener(new MyMouseAdapter());
-		armorShopPanel.addMouseListener(new MyMouseAdapter());
-		
-		moveFieldPanel.addMouseListener(new MouseAdapter() {
-			
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				ViewUtil.changePanel(mf, this, new FieldCharacterBattle(mf));
-				moveFieldPanel.setVisible(false);
-				
-			}
-		}; 
-			
-
+		posionShopPanel.addMouseListener(new MyMouseAdapter(this));
+		weaponShopPanel.addMouseListener(new MyMouseAdapter(this));
+		armorShopPanel.addMouseListener(new MyMouseAdapter(this));
+		moveFieldPanel.addMouseListener(new MyMouseAdapter(this));
 		}
 		
-	}
 	
 	private void init() {
 		this.setBounds(0, 0, 800, 420);
@@ -99,27 +86,27 @@ public class VillageView extends JPanel {
 	// 상인 클릭 시, 상점 목록 클래스로 전환
 	private class MyMouseAdapter extends MouseAdapter {
 		
+		private VillageView villageView;
+		
+		public MyMouseAdapter(VillageView villageView) {
+			this.villageView = villageView;
+		}
+		
 		@Override
 		public void mouseClicked(MouseEvent e) {
 			if(e.getSource() == posionShopPanel) {
-				ViewUtil.changePanel(mf, posionShopPanel, new PotionShopView(mf));
+				ViewUtil.changePanel(mf, villageView, new PotionShopView(mf));
 			} else if(e.getSource() == weaponShopPanel) {
-				ViewUtil.changePanel(mf, weaponShopPanel, new WeaponShopView(mf));
+				ViewUtil.changePanel(mf, villageView, new WeaponShopView(mf));
 			} else if(e.getSource() == armorShopPanel) {
-				ViewUtil.changePanel(mf, armorShopPanel, new ArmorShopView(mf));
+				ViewUtil.changePanel(mf, villageView, new ArmorShopView(mf));
+			} else if(e.getSource() == moveFieldPanel) {
+				ViewUtil.changePanel(mf, villageView, new FieldCharacterBattle(mf));
+			}
 		}
 	}
-	
-//	private class MoveFieldAdapter extends MouseAdapter {
-//		
-//		
-//		private VillageView villageView;
-//		
-//		
-//	}
-	
-	}
 }
+
 
 
 

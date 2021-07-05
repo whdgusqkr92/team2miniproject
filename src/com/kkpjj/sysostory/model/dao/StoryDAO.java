@@ -48,7 +48,8 @@ public class StoryDAO {
 			pstmt.setInt(1, storyCode);
 			rset = pstmt.executeQuery();
 
-			while(rset.next()) {
+			if(rset.next()) {
+				story = new StoryDTO();
 				story.setStoryCode(rset.getInt("STORY_CODE"));
 				story.setChapTitle(rset.getString("CHAP_TITLE"));
 				story.setChapScript(rset.getString("CHAP_SCRIPT"));
