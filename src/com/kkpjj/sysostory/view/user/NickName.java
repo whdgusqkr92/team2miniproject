@@ -18,8 +18,7 @@ import com.kkpjj.sysostory.controller.LoginController;
 
 public class NickName extends JFrame{
 
-	public NickName() {
-
+	public NickName(String idText) {
 		JFrame mf = new JFrame();
 		mf.setBounds(0, 0, 800,600);
 		mf.setLocationRelativeTo(null);
@@ -28,12 +27,12 @@ public class NickName extends JFrame{
 
 		JPanel panel = new JPanel();
 
-		Image background = new ImageIcon("images/StartScreen2.png").getImage().getScaledInstance(800, 600, 0);
+		Image background = new ImageIcon("images/login/StartScreen2.png").getImage().getScaledInstance(800, 600, 0);
 		JLabel label = new JLabel(new ImageIcon(background));
 		label.setBounds(0, 0, 800, 600);
 
 
-		Image window = new ImageIcon("images/characterWindow.png").getImage().getScaledInstance(500, 200, 0);
+		Image window = new ImageIcon("images/character/characterWindow.png").getImage().getScaledInstance(500, 200, 0);
 		JLabel windowLabel = new JLabel(new ImageIcon(window));			/* 닉네임 창 */
 		windowLabel.setBounds(150, 200, 500, 200);
 		windowLabel.setLayout(null);
@@ -64,7 +63,7 @@ public class NickName extends JFrame{
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				if(nicknameText.getText().length() > 0) {
-					int result = loginController.createNickname(nicknameText);
+					int result = loginController.createNickname(nicknameText.getText(),idText);
 						
 					if(result > 0) {
 						mf.setVisible(false);
@@ -72,6 +71,7 @@ public class NickName extends JFrame{
 //						infoBox("중복된 닉네임으로 사용이 불가능합니다.", "중복검사");
 					}
 				}
+				System.out.println(nicknameText.getText());
 			}
 		});
 		mf.getContentPane().add(label);

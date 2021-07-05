@@ -18,13 +18,13 @@ public class ResignYesOrNo extends JFrame{
 		mf.setLocationRelativeTo(null);
 		mf.setTitle("syso Story");
 		
-		Image background = new ImageIcon("images/StartScreen2.png").getImage().getScaledInstance(800, 600, 0);
+		Image background = new ImageIcon("images/login/StartScreen2.png").getImage().getScaledInstance(800, 600, 0);
 		JLabel label = new JLabel(new ImageIcon(background));			/* 게임 배경 화면 */
 		label.setForeground(Color.WHITE);
 		label.setBounds(0, 0, 800, 600);
 		mf.getContentPane().setLayout(null);
 		
-		Image window = new ImageIcon("images/characterWindow.png").getImage().getScaledInstance(500, 200, 0);
+		Image window = new ImageIcon("images/login/characterWindow.png").getImage().getScaledInstance(500, 200, 0);
 		JLabel windowLabel = new JLabel(new ImageIcon(window));			/* 회원탈퇴 예 아니오 선택 창 */
 		windowLabel.setBounds(150, 200, 500, 200);
 		windowLabel.setLayout(null);

@@ -16,7 +16,7 @@ import com.kkpjj.sysostory.view.user.NickName;
 
 public class AfterLogin extends JFrame{
 
-	public AfterLogin() {
+	public AfterLogin(String idText) {
 		JFrame mf = new JFrame();
 		mf.setSize(800, 600);
 		mf.setLocationRelativeTo(null);
@@ -24,7 +24,7 @@ public class AfterLogin extends JFrame{
 		
 		JPanel panel = new JPanel();
 		
-		Image background = new ImageIcon("images/StartScreen2.png").getImage().getScaledInstance(800, 600, 0);
+		Image background = new ImageIcon("images/login/StartScreen2.png").getImage().getScaledInstance(800, 600, 0);
 		JLabel label = new JLabel(new ImageIcon(background));
 		label.setBounds(0, 0, 800, 600);
 		mf.getContentPane().setLayout(null);
@@ -39,8 +39,8 @@ public class AfterLogin extends JFrame{
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				setVisible(false);
-				new NickName();
+				mf.setVisible(false);
+				new NickName(idText);
 				infoBox("닉네임을 입력해주세요.","캐릭터 생성");
 			}
 		});

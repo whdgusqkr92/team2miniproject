@@ -32,7 +32,7 @@ public class FindPwdView extends JFrame{
 		
 		JPanel panel = new JPanel();
 		
-		Image background = new ImageIcon("images/StartScreen2.png").getImage().getScaledInstance(800, 600, 0);
+		Image background = new ImageIcon("images/login/StartScreen2.png").getImage().getScaledInstance(800, 600, 0);
 		JLabel label = new JLabel(new ImageIcon(background));
 		label.setBounds(0, 0, 800, 600);
 		mf.getContentPane().setLayout(null);

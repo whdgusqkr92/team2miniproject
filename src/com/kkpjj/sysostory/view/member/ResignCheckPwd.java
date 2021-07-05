@@ -25,11 +25,11 @@ public class ResignCheckPwd extends JFrame{
 	
 		JPanel panel = new JPanel();
 		
-		Image background = new ImageIcon("images/StartScreen2.png").getImage().getScaledInstance(800, 600, 0);
+		Image background = new ImageIcon("images/login/StartScreen2.png").getImage().getScaledInstance(800, 600, 0);
 		JLabel label = new JLabel(new ImageIcon(background));
 		label.setBounds(0, 0, 800, 600);
 		
-		Image window = new ImageIcon("images/characterWindow.png").getImage().getScaledInstance(500, 200, 0);
+		Image window = new ImageIcon("images/character/characterWindow.png").getImage().getScaledInstance(500, 200, 0);
 		JLabel windowLabel = new JLabel(new ImageIcon(window));			/* 비밀번호 확인 창 */
 		windowLabel.setBounds(150, 200, 500, 200);
 		windowLabel.setLayout(null);

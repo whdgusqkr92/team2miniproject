@@ -25,7 +25,8 @@ public class JoinPage extends JFrame{
 
 	private JFrame mf;
 	private JTextField idText;
-	private JPasswordField pwdText;
+//	private JPasswordField pwdText;
+	private JTextField pwdText;
 	private JTextField nameText;
 	private JTextField emailText;
 	
@@ -37,7 +38,7 @@ public class JoinPage extends JFrame{
 		
 		JPanel panel = new JPanel();
 		
-		Image background = new ImageIcon("images/StartScreen2.png").getImage().getScaledInstance(800, 600, 0);
+		Image background = new ImageIcon("images/login/StartScreen2.png").getImage().getScaledInstance(800, 600, 0);
 		JLabel label = new JLabel(new ImageIcon(background));
 		label.setBounds(0, 0, 800, 600);
 		mf.getContentPane().setLayout(null);
@@ -70,7 +71,8 @@ public class JoinPage extends JFrame{
 		pwdLabel.setFont(new Font("둥근모꼴", Font.PLAIN, 24));
 		pwdPanel.add(pwdLabel);
 		
-		pwdText = new JPasswordField();									
+//		pwdText = new JPasswordField();	
+		pwdText = new JTextField();
 		pwdText.setFont(new Font("둥근모꼴", Font.PLAIN, 20));			/* pwd 입력란 */
 		pwdText.setBounds(300, 180, 300, 45);
 		mf.getContentPane().add(pwdText);
