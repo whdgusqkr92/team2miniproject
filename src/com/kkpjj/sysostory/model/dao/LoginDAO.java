@@ -11,13 +11,13 @@ import java.sql.SQLException;
 import java.util.InvalidPropertiesFormatException;
 import java.util.Properties;
 
-import com.kkpjj.sysostory.model.dto.CharaDTO;
+import com.kkpjj.sysostory.model.dto.CharacterDTO;
 import com.kkpjj.sysostory.model.dto.MemberDTO;
 
 public class LoginDAO {
 	
 	private Properties prop;
-	CharaDTO charaDTO;
+	CharacterDTO charaDTO;
 	MemberDTO memberDTO;
 	
 	public LoginDAO() {
@@ -35,10 +35,10 @@ public class LoginDAO {
 		}
 	}
 
-	public int insertNickname(Connection con, CharaDTO charaDTO) {
+	public int insertNickname(Connection con, CharacterDTO characterDTO) {
 
 		PreparedStatement pstmt = null;
-		charaDTO = new CharaDTO();
+		characterDTO = new CharacterDTO();
 //		memberDTO = new MemberDTO();
 		
 		int result = 0;
@@ -49,11 +49,13 @@ public class LoginDAO {
 		try {
 			pstmt = con.prepareStatement(query);
 			pstmt.setString(1, charaDTO.getChrName());
-//			pstmt.setInt(2, charaDTO.getUserNo());
+			pstmt.setInt(2, charaDTO.getUserNo());
+			
+			
 			
 			if(charaDTO.getUserNo() == memberDTO.getUserNo()) {
 				result = pstmt.executeUpdate();
-			}
+			} 
 			
 		} catch (SQLException e) {
 			e.printStackTrace();
