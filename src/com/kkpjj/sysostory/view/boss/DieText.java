@@ -14,7 +14,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-import com.kkpjj.sysostory.model.dto.CharaDTO;
+import com.kkpjj.sysostory.model.dto.CharacterDTO;
 import com.kkpjj.sysostory.model.dto.MonsterDTO;
 import com.kkpjj.sysostory.view.ViewUtil;
 
