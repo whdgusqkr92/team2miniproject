@@ -28,7 +28,7 @@ public class SkillList extends JPanel {
 	private JFrame mf;
 	private SkillController sc;
 	private int skillCode; 
-		
+	private String skillScript;
 
 	public SkillList(JFrame mf) {
 		
@@ -54,7 +54,7 @@ public class SkillList extends JPanel {
 		skilExPanel.setLayout(null);
 		
 		
-		this.skilExLabel = new JLabel(new ImageIcon(exImage));
+		skilExLabel = new JLabel(new ImageIcon(exImage));
 		skilExLabel.setBounds(0, 0, 700, 100);								//스킬 설명 라벨
 		
 		
@@ -105,15 +105,18 @@ public class SkillList extends JPanel {
 		btnNewButton.setBounds(11, 25, 50, 50);
 		skilListPanel.add(btnNewButton);
 		this.skillCode = 1;
+	
 		btnNewButton.addActionListener(new ActionListener() {
-		
+			@Override
 			public void actionPerformed(ActionEvent e) {
 
 			String skillScript = sc.selectSkillScript(skillCode);
-//			skilExPanel.add(skilExLabel);
-//			skilExLabel.setName(skillScript);
-			skilExLabel.setText(skillScript);
 			
+//			skilExPanel.add(skilExLabel);
+		//	skilExLabel.setName(skillScript);
+			
+		//	skilExLabel.setText(skillScript);
+			skilExLabel.setText(skillScript);
 //				skilExPanel.add(skilExLabel);
 //				skilExLabel.setText("정권 : 주먹으로 가격하는 정통파 공격기술로 그만큼 안정감이 좋다 ");						//택스트 넘어가짐
 //				skilExPanel.add(skilExLabel);
