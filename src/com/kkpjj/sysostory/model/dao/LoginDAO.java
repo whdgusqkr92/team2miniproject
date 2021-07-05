@@ -40,9 +40,6 @@ public class LoginDAO {
 
 		PreparedStatement pstmt = null;
 		
-//		characterDTO = new CharacterDTO();
-//		memberDTO = new MemberDTO();
-//		int unum = 0;
 		int result = 0;
 //		int userNumber = 0;
 //		String chrName = "";
@@ -58,7 +55,7 @@ public class LoginDAO {
 		
 		try {
 			pstmt = con.prepareStatement(query);
-			pstmt.setInt(1, 100);
+			pstmt.setInt(1, memberDTO.getUserNo());
 			pstmt.setString(2, characterDTO.getChrName());
 //			pstmt.setInt(3, characterDTO.getUserNo());
 			
@@ -102,30 +99,4 @@ public class LoginDAO {
 		return resultIdNumber;
 	}
 	
-//	public int searchCharacterNumber(Connection con, String idText) {
-//		PreparedStatement pstmt = null;
-//		ResultSet result = null;
-//		
-//		String query = prop.getProperty("searchCharacterNumber");
-//		int resultIdNumber = 0;
-//		
-//		try {
-//			pstmt = con.prepareStatement(query);
-//			pstmt.setString(1, idText);
-//
-//			result = pstmt.executeQuery();
-//			
-//			while(result.next()) {
-//				resultIdNumber = result.getInt("USER_NO");
-//			}
-//			
-//		} catch (SQLException e) {
-//			e.printStackTrace();
-//		} finally {
-//			close(result);
-//			close(pstmt);
-//		}
-//		
-//		return resultIdNumber;
-//	}
 }
