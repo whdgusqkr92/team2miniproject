@@ -50,7 +50,7 @@ public class MemberController {
 		
 		if(result > 0) {
 			memberResultView.loginSuccess();
-			new AfterLogin();
+			new AfterLogin(idText.getText());
 			
 			return 1;
 		} else {

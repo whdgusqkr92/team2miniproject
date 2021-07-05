@@ -2,7 +2,8 @@ package com.kkpjj.sysostory.controller;
 
 import javax.swing.JTextField;
 
-import com.kkpjj.sysostory.model.dto.CharaDTO;
+import com.kkpjj.sysostory.model.dto.CharacterDTO;
+import com.kkpjj.sysostory.model.dto.MemberDTO;
 import com.kkpjj.sysostory.model.service.LoginService;
 import com.kkpjj.sysostory.view.user.LoginResultView;
 
@@ -10,24 +11,28 @@ public class LoginController {
 	
 	private LoginResultView logingResultView;
 	private LoginService loginService;
-	CharaDTO charaDTO = null;
+	CharacterDTO characterDTO = null;
+	MemberDTO memberDTO = null;
 	
 	public LoginController() {
 		this.logingResultView = new LoginResultView();
 		this.loginService = new LoginService();
-		this.charaDTO = new CharaDTO();
+		this.characterDTO = new CharacterDTO();
+		this.memberDTO = new MemberDTO();
 	}
 	
-	public int createNickname(JTextField nicknameText) {
+	public int createNickname(String nicknameText, String idText) {
+		characterDTO.setChrName(nicknameText);
+
+		int numberResult = loginService.checkMemberNumber(idText);
+		memberDTO.setUserNo(numberResult);
 		
-		charaDTO.setChrName(nicknameText.getText());
+//		int characterNumberResult = loginService.checkCharacterNumber(idText);
 		
-		int result = loginService.checkNickname(charaDTO);
+		int result = loginService.checkNickname(characterDTO, memberDTO);
 		
 		return result;
 	}
-
-
 }
 
 

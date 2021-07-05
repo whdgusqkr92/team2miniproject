@@ -60,7 +60,6 @@ public class MemberDAO {
 
 		} catch (SQLException e) {
 			e.printStackTrace();
-			System.out.print(e.getLocalizedMessage());
 		} finally {
 			close(pstmt);
 		}
@@ -85,7 +84,7 @@ public class MemberDAO {
 
 		} catch (SQLException e) {
 			e.printStackTrace();
-			System.out.print(e.getLocalizedMessage());
+//			System.out.print(e.getLocalizedMessage());
 		} finally {
 			close(pstmt);
 		}
@@ -99,7 +98,8 @@ public class MemberDAO {
 		
 		String query = prop.getProperty("FindIdMember");
 		String resultId = "";
-
+		
+		
 		try {
 			pstmt = con.prepareStatement(query);
 			pstmt.setString(1, member.getUserName());

@@ -31,7 +31,7 @@ public class JDBCTemplate {
 			con = DriverManager.getConnection(url, prop);
 
 
-			con.setAutoCommit(false);
+			con.setAutoCommit(true);
 
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
