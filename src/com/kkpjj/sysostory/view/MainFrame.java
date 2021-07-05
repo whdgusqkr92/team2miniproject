@@ -3,6 +3,7 @@ package com.kkpjj.sysostory.view;
 import javax.swing.JFrame;
 
 import com.kkpjj.sysostory.view.skill.SkillList;
+import com.kkpjj.sysostory.view.story.EndingPage;
 
 
 
@@ -22,7 +23,7 @@ public class MainFrame extends JFrame {
 
 
 
-		new SkillList(mf);
+		new EndingPage(mf);
 		mf.setLocationRelativeTo(null);
 		mf.setResizable(true);
 		mf.setVisible(true);
