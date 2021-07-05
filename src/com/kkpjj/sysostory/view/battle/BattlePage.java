@@ -47,7 +47,7 @@ public class BattlePage extends JPanel {
 		// 전투메뉴 생성
 		bc.createMenu();
 		// 행동 선택
-		bc.selectMenu();
+//		bc.selectSubMenu();
 
 	}
 }
