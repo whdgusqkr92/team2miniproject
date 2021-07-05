@@ -49,8 +49,7 @@ public class StoryDAO {
 			rset = pstmt.executeQuery();
 
 
-			if(rset.next()) {
-
+			
 			while(rset.next()) {
 
 				story = new StoryDTO();
