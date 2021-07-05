@@ -24,7 +24,7 @@ public class InventoryView extends JPanel {
 	private CharacterDTO equip;
 	private InventoryController ic;
 
-	public InventoryView(MainFrame mf, InventoryDTO inven, EquipDTO equip) {
+	public InventoryView(MainFrame mf, InventoryDTO inven, CharacterDTO equip) {
 
 		ic = new InventoryController();
 
@@ -60,7 +60,7 @@ public class InventoryView extends JPanel {
 		this.mainPage = this;
 
 		WeaponDTO w = new WeaponDTO();
-
+		
 
 		JLabel label = new JLabel(new ImageIcon());
 		this.img = new ImageIcon("image/shop/inven_bg.PNG").getImage().getScaledInstance(1200, 800, 0);
@@ -85,8 +85,8 @@ public class InventoryView extends JPanel {
 		JButton buttonMyItem8 = new JButton(new ImageIcon("image/shop/item/" + inven.getInven8() +".PNG"));
 		JButton buttonMyItem9 = new JButton(new ImageIcon("image/shop/item/" + inven.getInven9() +".PNG"));
 		JButton buttonMyItem10 = new JButton(new ImageIcon("image/shop/item/" + inven.getInven10() +".PNG"));
-		JButton buttonMyItem11 = new JButton(new ImageIcon("image/shop/item/" + inven.getInven10() +".PNG"));
-		JButton buttonMyItem12 = new JButton(new ImageIcon("image/shop/item/" + inven.getInven10() +".PNG"));
+		JButton buttonMyItem11 = new JButton(new ImageIcon("image/shop/item/" + inven.getInven11() +".PNG"));
+		JButton buttonMyItem12 = new JButton(new ImageIcon("image/shop/item/" + inven.getInven12() +".PNG"));
 
 		Font font = new Font("맑은 고딕", Font.PLAIN, 30);
 

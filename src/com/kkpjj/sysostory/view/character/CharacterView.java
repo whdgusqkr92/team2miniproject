@@ -1,40 +1,102 @@
 package com.kkpjj.sysostory.view.character;
 
-import java.awt.Color;
 import java.awt.Font;
-import java.awt.Graphics;
-import java.awt.Image;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.util.ArrayList;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 
 import javax.swing.ImageIcon;
-import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JList;
 import javax.swing.JPanel;
-import javax.swing.JTextPane;
-import java.awt.FlowLayout;
-import java.awt.BorderLayout;
-import javax.swing.JTextArea;
+import javax.swing.JTextField;
 
-public class CharacterView extends JPanel {
+import com.kkpjj.sysostory.controller.CharacterController;
+import com.kkpjj.sysostory.model.dto.CharacterDTO;
+import com.kkpjj.sysostory.view.ViewUtil;
+
+public class CharacterView extends JPanel implements KeyListener{
 	
 	private JFrame mf;
-	
 	private ImageIcon status = null;
 	private ImageIcon map = null;
 	private ImageIcon characterWindow = null;
 	private ImageIcon sysoIcon = null;
 	private ImageIcon exit = null;
+	private CharacterDTO chrDTO;
+	private CharacterController cc;
 	
-	public CharacterView(JFrame mf) {
+	private JPanel chrPanel;
+
+	private JTextField tf;
+	
+	public CharacterView(JFrame mf, CharacterDTO chrDTO) {
 		
 		this.mf = mf;
+		this.chrDTO = chrDTO;
 		
-		// 하단 정보 패널 호출
-		new StatusPanel(mf);
+		cc = new CharacterController();
+		
+		/* -------------- 캐릭터 정보 테스트 ----------------- */
+		
+		int userNo = 1;		// 사용자 번호
+		int chrCode = 2;	// 캐릭터 코드
+		
+		chrDTO.setChrCode(chrCode);
+		chrDTO.setUserNo(userNo);
+		
+//		System.out.println(cc.selectCharacterInfo(chrDTO.getChrCode(), chrDTO.getUserNo()));
+
+		CharacterDTO chr = cc.selectCharacterInfo(chrDTO.getChrCode(), chrDTO.getUserNo());
+		
+//		System.out.println("공격력 : " + chr.getChrAtt());
+//		System.out.println("방어력 : " + chr.getChrDef());
+//		System.out.println("닉네임 : " + chr.getChrName());
+		
+		// ------------------------------------------------------------
+		
+		
+		// 캐릭터 정보 패널 선언 및 생성
+		chrPanel = new JPanel();
+		chrPanel.setBounds(0, 0, 800, 420);
+		mf.getContentPane().add(chrPanel);
+		chrPanel.setLayout(null);
+		
+		// 닉네임 닉네임 라벨 생성
+		JLabel nickname = new JLabel();
+		nickname.setBounds(50, 50, 200, 50);
+		nickname.setFont(new Font("둥근모꼴", Font.PLAIN, 24));
+		nickname.setText(chr.getChrName());
+		
+		// 장착한 무기 라벨 생성
+		// 장착한 방어구 라벨 생성
+		// 레벨 라벨 생성
+		// 현재 HP 라벨 생성
+		// 최대 HP 라벨 생성
+		// 현재 MP 라벨 생성
+		// 최대 MP 라벨 생성
+		// 현재 경험치 라벨 생성
+		// 레벨업 조건 경험치 라벨 생성
+		// 공격력 라벨 생성
+		// 방어력 라벨 생성
+		// 칭호 라벨 생성
+		
+		
+		chrPanel.add(nickname);
+
+		
+		
+		
+		
+//		JLabel label = new JLabel();
+//		label.setBounds(50, 50, 700, 300);
+//		label.setFont(new Font("둥근모꼴", Font.PLAIN, 24));
+//		
+//		label.setText(cc.selectCharacterInfo(chrDTO.getChrCode(), chrDTO.getUserNo()));
+		
+		
+//		System.out.println(chrDTO.getChrLevel());
+//		System.out.println(chrDTO.getChrHp());
+//		System.out.println(chrDTO.getChrMp());
 		
 		
 		// 캐릭터 정보 창, 나가기 버튼
@@ -101,6 +163,17 @@ public class CharacterView extends JPanel {
 //		mf.add(exitButton);
 //		
 //		
+//		exitButton.addActionListener(new ActionListener() {
+//			@Override
+//			public void actionPerformed(ActionEvent e) {
+//				ViewUtil.changePanel(mf, new CharacterView(mf), new VillageView(mf));
+//				exitButton.setVisible(false);
+//			}
+//		});
+		
+		
+//		
+//		
 //		// 캐릭터 프로필사진
 //		JPanel panel4 = new JPanel() {
 //			
@@ -118,5 +191,37 @@ public class CharacterView extends JPanel {
 //		mf.setVisible(true);
 //		mf.setResizable(false);
 	}
+	
+	public void display(String s, KeyEvent e) {
+		
+		int keyCode = e.getKeyCode();
+		
+		// 키보드 이벤트 출력값 확인용
+		System.out.println("CharacterView에서 키보드 입력값 : " + keyCode);
+		
+		if(e.getKeyCode() == 69) {
+			ViewUtil.changePanel(mf, this, new VillageView(mf, chrDTO));
+			this.setVisible(false);
+		}
+	}
+
+	@Override
+	public void keyTyped(KeyEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void keyPressed(KeyEvent e) {
+		this.display("keyPressed", e);
+		
+	}
+
+	@Override
+	public void keyReleased(KeyEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
 
 }

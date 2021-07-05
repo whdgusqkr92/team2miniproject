@@ -49,7 +49,6 @@ public class LoginDAO {
 		
 		String query = prop.getProperty("insertNickname");
 		
-		
 //		System.out.println("박종현3 : " + memberDTO.getUserNo());
 //		System.out.println("박종현4 : " + characterDTO.getUserNo());
 		

@@ -50,6 +50,7 @@ public class OpMainPage extends JPanel {
 		System.out.println(storyController.selectStoryContents(storyDTO.getStoryCode()));
 //		label1.setText(storyController.selectStoryContents(storyDTO.getStoryCode()));
 		
+		
 		JLabel label2 = new JLabel();
 		label2.setBounds(50, 50, 700, 500);
 		label2.setFont(new Font("둥근모꼴", Font.PLAIN, 24));
