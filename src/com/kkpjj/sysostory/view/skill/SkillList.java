@@ -142,7 +142,7 @@ public class SkillList extends JPanel {
 		mainLabel.add(skilExLabel);
 		
 		mainPanel.add(mainLabel);
-		
+		mainPanel.add(mainLabel);
 		
 		mainPanel.add(skilUpPanel);
 		mainPanel.add(skillListPanel);
