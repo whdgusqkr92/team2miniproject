@@ -2,6 +2,9 @@ package com.kkpjj.sysostory.view;
 
 import javax.swing.JFrame;
 
+import com.kkpjj.sysostory.view.character.FieldCharacterBattle;
+import com.kkpjj.sysostory.view.skill.SkillList;
+
 
 
 public class MainFrame extends JFrame {
@@ -17,7 +20,9 @@ public class MainFrame extends JFrame {
 		mf.setSize(800, 600);
 		mf.setLayout(null);
 		
-
+		new SkillList(mf);
+//		new FieldCharacterBattle(mf);
+		
 		mf.setLocationRelativeTo(null);
 		mf.setResizable(true);
 		mf.setVisible(true);
