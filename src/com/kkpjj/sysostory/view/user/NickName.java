@@ -15,21 +15,21 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 import com.kkpjj.sysostory.controller.LoginController;
+import com.kkpjj.sysostory.model.dto.MemberDTO;
 import com.kkpjj.sysostory.view.ViewUtil;
 import com.kkpjj.sysostory.view.story.OpMainPage;
 
-public class NickName extends JFrame{
-	private JFrame mf;
+public class NickName extends JPanel{
 	
-	public NickName(String idText) {
-		mf = new JFrame();
-		mf.setBounds(0, 0, 800,600);
-		mf.setLocationRelativeTo(null);
-		mf.setTitle("syso Story");
-		mf.getContentPane().setLayout(null);
-
+	private JFrame mf;
+	private MemberDTO memberDTO;
+	
+	public NickName(JFrame mf, String idText, MemberDTO memberDTO) {
+		this.memberDTO = memberDTO;
+		
 		JPanel panel = new JPanel();
 		panel.setBounds(0, 0, 800, 600);
+		panel.setLayout(null);
 		
 		Image background = new ImageIcon("images/login/StartScreen2.png").getImage().getScaledInstance(800, 600, 0);
 		JLabel label = new JLabel(new ImageIcon(background));
@@ -39,26 +39,22 @@ public class NickName extends JFrame{
 		JLabel windowLabel = new JLabel(new ImageIcon(window));			/* 닉네임 창 */
 		windowLabel.setBounds(150, 200, 500, 200);
 		windowLabel.setLayout(null);
-		mf.getContentPane().add(windowLabel);
 		
 		JLabel nickNameLabel = new JLabel("닉네임 : "); 					
 		nickNameLabel.setForeground(Color.WHITE);						/* 닉네임 라벨 창 */
-		nickNameLabel.setBounds(80, 65, 120, 25);
-		windowLabel.add(nickNameLabel);
+		nickNameLabel.setBounds(215, 249, 120, 25);
 		nickNameLabel.setFont(new Font("둥근모꼴", Font.PLAIN, 24));
 
 		JTextField nicknameText = new JTextField(); 									
 		nicknameText.setForeground(Color.BLACK);
 		nicknameText.setFont(new Font("둥근모꼴", Font.PLAIN, 24));			/* 닉네임 입력 란 */
-		nicknameText.setBounds(195, 54, 260, 50);
-		windowLabel.add(nicknameText);
+		nicknameText.setBounds(330, 238, 260, 50);
 		nicknameText.setColumns(10);
 
 		JButton createNicknameButton = new JButton("확인");						
 		createNicknameButton.setForeground(Color.BLACK);						/* 닉네임 확인 버튼 */
 		createNicknameButton.setFont(new Font("둥근모꼴", Font.PLAIN, 24));
-		createNicknameButton.setBounds(175, 130, 150, 50);
-		windowLabel.add(createNicknameButton);
+		createNicknameButton.setBounds(310, 314, 150, 50);
 		
 		createNicknameButton.addActionListener(new ActionListener() {
 			
@@ -66,12 +62,10 @@ public class NickName extends JFrame{
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				if(nicknameText.getText().length() > 0) {
-					int result = loginController.createNickname(nicknameText.getText(),idText);
+					int result = loginController.createNickname(nicknameText.getText(),idText, memberDTO);
 						
 					if(result > 0) {
-//						new OpMainPage(mf);
-						ViewUtil.changePanel(mf, panel, new OpMainPage(mf));
-//						mf.setVisible(false);
+						ViewUtil.changePanel(mf, panel, new OpMainPage(mf, idText, memberDTO));
 					} else {
 //						infoBox("중복된 닉네임으로 사용이 불가능합니다.", "중복검사");
 					}
@@ -79,26 +73,17 @@ public class NickName extends JFrame{
 			}
 		});
 		
-//		panel.add(createNicknameButton);
-//		panel.add(nicknameText);
-//		panel.add(nickNameLabel);
-//		panel.add(windowLabel);
-//		panel.add(label);
+
 	
-		
-		
-//		mf.add(panel);
-		
-//		mf.add(label);
+		panel.add(createNicknameButton);
+		panel.add(nicknameText);
+		panel.add(nickNameLabel);
 		label.add(windowLabel);
 		panel.add(label);
-		mf.add(panel);
+		mf.getContentPane().add(panel);
 		
-//		mf.getContentPane().add(panel);
+
 		
-		mf.setVisible(true);
-		mf.setResizable(false);
-		mf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 	}
 	/* 경고 다이얼로그 팝업 */
