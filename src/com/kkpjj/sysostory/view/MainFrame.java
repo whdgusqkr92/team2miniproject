@@ -30,15 +30,14 @@ public class MainFrame extends JFrame {
 		mf.setTitle("sysoStory");
 		mf.setSize(800, 600);
 		mf.setLayout(null);
-
+		
+//		mf.add(new StartScreen(mf));
+		mf.add(new VillageView(mf, chr));
 
 		mf.setLocationRelativeTo(null);
 		mf.setResizable(true);
 		mf.setVisible(true);
 		mf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		
-		
-		
 		
 	}
 }
