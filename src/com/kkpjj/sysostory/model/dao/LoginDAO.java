@@ -9,7 +9,9 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.InvalidPropertiesFormatException;
+import java.util.List;
 import java.util.Properties;
 
 import com.kkpjj.sysostory.model.dto.CharacterDTO;
@@ -41,25 +43,34 @@ public class LoginDAO {
 		PreparedStatement pstmt = null;
 		
 		int result = 0;
-//		int userNumber = 0;
-//		String chrName = "";
 		
-//		userNumber = memberDTO.getUserNo();
-//		chrName = characterDTO.getChrName();
+		String query1 = prop.getProperty("insertNickname");
 		
-		String query = prop.getProperty("insertNickname");
-		
-		
-//		System.out.println("박종현3 : " + memberDTO.getUserNo());
-//		System.out.println("박종현4 : " + characterDTO.getUserNo());
+
+		String query2 = prop.getProperty("updateNickname");
+
 		
 		try {
-			pstmt = con.prepareStatement(query);
-			pstmt.setInt(1, memberDTO.getUserNo());
-			pstmt.setString(2, characterDTO.getChrName());
-//			pstmt.setInt(3, characterDTO.getUserNo());
+				System.out.println(memberDTO.getUserNo());
 			
-			result = pstmt.executeUpdate();
+				if(characterDTO.getChrCode() >= 1 && memberDTO.getUserNo() > 0) {
+				pstmt = con.prepareStatement(query2);
+	            pstmt.setInt(1, memberDTO.getUserNo());
+	            pstmt.setString(2, characterDTO.getChrName());
+//	            pstmt.setInt(3, characterDTO.getUserNo());
+	            
+	            result = pstmt.executeUpdate();
+	            
+			} else {
+				pstmt = con.prepareStatement(query1);
+				pstmt.setInt(1, memberDTO.getUserNo());
+				pstmt.setString(2, characterDTO.getChrName());
+//				pstmt.setInt(3, characterDTO.getUserNo());
+				
+				result = pstmt.executeUpdate();
+				
+			}
+				
 			
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -85,7 +96,7 @@ public class LoginDAO {
 
 			result = pstmt.executeQuery();
 			
-			while(result.next()) {
+			if(result.next()) {
 				resultIdNumber = result.getInt("USER_NO");
 			}
 			
@@ -97,6 +108,46 @@ public class LoginDAO {
 		}
 		
 		return resultIdNumber;
+	}
+
+	public List<MemberDTO> selectAllMember(Connection con) {
+		
+		PreparedStatement pstmt = null;
+		
+		ResultSet rset = null;
+		
+		List<MemberDTO> memberList = null;
+		
+		String query =prop.getProperty("selectAllMember");
+		
+		try {
+			pstmt = con.prepareStatement(query);
+			rset = pstmt.executeQuery();
+			memberList = new ArrayList<>();
+			
+			while(rset.next()) {
+				MemberDTO memberDTO = new MemberDTO();
+				memberDTO.setUserNo(rset.getInt("USER_NO"));
+				memberDTO.setUserGrade(rset.getString("USER_GRADE"));
+				memberDTO.setUserId(rset.getString("USER_ID"));
+				memberDTO.setUserPwd(rset.getString("USER_PWD"));
+				memberDTO.setUserName(rset.getString("USER_NAME"));
+				memberDTO.setEmail(rset.getString("EMAIL"));
+				memberDTO.setUserStatus(rset.getString("USER_STATUS"));
+				
+				memberList.add(memberDTO);
+			}
+			
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		
+		
+		return memberList;
 	}
 	
 }

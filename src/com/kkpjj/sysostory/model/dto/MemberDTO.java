@@ -8,12 +8,12 @@ public class MemberDTO implements java.io.Serializable{
 	private String userPwd;
 	private String userName;
 	private String email;
-	private char userStatus;
+	private String userStatus;
 	
 	public MemberDTO() {}
 
 	public MemberDTO(int userNo, String userGrade, String userId, String userPwd, String userName, String email,
-			char userStatus) {
+			String userStatus) {
 		super();
 		this.userNo = userNo;
 		this.userGrade = userGrade;
@@ -72,11 +72,11 @@ public class MemberDTO implements java.io.Serializable{
 		this.email = email;
 	}
 
-	public char getUserStatus() {
+	public String getUserStatus() {
 		return userStatus;
 	}
 
-	public void setUserStatus(char userStatus) {
+	public void setUserStatus(String userStatus) {
 		this.userStatus = userStatus;
 	}
 
