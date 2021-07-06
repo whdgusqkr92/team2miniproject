@@ -139,7 +139,7 @@ public class EndingPage extends JPanel {
 		mainpanel2.add(label);
 		mf.add(mainpanel2);
 		
-		storyDTO.setChapTitle("오프닝");
+		storyDTO.setChapTitle("엔딩");
 
 		List<StoryDTO> ending = storyController.selectTitleStory(storyDTO.getChapTitle());
 		
@@ -168,7 +168,7 @@ public class EndingPage extends JPanel {
 		@Override
 		public void mouseClicked(MouseEvent e) {
 			
-			ViewUtil.changePanel(mf, mainpanel2, new FieldCharacterBattle(mf, characterDTO));
+			ViewUtil.changePanel(mf, mainpanel2, new FieldCharacterBattle(mf, null, characterDTO));
 			
 		}
 	}

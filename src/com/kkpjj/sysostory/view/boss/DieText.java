@@ -56,11 +56,6 @@ public class DieText extends JPanel {
 			
 			public void middleDie() {
 				
-//				Image bossface = new ImageIcon("images/text/야스오쓰러짐이미지.png").getImage().getScaledInstance(200, 180, 0);
-//				bossLabel = new JLabel(new ImageIcon(bossface));
-//				bossLabel.setBounds(650, 110, 150, 143);
-//				mainpanel.add(bossLabel);
-//				bossLabel.setVisible(true);
 				Image bossDieText = new ImageIcon("images/text/야스오죽음텍스트.png").getImage().getScaledInstance(600, 300, 0);
 				textLabel = new JLabel(new ImageIcon(bossDieText));
 				textLabel.setBounds(0, 230, 792, 200);

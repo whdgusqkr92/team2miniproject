@@ -7,8 +7,11 @@ import javax.swing.JPanel;
 import com.kkpjj.sysostory.model.dto.CharacterDTO;
 import com.kkpjj.sysostory.model.dto.MonsterDTO;
 import com.kkpjj.sysostory.model.service.BossAttService;
+import com.kkpjj.sysostory.run.Application;
+import com.kkpjj.sysostory.view.MainFrame;
 import com.kkpjj.sysostory.view.boss.BossSkillEffect;
 import com.kkpjj.sysostory.view.character.Sound;
+import com.kkpjj.sysostory.view.character.SettingPanel.BgmOn;
 
 public class BossAttController extends JPanel{
 
@@ -29,13 +32,14 @@ public class BossAttController extends JPanel{
 		this.mainpanel = this;
 		this.chr = new CharacterDTO();	
 		this.bossAttService = new BossAttService();
+//		
 		
-		Sound.soundStop();
 		
-		Sound.battlesound();
+//		MainFrame.battlesound();
 	}
 
 	public void attFinalBoss() { //int Code
+
 		
 		MonsterDTO monsterDTO = new MonsterDTO();
 		
@@ -114,14 +118,14 @@ public class BossAttController extends JPanel{
 					new BossSkillEffect(mf).middleSkill1();
 					new BossSkillEffect(mf).setVisible(false);
 					chrHp = chr.getChrHp() - damege;
-					Sound.effSound();
+//					Sound.effSound();
 						
 					}else if(ranAtt >3 && ranAtt <= 7 ) {  
 						System.out.println("2번사용");
 						new BossSkillEffect(mf).middleSkill2();
 						new BossSkillEffect(mf).setVisible(false);
 						chrHp = chr.getChrHp() - damege;
-						Sound.effSound();
+//						Sound.effSound();
 					}else { 				 			
 						chrHp = chr.getChrHp() - monsterDTO.getMonAtt();
 						System.out.println("기본공격사용");
@@ -130,6 +134,9 @@ public class BossAttController extends JPanel{
 				}
 		}
 //	}
+		
+		
+		//확인용 2초에 한번씩 공격(동작)하는 기능
 	new Thread(new Runnable() {
 		public void run() {
 			int cnt = 0;
