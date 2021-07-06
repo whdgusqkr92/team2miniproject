@@ -1,20 +1,26 @@
 package com.kkpjj.sysostory.view.shop;
 
 import java.awt.Image;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JTextField;
 
-import com.kkpjj.sysostory.view.MainFrame;
+import com.kkpjj.sysostory.view.ViewUtil;
+import com.kkpjj.sysostory.view.character.VillageView;
 
-public class PotionShopView extends JPanel {
+public class PotionShopView extends JPanel implements KeyListener {
 	
 	private JFrame mf;
 	private JPanel potionShopPanel;
 	private Image img;
+	
+	private JTextField tf;
 	
 	public PotionShopView(JFrame mf) {
 		this.mf = mf;
@@ -28,6 +34,11 @@ public class PotionShopView extends JPanel {
 //		exitButton.setIcon(new ImageIcon("imagess/exit.png"));
 //		potionShopPanel.add(exitButton);
 		
+		tf = new JTextField();
+		this.add(tf);
+		this.setVisible(true);
+		tf.addKeyListener(this);
+			
 		JLabel label = new JLabel(new ImageIcon());
 		this.img = new ImageIcon("images/item/shopBg.png").getImage().getScaledInstance(400, 420, 0);
 		label.setIcon(new ImageIcon(img));
@@ -51,6 +62,37 @@ public class PotionShopView extends JPanel {
 		buttonItem4.setBounds(200, 100, 35, 35);
 		buttonItem5.setBounds(250, 100, 35, 35);
 
+		
+	}
+	
+	public void display(String s, KeyEvent e) {
+		
+		int keyCode = e.getKeyCode();
+		
+		// 키보드 이벤트 출력값 확인용
+		System.out.println("PotionShopView에서 키보드 입력값 : " + keyCode);
+		
+		if(e.getKeyCode() == 27) {
+//			ViewUtil.changePanel(mf, this, new VillageView(mf));
+			this.setVisible(false);
+		}
+	}
+
+	@Override
+	public void keyTyped(KeyEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void keyPressed(KeyEvent e) {
+		this.display("keyPressed", e);
+		
+	}
+
+	@Override
+	public void keyReleased(KeyEvent e) {
+		// TODO Auto-generated method stub
 		
 	}
 	
