@@ -9,6 +9,7 @@ import java.util.List;
 import com.kkpjj.sysostory.controller.BattleController;
 import com.kkpjj.sysostory.model.dao.BattleDAO;
 import com.kkpjj.sysostory.model.dto.MonsterDTO;
+import com.kkpjj.sysostory.view.ViewUtil;
 
 public class BattleService {
 	private BattleController bc;
@@ -28,58 +29,66 @@ public class BattleService {
 		return monsterList;
 	}
 
-	public void chrAttack(String subMenuName) {
+	public int chrAttack(String subMenuName) {
 		int chrAtt = 10;			// chracterDTO.getChrAtt();
 		double skillAtt = 0.2;		// monsterDTO.getSkillAtt();
 		int monHp = 50;				// monsterDTO.getMonHp();
 		int monDef = 5;				// monsterDTO.getMonDef();
 
 		monHp = monHp - (chrAtt - monDef);
+		
+		int result = isMonAlive(monHp);
+		
+		return result;
 	}
 
-	public boolean chrSkill(String subMenuName) {
+	public int chrSkill(String subMenuName) {
 		int chrAtt = 10;			// chracterDTO.getChrAtt();
 		double skillAtt = 0.2;		// monsterDTO.getSkillAtt();
 		int monHp = 50;				// monsterDTO.getMonHp();
 		int monDef = 5;				// monsterDTO.getMonDef();
-		Boolean result = false;
+		int result = checkMp(subMenuName);
 		
-		if(checkMp(subMenuName)) {
+		if(result > 0) {
 			monHp = (int) (monHp - (chrAtt * (1 + skillAtt) - monDef));
-			result = true;
 		}
+		
 		return result;
 	}
 
-	private boolean checkMp(String subMenuName) {
-		int chrMp = 0;				// chracterDTO.getChrMp();
+	public int checkMp(String subMenuName) {
+		int chrMp = 40;				// chracterDTO.getChrMp();
 		int mpConsume = 25;			// skillDTO.getMpConsume();
 		double skillAtt = 0.2;
-		boolean result = false;
+		int result = 0;
 		
-		if(chrMp > mpConsume) {
+		if(chrMp >= mpConsume) {
 			chrMp -= mpConsume;		// characterDTO.setChrMp();
-			result = true;
+			result = 1;
 		} else {
 			System.out.println("MP가 부족합니다.");
 		}
 		return result;
 	}
 
-	private void isMonAlive(int monHp) {
-		if(monHp > 0) {
-			monAttack();
+	private int isMonAlive(int hp) {
+		int result = 0;
+		
+		if(hp > 0) {
+			result = 1;
 		} else {
-			monHp = 0;
-			otherMonIsAlive();
+			hp = 0;
+			result = isOtherMonAlive();
 		}
-		//		checkAlive();
-		// 몬스터가 죽었는지 확인 - y: 다른 몬스터가 있는지 확인, n: 몬스터 턴
-		// 몬스터가 남아있는지 확인 - y: 몬스터 턴, n: 전투 종료
-		// 전투 종료 시 경험치, 골드 획득, 필드로 이동(화면 전환) 
+		return result;
+	}
+	
+	private int isOtherMonAlive() {
+		int result = 0;
+		return result;
 	}
 
-	private void monAttack() {
+	public void monsterAttack() {
 		int chrHp = 100;
 		int chrDef = 5;
 		String monType = "boss";
@@ -99,16 +108,15 @@ public class BattleService {
 		if(chrHp > 0) {
 
 		} else {
-			chrHp = 0;
-
+			defeatPenalty();
 		}
 	}
 
-	private void otherMonIsAlive() {
-
+	public void winReward() {
+		
 	}
-
-	private void winReward() {
-
+	
+	private void defeatPenalty() {
+		
 	}
 }

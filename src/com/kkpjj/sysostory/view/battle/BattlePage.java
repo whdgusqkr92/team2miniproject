@@ -29,7 +29,7 @@ public class BattlePage extends JPanel {
 		// 캐릭터, 몬스터 생성 후 프레임에 추가
 		createComponents();
 		// 프레임에 전투 메인화면 추가
-		this.mf.add(this);
+		mf.add(this);
 	}
 	
 	private void initBattlePage() {
@@ -39,7 +39,7 @@ public class BattlePage extends JPanel {
 	}
 	
 	private void createComponents() {
-		BattleController bc = new BattleController(mf);
+		BattleController bc = new BattleController(mf, this);
 		// getData
 		
 		// 캐릭터 생성

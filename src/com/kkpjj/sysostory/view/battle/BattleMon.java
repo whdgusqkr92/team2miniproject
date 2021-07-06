@@ -12,6 +12,7 @@ import java.util.Map;
 import javax.swing.ButtonGroup;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.LineBorder;
 
@@ -29,12 +30,14 @@ public class BattleMon extends JPanel {
 	private Monster thirdMon;
 	private Monster fourthMon;
 	private ButtonGroup groupSelectMon;
-	protected JButton selectFirstMon;
-	protected JButton selectSecondMon;
-	protected JButton selectThirdMon;
-	protected JButton selectFourthMon;
+	private JButton selectFirstMon;
+	private JButton selectSecondMon;
+	private JButton selectThirdMon;
+	private JButton selectFourthMon;
+	private BattlePage battlePage;
 
-	public BattleMon(BattleController bc) {
+	public BattleMon(BattlePage battlePage, BattleController bc) {
+		this.battlePage = battlePage;
 		this.bc = bc;
 		// 몬스터 레이아웃 설정
 		initMonPanel();
@@ -64,7 +67,7 @@ public class BattleMon extends JPanel {
 		// 몬스터 생성
 		this.groupMon = new ButtonGroup();
 
-		
+
 		this.firstMon = new Monster(monImgAddress1);
 		firstMon.setBounds(0, 0, 64, 28);
 		firstMon.setBorderPainted(false);
@@ -105,21 +108,21 @@ public class BattleMon extends JPanel {
 		groupMon.add(secondMon);
 		groupMon.add(thirdMon);
 		groupMon.add(fourthMon);
-		
+
 		groupSelectMon.add(selectFirstMon);
 		groupSelectMon.add(selectSecondMon);
 		groupSelectMon.add(selectThirdMon);
 		groupSelectMon.add(selectFourthMon);
 		
-		this.add(firstMon);
-		this.add(secondMon);
-		this.add(thirdMon);
-		this.add(fourthMon);
-		
 		this.add(selectFirstMon);
 		this.add(selectSecondMon);
 		this.add(selectThirdMon);
 		this.add(selectFourthMon);
+
+		this.add(firstMon);
+		this.add(secondMon);
+		this.add(thirdMon);
+		this.add(fourthMon);
 	}
 
 	public void selectMon() {
@@ -129,6 +132,49 @@ public class BattleMon extends JPanel {
 		selectFourthMon.addMouseListener(new MyMouseListener(selectFourthMon, 4, 2));
 	}
 
+	// 공격 몬스터 표시 및 선택
+	class MyMouseListener extends MouseAdapter {
+
+		private JButton selectMon;
+		private int selectMonNo;
+		private int selectMonCode;
+
+		public MyMouseListener(JButton selectMon, int selectMonPlace, int selectMonCode) {
+			this.selectMon = selectMon;
+			this.selectMonNo = selectMonPlace;
+			this.selectMonCode = selectMonCode;
+			
+			selectFirstMon.setVisible(true);
+			selectSecondMon.setVisible(true);
+			selectThirdMon.setVisible(true);
+			selectFourthMon.setVisible(true);
+		}
+
+		@Override
+		public void mouseReleased(MouseEvent e) {
+			selectFirstMon.setVisible(false);
+			selectSecondMon.setVisible(false);
+			selectThirdMon.setVisible(false);
+			selectFourthMon.setVisible(false);
+
+			bc.characterAttack(selectMonNo, selectMonCode);
+			battlePage.repaint();
+			battlePage.revalidate();
+		}
+
+		@Override
+		public void mouseEntered(MouseEvent e) {
+			selectMon.setBorderPainted(true);
+			selectMon.setBorder(new LineBorder(Color.RED, 3));
+			battlePage.repaint();
+			battlePage.revalidate();
+		}
+
+		@Override
+		public void mouseExited(MouseEvent e) {
+			selectMon.setBorderPainted(false);
+		}
+	}
 
 	// 몬스터 이미지 추가
 	class Monster extends JButton {
@@ -144,77 +190,4 @@ public class BattleMon extends JPanel {
 
 		}
 	}
-	// 공격 몬스터 표시 및 선택
-	class MyMouseListener extends MouseAdapter {
-
-		private JButton selectMon;
-		private int selectMonNo;
-		private int selectMonCode;
-		
-		public MyMouseListener(JButton selectMon, int selectMonPlace, int selectMonCode) {
-			this.selectMon = selectMon;
-			this.selectMonNo = selectMonPlace;
-			this.selectMonCode = selectMonCode;
-		}
-
-		@Override
-		public void mouseReleased(MouseEvent e) {
-			selectFirstMon.setBorderPainted(false);
-			System.out.println(selectMon);
-			
-			remove(selectFirstMon);
-			bc.characterAttack(selectMonNo, selectMonCode);
-		}
-
-		@Override
-		public void mouseEntered(MouseEvent e) {
-			selectMon.setBorderPainted(true);
-			selectMon.setBorder(new LineBorder(Color.RED, 3));
-			System.out.println(selectMon);
-		}
-
-		@Override
-		public void mouseExited(MouseEvent e) {
-			selectMon.setBorderPainted(false);
-		}
-	}
-	
-//	class MyMouseListener implements MouseListener {
-//
-//		private JButton selectMon;
-//		private int selectMonNo;
-//		private int selectMonCode;
-//
-//		public MyMouseListener(JButton selectMon, int selectMonPlace, int selectMonCode) {
-//			this.selectMon = selectMon;
-//			this.selectMonNo = selectMonPlace;
-//			this.selectMonCode = selectMonCode;
-//		}
-//
-//		@Override
-//		public void mouseReleased(MouseEvent e) {
-//			selectMon.setBorderPainted(false);
-//			
-//			remove(selectMon);
-//			bc.characterAttack(selectMonNo, selectMonCode);
-//		}
-//
-//		@Override
-//		public void mouseEntered(MouseEvent e) {
-//			selectMon.setBorderPainted(true);
-//			selectMon.setBorder(new LineBorder(Color.RED, 3));
-//		}
-//
-//		@Override
-//		public void mouseExited(MouseEvent e) {
-//			selectMon.setBorderPainted(false);
-//		}
-//
-//		@Override
-//		public void mouseClicked(MouseEvent e) {}
-//
-//		@Override
-//		public void mousePressed(MouseEvent e) {}
-//
-//	}
 }
