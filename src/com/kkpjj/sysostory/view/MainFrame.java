@@ -2,6 +2,10 @@ package com.kkpjj.sysostory.view;
 
 import javax.swing.JFrame;
 
+import com.kkpjj.sysostory.view.boss.MiddleBossEvent;
+import com.kkpjj.sysostory.view.member.StartScreen;
+import com.kkpjj.sysostory.view.story.EndingPage;
+
 public class MainFrame extends JFrame {
 
 	private JFrame mf;
@@ -14,8 +18,8 @@ public class MainFrame extends JFrame {
 		mf.setSize(800, 600);
 		mf.setLayout(null);
 		
-    new StartScreen();
-    
+		new EndingPage(mf);
+		
 		mf.setLocationRelativeTo(null);
 		mf.setResizable(true);
 		mf.setVisible(true);
