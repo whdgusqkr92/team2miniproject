@@ -6,14 +6,13 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
 
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
-import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
+import com.kkpjj.sysostory.model.dto.CharacterDTO;
 import com.kkpjj.sysostory.view.ViewUtil;
 import com.kkpjj.sysostory.view.shop.ArmorDealer;
 import com.kkpjj.sysostory.view.shop.ArmorShopView;
@@ -30,14 +29,23 @@ public class VillageView extends JPanel implements KeyListener {
 	private JPanel weaponShopPanel;
 	private JPanel armorShopPanel;
 	private JPanel moveFieldPanel;
-	private CharacterView characterView;
+	
+	private CharacterDTO chr; 
 	
 	private JTextField tf;
 
-	public VillageView(JFrame mf) {
+	public VillageView(JFrame mf, CharacterDTO chr) {
 		
 		// 마을화면 레이아웃 설정
 		this.mf = mf;
+		
+		this.chr = chr;
+		
+		chr = new CharacterDTO();
+		
+		// 하단 정보 패널 호출
+		new StatusPanel(mf);
+		
 		init();
 		// 상인, 화살표 생성 후 프레임에 추가
 		createComponent();
@@ -50,6 +58,7 @@ public class VillageView extends JPanel implements KeyListener {
 		armorShopPanel.addMouseListener(new MyMouseAdapter(this));
 		moveFieldPanel.addMouseListener(new MyMouseAdapter(this));
 		
+		// 키보드 이벤트 호출
 		tf.addKeyListener(this);
 	}
 	
@@ -87,7 +96,6 @@ public class VillageView extends JPanel implements KeyListener {
 		this.add(weaponShopPanel);
 		this.add(armorShopPanel);
 		this.add(moveFieldPanel);
-		
 		
 	}
 	
@@ -128,10 +136,11 @@ public class VillageView extends JPanel implements KeyListener {
 		int keyCode = e.getKeyCode();
 		
 		// 키보드 이벤트 출력값 확인용
-		System.out.println("키보드 입력값 : " + keyCode);
+		System.out.println("VillageView에서 키보드 입력값 : " + keyCode);
 		
 		if(e.getKeyCode() == 69) {
-			ViewUtil.changePanel(mf, this, new CharacterView(mf));
+			ViewUtil.changePanel(mf, this, new CharacterView(mf, chr));
+			this.setVisible(false);
 		}
 	}
 
@@ -150,6 +159,7 @@ public class VillageView extends JPanel implements KeyListener {
 	public void keyReleased(KeyEvent e) {
 		
 	}
+	
 }
 
 

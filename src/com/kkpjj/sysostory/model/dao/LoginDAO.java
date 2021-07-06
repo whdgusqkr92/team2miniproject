@@ -46,7 +46,9 @@ public class LoginDAO {
 		
 		String query1 = prop.getProperty("insertNickname");
 		
+
 		String query2 = prop.getProperty("updateNickname");
+
 		
 		try {
 				System.out.println(memberDTO.getUserNo());
