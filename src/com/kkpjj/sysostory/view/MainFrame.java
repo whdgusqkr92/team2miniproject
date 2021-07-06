@@ -2,10 +2,13 @@ package com.kkpjj.sysostory.view;
 
 import javax.swing.JFrame;
 
-import com.kkpjj.sysostory.model.dto.CharacterDTO;
+import com.kkpjj.sysostory.view.character.CharacterView;
+import com.kkpjj.sysostory.view.character.StatusPanel;
+import com.kkpjj.sysostory.view.character.VillageView;
 import com.kkpjj.sysostory.view.character.VillageView;
 import com.kkpjj.sysostory.view.member.StartScreen;
 import com.kkpjj.sysostory.view.skill.SkillList;
+
 
 public class MainFrame extends JFrame {
 
@@ -20,16 +23,8 @@ public class MainFrame extends JFrame {
 		mf.setTitle("sysoStory");
 		mf.setSize(800, 600);
 		mf.setLayout(null);
-		
 
-		//new EndingPage(mf);
-		new SkillList(mf);
-//		new VillageView(mf, chr);
-
-//		mf.add(new StartScreen(mf));
-
-    
-
+		mf.add(new VillageView(mf, chr));
 
 		mf.setLocationRelativeTo(null);
 		mf.setResizable(true);
