@@ -14,6 +14,7 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JTextField;
 import javax.swing.text.IconView;
 
 import com.kkpjj.sysostory.view.ViewUtil;
@@ -27,7 +28,7 @@ import com.kkpjj.sysostory.view.story.OpSubPage;
 import javax.swing.SwingConstants;
 import java.awt.Button;
 
-public class FieldCharacterBattle extends JPanel {
+public class FieldCharacterBattle extends JPanel  {
 	private JFrame mf;
 	private JPanel mainPanel;
 	private JPanel fieldJPanel;
@@ -40,10 +41,14 @@ public class FieldCharacterBattle extends JPanel {
 	private Image chImage;
 	private JLabel monsterLabel;
 
+	
+
 	public FieldCharacterBattle(JFrame mf) {
 
 		this.mf = mf;
 		this.mainPanel = this;
+
+
 
 		mainPanel = new JPanel(); // 메인 패널
 		mainPanel.setBounds(0, 0, 800, 600); // 메인 패널 사이즈
@@ -58,9 +63,12 @@ public class FieldCharacterBattle extends JPanel {
 
 		fieldJLabel = new JLabel(new ImageIcon(Image)); // 필드 이미지 필드 라벨에 넣어준거
 		fieldJLabel.setBounds(0, 0, 800, 400);
-//		fieldJPanel.setLayout(null);
+		//		fieldJPanel.setLayout(null);
 		chLabel = new JLabel(new ImageIcon(chImage)); // 필드 캐릭터 필드 라벨에 넣기
 		chLabel.setBounds(100, 150, 100, 100);
+
+		
+	
 
 		fieldJPanel.add(chLabel);
 		fieldJPanel.add(fieldJLabel); // 필드 라벨을 필드 패널에 넣어준거
@@ -86,22 +94,22 @@ public class FieldCharacterBattle extends JPanel {
 		/*-------------------------------라벨 생성 ---------------------------------------*/
 
 		JLabel monsterLabel = new JLabel(new ImageIcon("images/monster.png")); // 버튼으로 만드려고햇는데 버튼은 이미지가 버튼 이미지까지 나와서 라벨에
-																				// 이미지 넣음
+		// 이미지 넣음
 		monsterLabel.setBounds(700, 330, 60, 60);
 		fieldJLabel.add(monsterLabel);
 
 		JLabel monsterLabel2 = new JLabel(new ImageIcon("images/skill/monster2.png")); // 버튼으로 만드려고햇는데 버튼은 이미지가 버튼 이미지까지 나와서
-																					// 라벨에 이미지 넣음
+		// 라벨에 이미지 넣음
 		monsterLabel2.setBounds(500, 280, 110, 110);
 		fieldJLabel.add(monsterLabel2);
 
 		JLabel monsterLabel3 = new JLabel(new ImageIcon("images/monster3.png")); // 버튼으로 만드려고햇는데 버튼은 이미지가 버튼 이미지까지 나와서
-																					// 라벨에 이미지 넣음
+		// 라벨에 이미지 넣음
 		monsterLabel3.setBounds(387, 50, 60, 60);
 		fieldJLabel.add(monsterLabel3);
 
 		Image villageImage = new ImageIcon("images/skill/뒤패널로이동.png").getImage().getScaledInstance(50, 50, 0);
-		
+
 		JLabel villageLabel = new JLabel(new ImageIcon(villageImage));					//뒤로가기 라벨
 		villageLabel.setBounds(0, 170, 60, 60);
 		fieldJLabel.add(villageLabel);
@@ -110,17 +118,20 @@ public class FieldCharacterBattle extends JPanel {
 
 		/*-------------------------------라벨,버튼에 마우스 리스너 이벤트 생성 ---------------------------------------*/
 
+
+		//		tf = new JTextField();
+		//		this.add(tf);
 		// 메인 패널을 메인 프레임에 넣어준거
-//		mf.getContentPane().add(monsterLabel2);
+		//		mf.getContentPane().add(monsterLabel2);
 		monsterLabel.addMouseListener(new Monster1()); // 라벨에 마우스 리스너 이벤트 생성
 		monsterLabel2.addMouseListener(new midBossMonster()); // 라벨에 마우스 리스너 이벤트 생성
 		monsterLabel3.addMouseListener(new FinalBossMonster()); // 라벨에 마우스 리스너 이벤트 생성
 		setJbutton.addMouseListener(new SetChange());									//설정창 연결 
 		villageLabel.addMouseListener(new VillageChange());								//백 버튼하면 마을로
-//		inventoryButton.addMouseListener(new InventoryChange());						// 인벤토리 연결 아직 안됨
-//		skillButton.addMouseListener(new SkillChange());
-//		AchievementsButton.addMouseListener(new AchievementsChange());
-//		fieldJLabel.addKeyListener(new SkillChange());
+//				inventoryButton.addMouseListener(new InventoryChange());						// 인벤토리 연결 아직 안됨
+				skillButton.addMouseListener(new SkillChange());
+		//		AchievementsButton.addMouseListener(new AchievementsChange());
+		//		fieldJLabel.addKeyListener(new SkillChange());
 
 	}
 
@@ -160,7 +171,7 @@ public class FieldCharacterBattle extends JPanel {
 
 		@Override
 		public void mouseReleased(MouseEvent e) {
-			ViewUtil.changePanel(mf, fieldJPanel, new SkillList(mf));
+			ViewUtil.changePanel(mf, fieldJPanel, new SkillList(mf));						//설정 창 만들면 넣기!!
 			mainPanel.setVisible(false);
 
 		}
@@ -175,38 +186,40 @@ public class FieldCharacterBattle extends JPanel {
 
 		}
 	}
-
-//	private class InventoryChange extends MouseAdapter { 									// //인벤토리 버튼
-//
-//		@Override																					
-//		public void mouseReleased(MouseEvent e) {								
-//			ViewUtil.changePanel(mf, fieldJPanel, new InventoryView(mf));						//설정 페이지 넘어가는거 아직 설정 안함 new 부분 수정해야함
-//			mainPanel.setVisible(false);
-//			
-//		}
-//	}
-	private class AchievementsChange extends MouseAdapter { // 업적 버튼
+	private class SkillChange extends MouseAdapter { // 마을 라벨 누르면 마을로 패널 변경
 
 		@Override
 		public void mouseReleased(MouseEvent e) {
-			ViewUtil.changePanel(mf, fieldJPanel, new Achievements(mf)); // 설정 페이지 넘어가는거 아직 설정 안함 new 부분 수정해야함
+			ViewUtil.changePanel(mf, fieldJPanel, new SkillList(mf));
 			mainPanel.setVisible(false);
 
 		}
 	}
-
-//	class SkillChange implements KeyListener { // 스킬 버튼
-//
-//		public void keyPressed(KeyEvent e) {
-//			int keycode = e.getKeyCode();
-//
-//			if (e.getKeyChar() == 'K') {
-//				ViewUtil.changePanel(mf, fieldJPanel, new SkillList(mf));
+//		private class InventoryChange extends MouseAdapter { 									// //인벤토리 버튼
+//	
+//			@Override																					
+//			public void mouseReleased(MouseEvent e) {								
+//				ViewUtil.changePanel(mf, fieldJPanel, new 	(mf));						//설정 페이지 넘어가는거 아직 설정 안함 new 부분 수정해야함
 //				mainPanel.setVisible(false);
+//				
 //			}
-//
 //		}
 
-//	}
+
+	//	private class AchievementsChange extends MouseAdapter { // 업적 버튼
+	//
+	//		@Override
+	//		public void mouseReleased(MouseEvent e) {
+	//			ViewUtil.changePanel(mf, fieldJPanel, new Achievements(mf)); // 설정 페이지 넘어가는거 아직 설정 안함 new 부분 수정해야함
+	//			mainPanel.setVisible(false);
+	//
+	//		}
+	//	}
+
+	
+
+	
+
+	//	}
 
 }

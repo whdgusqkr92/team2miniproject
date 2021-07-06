@@ -30,7 +30,7 @@ public class SkillController {
 	}
 
 	private String addSkillScript(String skillScript) {
-		// TODO Auto-generated method stub
+	
 		return null;
 	}
 	

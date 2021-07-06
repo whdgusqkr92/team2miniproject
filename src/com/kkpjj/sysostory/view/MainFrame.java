@@ -19,12 +19,14 @@ public class MainFrame extends JFrame {
 		mf.setLayout(null);
 		
 
+		//new FieldCharacterBattle(mf);
+		
 
-		//new VillageView(mf, chr);
 
 		mf.add(new StartScreen(mf));
 
     
+
 		mf.setLocationRelativeTo(null);
 		mf.setResizable(true);
 		mf.setVisible(true);
