@@ -63,12 +63,13 @@ public class NickName extends JPanel{
 			public void actionPerformed(ActionEvent e) {
 				if(nicknameText.getText().length() > 0) {
 					int result = loginController.createNickname(nicknameText.getText(),idText, memberDTO);
-						
+					System.out.println("아이디퉥스트" + idText);
+//						System.out.println(nicknameText.getText());
 					if(result > 0) {
 						ViewUtil.changePanel(mf, panel, new OpMainPage(mf, idText, memberDTO));
 					} else {
 //						infoBox("중복된 닉네임으로 사용이 불가능합니다.", "중복검사");
-					}
+					} 
 				}
 			}
 		});
