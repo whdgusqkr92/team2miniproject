@@ -10,6 +10,7 @@ import java.awt.event.ActionListener;
 import javax.swing.ButtonGroup;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 import com.kkpjj.sysostory.controller.BattleController;
@@ -42,11 +43,14 @@ public class BattleMenu extends JPanel {
 	private String[] subMenuName;
 	private String selectSubMenuName;
 	private String attackType;
+	public int selectSubMenuNo;
+	private String selectMenuName;
 
 	public BattleMenu(BattleController bc) {
 		this.bc = bc;
 		this.attackType = "attack";
 		this.subMenuName = new String[] {"기본 공격1", "기본 공격2", "기본 공격3", "기본 공격4"};
+		this.selectSubMenuName = "기본 공격1";
 		
 		initMenuPanel();
 		createMenu();
@@ -61,14 +65,12 @@ public class BattleMenu extends JPanel {
 		this.setOpaque(false);
 	}
 
-	public void createMenu() {
+	private void createMenu() {
 		// 전투메뉴 추가
 		this.menuPanel = new JPanel();
 		menuPanel.setBounds(30, 20, 170, 31);
 		menuPanel.setLayout(null);
 		menuPanel.setOpaque(false);
-
-		this.groupMenu = new ButtonGroup();
 
 		this.attackMenu = new AttackMenu();
 		attackMenu.setBounds(0, 0, 31, 31);
@@ -79,31 +81,21 @@ public class BattleMenu extends JPanel {
 		this.runMenu = new RunMenu();
 		runMenu.setBounds(129, 0, 31, 31);
 
-		groupMenu.add(attackMenu);
-		groupMenu.add(skillMenu);
-		groupMenu.add(itemMenu);
-		groupMenu.add(runMenu);
-
 		menuPanel.add(attackMenu);
 		menuPanel.add(skillMenu);
 		menuPanel.add(itemMenu);
 		menuPanel.add(runMenu);
 
 		this.add(menuPanel);
-		
-		repaint();
-		revalidate();
 	}
 
-	public void createSubMenu() {
+	private void createSubMenu() {
 		// 전투 세부메뉴 설정
 		this.subMenuPanel = new JPanel();
 		subMenuPanel.setBounds(25, 60, 170, 155);
 		subMenuPanel.setLayout(null);
 		subMenuPanel.setOpaque(false);
 		subMenuPanel.setVisible(false);
-
-		this.groupSubMenu = new ButtonGroup();
 
 		this.subMenu1 = new JButton();
 		subMenu1.setBounds(0, 0, 170, 35);
@@ -128,11 +120,6 @@ public class BattleMenu extends JPanel {
 		subMenu4.setForeground(Color.WHITE);
 		subMenu4.setBackground(Color.BLACK);
 		subMenu4.setFont(font);
-
-		groupSubMenu.add(subMenu1);
-		groupSubMenu.add(subMenu2);
-		groupSubMenu.add(subMenu3);
-		groupSubMenu.add(subMenu4);
 
 		subMenuPanel.add(subMenu1);
 		subMenuPanel.add(subMenu2);
@@ -168,9 +155,9 @@ public class BattleMenu extends JPanel {
 
 		@Override
 		public void actionPerformed(ActionEvent e) {
-
 			subMenuPanel.setVisible(true);
-
+			
+			BattleMenu.this.attackType = attackType;
 			switch(attackType) {
 				case "attack" : attackSubMenu(); break;
 				case "skill" : skillSubMenu(); break;
@@ -228,21 +215,18 @@ public class BattleMenu extends JPanel {
 	}
 
 	class SelectSubMenu implements ActionListener {
-
+		
 		private int selectSubMenuNo;
 
 		SelectSubMenu(int selectSubMenuNo) {
+			this.selectSubMenuNo = selectSubMenuNo;
 		}
 
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			selectSubMenuName = subMenuName[selectSubMenuNo];
 			bc.selectAction(attackType, selectSubMenuName);
-
-			remove(attackMenu);
-			remove(skillMenu);
-			remove(itemMenu);
-			remove(runMenu);
+			
 			setVisible(false);
 		}
 	}

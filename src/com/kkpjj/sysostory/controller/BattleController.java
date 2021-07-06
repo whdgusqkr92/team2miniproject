@@ -11,10 +11,12 @@ import com.kkpjj.sysostory.model.service.SkillService;
 import com.kkpjj.sysostory.view.battle.BattleChr;
 import com.kkpjj.sysostory.view.battle.BattleMenu;
 import com.kkpjj.sysostory.view.battle.BattleMon;
+import com.kkpjj.sysostory.view.battle.BattlePage;
 
 public class BattleController {
 
 	private JFrame mf;
+	private BattlePage battlePage;
 	private BattleController bc;
 	private BattleService bs;
 	private BattleChr battleChr;
@@ -41,8 +43,9 @@ public class BattleController {
 	// getMonsterDTO
 	// getInventoryDTO
 	
-	public BattleController(JFrame mf) {
+	public BattleController(JFrame mf, BattlePage battlePage) {
 		this.mf = mf;
+		this.battlePage = battlePage;
 		this.bc = this;
 		this.bs = new BattleService();
 	}
@@ -65,7 +68,7 @@ public class BattleController {
 //			fightMonList.add(i, Mon);
 		}
 		
-		this.battleMon = new BattleMon(this);
+		this.battleMon = new BattleMon(battlePage, this);
 		mf.add(battleMon);
 	}
 
@@ -94,7 +97,7 @@ public class BattleController {
 		switch(attackType) {		// characterDTO();
 			case "attack" : bs.chrAttack(subMenuName); break;
 			case "skill" :
-				if(!bs.chrSkill(subMenuName)) {
+				if(true) {
 					new BattleMenu(this);
 					}
 				break;
