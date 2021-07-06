@@ -34,8 +34,10 @@ public class VillageView extends JPanel implements KeyListener {
 	
 	private JTextField tf;
 
+	
 	public VillageView(JFrame mf, CharacterDTO chr) {
-		
+	
+	
 		// 마을화면 레이아웃 설정
 		this.mf = mf;
 		
