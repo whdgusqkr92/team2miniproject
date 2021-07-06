@@ -13,6 +13,7 @@ import javax.swing.JPanel;
 
 import com.kkpjj.sysostory.controller.BossAttController;
 import com.kkpjj.sysostory.view.boss.BossSkillEffect;
+import com.kkpjj.sysostory.view.story.EndingPage;
 
 
 public class BossTurn extends JPanel{
@@ -51,11 +52,13 @@ public class BossTurn extends JPanel{
 
 	
 	
-	new BossAttController(mf).attMiddleBoss();
+//	new BossAttController(mf).attMiddleBoss();
 	
 
-	
-//	new DieText(mf, mainpanel).charaDie(); 캐릭터디지면 보이는메세지
+//	new EndingPage(mf, null);
+//	new DieText(mf, mainpanel, null).charaDie();
+//	new DieText(mf, mainpanel, null).middleDie();
+//	캐릭터디지면 보이는메세지
 //}
 	}
 }

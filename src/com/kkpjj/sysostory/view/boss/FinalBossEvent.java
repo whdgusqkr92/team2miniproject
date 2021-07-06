@@ -17,6 +17,7 @@ import javax.swing.JPanel;
 import com.kkpjj.sysostory.controller.BossAttController;
 import com.kkpjj.sysostory.view.ViewUtil;
 import com.kkpjj.sysostory.view.boss.BossSkillEffect;
+import com.kkpjj.sysostory.view.story.EndingPage;
 
 public class FinalBossEvent extends JPanel{
 
@@ -164,8 +165,8 @@ public class FinalBossEvent extends JPanel{
 		public void mouseClicked(MouseEvent e) {
 			
 //			new BossAttController(mf);
-			
-			ViewUtil.changePanel(mf, mainpanel, new BossTurn(mf));
+												//엔딩페이지랑 일단 이었는데 실제로는 보스와 배틀 시작!!
+			ViewUtil.changePanel(mf, mainpanel, new EndingPage(mf, null)); 
 
 		}
 	}
