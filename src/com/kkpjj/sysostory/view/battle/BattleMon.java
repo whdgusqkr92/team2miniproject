@@ -65,9 +65,6 @@ public class BattleMon extends JPanel {
 
 	private void createMon() {
 		// 몬스터 생성
-		this.groupMon = new ButtonGroup();
-
-
 		this.firstMon = new Monster(monImgAddress1);
 		firstMon.setBounds(0, 0, 64, 28);
 		firstMon.setBorderPainted(false);
@@ -82,8 +79,6 @@ public class BattleMon extends JPanel {
 		fourthMon.setBorderPainted(false);
 
 		// 몬스터 선택 버튼 생성
-		this.groupSelectMon = new ButtonGroup();
-
 		this.selectFirstMon = new JButton();
 		selectFirstMon.setBounds(firstMon.getBounds());
 		selectFirstMon.setBorderPainted(false);
@@ -104,16 +99,6 @@ public class BattleMon extends JPanel {
 		selectFourthMon.setBorderPainted(false);
 		selectFourthMon.setContentAreaFilled(false);
 
-		groupMon.add(firstMon);
-		groupMon.add(secondMon);
-		groupMon.add(thirdMon);
-		groupMon.add(fourthMon);
-
-		groupSelectMon.add(selectFirstMon);
-		groupSelectMon.add(selectSecondMon);
-		groupSelectMon.add(selectThirdMon);
-		groupSelectMon.add(selectFourthMon);
-		
 		this.add(selectFirstMon);
 		this.add(selectSecondMon);
 		this.add(selectThirdMon);
