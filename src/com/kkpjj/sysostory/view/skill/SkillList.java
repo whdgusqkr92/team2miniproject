@@ -233,7 +233,7 @@ public class SkillList extends JPanel {
 
 		@Override
 		public void mouseReleased(MouseEvent e) {
-			ViewUtil.changePanel(mf, fieldJPanel, new BattlePage(mf)); // 배틀 페이지로 넘어가는거
+//			ViewUtil.changePanel(mf, fieldJPanel, new BattlePage(mf)); // 배틀 페이지로 넘어가는거
 			mainPanel.setVisible(false);
 
 		}

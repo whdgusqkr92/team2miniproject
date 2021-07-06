@@ -29,12 +29,13 @@ public class DieText extends JPanel {
 	private JLabel bossLabel;
 	
 	private JButton btn;
+	private CharacterDTO characterDTO;
 	
-	public DieText(JFrame mf, JPanel mainpanel) {
-	
+	public DieText(JFrame mf, JPanel mainpanel, CharacterDTO characterDTO) {
 		
 		this.mf = mf;
-		this.mainpanel = mainpanel ;
+		this.mainpanel = mainpanel;
+		this.characterDTO = characterDTO;
 		
 	}
 			public void charaDie() {
@@ -74,7 +75,7 @@ public class DieText extends JPanel {
 				@Override
 				public void mouseClicked(MouseEvent e) {
 					
-					ViewUtil.changePanel(mf, mainpanel, new VillageView(mf)); //여기에 마을or필드 부르면됨.
+					ViewUtil.changePanel(mf, mainpanel, new VillageView(mf, characterDTO)); //여기에 마을or필드 부르면됨.
 				
 						}
 					}

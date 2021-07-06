@@ -11,9 +11,6 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-import com.kkpjj.sysostory.view.ViewUtil;
-import com.kkpjj.sysostory.view.character.VillageView;
-
 public class PotionShopView extends JPanel implements KeyListener {
 	
 	private JFrame mf;

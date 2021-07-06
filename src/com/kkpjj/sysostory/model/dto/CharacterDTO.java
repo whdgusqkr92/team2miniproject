@@ -13,8 +13,8 @@ public class CharacterDTO implements java.io.Serializable {
 	private int chrMaxHp;
 	private int chrMaxMp;
 	private int chrMaxExp;
-	private int chrChrAtt;
-	private int chrDet;
+	private int chrAtt;
+	private int chrDef;
 	private String chrSfx;
 	private String chrBmg;
 	private String chrEquipTitle;
@@ -24,7 +24,7 @@ public class CharacterDTO implements java.io.Serializable {
 	public CharacterDTO() {}
 
 	public CharacterDTO(int chrCode, int userNo, String chrName, int chrHp, int chrMp, int chrExp, int chrLevel,
-			int chrGold, int chrMaxHp, int chrMaxMp, int chrMaxExp, int chrChrAtt, int chrDet, String chrSfx,
+			int chrGold, int chrMaxHp, int chrMaxMp, int chrMaxExp, int chrAtt, int chrDef, String chrSfx,
 			String chrBmg, String chrEquipTitle, String chrEquipWeapon, String chrEquipArmor) {
 		super();
 		this.chrCode = chrCode;
@@ -38,8 +38,8 @@ public class CharacterDTO implements java.io.Serializable {
 		this.chrMaxHp = chrMaxHp;
 		this.chrMaxMp = chrMaxMp;
 		this.chrMaxExp = chrMaxExp;
-		this.chrChrAtt = chrChrAtt;
-		this.chrDet = chrDet;
+		this.chrAtt = chrAtt;
+		this.chrDef = chrDef;
 		this.chrSfx = chrSfx;
 		this.chrBmg = chrBmg;
 		this.chrEquipTitle = chrEquipTitle;
@@ -91,12 +91,12 @@ public class CharacterDTO implements java.io.Serializable {
 		return chrMaxExp;
 	}
 
-	public int getChrChrAtt() {
-		return chrChrAtt;
+	public int getChrAtt() {
+		return chrAtt;
 	}
 
-	public int getChrDet() {
-		return chrDet;
+	public int getChrDef() {
+		return chrDef;
 	}
 
 	public String getChrSfx() {
@@ -163,12 +163,12 @@ public class CharacterDTO implements java.io.Serializable {
 		this.chrMaxExp = chrMaxExp;
 	}
 
-	public void setChrChrAtt(int chrChrAtt) {
-		this.chrChrAtt = chrChrAtt;
+	public void setChrAtt(int chrAtt) {
+		this.chrAtt = chrAtt;
 	}
 
-	public void setChrDet(int chrDet) {
-		this.chrDet = chrDet;
+	public void setChrDef(int chrDef) {
+		this.chrDef = chrDef;
 	}
 
 	public void setChrSfx(String chrSfx) {
@@ -195,18 +195,9 @@ public class CharacterDTO implements java.io.Serializable {
 	public String toString() {
 		return "CharacterDTO [chrCode=" + chrCode + ", userNo=" + userNo + ", chrName=" + chrName + ", chrHp=" + chrHp
 				+ ", chrMp=" + chrMp + ", chrExp=" + chrExp + ", chrLevel=" + chrLevel + ", chrGold=" + chrGold
-				+ ", chrMaxHp=" + chrMaxHp + ", chrMaxMp=" + chrMaxMp + ", chrMaxExp=" + chrMaxExp + ", chrChrAtt="
-				+ chrChrAtt + ", chrDet=" + chrDet + ", chrSfx=" + chrSfx + ", chrBmg=" + chrBmg + ", chrEquipTitle="
-				+ chrEquipTitle + ", chrEquipWeapon=" + chrEquipWeapon + ", chrEquipArmor=" + chrEquipArmor
-				+ ", getChrCode()=" + getChrCode() + ", getUserNo()=" + getUserNo() + ", getChrName()=" + getChrName()
-				+ ", getChrHp()=" + getChrHp() + ", getChrMp()=" + getChrMp() + ", getChrExp()=" + getChrExp()
-				+ ", getChrLevel()=" + getChrLevel() + ", getChrGold()=" + getChrGold() + ", getChrMaxHp()="
-				+ getChrMaxHp() + ", getChrMaxMp()=" + getChrMaxMp() + ", getChrMaxExp()=" + getChrMaxExp()
-				+ ", getChrChrAtt()=" + getChrChrAtt() + ", getChrDet()=" + getChrDet() + ", getChrSfx()=" + getChrSfx()
-				+ ", getChrBmg()=" + getChrBmg() + ", getChrEquipTitle()=" + getChrEquipTitle()
-				+ ", getChrEquipWeapon()=" + getChrEquipWeapon() + ", getChrEquipArmor()=" + getChrEquipArmor()
-				+ ", getClass()=" + getClass() + ", hashCode()=" + hashCode() + ", toString()=" + super.toString()
-				+ "]";
+				+ ", chrMaxHp=" + chrMaxHp + ", chrMaxMp=" + chrMaxMp + ", chrMaxExp=" + chrMaxExp + ", chrAtt="
+				+ chrAtt + ", chrDef=" + chrDef + ", chrSfx=" + chrSfx + ", chrBmg=" + chrBmg + ", chrEquipTitle="
+				+ chrEquipTitle + ", chrEquipWeapon=" + chrEquipWeapon + ", chrEquipArmor=" + chrEquipArmor + "]";
 	}
-	
+
 }

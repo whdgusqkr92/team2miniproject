@@ -1,32 +1,21 @@
 package com.kkpjj.sysostory.view.character;
 
-import java.awt.Graphics;
 import java.awt.Image;
-import java.awt.event.KeyAdapter;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
-import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JTextField;
-import javax.swing.text.IconView;
 
+import com.kkpjj.sysostory.model.dto.CharacterDTO;
 import com.kkpjj.sysostory.view.ViewUtil;
-import com.kkpjj.sysostory.view.achievements.Achievements;
 import com.kkpjj.sysostory.view.battle.BattlePage;
 import com.kkpjj.sysostory.view.boss.FinalBossEvent;
 import com.kkpjj.sysostory.view.boss.MiddleBossEvent;
-import com.kkpjj.sysostory.view.inventory.InventoryView;
 import com.kkpjj.sysostory.view.skill.SkillList;
-import com.kkpjj.sysostory.view.story.OpSubPage;
-import javax.swing.SwingConstants;
-import java.awt.Button;
 
 public class FieldCharacterBattle extends JPanel  {
 	private JFrame mf;
@@ -41,12 +30,13 @@ public class FieldCharacterBattle extends JPanel  {
 	private Image chImage;
 	private JLabel monsterLabel;
 
-	
+	private CharacterDTO characterDTO;
 
-	public FieldCharacterBattle(JFrame mf) {
+	public FieldCharacterBattle(JFrame mf, CharacterDTO characterDTO) {
 
 		this.mf = mf;
 		this.mainPanel = this;
+		this.characterDTO = characterDTO;
 
 
 
@@ -181,7 +171,7 @@ public class FieldCharacterBattle extends JPanel  {
 
 		@Override
 		public void mouseReleased(MouseEvent e) {
-			ViewUtil.changePanel(mf, fieldJPanel, new VillageView(mf));
+			ViewUtil.changePanel(mf, fieldJPanel, new VillageView(mf, characterDTO));
 			mainPanel.setVisible(false);
 
 		}

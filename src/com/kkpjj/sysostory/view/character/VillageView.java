@@ -126,7 +126,7 @@ public class VillageView extends JPanel implements KeyListener {
 			} else if(e.getSource() == armorShopPanel) {
 				ViewUtil.changePanel(mf, villageView, new ArmorShopView(mf));
 			} else if(e.getSource() == moveFieldPanel) {
-				ViewUtil.changePanel(mf, villageView, new FieldCharacterBattle(mf));
+				ViewUtil.changePanel(mf, villageView, new FieldCharacterBattle(mf, chr));
 			}
 		}
 	}

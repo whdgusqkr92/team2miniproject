@@ -13,6 +13,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import com.kkpjj.sysostory.controller.StoryController;
+import com.kkpjj.sysostory.model.dto.CharacterDTO;
 import com.kkpjj.sysostory.model.dto.StoryDTO;
 import com.kkpjj.sysostory.view.ViewUtil;
 import com.kkpjj.sysostory.view.character.FieldCharacterBattle;
@@ -29,10 +30,12 @@ public class EndingPage extends JPanel {
 	
 	private StoryDTO storyDTO;
 	private StoryController storyController;
+	private CharacterDTO characterDTO;
 	
-	public EndingPage(JFrame mf) {
+	public EndingPage(JFrame mf, CharacterDTO characterDTO) {
 		this.mf = mf;
 		this.mainpanel = this;
+		this.characterDTO = characterDTO;
 		
 		
 		Image field = new ImageIcon("Images/field/FinalBossField.png").getImage().getScaledInstance(800, 200, 0);
@@ -165,7 +168,7 @@ public class EndingPage extends JPanel {
 		@Override
 		public void mouseClicked(MouseEvent e) {
 			
-			ViewUtil.changePanel(mf, mainpanel2, new FieldCharacterBattle(mf));
+			ViewUtil.changePanel(mf, mainpanel2, new FieldCharacterBattle(mf, characterDTO));
 			
 		}
 	}

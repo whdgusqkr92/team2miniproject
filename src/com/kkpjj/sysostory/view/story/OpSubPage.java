@@ -66,7 +66,7 @@ public class OpSubPage extends JPanel {
 		
 		@Override
 		public void mouseClicked(MouseEvent e) {
-			 ViewUtil.changePanel(mf, panel1, new VillageView(mf));
+//			 ViewUtil.changePanel(mf, panel1, new VillageView(mf));
 		}
 	}
 }

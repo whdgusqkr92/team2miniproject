@@ -2,6 +2,9 @@ package com.kkpjj.sysostory.view;
 
 import javax.swing.JFrame;
 
+import com.kkpjj.sysostory.model.dto.CharacterDTO;
+import com.kkpjj.sysostory.view.member.StartScreen;
+
 public class MainFrame extends JFrame {
 
 	private JFrame mf;
@@ -18,8 +21,6 @@ public class MainFrame extends JFrame {
 		
 
 		//new EndingPage(mf);
-		
-
 		
 
 
