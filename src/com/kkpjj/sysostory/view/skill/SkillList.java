@@ -29,9 +29,7 @@ public class SkillList extends JPanel {
 	private JFrame mf;
 	private int skillCode;
 	private String skillScript;
-	
-	
-	
+
 	public SkillList(JFrame mf) {
 		this.mf = mf;
 		
@@ -53,7 +51,8 @@ public class SkillList extends JPanel {
 		skilExPanel.setBounds(50, 420, 700, 100);
 
 		Font font = new Font("궁서 보통", Font.BOLD, 30);
-
+		Font font2 = new Font("궁서 보통", Font.BOLD, 15);
+		
 		this.sc = new SkillController();
 
 		/*-----------------------------------이미지 선언부-----------------------------------------*/
@@ -92,8 +91,15 @@ public class SkillList extends JPanel {
 
 		JButton backButton = new JButton(new ImageIcon("images/skill/도망가기.png"));
 		backButton.setBounds(745, 20, 35, 35);
+		backButton.addActionListener(new ActionListener() {
 
-		JButton skillButton1 = new JButton(new ImageIcon("images/skill/얼음스킬.png"));
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				mainPanel.setVisible(false);
+			}
+		
+		});
+		JButton skillButton1 = new JButton(new ImageIcon("images/skill/플레임차지아이콘.png"));
 		skillButton1.setBounds(65, 115, 140, 115);
 		skillButton1.addActionListener(new ActionListener() {
 
@@ -205,11 +211,16 @@ public class SkillList extends JPanel {
 		mainLabel.add(skillButton8);
 
 		/*-------------------------------패널들 넣어주는 곳---------------------------------------*/
+		skilUpTextLabel.setFont(font);
+		skilExTextLabel.setFont(font2);
+		
+		
+		/*-------------------------------폰트 넣어주는 곳---------------------------------------*/
 
 		skilExLabel.add(skilExTextLabel);
 		mainPanel.setLayout(null);
 		mainPanel.setLayout(null);
-		skilUpTextLabel.setFont(font);
+		
 		mainLabel.add(skilUpTextLabel);
 		mainLabel.add(skilUpLabel);
 		mainLabel.add(skillListLabel);
@@ -227,15 +238,7 @@ public class SkillList extends JPanel {
 		mf.getContentPane().setLayout(null);
 
 		mf.getContentPane().add(mainPanel);
+		
 
-	}
-	private class Monster1 extends MouseAdapter { // 마우스 클릭시 전투 패널로 넘어감
-
-		@Override
-		public void mouseReleased(MouseEvent e) {
-//			ViewUtil.changePanel(mf, fieldJPanel, new BattlePage(mf)); // 배틀 페이지로 넘어가는거
-			mainPanel.setVisible(false);
-
-		}
 	}
 }
