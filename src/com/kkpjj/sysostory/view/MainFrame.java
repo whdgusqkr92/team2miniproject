@@ -31,13 +31,16 @@ public class MainFrame extends JFrame {
 		mf.setSize(800, 600);
 		mf.setLayout(null);
 
+		//mf.add(new VillageView(mf, chr));
+
+
 		new FieldCharacterBattle(mf, null, chr);
-//		new BattlePage(mf);
-		Sound.sound();
+
 		mf.setLocationRelativeTo(null);
 		mf.setResizable(true);
 		mf.setVisible(true);
 		mf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
 	}
 	
 //	private static Clip clip;

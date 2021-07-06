@@ -21,6 +21,7 @@ import com.kkpjj.sysostory.view.shop.PotionDealer;
 import com.kkpjj.sysostory.view.shop.PotionShopView;
 import com.kkpjj.sysostory.view.shop.WeaponDealer;
 import com.kkpjj.sysostory.view.shop.WeaponShopView;
+import com.kkpjj.sysostory.view.skill.SkillList;
 
 public class VillageView extends JPanel implements KeyListener {
 	
@@ -38,7 +39,6 @@ public class VillageView extends JPanel implements KeyListener {
 
 	
 	public VillageView(JFrame mf, CharacterDTO chr) {
-	
 	
 		// 마을화면 레이아웃 설정
 		this.mf = mf;
@@ -145,6 +145,10 @@ public class VillageView extends JPanel implements KeyListener {
 		if(e.getKeyCode() == 69) {
 			ViewUtil.changePanel(mf, this, new CharacterView(mf, chr));
 			this.setVisible(false);
+		} else if(e.getKeyCode() == 75) {
+			ViewUtil.changePanel(mf, this, new SkillList(mf));
+		} else if(e.getKeyCode() == 73) {
+			ViewUtil.changePanel(mf, this, new SkillList(mf));
 		}
 	}
 
