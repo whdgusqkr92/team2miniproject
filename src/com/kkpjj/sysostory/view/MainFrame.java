@@ -4,6 +4,7 @@ import javax.swing.JFrame;
 
 
 import com.kkpjj.sysostory.model.dto.CharacterDTO;
+import com.kkpjj.sysostory.model.dto.InventoryDTO;
 import com.kkpjj.sysostory.view.boss.BossTurn;
 import com.kkpjj.sysostory.view.character.FieldCharacterBattle;
 import com.kkpjj.sysostory.view.character.GameScreen;
@@ -21,6 +22,8 @@ public class MainFrame extends JFrame {
 
 	private JFrame mf;
 	private CharacterDTO chr;
+	private InventoryDTO inventoryDTO;
+	private CharacterDTO characterDTO;
 
 	public MainFrame() {
 		
@@ -31,7 +34,10 @@ public class MainFrame extends JFrame {
 		mf.setSize(800, 600);
 		mf.setLayout(null);
 
-
+//		new SkillList(mf);
+//		new VillageView(mf, chr);
+		new FieldCharacterBattle(mf, inventoryDTO, characterDTO);
+		
 		mf.setLocationRelativeTo(null);
 		mf.setResizable(true);
 		mf.setVisible(true);

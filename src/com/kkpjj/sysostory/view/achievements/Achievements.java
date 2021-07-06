@@ -19,7 +19,7 @@ public class Achievements extends JPanel{
 	private JLabel mainLabel; 
 	
 	public Achievements(JFrame mf) {
-		mf = mf;
+		this.mf = mf;
 	
 
 	mainPanel = new JPanel(); // 메인 패널
