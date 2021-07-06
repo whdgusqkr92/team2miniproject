@@ -59,10 +59,10 @@ public class StartScreen extends JPanel {
 		pwdPanel.add(pwdLabel);
 		pwdPanel.setBounds(200, 300, 100, 50);
 
-		JTextField idTextF = new JTextField();/* id 입력란 */
-		idTextF.setDocument((new JTextFieldLimit(12))); 
-		idTextF.setBounds(320, 230, 300, 50);						
-		idTextF.setFont(new Font("굴림", Font.PLAIN, 30));
+		JTextField idText = new JTextField();/* id 입력란 */
+		idText.setDocument((new JTextFieldLimit(12))); 
+		idText.setBounds(320, 230, 300, 50);						
+		idText.setFont(new Font("굴림", Font.PLAIN, 30));
 
 		JPasswordField pwdText = new JPasswordField(20);				/* pwd 입력란 */
 		//		JTextField pwdText = new JTextField(12);
@@ -81,11 +81,11 @@ public class StartScreen extends JPanel {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				
-				if(idTextF.getText().length() > 0 && pwdText.getPassword().length > 0) {
-					int result = memController.Login(idTextF, pwdText);
+				if(idText.getText().length() > 0 && pwdText.getPassword().length > 0) {
+					int result = memController.Login(idText, pwdText);
 
 					if (result > 0) { // 로그인 성공시, 화면이동 처리 코드
-						ViewUtil.changePanel(mf, loginPanel, new AfterLogin(mf, idText, memberDTO));
+						ViewUtil.changePanel(mf, loginPanel, new AfterLogin(mf, idText.getText(), memberDTO));
 					} else {
 						infoBox("아이디와 패스워드를 확인하여주세요.", "message");
 					}
@@ -153,7 +153,7 @@ public class StartScreen extends JPanel {
 		ManagerButton.add(option);
 		loginPanel.add(ManagerButton);
 		loginPanel.add(idPanel);
-		loginPanel.add(idTextF);
+		loginPanel.add(idText);
 		loginPanel.add(pwdPanel);
 		loginPanel.add(pwdText);
 		loginPanel.add(loginButton);

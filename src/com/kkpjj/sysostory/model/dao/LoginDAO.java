@@ -85,8 +85,9 @@ public class LoginDAO {
 	
 	public int searchMemberNumber(Connection con, String idText) {
 		PreparedStatement pstmt = null;
-		ResultSet result = null;
+		ResultSet rset = null;
 		
+		System.out.println("아이디텍스트" + idText);
 		String query = prop.getProperty("searchMemberNumber");
 		int resultIdNumber = 0;
 		
@@ -94,16 +95,17 @@ public class LoginDAO {
 			pstmt = con.prepareStatement(query);
 			pstmt.setString(1, idText);
 
-			result = pstmt.executeQuery();
+			rset = pstmt.executeQuery();
 			
-			if(result.next()) {
-				resultIdNumber = result.getInt("USER_NO");
+			while(rset.next()) {
+				resultIdNumber = rset.getInt("USER_NO");
+				System.out.println("유저넘버" + rset.getInt("USER_NO"));
 			}
 			
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
-			close(result);
+			close(rset);
 			close(pstmt);
 		}
 		

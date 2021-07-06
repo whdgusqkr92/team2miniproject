@@ -41,6 +41,7 @@ public class AfterLogin extends JPanel{
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				System.out.println("qkr2222222" + idText);
 //				new NickName(idText);
 				ViewUtil.changePanel(mf, panel, new NickName(mf, idText, memberDTO));
 				infoBox("닉네임을 입력해주세요.","닉네임 생성");
