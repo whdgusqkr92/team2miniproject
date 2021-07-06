@@ -13,7 +13,6 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 import com.kkpjj.sysostory.model.dto.CharacterDTO;
-import com.kkpjj.sysostory.model.dto.InventoryDTO;
 import com.kkpjj.sysostory.view.ViewUtil;
 import com.kkpjj.sysostory.view.shop.ArmorDealer;
 import com.kkpjj.sysostory.view.shop.ArmorShopView;
@@ -21,7 +20,6 @@ import com.kkpjj.sysostory.view.shop.PotionDealer;
 import com.kkpjj.sysostory.view.shop.PotionShopView;
 import com.kkpjj.sysostory.view.shop.WeaponDealer;
 import com.kkpjj.sysostory.view.shop.WeaponShopView;
-import com.kkpjj.sysostory.view.skill.SkillList;
 
 public class VillageView extends JPanel implements KeyListener {
 	
@@ -33,13 +31,11 @@ public class VillageView extends JPanel implements KeyListener {
 	private JPanel moveFieldPanel;
 	
 	private CharacterDTO chr; 
-	private InventoryDTO inven;
 	
 	private JTextField tf;
 
-	
 	public VillageView(JFrame mf, CharacterDTO chr) {
-	
+		
 		// 마을화면 레이아웃 설정
 		this.mf = mf;
 		
@@ -48,7 +44,7 @@ public class VillageView extends JPanel implements KeyListener {
 		chr = new CharacterDTO();
 		
 		// 하단 정보 패널 호출
-		new StatusPanel(mf, chr);
+		new StatusPanel(mf);
 		
 		init();
 		// 상인, 화살표 생성 후 프레임에 추가
@@ -122,7 +118,7 @@ public class VillageView extends JPanel implements KeyListener {
 		}
 		
 		@Override
-		public void mouseReleased(MouseEvent e) {
+		public void mouseClicked(MouseEvent e) {
 			if(e.getSource() == posionShopPanel) {
 				ViewUtil.changePanel(mf, villageView, new PotionShopView(mf));
 			} else if(e.getSource() == weaponShopPanel) {
@@ -130,7 +126,7 @@ public class VillageView extends JPanel implements KeyListener {
 			} else if(e.getSource() == armorShopPanel) {
 				ViewUtil.changePanel(mf, villageView, new ArmorShopView(mf));
 			} else if(e.getSource() == moveFieldPanel) {
-//				ViewUtil.changePanel(mf, villageView, new FieldCharacterBattle(mf, inven, chr));
+				ViewUtil.changePanel(mf, villageView, new FieldCharacterBattle(mf, chr));
 			}
 		}
 	}
@@ -145,10 +141,6 @@ public class VillageView extends JPanel implements KeyListener {
 		if(e.getKeyCode() == 69) {
 			ViewUtil.changePanel(mf, this, new CharacterView(mf, chr));
 			this.setVisible(false);
-		} else if(e.getKeyCode() == 75) {
-			ViewUtil.changePanel(mf, this, new SkillList(mf));
-		} else if(e.getKeyCode() == 73) {
-			ViewUtil.changePanel(mf, this, new SkillList(mf));
 		}
 	}
 

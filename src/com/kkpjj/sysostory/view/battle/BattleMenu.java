@@ -28,13 +28,11 @@ public class BattleMenu extends JPanel {
 
 	private BattleController bc;
 	private JPanel menuPanel;
-	private ButtonGroup groupMenu;
 	private JButton attackMenu;
 	private JButton skillMenu;
 	private JButton itemMenu;
 	private JButton runMenu;
 	private JPanel subMenuPanel;
-	private ButtonGroup groupSubMenu;
 	private JButton subMenu1;
 	private JButton subMenu2;
 	private JButton subMenu3;
@@ -72,13 +70,13 @@ public class BattleMenu extends JPanel {
 		menuPanel.setLayout(null);
 		menuPanel.setOpaque(false);
 
-		this.attackMenu = new AttackMenu();
+		this.attackMenu = new JButton(new ImageIcon("images/battle/battle_attack_icon.png"));
 		attackMenu.setBounds(0, 0, 31, 31);
-		this.skillMenu = new SkillMenu();
+		this.skillMenu = new JButton(new ImageIcon("images/battle/battle_skill_icon.png"));
 		skillMenu.setBounds(43, 0, 31, 31);
-		this.itemMenu = new ItemMenu();
+		this.itemMenu = new JButton(new ImageIcon("images/battle/battle_item_icon.png"));
 		itemMenu.setBounds(86, 0, 31, 31);
-		this.runMenu = new RunMenu();
+		this.runMenu = new JButton(new ImageIcon("images/battle/battle_run_icon.png"));
 		runMenu.setBounds(129, 0, 31, 31);
 
 		menuPanel.add(attackMenu);
@@ -156,8 +154,8 @@ public class BattleMenu extends JPanel {
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			subMenuPanel.setVisible(true);
-			
 			BattleMenu.this.attackType = attackType;
+			
 			switch(attackType) {
 				case "attack" : attackSubMenu(); break;
 				case "skill" : skillSubMenu(); break;
@@ -228,43 +226,6 @@ public class BattleMenu extends JPanel {
 			bc.selectAction(attackType, selectSubMenuName);
 			
 			setVisible(false);
-		}
-	}
-
-	// 메뉴 이미지 추가
-	class AttackMenu extends JButton {
-		Image attackMenuIcon = new ImageIcon("images/battle/battle_attack_icon.png").getImage();
-
-		@Override
-		public void paintComponent(Graphics g) {
-			g.drawImage(attackMenuIcon, 0, 0, getWidth(), getHeight(), this);
-		}
-	}
-
-	class SkillMenu extends JButton {
-		Image skillMenuIcon = new ImageIcon("images/battle/battle_skill_icon.png").getImage();
-
-		@Override
-		public void paintComponent(Graphics g) {
-			g.drawImage(skillMenuIcon, 0, 0, getWidth(), getHeight(), this);
-		}
-	}
-
-	class ItemMenu extends JButton {
-		Image itemMenuIcon = new ImageIcon("images/battle/battle_item_icon.png").getImage();
-
-		@Override
-		public void paintComponent(Graphics g) {
-			g.drawImage(itemMenuIcon, 0, 0, getWidth(), getHeight(), this);
-		}
-	}
-
-	class RunMenu extends JButton {
-		Image runMenuIcon = new ImageIcon("images/battle/battle_run_icon.png").getImage();
-
-		@Override
-		public void paintComponent(Graphics g) {
-			g.drawImage(runMenuIcon, 0, 0, getWidth(), getHeight(), this);
 		}
 	}
 }

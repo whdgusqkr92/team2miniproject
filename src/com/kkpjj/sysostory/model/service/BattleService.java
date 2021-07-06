@@ -28,36 +28,9 @@ public class BattleService {
 
 		return monsterList;
 	}
-
-	public int chrAttack(String subMenuName) {
-		int chrAtt = 10;			// chracterDTO.getChrAtt();
-		double skillAtt = 0.2;		// monsterDTO.getSkillAtt();
-		int monHp = 50;				// monsterDTO.getMonHp();
-		int monDef = 5;				// monsterDTO.getMonDef();
-
-		monHp = monHp - (chrAtt - monDef);
-		
-		int result = isMonAlive(monHp);
-		
-		return result;
-	}
-
-	public int chrSkill(String subMenuName) {
-		int chrAtt = 10;			// chracterDTO.getChrAtt();
-		double skillAtt = 0.2;		// monsterDTO.getSkillAtt();
-		int monHp = 50;				// monsterDTO.getMonHp();
-		int monDef = 5;				// monsterDTO.getMonDef();
-		int result = checkMp(subMenuName);
-		
-		if(result > 0) {
-			monHp = (int) (monHp - (chrAtt * (1 + skillAtt) - monDef));
-		}
-		
-		return result;
-	}
-
+	
 	public int checkMp(String subMenuName) {
-		int chrMp = 40;				// chracterDTO.getChrMp();
+		int chrMp = 10;				// chracterDTO.getChrMp();
 		int mpConsume = 25;			// skillDTO.getMpConsume();
 		double skillAtt = 0.2;
 		int result = 0;
@@ -71,6 +44,22 @@ public class BattleService {
 		return result;
 	}
 
+	public int chrAttack(String AttackType, String subMenuName) {
+		int chrAtt = 10;			// chracterDTO.getChrAtt();
+		double skillAtt = 0.2;		// monsterDTO.getSkillAtt();
+		int monHp = 50;				// monsterDTO.getMonHp();
+		int monDef = 5;				// monsterDTO.getMonDef();
+
+		switch(AttackType) {
+			case "attack" : monHp -= (chrAtt - monDef); break;
+			case "skill" : monHp -= (int) (chrAtt * (1 + skillAtt) - monDef); break; 
+		}
+		
+		int result = isMonAlive(monHp);
+		
+		return result;
+	}
+
 	private int isMonAlive(int hp) {
 		int result = 0;
 		
@@ -78,17 +67,17 @@ public class BattleService {
 			result = 1;
 		} else {
 			hp = 0;
-			result = isOtherMonAlive();
+//			result = isOtherMonAlive();
 		}
 		return result;
 	}
 	
-	private int isOtherMonAlive() {
+	public int isOtherMonAlive() {
 		int result = 0;
 		return result;
 	}
 
-	public void monsterAttack() {
+	public int monAttack() {
 		int chrHp = 100;
 		int chrDef = 5;
 		String monType = "boss";
@@ -101,22 +90,16 @@ public class BattleService {
 			chrHp -= monAtt - chrDef;			
 		}
 
-		isChrAlive(chrHp);
+		int result = isChrAlive(chrHp);
+		return result;
 	}
 
-	private void isChrAlive(int chrHp) {
+	private int isChrAlive(int chrHp) {
+		int result = 0;
+		
 		if(chrHp > 0) {
-
-		} else {
-			defeatPenalty();
+			result = 1;
 		}
-	}
-
-	public void winReward() {
-		
-	}
-	
-	private void defeatPenalty() {
-		
+		return result;
 	}
 }
