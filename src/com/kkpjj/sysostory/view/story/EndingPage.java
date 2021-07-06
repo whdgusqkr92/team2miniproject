@@ -5,19 +5,18 @@ import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
 import java.util.List;
 
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JTextArea;
 
 import com.kkpjj.sysostory.controller.StoryController;
 import com.kkpjj.sysostory.model.dto.StoryDTO;
 import com.kkpjj.sysostory.view.ViewUtil;
-import com.kkpjj.sysostory.view.boss.FinalBossEvent;
+import com.kkpjj.sysostory.view.character.FieldCharacterBattle;
+import com.kkpjj.sysostory.view.character.VillageView;
 
 
 public class EndingPage extends JPanel {
@@ -76,24 +75,44 @@ public class EndingPage extends JPanel {
 		
 		
 		
-		mainpanel.addMouseListener(new MouseAdapter() {
-			
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				EndingPage2(mf);
-			}
-		});
-		
+//		mainpanel.addMouseListener(new MouseAdapter() {
+//			
+//			@Override
+//			public void mouseClicked(MouseEvent e) {
+//				EndingPage2(mf);
+//			}
+//		});
+//		
 	}
-
 		
+	
+	private class OneActionListener extends MouseAdapter {
+		
+		@Override
+		public void mousePressed(MouseEvent e) {
+			
+			textLabel.setVisible(false);
+			textLabel2.setVisible(true);
+		}
+	}
+	private class TwoActionListener extends MouseAdapter {
+		
+		@Override
+		public void mousePressed(MouseEvent e) {
+//			textLabel2.setVisible(false);
+			EndingPage2(mf);
+			mainpanel.setVisible(false);
+		}
+	}
+	
+	
 	public void EndingPage2(JFrame mf) {
 
 		this.mf = mf;
-		this.mainpanel = this;
+		this.mainpanel2 = this;
 		
 		Image field = new ImageIcon("Images/story/엔딩크레딧.PNG").getImage().getScaledInstance(800, 200, 0);
-		mainpanel = new JPanel() {
+		mainpanel2 = new JPanel() {
 			public void paintComponent(Graphics g) {
 				g.drawImage(field,0,0,800,420,this);
 			}
@@ -102,9 +121,9 @@ public class EndingPage extends JPanel {
 		storyController = new StoryController();
 		storyDTO = new StoryDTO();
 
-		mainpanel.setBounds(0, 0, 800, 600);
-		mainpanel.setLayout(null);
-		mf.getContentPane().add(mainpanel); 
+		mainpanel2.setBounds(0, 0, 800, 600);
+		mainpanel2.setLayout(null);
+		mf.getContentPane().add(mainpanel2); 
 		
 		JLabel label = new JLabel();
 
@@ -112,8 +131,8 @@ public class EndingPage extends JPanel {
 		label.setOpaque(false);
 		label.setFont(new Font("둥근모꼴", Font.PLAIN, 24));
 		
-		mainpanel.add(label);
-		mf.add(mainpanel);
+		mainpanel2.add(label);
+		mf.add(mainpanel2);
 		
 		storyDTO.setChapTitle("오프닝");
 
@@ -128,7 +147,6 @@ public class EndingPage extends JPanel {
 		
 		label.setText(endingSc);
 		
-		//여기서 다음 화면이 안넘어가지네..
 		label.addMouseListener(new MyMouseAdapter());
 		
 	
@@ -141,29 +159,14 @@ public class EndingPage extends JPanel {
 //		g.drawImage(background,0,0,800,420,this);
 //	}
 	
-	private class OneActionListener extends MouseAdapter {
-
-		@Override
-		public void mousePressed(MouseEvent e) {
-
-			textLabel.setVisible(false);
-			textLabel2.setVisible(true);
-		}
-	}
-	private class TwoActionListener extends MouseAdapter {
-
-		@Override
-		public void mousePressed(MouseEvent e) {
-			textLabel2.setVisible(false);
-
-		}
-	}
 	
 	private class MyMouseAdapter extends MouseAdapter {
 
 		@Override
 		public void mouseClicked(MouseEvent e) {
-			ViewUtil.changePanel(mf, mainpanel, new FinalBossEvent(mf));
+			
+			ViewUtil.changePanel(mf, mainpanel2, new FieldCharacterBattle(mf));
+			
 		}
 	}
 

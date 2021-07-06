@@ -2,8 +2,6 @@ package com.kkpjj.sysostory.view;
 
 import javax.swing.JFrame;
 
-
-
 public class MainFrame extends JFrame {
 
 	private JFrame mf;
@@ -19,13 +17,16 @@ public class MainFrame extends JFrame {
 		mf.setLayout(null);
 		
 
-		//new FieldCharacterBattle(mf);
+		//new EndingPage(mf);
+		
+
 		
 
 
 		mf.add(new StartScreen(mf));
 
     
+
 
 		mf.setLocationRelativeTo(null);
 		mf.setResizable(true);

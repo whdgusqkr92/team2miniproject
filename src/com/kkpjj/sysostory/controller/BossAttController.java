@@ -103,7 +103,6 @@ public class BossAttController extends JPanel{
 		System.out.println(ranAtt);
 		if(monCode == 3) {
 			
-			for(;;)
 			
 			if(!(monsterDTO.getMonHp() == 0)) {
 				if(ranAtt > 0 && ranAtt <= 3 ) {      
