@@ -3,7 +3,11 @@ package com.kkpjj.sysostory.view;
 import javax.swing.JFrame;
 
 import com.kkpjj.sysostory.model.dto.CharacterDTO;
+import com.kkpjj.sysostory.view.boss.BossTurn;
+import com.kkpjj.sysostory.view.character.FieldCharacterBattle;
+import com.kkpjj.sysostory.view.character.GameScreen;
 import com.kkpjj.sysostory.view.member.StartScreen;
+import com.kkpjj.sysostory.view.story.EndingPage;
 
 public class MainFrame extends JFrame {
 
@@ -22,17 +26,18 @@ public class MainFrame extends JFrame {
 
 		//new EndingPage(mf);
 		
-
-
-		mf.add(new StartScreen(mf));
-
-    
-
+//		new StartScreen(mf);
+		new FieldCharacterBattle(mf, chr);
+		
+//		new BossTurn(mf);
 
 		mf.setLocationRelativeTo(null);
 		mf.setResizable(true);
 		mf.setVisible(true);
 		mf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
+		
+		
+		
+		
 	}
 }

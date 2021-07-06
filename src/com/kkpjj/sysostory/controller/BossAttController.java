@@ -8,6 +8,7 @@ import com.kkpjj.sysostory.model.dto.CharacterDTO;
 import com.kkpjj.sysostory.model.dto.MonsterDTO;
 import com.kkpjj.sysostory.model.service.BossAttService;
 import com.kkpjj.sysostory.view.boss.BossSkillEffect;
+import com.kkpjj.sysostory.view.character.Sound;
 
 public class BossAttController extends JPanel{
 
@@ -29,6 +30,9 @@ public class BossAttController extends JPanel{
 		this.chr = new CharacterDTO();	
 		this.bossAttService = new BossAttService();
 		
+		Sound.soundStop();
+		
+		Sound.battlesound();
 	}
 
 	public void attFinalBoss() { //int Code
@@ -56,10 +60,10 @@ public class BossAttController extends JPanel{
 			
 			if(!(monsterDTO.getMonHp() == 0)) {
 				
-				if(ranAtt > 0 && ranAtt < 10 ) {      		//100프로일단 설정해놓음
+				if(ranAtt > 0 && ranAtt < 100 ) {      		//100프로일단 설정해놓음
 					new BossSkillEffect(mf).finalSkill2();
 					new BossSkillEffect(mf).setVisible(false);
-					//약간 속도 늦춰주면 좋을듯. 이펙트가 다 끝나고 체력이 닳게
+					
 					chrHp = chr.getChrHp() - damege;
 						
 					}else if(ranAtt == 10) {			//1프로
@@ -110,12 +114,14 @@ public class BossAttController extends JPanel{
 					new BossSkillEffect(mf).middleSkill1();
 					new BossSkillEffect(mf).setVisible(false);
 					chrHp = chr.getChrHp() - damege;
+					Sound.effSound();
 						
 					}else if(ranAtt >3 && ranAtt <= 7 ) {  
 						System.out.println("2번사용");
 						new BossSkillEffect(mf).middleSkill2();
 						new BossSkillEffect(mf).setVisible(false);
 						chrHp = chr.getChrHp() - damege;
+						Sound.effSound();
 					}else { 				 			
 						chrHp = chr.getChrHp() - monsterDTO.getMonAtt();
 						System.out.println("기본공격사용");

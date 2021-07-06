@@ -161,7 +161,7 @@ public class FieldCharacterBattle extends JPanel  {
 
 		@Override
 		public void mouseReleased(MouseEvent e) {
-			ViewUtil.changePanel(mf, fieldJPanel, new SkillList(mf));						//설정 창 만들면 넣기!!
+			ViewUtil.changePanel(mf, fieldJPanel, new SettingPanel(mf));						//설정 창 만들면 넣기!!
 			mainPanel.setVisible(false);
 
 		}
