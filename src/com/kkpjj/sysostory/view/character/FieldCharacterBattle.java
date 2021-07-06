@@ -18,6 +18,7 @@ import com.kkpjj.sysostory.view.battle.BattlePage;
 import com.kkpjj.sysostory.view.boss.FinalBossEvent;
 import com.kkpjj.sysostory.view.boss.MiddleBossEvent;
 import com.kkpjj.sysostory.view.inventory.InventoryView;
+import com.kkpjj.sysostory.view.skill.Skill;
 import com.kkpjj.sysostory.view.skill.SkillList;
 
 public class FieldCharacterBattle extends JPanel  {
@@ -36,8 +37,11 @@ public class FieldCharacterBattle extends JPanel  {
 	private InventoryDTO inventoryDTO;
 
 	private CharacterDTO characterDTO;
+	
 
-	public FieldCharacterBattle(JFrame mf, InventoryDTO inventoryDTO ,CharacterDTO characterDTO ) {
+	
+
+	public FieldCharacterBattle(JFrame mf, InventoryDTO inventoryDTO ,CharacterDTO characterDTO) {
 
 		this.mf = mf;
 		this.mainPanel = this;
@@ -62,7 +66,7 @@ public class FieldCharacterBattle extends JPanel  {
 		chLabel.setBounds(100, 150, 100, 100);
 
 		
-	
+		
 
 		fieldJPanel.add(chLabel);
 		fieldJPanel.add(fieldJLabel); // 필드 라벨을 필드 패널에 넣어준거
@@ -107,7 +111,7 @@ public class FieldCharacterBattle extends JPanel  {
 		JLabel villageLabel = new JLabel(new ImageIcon(villageImage));					//뒤로가기 라벨
 		villageLabel.setBounds(0, 170, 60, 60);
 		fieldJLabel.add(villageLabel);
-
+		
 		mf.getContentPane().add(mainPanel);
 
 		/*-------------------------------라벨,버튼에 마우스 리스너 이벤트 생성 ---------------------------------------*/
@@ -122,11 +126,11 @@ public class FieldCharacterBattle extends JPanel  {
 		monsterLabel3.addMouseListener(new FinalBossMonster()); // 라벨에 마우스 리스너 이벤트 생성
 		setJbutton.addMouseListener(new SetChange());									//설정창 연결 
 		villageLabel.addMouseListener(new VillageChange());								//백 버튼하면 마을로
-//				inventoryButton.addMouseListener(new InventoryChange());						// 인벤토리 연결 아직 안됨
+				inventoryButton.addMouseListener(new InventoryChange());						// 인벤토리 연결 아직 안됨
 				skillButton.addMouseListener(new SkillChange());
 		//		AchievementsButton.addMouseListener(new AchievementsChange());
 		//		fieldJLabel.addKeyListener(new SkillChange());
-
+				Skill skill = new Skill(mf);
 	}
 
 	/*-------------------------------버튼 이벤트 ---------------------------------------*/
@@ -199,7 +203,7 @@ public class FieldCharacterBattle extends JPanel  {
 				
 			}
 		}
-
+	
 
 	//	private class AchievementsChange extends MouseAdapter { // 업적 버튼
 	//

@@ -12,6 +12,8 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
+
+import com.kkpjj.sysostory.controller.LoginController;
 import com.kkpjj.sysostory.model.dto.CharacterDTO;
 import com.kkpjj.sysostory.model.dto.MemberDTO;
 import com.kkpjj.sysostory.view.ViewUtil;
@@ -22,6 +24,7 @@ public class AfterLogin extends JPanel{
 	private JFrame mf;
 	private String idText;
 	private MemberDTO memberDTO;
+	private CharacterDTO characterDTO;
 	
 	public AfterLogin(JFrame mf, String idText, MemberDTO memberDTO, CharacterDTO charDTO) {
 		this.memberDTO = memberDTO;
@@ -55,10 +58,13 @@ public class AfterLogin extends JPanel{
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
+
 				ViewUtil.changePanel(mf, panel, new VillageView(mf, charDTO));
 			}
 		});
+
 		
+
 		JButton logoutButton = new JButton("로그아웃");				/* 로그아웃 버튼 */
 		logoutButton.setFont(new Font("둥근모꼴", Font.PLAIN, 24));
 		logoutButton.setBounds(275, 360, 250, 60);

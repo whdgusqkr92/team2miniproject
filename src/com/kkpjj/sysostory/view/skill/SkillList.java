@@ -15,11 +15,16 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import com.kkpjj.sysostory.controller.SkillController;
+import com.kkpjj.sysostory.model.dto.CharacterDTO;
+import com.kkpjj.sysostory.model.dto.InventoryDTO;
 import com.kkpjj.sysostory.view.ViewUtil;
 import com.kkpjj.sysostory.view.battle.BattlePage;
+import com.kkpjj.sysostory.view.character.FieldCharacterBattle;
+import com.kkpjj.sysostory.view.character.VillageView;
 
 public class SkillList extends JPanel {
 
+	private static final FieldCharacterBattle String = null;
 	private JPanel mainPanel;
 	private JPanel skilUpPanel;
 	private JPanel skillListPanel;
@@ -29,11 +34,25 @@ public class SkillList extends JPanel {
 	private JFrame mf;
 	private int skillCode;
 	private String skillScript;
+	private InventoryDTO inventoryDTO;
+	private CharacterDTO chr; 
+	private CharacterDTO characterDTO;
 
+	
+	
 	public SkillList(JFrame mf) {
+		
+		
+		
 		this.mf = mf;
 		
-//		Skill skill = new Skill();
+	
+		
+		
+		
+		
+		
+		
 		
 		
 		
@@ -95,7 +114,9 @@ public class SkillList extends JPanel {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				ViewUtil.changePanel(mf, mainPanel, new VillageView(mf, chr)); // 배틀 페이지로 넘어가는거
 				mainPanel.setVisible(false);
+
 			}
 		
 		});
@@ -219,14 +240,12 @@ public class SkillList extends JPanel {
 
 		skilExLabel.add(skilExTextLabel);
 		mainPanel.setLayout(null);
-		mainPanel.setLayout(null);
 		
 		mainLabel.add(skilUpTextLabel);
 		mainLabel.add(skilUpLabel);
 		mainLabel.add(skillListLabel);
 		mainLabel.add(skilExLabel);
 
-		mainPanel.add(mainLabel);
 		mainPanel.add(mainLabel);
 
 		mainPanel.add(skilUpPanel);
