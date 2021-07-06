@@ -42,12 +42,12 @@ public class MainFrame extends JFrame {
 		mf.setLayout(null);
 
 
-	//	mf.add(new StartScreen(mf));
+		mf.add(new StartScreen(mf));
 		
 
 
 
-		new FieldCharacterBattle(mf, inventoryDTO, characterDTO);
+//		new FieldCharacterBattle(mf, inventoryDTO, characterDTO);
 		
 
 

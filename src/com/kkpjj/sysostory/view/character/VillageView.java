@@ -13,6 +13,7 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 import com.kkpjj.sysostory.model.dto.CharacterDTO;
+import com.kkpjj.sysostory.model.dto.InventoryDTO;
 import com.kkpjj.sysostory.view.ViewUtil;
 import com.kkpjj.sysostory.view.shop.ArmorDealer;
 import com.kkpjj.sysostory.view.shop.ArmorShopView;
@@ -30,6 +31,8 @@ public class VillageView extends JPanel implements KeyListener {
 	private JPanel armorShopPanel;
 	private JPanel moveFieldPanel;
 	
+	private InventoryDTO inven;
+	
 	private CharacterDTO chr; 
 	
 	private JTextField tf;
@@ -44,7 +47,7 @@ public class VillageView extends JPanel implements KeyListener {
 		chr = new CharacterDTO();
 		
 		// 하단 정보 패널 호출
-		new StatusPanel(mf);
+		new StatusPanel(mf, chr);
 		
 		init();
 		// 상인, 화살표 생성 후 프레임에 추가
@@ -126,7 +129,7 @@ public class VillageView extends JPanel implements KeyListener {
 			} else if(e.getSource() == armorShopPanel) {
 				ViewUtil.changePanel(mf, villageView, new ArmorShopView(mf));
 			} else if(e.getSource() == moveFieldPanel) {
-				ViewUtil.changePanel(mf, villageView, new FieldCharacterBattle(mf, chr));
+				ViewUtil.changePanel(mf, villageView, new FieldCharacterBattle(mf, inven, chr));
 			}
 		}
 	}

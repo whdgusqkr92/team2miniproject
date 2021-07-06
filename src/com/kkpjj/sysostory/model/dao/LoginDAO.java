@@ -164,28 +164,28 @@ public class LoginDAO {
 			pstmt = con.prepareStatement(query);
 			rset = pstmt.executeQuery();
 			
-			while(rset.next()) {
-				private int chrCode;
-				private int userNo;
-				private String chrName;
-			 	private int chrHp;
-				private int chrMp;
-				private int chrExp;
-				private int chrLevel;
-				private int chrGold;
-				private int chrMaxHp;
-				private int chrMaxMp;
-				private int chrMaxExp;
-				private int chrAtt;
-				private int chrDef;
-				private String chrSfx;
-				private String chrBmg;
-				private String chrEquipTitle;
-				private String chrEquipWeapon;
-				private String chrEquipArmor;
-				charDTO.
-				
-			}
+//			while(rset.next()) {
+//				private int chrCode;
+//				private int userNo;
+//				private String chrName;
+//			 	private int chrHp;
+//				private int chrMp;
+//				private int chrExp;
+//				private int chrLevel;
+//				private int chrGold;
+//				private int chrMaxHp;
+//				private int chrMaxMp;
+//				private int chrMaxExp;
+//				private int chrAtt;
+//				private int chrDef;
+//				private String chrSfx;
+//				private String chrBmg;
+//				private String chrEquipTitle;
+//				private String chrEquipWeapon;
+//				private String chrEquipArmor;
+//				charDTO.
+//				
+//			}
 			
 			
 		} catch (SQLException e) {
@@ -194,6 +194,7 @@ public class LoginDAO {
 			close(rset);
 			close(pstmt);
 		}
+		return charDTO;
 		
 	}
 	

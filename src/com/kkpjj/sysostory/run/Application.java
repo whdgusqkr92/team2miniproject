@@ -2,6 +2,8 @@ package com.kkpjj.sysostory.run;
 
 
 
+import javax.sound.sampled.Clip;
+
 import com.kkpjj.sysostory.view.MainFrame;
 
 
