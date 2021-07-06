@@ -4,6 +4,7 @@ import java.awt.Font;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.ResultSet;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -19,6 +20,7 @@ import javax.swing.text.PlainDocument;
 
 import com.kkpjj.sysostory.controller.LoginController;
 import com.kkpjj.sysostory.controller.MemberController;
+import com.kkpjj.sysostory.model.dto.CharacterDTO;
 import com.kkpjj.sysostory.model.dto.MemberDTO;
 import com.kkpjj.sysostory.view.ViewUtil;
 
@@ -78,14 +80,18 @@ public class StartScreen extends JPanel {
 		loginButton.addActionListener(new ActionListener() {
 
 			MemberController memController = new MemberController();
+			LoginController loginController = new LoginController();
+			
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				
 				if(idText.getText().length() > 0 && pwdText.getPassword().length > 0) {
 					int result = memController.Login(idText, pwdText);
-
+					
+					CharacterDTO charDTO = loginController.searchCharacterInfo(idText.getText());
+					
 					if (result > 0) { // 로그인 성공시, 화면이동 처리 코드
-						ViewUtil.changePanel(mf, loginPanel, new AfterLogin(mf, idText.getText(), memberDTO));
+						ViewUtil.changePanel(mf, loginPanel, new AfterLogin(mf, idText.getText(), memberDTO, charDTO));
 					} else {
 						infoBox("아이디와 패스워드를 확인하여주세요.", "message");
 					}

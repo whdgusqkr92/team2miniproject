@@ -12,6 +12,7 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
+
 import com.kkpjj.sysostory.controller.LoginController;
 import com.kkpjj.sysostory.model.dto.CharacterDTO;
 import com.kkpjj.sysostory.model.dto.MemberDTO;
@@ -25,8 +26,7 @@ public class AfterLogin extends JPanel{
 	private MemberDTO memberDTO;
 	private CharacterDTO characterDTO;
 	
-	public AfterLogin(JFrame mf, String idText, MemberDTO memberDTO) {
-//		mf = new JFrame();
+	public AfterLogin(JFrame mf, String idText, MemberDTO memberDTO, CharacterDTO charDTO) {
 		this.memberDTO = memberDTO;
 		JPanel panel = new JPanel();
 		panel.setBounds(0, 0, 800, 600);
@@ -45,8 +45,6 @@ public class AfterLogin extends JPanel{
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				System.out.println("qkr2222222" + idText);
-//				new NickName(idText);
 				ViewUtil.changePanel(mf, panel, new NickName(mf, idText, memberDTO));
 				infoBox("닉네임을 입력해주세요.","닉네임 생성");
 			}
@@ -60,16 +58,13 @@ public class AfterLogin extends JPanel{
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				characterDTO = new CharacterDTO();
-				
-//				storyController.selectStoryContents(storyDTO.getStoryCode())
-//				LoginController.searchAllMember();
-				
-				ViewUtil.changePanel(mf, panel, new VillageView(mf, characterDTO));
+
+				ViewUtil.changePanel(mf, panel, new VillageView(mf, charDTO));
 			}
 		});
+
 		
-		
+
 		JButton logoutButton = new JButton("로그아웃");				/* 로그아웃 버튼 */
 		logoutButton.setFont(new Font("둥근모꼴", Font.PLAIN, 24));
 		logoutButton.setBounds(275, 360, 250, 60);
@@ -79,8 +74,6 @@ public class AfterLogin extends JPanel{
 			@Override
 			public void actionPerformed(ActionEvent e) {
 
-//				mf.setVisible(false);
-//				new StartScreenmf();
 				ViewUtil.changePanel(mf, panel, new StartScreen(mf));
 				infoBox("로그아웃 되었습니다.","로그아웃");
 				

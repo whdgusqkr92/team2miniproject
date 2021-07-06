@@ -19,23 +19,24 @@
 	     , '갑옷'
 	       )
 	</entry>
-	
 	<entry key="updateNickname">
 	UPDATE TBL_CHR_INFO
-	   SET (
-	       CHR_CODE, USER_NO, CHR_NAME, CHR_HP, CHR_MP
-	     , CHR_EXP, CHR_LEVEL, CHR_GOLD, MAX_HP, MAX_MP
-	     , MAX_EXP, CHR_ATT, CHR_DEF, EQUIP_TITLE, EQUIP_WEAPON
-	     , EQUIP_ARMOR
-	       )
-	       VALUES
-	       (
-	       SEQ_CHR_CODE.NEXTVAL, ?, ?, 100, 100
-	     , 0, 1, 0, 100, 100
-	     , 100, 10, 10, 'NULL', '단검'
-	     , '갑옷'
-	       )
-	 WHERE CHR_CODE > 0
+	   SET 
+	       CHR_NAME = ?
+	     , CHR_HP = 100
+	     , CHR_MP = 100
+	     , CHR_EXP = 0
+	     , CHR_LEVEL = 1
+	     , CHR_GOLD = 0
+	     , MAX_HP = 100
+	     , MAX_MP = 100
+	     , MAX_EXP = 100
+	     , CHR_ATT = 10
+	     , CHR_DEF = 10
+	     , EQUIP_TITLE = NULL
+	     , EQUIP_WEAPON = '단검'
+	     , EQUIP_ARMOR = '갑옷'
+	     WHERE USER_NO = ?
 	</entry>
 	
 	<entry key="searchMemberNumber">
@@ -63,6 +64,14 @@
 	     , USER_STATUS
 	  FROM TBL_USER_INFO
 	</entry>
+	
+	<entry key="checkNewUser">
+    SELECT
+         CHR_CODE
+  	     FROM TBL_CHR_INFO
+  	    WHERE USER_NO = ? 
+	</entry>
+
 </properties>
 
 

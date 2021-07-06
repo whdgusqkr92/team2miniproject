@@ -9,8 +9,10 @@ import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.UnsupportedAudioFileException;
 import javax.swing.JFrame;
 
-
 import com.kkpjj.sysostory.model.dto.CharacterDTO;
+
+import com.kkpjj.sysostory.view.member.StartScreen;
+
 
 import com.kkpjj.sysostory.model.dto.InventoryDTO;
 import com.kkpjj.sysostory.view.boss.BossTurn;
@@ -19,6 +21,7 @@ import com.kkpjj.sysostory.view.battle.BattlePage;
 
 import com.kkpjj.sysostory.view.character.FieldCharacterBattle;
 import com.kkpjj.sysostory.view.character.Sound;
+
 
 
 
@@ -39,6 +42,10 @@ public class MainFrame extends JFrame {
 		mf.setLayout(null);
 
 
+	//	mf.add(new StartScreen(mf));
+		
+
+
 
 		new FieldCharacterBattle(mf, inventoryDTO, characterDTO);
 		
@@ -46,7 +53,8 @@ public class MainFrame extends JFrame {
 
 
 
-		//new FieldCharacterBattle(mf, null, chr);
+	
+
 
 
 		mf.setLocationRelativeTo(null);

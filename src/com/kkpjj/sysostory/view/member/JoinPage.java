@@ -27,8 +27,8 @@ public class JoinPage extends JPanel{
 
 	private JFrame mf;
 	private JTextField idText;
-//	private JPasswordField pwdText;
-	private JTextField pwdText;
+	private JPasswordField pwdText;
+//	private JTextField pwdText;
 	private JTextField nameText;
 	private JTextField emailText;
 	
@@ -68,8 +68,8 @@ public class JoinPage extends JPanel{
 		pwdLabel.setFont(new Font("둥근모꼴", Font.PLAIN, 24));
 		pwdPanel.add(pwdLabel);
 		
-//		pwdText = new JPasswordField();	
-		pwdText = new JTextField();
+		pwdText = new JPasswordField();	
+//		pwdText = new JTextField();
 		pwdText.setFont(new Font("둥근모꼴", Font.PLAIN, 20));			/* pwd 입력란 */
 		pwdText.setBounds(300, 180, 300, 45);
 		pwdText.setColumns(12);
@@ -112,13 +112,13 @@ public class JoinPage extends JPanel{
 		btnNewButton.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-//				String pwdString = new String(pwdText.getPassword());
+				String pwdString = new String(pwdText.getPassword());
 				infoBox("회원가입을 완료 하셨습니다.", "회원가입 완료");
 				ViewUtil.changePanel(mf, panel, new StartScreen(mf));
 				
 				Map<String,String> joinMap = new HashMap<>();
 				joinMap.put("id", idText.getText());
-				joinMap.put("pwd", pwdText.getText());
+				joinMap.put("pwd", pwdString);
 				joinMap.put("name", nameText.getText());
 				joinMap.put("email", emailText.getText());
 				memController.InputMember(joinMap);
