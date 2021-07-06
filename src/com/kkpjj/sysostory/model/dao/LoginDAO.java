@@ -44,33 +44,35 @@ public class LoginDAO {
 		
 		int result = 0;
 		
-		String query1 = prop.getProperty("insertNickname");
+		ResultSet checkNewUesrResultSet = null;
+		int checkChrNumber = 0;
 		
-
+		String query1 = prop.getProperty("insertNickname");
 		String query2 = prop.getProperty("updateNickname");
-
+		String query3 = prop.getProperty("checkNewUser"); 
 		
 		try {
-				System.out.println(memberDTO.getUserNo());
+			pstmt = con.prepareStatement(query3);
+			pstmt.setInt(1, memberDTO.getUserNo());
+			checkNewUesrResultSet = pstmt.executeQuery();
 			
-				if(characterDTO.getChrCode() >= 1 && memberDTO.getUserNo() > 0) {
+			while (checkNewUesrResultSet.next()) {
+				checkChrNumber =  checkNewUesrResultSet.getInt("CHR_CODE");
+			}
+			
+			if (checkChrNumber > 0 ) { // 닉네임 설정을 최초 한번 이상 한 유저 (기존 유저)
 				pstmt = con.prepareStatement(query2);
-	            pstmt.setInt(1, memberDTO.getUserNo());
-	            pstmt.setString(2, characterDTO.getChrName());
-//	            pstmt.setInt(3, characterDTO.getUserNo());
+	            pstmt.setString(1, characterDTO.getChrName());
+	            pstmt.setInt(2, memberDTO.getUserNo());
 	            
 	            result = pstmt.executeUpdate();
-	            
-			} else {
+			}else { // 닉네임 설정을 최초 한번 이상 안한 유저 (신규유저)
 				pstmt = con.prepareStatement(query1);
-				pstmt.setInt(1, memberDTO.getUserNo());
-				pstmt.setString(2, characterDTO.getChrName());
-//				pstmt.setInt(3, characterDTO.getUserNo());
-				
-				result = pstmt.executeUpdate();
-				
+	            pstmt.setInt(1, memberDTO.getUserNo());
+	            pstmt.setString(2, characterDTO.getChrName());
+	            
+	            result = pstmt.executeUpdate();
 			}
-				
 			
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -150,6 +152,49 @@ public class LoginDAO {
 		
 		
 		return memberList;
+	}
+	
+	
+	public CharacterDTO searchCharacterInfo(Connection con, MemberDTO memberDTO) {
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		String query = prop.getProperty("selectAllMember");
+		CharacterDTO charDTO = new CharacterDTO();
+		try {
+			pstmt = con.prepareStatement(query);
+			rset = pstmt.executeQuery();
+			
+			while(rset.next()) {
+				private int chrCode;
+				private int userNo;
+				private String chrName;
+			 	private int chrHp;
+				private int chrMp;
+				private int chrExp;
+				private int chrLevel;
+				private int chrGold;
+				private int chrMaxHp;
+				private int chrMaxMp;
+				private int chrMaxExp;
+				private int chrAtt;
+				private int chrDef;
+				private String chrSfx;
+				private String chrBmg;
+				private String chrEquipTitle;
+				private String chrEquipWeapon;
+				private String chrEquipArmor;
+				charDTO.
+				
+			}
+			
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		
 	}
 	
 }

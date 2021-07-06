@@ -24,8 +24,6 @@ public class LoginService {
 
 
 		Connection con = getConnection();
-//		System.out.println("Serveice : " + characterDTO.getChrName());
-//		System.out.println("ServiceMem_No : " + memberDTO.getUserNo());
 		int nickNameResult = loginDAO.insertNickname(con, characterDTO, memberDTO);
 		
 		close(con);
@@ -50,6 +48,17 @@ public class LoginService {
 		
 		close(con);
 		return memberList;
+	}
+	
+	public CharacterDTO searchCharacterInfo(MemberDTO memDTO) {
+		
+		Connection con = getConnection();
+		
+		CharacterDTO charDTO = loginDAO.searchCharacterInfo(con, memDTO);
+		
+		close(con);
+		return charDTO;
+
 	}
 	
 //	public int checkCharacterNumber(String idText) {

@@ -5,9 +5,9 @@ import java.util.Map;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
+import com.kkpjj.sysostory.model.dto.CharacterDTO;
 import com.kkpjj.sysostory.model.dto.MemberDTO;
 import com.kkpjj.sysostory.model.service.MemberService;
-import com.kkpjj.sysostory.view.member.AfterLogin;
 import com.kkpjj.sysostory.view.member.MemberResultView;
 
 public class MemberController {
@@ -81,7 +81,6 @@ public class MemberController {
 		
 		return resultPwd;
 	}
-
 
 }
 
