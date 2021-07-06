@@ -17,27 +17,27 @@ import javax.swing.text.AttributeSet;
 import javax.swing.text.BadLocationException;
 import javax.swing.text.PlainDocument;
 
+import com.kkpjj.sysostory.controller.LoginController;
 import com.kkpjj.sysostory.controller.MemberController;
 import com.kkpjj.sysostory.model.dto.MemberDTO;
+import com.kkpjj.sysostory.view.ViewUtil;
 
-public class StartScreen extends JFrame {
+public class StartScreen extends JPanel {
 
 	private JFrame mf;
 	private JPanel loginPanel;
 	private MemberDTO memberDTO;
+	private String idText;
 
 	
 	
-	public StartScreen() {
-		mf = new JFrame();
-		mf.setTitle("syso Story");
-		mf.setSize(800, 600);
-		mf.setLocationRelativeTo(null);
-		mf.setResizable(false);
-		mf.getContentPane().setLayout(null);
-
+	public StartScreen(JFrame mf) {
+		memberDTO = new MemberDTO();
+		LoginController lc = new LoginController();
+		lc.searchAllMember();
 		loginPanel = new JPanel();
 		loginPanel.setBounds(0, 0, 800, 600);
+		loginPanel.setLayout(null);
 
 		Image background = new ImageIcon("images/login/StartScreen.png").getImage().getScaledInstance(800, 600, 0);
 		JLabel label = new JLabel(new ImageIcon(background));
@@ -59,10 +59,10 @@ public class StartScreen extends JFrame {
 		pwdPanel.add(pwdLabel);
 		pwdPanel.setBounds(200, 300, 100, 50);
 
-		JTextField idText = new JTextField();/* id 입력란 */
-		idText.setDocument((new JTextFieldLimit(12))); /* ID 입력 갯수 제한 */
-		idText.setBounds(320, 230, 300, 50);						
-		idText.setFont(new Font("굴림", Font.PLAIN, 30));
+		JTextField idTextF = new JTextField();/* id 입력란 */
+		idTextF.setDocument((new JTextFieldLimit(12))); 
+		idTextF.setBounds(320, 230, 300, 50);						
+		idTextF.setFont(new Font("굴림", Font.PLAIN, 30));
 
 		JPasswordField pwdText = new JPasswordField(20);				/* pwd 입력란 */
 		//		JTextField pwdText = new JTextField(12);
@@ -80,11 +80,12 @@ public class StartScreen extends JFrame {
 			MemberController memController = new MemberController();
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				if(idText.getText().length() > 0 && pwdText.getPassword().length > 0) {
-					int result = memController.Login(idText, pwdText);
+				
+				if(idTextF.getText().length() > 0 && pwdText.getPassword().length > 0) {
+					int result = memController.Login(idTextF, pwdText);
 
 					if (result > 0) { // 로그인 성공시, 화면이동 처리 코드
-						mf.setVisible(false); 
+						ViewUtil.changePanel(mf, loginPanel, new AfterLogin(mf, idText, memberDTO));
 					} else {
 						infoBox("아이디와 패스워드를 확인하여주세요.", "message");
 					}
@@ -103,8 +104,11 @@ public class StartScreen extends JFrame {
 		joinButton.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				new JoinPage();
-				mf.setVisible(false);
+				
+				ViewUtil.changePanel(mf, loginPanel, new JoinPage(mf));
+				
+				
+//				mf.setVisible(false);
 			}
 		});
 
@@ -116,8 +120,9 @@ public class StartScreen extends JFrame {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				new FindIdView();
-				mf.setVisible(false);
+//				new FindIdView();
+//				mf.setVisible(false);
+				ViewUtil.changePanel(mf, loginPanel, new FindIdView(mf));
 			}
 		});
 
@@ -129,8 +134,9 @@ public class StartScreen extends JFrame {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				new FindPwdView();
-				mf.setVisible(false);
+//				new FindPwdView();
+//				mf.setVisible(false);
+				ViewUtil.changePanel(mf, loginPanel, new FindPwdView(mf));
 			}
 		});
 
@@ -145,21 +151,21 @@ public class StartScreen extends JFrame {
 		
 
 		ManagerButton.add(option);
-		mf.getContentPane().add(ManagerButton);
-		mf.getContentPane().add(idPanel);
-		mf.getContentPane().add(idText);
-		mf.getContentPane().add(pwdPanel);
-		mf.getContentPane().add(pwdText);
-		mf.getContentPane().add(loginButton);
-		mf.getContentPane().add(joinButton);
-		mf.getContentPane().add(findIdButton);
-		mf.getContentPane().add(findPwdButton);
-		mf.getContentPane().add(label);
+		loginPanel.add(ManagerButton);
+		loginPanel.add(idPanel);
+		loginPanel.add(idTextF);
+		loginPanel.add(pwdPanel);
+		loginPanel.add(pwdText);
+		loginPanel.add(loginButton);
+		loginPanel.add(joinButton);
+		loginPanel.add(findIdButton);
+		loginPanel.add(findPwdButton);
+		loginPanel.add(label);
+		mf.add(loginPanel);
 
-
-		mf.setVisible(true);
-		mf.setResizable(false);
-		mf.setDefaultCloseOperation(EXIT_ON_CLOSE);
+//		mf.setVisible(true);
+//		mf.setResizable(false);
+//		mf.setDefaultCloseOperation(EXIT_ON_CLOSE);
 
 
 	}

@@ -4,6 +4,7 @@ import static com.kkpjj.common.JDBCTemplate.close;
 import static com.kkpjj.common.JDBCTemplate.getConnection;
 
 import java.sql.Connection;
+import java.util.List;
 
 import com.kkpjj.sysostory.model.dao.LoginDAO;
 import com.kkpjj.sysostory.model.dto.CharacterDTO;
@@ -23,8 +24,8 @@ public class LoginService {
 
 
 		Connection con = getConnection();
-		System.out.println("Serveice : " + characterDTO.getChrName());
-		System.out.println("ServiceMem_No : " + memberDTO.getUserNo());
+//		System.out.println("Serveice : " + characterDTO.getChrName());
+//		System.out.println("ServiceMem_No : " + memberDTO.getUserNo());
 		int nickNameResult = loginDAO.insertNickname(con, characterDTO, memberDTO);
 		
 		close(con);
@@ -39,6 +40,16 @@ public class LoginService {
 		close(con);
 		
 		return searchMemberNumber;
+	}
+
+
+	public List<MemberDTO> searchAllMember() {
+		Connection con = getConnection();
+		
+		List<MemberDTO> memberList = loginDAO.selectAllMember(con);
+		
+		close(con);
+		return memberList;
 	}
 	
 //	public int checkCharacterNumber(String idText) {

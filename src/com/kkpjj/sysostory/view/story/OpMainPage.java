@@ -1,22 +1,18 @@
 package com.kkpjj.sysostory.view.story;
 
-import java.awt.Color;
 import java.awt.Font;
 import java.awt.Image;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
 import javax.swing.ImageIcon;
-import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import com.kkpjj.sysostory.controller.StoryController;
+import com.kkpjj.sysostory.model.dto.MemberDTO;
 import com.kkpjj.sysostory.model.dto.StoryDTO;
-import com.kkpjj.sysostory.view.MainFrame;
 import com.kkpjj.sysostory.view.ViewUtil;
 
 public class OpMainPage extends JPanel {
@@ -26,7 +22,7 @@ public class OpMainPage extends JPanel {
 	private StoryDTO storyDTO;
 	private StoryController storyController;
 	
-	public OpMainPage(JFrame mf) {
+	public OpMainPage(JFrame mf, String idText,MemberDTO memberDTO) {
 		this.mf = mf;
 		
 		storyController = new StoryController();
