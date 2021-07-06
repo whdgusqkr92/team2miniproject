@@ -1,5 +1,6 @@
 package com.kkpjj.sysostory.view.character;
 
+import java.awt.Component;
 import java.io.File;
 import java.io.IOException;
 
@@ -8,13 +9,17 @@ import javax.sound.sampled.Clip;
 import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.UnsupportedAudioFileException;
 
-public class Sound {
+import com.kkpjj.sysostory.view.MainFrame;
+
+
+public class Sound extends MainFrame {
 	
 	private static Clip clip;
 	
+	
 	public static void sound(){
 		
-		File file = new File("images/text/bgm.wav");
+		File file = new File("images/text/배경음악.wav");
 		try {
 			clip = AudioSystem.getClip();
 			clip.open(AudioSystem.getAudioInputStream(file));
@@ -58,8 +63,8 @@ public class Sound {
 	
 	public static void soundStop() {
 		clip.stop();
+		clip.close();
 		
-//		clip.start();
 	}
 	
 	public static void effSound(){
@@ -82,7 +87,9 @@ public class Sound {
 		}
 
 		}
-	
+
+
+
 	
 	
 	

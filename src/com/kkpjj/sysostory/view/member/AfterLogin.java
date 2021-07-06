@@ -12,14 +12,18 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
+import com.kkpjj.sysostory.controller.LoginController;
+import com.kkpjj.sysostory.model.dto.CharacterDTO;
 import com.kkpjj.sysostory.model.dto.MemberDTO;
 import com.kkpjj.sysostory.view.ViewUtil;
+import com.kkpjj.sysostory.view.character.VillageView;
 import com.kkpjj.sysostory.view.user.NickName;
 
 public class AfterLogin extends JPanel{
 	private JFrame mf;
 	private String idText;
 	private MemberDTO memberDTO;
+	private CharacterDTO characterDTO;
 	
 	public AfterLogin(JFrame mf, String idText, MemberDTO memberDTO) {
 //		mf = new JFrame();
@@ -51,6 +55,20 @@ public class AfterLogin extends JPanel{
 		JButton btnNewButton_1 = new JButton("이어 하기");				/* 이어 하기 버튼 */
 		btnNewButton_1.setFont(new Font("둥근모꼴", Font.PLAIN, 24));
 		btnNewButton_1.setBounds(200, 240, 400, 80);
+		
+		btnNewButton_1.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				characterDTO = new CharacterDTO();
+				
+//				storyController.selectStoryContents(storyDTO.getStoryCode())
+//				LoginController.searchAllMember();
+				
+				ViewUtil.changePanel(mf, panel, new VillageView(mf, characterDTO));
+			}
+		});
+		
 		
 		JButton logoutButton = new JButton("로그아웃");				/* 로그아웃 버튼 */
 		logoutButton.setFont(new Font("둥근모꼴", Font.PLAIN, 24));
