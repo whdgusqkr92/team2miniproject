@@ -30,9 +30,9 @@ public class LoginController {
 		
 		characterDTO.setChrName(nicknameText);
 		int numberResult = loginService.checkMemberNumber(idText);
-		System.out.println(numberResult);
+		System.out.println("넘버리절트" + numberResult);
 		memberDTO.setUserNo(numberResult);
-		
+//		System.out.println(nicknameText);
 //		int characterNumberResult = loginService.checkCharacterNumber(idText);
 		
 		int result = loginService.checkNickname(characterDTO, memberDTO);

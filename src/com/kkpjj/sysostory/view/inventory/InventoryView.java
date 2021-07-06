@@ -5,6 +5,7 @@ import java.awt.Image;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
@@ -17,14 +18,14 @@ import com.kkpjj.sysostory.view.MainFrame;
 
 public class InventoryView extends JPanel {
 	
-	private MainFrame mf;
+	private JFrame mf;
 	private InventoryView mainPage;
 	private Image img;
 	private Image img2;
 	private CharacterDTO equip;
 	private InventoryController ic;
 
-	public InventoryView(MainFrame mf, InventoryDTO inven, CharacterDTO equip) {
+	public InventoryView(JFrame mf, InventoryDTO inven, CharacterDTO equip) {
 
 		ic = new InventoryController();
 

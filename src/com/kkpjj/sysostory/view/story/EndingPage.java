@@ -98,6 +98,8 @@ public class EndingPage extends JPanel {
 			textLabel2.setVisible(true);
 		}
 	}
+	
+	
 	private class TwoActionListener extends MouseAdapter {
 		
 		@Override
@@ -149,9 +151,7 @@ public class EndingPage extends JPanel {
 			endingSc += "</html>";
 		
 		label.setText(endingSc);
-		
 		label.addMouseListener(new MyMouseAdapter());
-		
 	
 	}
 
