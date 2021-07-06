@@ -3,7 +3,9 @@ package com.kkpjj.sysostory.view;
 import javax.swing.JFrame;
 
 import com.kkpjj.sysostory.model.dto.CharacterDTO;
-import com.kkpjj.sysostory.view.member.StartScreen;
+import com.kkpjj.sysostory.view.character.CharacterView;
+import com.kkpjj.sysostory.view.character.StatusPanel;
+import com.kkpjj.sysostory.view.character.VillageView;
 
 public class MainFrame extends JFrame {
 
@@ -23,10 +25,10 @@ public class MainFrame extends JFrame {
 		//new EndingPage(mf);
 		
 
-
-		mf.add(new StartScreen(mf));
-
-    
+//		mf.add(new StartScreen(mf));
+//		mf.add(new CharacterView(mf, chr));
+//		mf.add(new StatusPanel(mf, chr));
+		mf.add(new VillageView(mf, chr));
 
 
 		mf.setLocationRelativeTo(null);

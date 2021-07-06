@@ -1,6 +1,9 @@
 package com.kkpjj.sysostory.view.character;
 
+import java.awt.Color;
 import java.awt.Font;
+import java.awt.Graphics;
+import java.awt.Image;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
@@ -14,20 +17,14 @@ import com.kkpjj.sysostory.controller.CharacterController;
 import com.kkpjj.sysostory.model.dto.CharacterDTO;
 import com.kkpjj.sysostory.view.ViewUtil;
 
-public class CharacterView extends JPanel implements KeyListener{
+public class CharacterView extends JPanel{
 	
 	private JFrame mf;
-	private ImageIcon status = null;
-	private ImageIcon map = null;
-	private ImageIcon characterWindow = null;
-	private ImageIcon sysoIcon = null;
-	private ImageIcon exit = null;
+
 	private CharacterDTO chrDTO;
 	private CharacterController cc;
 	
 	private JPanel chrPanel;
-
-	private JTextField tf;
 	
 	public CharacterView(JFrame mf, CharacterDTO chrDTO) {
 		
@@ -35,6 +32,9 @@ public class CharacterView extends JPanel implements KeyListener{
 		this.chrDTO = chrDTO;
 		
 		cc = new CharacterController();
+		
+		// 하단 정보 패널 호출
+		new StatusPanel(mf, chrDTO);
 		
 		/* -------------- 캐릭터 정보 테스트 ----------------- */
 		
@@ -61,167 +61,122 @@ public class CharacterView extends JPanel implements KeyListener{
 		mf.getContentPane().add(chrPanel);
 		chrPanel.setLayout(null);
 		
-		// 닉네임 닉네임 라벨 생성
+		// 캐릭터 정보창 패널 생성
+		JLabel chrPanelName = new JLabel();
+		chrPanelName.setBounds(70, 5, 300, 50);
+		chrPanelName.setFont(new Font("둥근모꼴", Font.PLAIN, 35));
+		chrPanelName.setForeground(Color.white);
+		chrPanelName.setText("캐릭터 정보");
+		chrPanel.add(chrPanelName);
+		
+		// 닉네임 라벨 생성
 		JLabel nickname = new JLabel();
-		nickname.setBounds(50, 50, 200, 50);
+		nickname.setBounds(30, 180, 300, 50);
 		nickname.setFont(new Font("둥근모꼴", Font.PLAIN, 24));
-		nickname.setText(chr.getChrName());
+		nickname.setForeground(Color.white);
+		nickname.setText("이름     " + chr.getChrName());
+		chrPanel.add(nickname);
+		
+		// 칭호 라벨 생성
+		JLabel title = new JLabel();
+		title.setBounds(30, 220, 300, 50);
+		title.setFont(new Font("둥근모꼴", Font.PLAIN, 24));
+		title.setForeground(Color.white);
+		title.setText("칭호     " + titleYN(chr));
+		chrPanel.add(title);
 		
 		// 장착한 무기 라벨 생성
+		JLabel equipWeapon = new JLabel();
+		equipWeapon.setBounds(30, 260, 300, 50);
+		equipWeapon.setFont(new Font("둥근모꼴", Font.PLAIN, 24));
+		equipWeapon.setForeground(Color.white);
+		equipWeapon.setText("무기     " + chr.getChrEquipWeapon());
+		chrPanel.add(equipWeapon);
+		
 		// 장착한 방어구 라벨 생성
+		JLabel equipArmor = new JLabel();
+		equipArmor.setBounds(30, 300, 300, 50);
+		equipArmor.setFont(new Font("둥근모꼴", Font.PLAIN, 24));
+		equipArmor.setForeground(Color.white);
+		equipArmor.setText("방어구   " + chr.getChrEquipArmor());
+		chrPanel.add(equipArmor);
+		
 		// 레벨 라벨 생성
-		// 현재 HP 라벨 생성
-		// 최대 HP 라벨 생성
-		// 현재 MP 라벨 생성
-		// 최대 MP 라벨 생성
-		// 현재 경험치 라벨 생성
-		// 레벨업 조건 경험치 라벨 생성
+		JLabel level = new JLabel();
+		level.setBounds(400, 50, 300, 50);
+		level.setFont(new Font("둥근모꼴", Font.PLAIN, 30));
+		level.setForeground(Color.white);
+		level.setText("레벨          " + chr.getChrLevel());
+		chrPanel.add(level);
+		
+		// 현재 HP, 최대 HP 라벨 생성
+		JLabel hp = new JLabel();
+		hp.setBounds(400, 100, 400, 50);
+		hp.setFont(new Font("둥근모꼴", Font.PLAIN, 30));
+		hp.setForeground(Color.white);
+		hp.setText("체력        " + chr.getChrHp() + " /  " + chr.getChrMaxHp());
+		chrPanel.add(hp);
+		
+		// 현재 MP, 최대 MP 라벨 생성
+		JLabel mp = new JLabel();
+		mp.setBounds(400, 150, 400, 50);
+		mp.setFont(new Font("둥근모꼴", Font.PLAIN, 30));
+		mp.setForeground(Color.white);
+		mp.setText("기력         " + chr.getChrMp() + " /   " + chr.getChrMaxMp());
+		chrPanel.add(mp);
+		
+		// 현재 경험치, 레벨업 조건 경험치 라벨 생성
+		JLabel exp = new JLabel();
+		exp.setBounds(400, 200, 400, 50);
+		exp.setFont(new Font("둥근모꼴", Font.PLAIN, 30));
+		exp.setForeground(Color.white);
+		exp.setText("경험치      " + chr.getChrExp() + " /  " + chr.getChrMaxExp());
+		chrPanel.add(exp);
+	
 		// 공격력 라벨 생성
+		JLabel att = new JLabel();
+		att.setBounds(400, 250, 300, 50);
+		att.setFont(new Font("둥근모꼴", Font.PLAIN, 30));
+		att.setForeground(Color.white);
+		att.setText("공격력       " + chr.getChrAtt());
+		chrPanel.add(att);
+		
 		// 방어력 라벨 생성
-		// 칭호 라벨 생성
+		JLabel def = new JLabel();
+		def.setBounds(400, 300, 300, 50);
+		def.setFont(new Font("둥근모꼴", Font.PLAIN, 30));
+		def.setForeground(Color.white);
+		def.setText("방어력       " + chr.getChrDef());
+		chrPanel.add(def);
 		
-		
-		chrPanel.add(nickname);
 
+		// 캐릭터 정보 배경 추가
+		Image ChrInfoBg = new ImageIcon("images/character/characterWindow.png").getImage();
+		JLabel bg = new JLabel(new ImageIcon(ChrInfoBg));
+		bg.setBounds(2, 2, 795, 415);
 		
+
+		// 캐릭터 이미지 추가
+		Image ChrProfileImg = new ImageIcon("images/character/sysoIcon.png").getImage();
+		JLabel ChrProfile = new JLabel(new ImageIcon(ChrProfileImg));
+		ChrProfile.setBounds(100, 50, 136, 136);
 		
+		chrPanel.add(ChrProfile);
+		chrPanel.add(bg); 			// 캐릭터 이미지가 안나와서 순서 변경
 		
-		
-//		JLabel label = new JLabel();
-//		label.setBounds(50, 50, 700, 300);
-//		label.setFont(new Font("둥근모꼴", Font.PLAIN, 24));
-//		
-//		label.setText(cc.selectCharacterInfo(chrDTO.getChrCode(), chrDTO.getUserNo()));
-		
-		
-//		System.out.println(chrDTO.getChrLevel());
-//		System.out.println(chrDTO.getChrHp());
-//		System.out.println(chrDTO.getChrMp());
-		
-		
-		// 캐릭터 정보 창, 나가기 버튼
-//		JPanel charInfoPanel = new JPanel();
-//		charInfoPanel.setBounds(0, 0, 800, 410);
-//		mf.getContentPane().add(charInfoPanel);
-//		charInfoPanel.setLayout(null);
-//
-//		JPanel characterInfo = new JPanel();
-//		characterInfo.setBounds(12, 0, 780, 410);
-//		charInfoPanel.add(characterInfo);
-//		
-//		JPanel characterProfile = new JPanel();
-//		characterProfile.setBounds(88, 50, 136, 136);
-//		charInfoPanel.add(characterProfile);
-//		
-//		Image itemWindowBg = new ImageIcon("images/character/characterWindow.png").getImage();
-//		JLabel label3= new JLabel(new ImageIcon(itemWindowBg));
-//		label3.setBounds(398, 10, 50, 50);
-//		charInfoPanel.add(label3);
-//		
-//		// 캐릭터 이미지
-//		status = new ImageIcon("images/character/status.png");
-//		map = new ImageIcon("images/character/map.png");
-//		characterWindow = new ImageIcon("images/character/characterWindow.png");
-//		sysoIcon = new ImageIcon("images/character/sysoIcon.png");
-//		exit = new ImageIcon("images/character/exit.png");
-//		
-//		
-//		// 캐릭터 상태
-//		JPanel panel1 = new JPanel() {
-//			
-//			public void paintComponent(Graphics g) {
-//				g.drawImage(status.getImage(), 0, 0, 560, 180, null);  // 이미지 원본 크기
-//			}
-//		};
-//		
-//		panel1.setBounds(0, 420, 560, 180);
-//		
-//		// 캐릭터 맵 정보
-//		JPanel panel2 = new JPanel() {
-//			
-//			public void paintComponent(Graphics g) {
-//				g.drawImage(map.getImage(), 0, 0, 240, 180, null);
-//			}
-//		};
-//		
-//		panel2.setBounds(560, 420, 240, 180);
-//		
-//		// 캐릭터 정보창
-//		JPanel panel3 = new JPanel() {
-//			
-//			public void paintComponent(Graphics g) {
-//				g.drawImage(characterWindow.getImage(), 0, 0, 800, 410, null);
-//			}
-//		};
-//		
-//		panel3.setBounds(12, 0, 780, 410);
-//		
-//		// 나가기 버튼
-//		JButton exitButton = new JButton();
-//		exitButton.setBounds(720, 15, 50, 50);
-//		exitButton.setIcon(new ImageIcon("images/character/exit.png"));
-//		mf.add(exitButton);
-//		
-//		
-//		exitButton.addActionListener(new ActionListener() {
-//			@Override
-//			public void actionPerformed(ActionEvent e) {
-//				ViewUtil.changePanel(mf, new CharacterView(mf), new VillageView(mf));
-//				exitButton.setVisible(false);
-//			}
-//		});
-		
-		
-//		
-//		
-//		// 캐릭터 프로필사진
-//		JPanel panel4 = new JPanel() {
-//			
-//			public void paintComponent(Graphics g) {
-//				g.drawImage(sysoIcon.getImage(), 0, 0, 136, 136, null);
-//			}
-//		};
-//		
-//		panel4.setBounds(88, 50, 136, 136);
-//		
-//		mf.add(panel1);
-//		mf.add(panel2);
-//		mf.add(panel4);
-//		mf.add(panel3);
-//		mf.setVisible(true);
-//		mf.setResizable(false);
 	}
 	
-	public void display(String s, KeyEvent e) {
+	
+	// 칭호를 장착하지 않은 경우 '없음'으로 출력하게 하는 메소드
+	public String titleYN(CharacterDTO chr) {
 		
-		int keyCode = e.getKeyCode();
+		String title = "";  
+		title = chr.getChrEquipTitle();
 		
-		// 키보드 이벤트 출력값 확인용
-		System.out.println("CharacterView에서 키보드 입력값 : " + keyCode);
-		
-		if(e.getKeyCode() == 69) {
-			ViewUtil.changePanel(mf, this, new VillageView(mf, chrDTO));
-			this.setVisible(false);
+		if(chr.getChrEquipTitle() == null) {
+			title = "없음";
 		}
+		return title;
 	}
-
-	@Override
-	public void keyTyped(KeyEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void keyPressed(KeyEvent e) {
-		this.display("keyPressed", e);
-		
-	}
-
-	@Override
-	public void keyReleased(KeyEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
-
 
 }
