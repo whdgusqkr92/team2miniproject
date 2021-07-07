@@ -23,14 +23,12 @@ public class BattleController {
 	private JFrame mf;
 	private JPanel battlePage;
 	private BattleService bs;
-	private CharacterDTO characterDTO;
-	private InventoryDTO inventoryDTO;
+	private CharacterDTO chrDTO;
+	private InventoryDTO invenDTO;
 	private BattleMon battleMon;
 	private BattleMenu battleMenu;
 	private String attackType;
 	private String subMenuName;
-	private int numOfMon;
-	private int monCode;
 	private List<MonsterDTO> monsterList;
 	private List<SkillDTO> skillList;
 
@@ -51,11 +49,13 @@ public class BattleController {
 	// getMonsterDTO
 	// getInventoryDTO
 
-	public BattleController(JFrame mf, JPanel battlePage, CharacterDTO characterDTO, InventoryDTO inventoryDTO) {
+
+	public BattleController(JFrame mf, JPanel battlePage, CharacterDTO chrDTO, InventoryDTO invenDTO) {
+
 		this.mf = mf;
 		this.battlePage = battlePage;
-		this.characterDTO = characterDTO;
-		this.inventoryDTO = inventoryDTO;
+		this.chrDTO = chrDTO;
+		this.invenDTO = invenDTO;
 		this.bs = new BattleService();
 	}
 
@@ -94,14 +94,14 @@ public class BattleController {
 		//		}
 
 		int selectMonCode = 1;
-		MonsterDTO monsterDTO = new MonsterDTO();
+		MonsterDTO monDTO = new MonsterDTO();
 		for(int i = 0; i < monsterList.size(); i++) {
 			if(selectMonCode == monsterList.get(i).getMonCode()) {
-				monsterDTO = monsterList.get(i);
+				monDTO = monsterList.get(i);
 			}
 		}
 
-		BattleMon battleMon = new BattleMon(battlePage, this, monsterDTO);
+		BattleMon battleMon = new BattleMon(battlePage, this, monDTO);
 		this.battleMon = battleMon;
 		battlePage.add(battleMon);
 	}
@@ -117,7 +117,8 @@ public class BattleController {
 	public void selectAction(String attackType, String subMenuName) {
 		this.attackType = attackType;
 		this.subMenuName = subMenuName;
-
+		System.out.println(attackType);
+		System.out.println(subMenuName);
 		switch(attackType) {
 		case "attack" : battleMon.selectMon(); break;
 		case "skill" : battleMon.selectMon(); break;
@@ -129,10 +130,10 @@ public class BattleController {
 
 	// 기본 공격 및 스킬 공격
 	public void characterAttack(int selectMonNo, int selectMonCode) {
-		MonsterDTO monsterDTO = new MonsterDTO();
+		MonsterDTO monDTO = new MonsterDTO();
 		for(int i = 0; i < monsterList.size(); i++) {
 			if(selectMonCode == monsterList.get(i).getMonCode()) {
-				monsterDTO = monsterList.get(i);
+				monDTO = monsterList.get(i);
 			}
 		}
 
@@ -143,79 +144,105 @@ public class BattleController {
 			}
 		}
 
-		int resultAtt = 0;
-		int resultDef = 0;
-		int checkMp = 0;
+		int chrHp = chrDTO.getChrHp();
+		int monHp = monDTO.getMonHp();
+		int checkMp = chrDTO.getChrMp();
 
 		switch(attackType) {		// characterDTO();
-		case "attack" :
-			resultAtt = bs.chrAttack(attackType, subMenuName, characterDTO, monsterDTO);
-			break;
-		case "skill" :
-			checkMp = bs.checkMp(subMenuName, characterDTO, skillDTO);
-			if(checkMp > 0) {
-				resultAtt = bs.chrAttack(attackType, subMenuName, characterDTO, monsterDTO);
-			} else {
-				createMenu();
-			}
-			break;
-		default : System.out.println("캐릭터 공격 error"); break;
+			case "attack" :
+				monHp = bs.chrAttack(attackType, subMenuName, chrDTO, monDTO);
+				break;
+			case "skill" :
+				checkMp = bs.checkMp(subMenuName, chrDTO, skillDTO);
+				if(checkMp > 0) {
+					monHp = bs.chrAttack(attackType, subMenuName, chrDTO, monDTO);
+				} else {
+					createMenu();
+				}
+				break;
+		}
+		System.out.println("MON_HP" + monHp);
+		if(monHp > 0) {
+			chrHp = bs.monAttack(chrDTO, monDTO);
+
+		} else {
+			winReward(chrDTO, monDTO);
 		}
 
-		if(resultAtt > 0) {
-			int remainMon = bs.isOtherMonAlive();
-			if(remainMon > 0) {
-				resultDef = bs.monAttack(characterDTO, monsterDTO);
+		System.out.println("CHR_HP" + chrHp);
+		if(chrHp > 0) {
 
-			} else {
-				winReward(characterDTO, monsterDTO);
-			}
-		} else {
-			createMenu();
-		}
-
-		if(resultDef > 0) {
 			createMenu();
 		} else {
-			defeatPenalty();
+			defeatPenalty(chrDTO);
 		}
 	}
 
 	// 전투 승리 시 보상
-	public void winReward(CharacterDTO characterDTO, MonsterDTO monsterDTO) {
-		int chrExp = characterDTO.getChrExp();
-		int chrMaxExp = characterDTO.getChrMaxExp();
-		int monExp = monsterDTO.getMonExp();
 
+	public void winReward(CharacterDTO chrDTO, MonsterDTO monDTO) {
+		int chrGold = chrDTO.getChrGold();
+		int chrExp = chrDTO.getChrExp();
+		int chrMaxExp = chrDTO.getChrMaxExp();
+		int dropGold = monDTO.getDropGold();
+		int monExp = monDTO.getMonExp();
+		
+		chrGold += dropGold;
 		chrExp += monExp;
+		
+		while(chrExp > chrMaxExp) {
+			levelup(chrDTO);			
+		}
+		
+		// DTO DB에 저장
+		
+		ViewUtil.changePanel(mf, battlePage, new FieldCharacterBattle(mf, invenDTO, chrDTO));
+	}
 
+	private void levelup(CharacterDTO chrDTO) {
+		chrDTO.setChrExp(chrDTO.getChrExp() - chrDTO.getChrMaxExp());
+		chrDTO.setChrLevel(chrDTO.getChrLevel() + 1);
+		chrDTO.setChrMaxHp((int) (chrDTO.getChrMaxHp() * 1.2));
+		chrDTO.setChrMaxMp((int) (chrDTO.getChrMaxMp() * 1.15));
+		chrDTO.setChrMaxExp((int) (chrDTO.getChrMaxExp() * 1.25 + 25));
+		chrDTO.setChrAtt((int) (chrDTO.getChrAtt() * 1.2 + 3));
+		chrDTO.setChrDef((int) (chrDTO.getChrDef() * 1.05 + 5));
+		chrDTO.setChrHp(chrDTO.getChrMaxHp());
+		chrDTO.setChrMp(chrDTO.getChrMaxMp());
+		
 
-		ViewUtil.changePanel(mf, battlePage, new FieldCharacterBattle(mf, inventoryDTO, characterDTO));
 	}
 
 	// 전투 패배 시 패널티
-	public void defeatPenalty() {
-		int maxHp = 100;
-		int maxMp = 50;
-		int chrExp = 20;
-		int chrHp = maxHp / 10;
-		int chrMp = maxMp / 10;
-		if(chrExp > 20) {
-			chrExp /= 20;
+	public void defeatPenalty(CharacterDTO chrDTO) {
+		int chrExp = chrDTO.getChrExp();
+		int chrMaxHp = chrDTO.getChrMaxHp();
+		int chrMaxMp = chrDTO.getChrMaxMp();
+		int chrMaxExp = chrDTO.getChrMaxExp();
+		
+		if(chrExp > chrMaxExp / 0.2) {
+			chrDTO.setChrExp(chrExp - (int) (chrMaxExp / 0.2));
 		} else {
-			chrExp = 0;
+			chrDTO.setChrExp(0);
 		}
+		
+		chrDTO.setChrHp(chrMaxHp / 10);
+		chrDTO.setChrMp(chrMaxMp / 10);
+		chrDTO.setChrExp(chrExp);
+		
+		// DTO DB에 저장
 
-		ViewUtil.changePanel(mf, battlePage, new VillageView(mf, characterDTO));
+		ViewUtil.changePanel(mf, battlePage, new VillageView(mf, chrDTO));
 	}
 
 	// 아이템 사용
 	private void useItem() {
+		
 		System.out.println("물약 사용");	// 인벤토리로 연결
 	}
 
 	// 도망가기
 	private void runAway() {
-		ViewUtil.changePanel(mf, battlePage, new FieldCharacterBattle(mf, inventoryDTO, characterDTO));
+		ViewUtil.changePanel(mf, battlePage, new FieldCharacterBattle(mf, invenDTO, chrDTO));
 	}
 }
