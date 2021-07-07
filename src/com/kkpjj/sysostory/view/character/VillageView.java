@@ -31,20 +31,21 @@ public class VillageView extends JPanel implements KeyListener {
 	private JPanel armorShopPanel;
 	private JPanel moveFieldPanel;
 	
-	private InventoryDTO inven;
-	
 	private CharacterDTO chr; 
+	private InventoryDTO inven;
 	
 	private JTextField tf;
 
+	
 	public VillageView(JFrame mf, CharacterDTO chr) {
-		
+	
+	
 		// 마을화면 레이아웃 설정
 		this.mf = mf;
 		
 		this.chr = chr;
 		
-		chr = new CharacterDTO();
+//		chr = new CharacterDTO();
 		
 		// 하단 정보 패널 호출
 		new StatusPanel(mf, chr);
@@ -121,7 +122,7 @@ public class VillageView extends JPanel implements KeyListener {
 		}
 		
 		@Override
-		public void mouseClicked(MouseEvent e) {
+		public void mouseReleased(MouseEvent e) {
 			if(e.getSource() == posionShopPanel) {
 				ViewUtil.changePanel(mf, villageView, new PotionShopView(mf));
 			} else if(e.getSource() == weaponShopPanel) {
@@ -129,7 +130,7 @@ public class VillageView extends JPanel implements KeyListener {
 			} else if(e.getSource() == armorShopPanel) {
 				ViewUtil.changePanel(mf, villageView, new ArmorShopView(mf));
 			} else if(e.getSource() == moveFieldPanel) {
-				ViewUtil.changePanel(mf, villageView, new FieldCharacterBattle(mf, inven, chr));
+//				ViewUtil.changePanel(mf, villageView, new FieldCharacterBattle(mf, inven, chr));
 			}
 		}
 	}

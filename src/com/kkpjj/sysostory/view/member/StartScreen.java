@@ -88,9 +88,8 @@ public class StartScreen extends JPanel {
 				if(idText.getText().length() > 0 && pwdText.getPassword().length > 0) {
 					int result = memController.Login(idText, pwdText);
 					
-					CharacterDTO charDTO = loginController.searchCharacterInfo(idText.getText());
-					
 					if (result > 0) { // 로그인 성공시, 화면이동 처리 코드
+						CharacterDTO charDTO = loginController.searchCharacterInfo(idText.getText());
 						ViewUtil.changePanel(mf, loginPanel, new AfterLogin(mf, idText.getText(), memberDTO, charDTO));
 					} else {
 						infoBox("아이디와 패스워드를 확인하여주세요.", "message");
