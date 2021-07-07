@@ -13,9 +13,11 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+import com.kkpjj.sysostory.controller.CharacterController;
 import com.kkpjj.sysostory.controller.SkillController;
 import com.kkpjj.sysostory.model.dto.CharacterDTO;
 import com.kkpjj.sysostory.model.dto.InventoryDTO;
+import com.kkpjj.sysostory.model.dto.SkillDTO;
 import com.kkpjj.sysostory.view.ViewUtil;
 import com.kkpjj.sysostory.view.battle.BattlePage;
 import com.kkpjj.sysostory.view.character.FieldCharacterBattle;
@@ -34,18 +36,23 @@ public class SkillList extends JPanel {
 	private int skillCode;
 	private String skillScript;
 	private InventoryDTO inventoryDTO;
-	private CharacterDTO chr; 
-//	private CharacterDTO characterDTO;
+	private CharacterDTO characterDTO;
+	private CharacterController cc;
+	private int userNo;
+	private int chrCode;
+	private int skillOpenLv;
+	private int chLv;
 
-	
-	
-	public SkillList(JFrame mf, CharacterDTO chr) {
-		
-		
-		
+	public SkillList(JFrame mf, CharacterDTO characterDTO) {
+
 		this.mf = mf;
+		this.characterDTO = characterDTO;
+
+		this.chLv = characterDTO.getChrLevel();
 		
-		
+		skillOpenLv = sc.selectSkillOpenLv(skillCode);
+		skillScript = sc.selectSkillScript(skillCode);
+
 		mainPanel = new JPanel();
 		mainPanel.setBounds(0, 0, 800, 600);
 
@@ -60,9 +67,9 @@ public class SkillList extends JPanel {
 
 		Font font = new Font("궁서 보통", Font.BOLD, 30);
 		Font font2 = new Font("궁서 보통", Font.BOLD, 15);
-		
-		this.sc = new SkillController();
 
+		this.sc = new SkillController();
+		this.cc = new CharacterController();
 		/*-----------------------------------이미지 선언부-----------------------------------------*/
 
 		Image mainImage = new ImageIcon("images/skill/스킬 목록 배경.png").getImage().getScaledInstance(800, 600, 0);
@@ -103,14 +110,12 @@ public class SkillList extends JPanel {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-
-				ViewUtil.changePanel(mf, mainPanel, new VillageView(mf, chr)); 
-				
+				ViewUtil.changePanel(mf, mainPanel, new VillageView(mf, characterDTO)); // 배틀 페이지로 넘어가는거
 				mainPanel.setVisible(false);
 
 			}
+
 		});
-		
 		JButton skillButton1 = new JButton(new ImageIcon("images/skill/플레임차지아이콘.png"));
 		skillButton1.setBounds(65, 115, 140, 115);
 		skillButton1.addActionListener(new ActionListener() {
@@ -118,8 +123,13 @@ public class SkillList extends JPanel {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				skillCode = 1;
-				String skillScript = sc.selectSkillScript(skillCode);
-				skilExTextLabel.setText(skillScript);
+				
+				if (skillOpenLv <= chLv) {
+					skilExTextLabel.setText(skillScript + " " + skillOpenLv); // 해금 부분
+				} else {
+
+					skilExTextLabel.setText("1 레벨이 아닙니다.");
+				}
 			}
 		});
 
@@ -130,8 +140,13 @@ public class SkillList extends JPanel {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				skillCode = 2;
-				String skillScript = sc.selectSkillScript(skillCode);
-				skilExTextLabel.setText(skillScript);
+			
+				if (skillOpenLv <= chLv) {
+					skilExTextLabel.setText(skillScript + " " + skillOpenLv); // 해금 부분
+				} else {
+
+					skilExTextLabel.setText("5 레벨이 아닙니다.");
+				}
 			}
 		});
 
@@ -142,8 +157,13 @@ public class SkillList extends JPanel {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				skillCode = 3;
-				String skillScript = sc.selectSkillScript(skillCode);
-				skilExTextLabel.setText(skillScript);
+
+				if (skillOpenLv <= chLv) {
+					skilExTextLabel.setText(skillScript + " " + skillOpenLv); // 해금 부분
+				} else {
+
+					skilExTextLabel.setText("10 레벨이 아닙니다.");
+				}
 			}
 
 		});
@@ -155,8 +175,13 @@ public class SkillList extends JPanel {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				skillCode = 4;
-				String skillScript = sc.selectSkillScript(skillCode);
-				skilExTextLabel.setText(skillScript);
+				
+				if (skillOpenLv <= chLv) {
+					skilExTextLabel.setText(skillScript + " " + skillOpenLv); // 해금 부분
+				} else {
+
+					skilExTextLabel.setText("15 레벨이 아닙니다.");
+				}
 			}
 
 		});
@@ -167,8 +192,15 @@ public class SkillList extends JPanel {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				skillCode = 5;
-				String skillScript = sc.selectSkillScript(skillCode);
-				skilExTextLabel.setText(skillScript);
+			
+			
+				
+				if (skillOpenLv <= chLv) {
+					skilExTextLabel.setText(skillScript + " " + skillOpenLv); // 해금 부분
+				} else {
+
+					skilExTextLabel.setText("20 레벨이 아닙니다.");
+				}
 			}
 
 		});
@@ -179,8 +211,14 @@ public class SkillList extends JPanel {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				skillCode = 6;
-				String skillScript = sc.selectSkillScript(skillCode);
-				skilExTextLabel.setText(skillScript);
+				
+				
+				if (skillOpenLv <= chLv) {
+					skilExTextLabel.setText(skillScript + " " + skillOpenLv); // 해금 부분
+				} else {
+
+					skilExTextLabel.setText("25 레벨이 아닙니다.");
+				}
 			}
 
 		});
@@ -191,8 +229,14 @@ public class SkillList extends JPanel {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				skillCode = 7;
-				String skillScript = sc.selectSkillScript(skillCode);
-				skilExTextLabel.setText(skillScript);
+				
+				
+				if (skillOpenLv <= chLv) {
+					skilExTextLabel.setText(skillScript + " " + skillOpenLv); // 해금 부분
+				} else {
+
+					skilExTextLabel.setText("30 레벨이 아닙니다.");
+				}
 			}
 
 		});
@@ -203,14 +247,18 @@ public class SkillList extends JPanel {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				skillCode = 8;
-				String skillScript = sc.selectSkillScript(skillCode);
-				skilExTextLabel.setText(skillScript);
+			
+				if (skillOpenLv <= chLv) {
+					skilExTextLabel.setText(skillScript + " " + skillOpenLv); // 해금 부분
+				} else {
+
+					skilExTextLabel.setText("35 레벨이 아닙니다.");
+				}
 			}
 
 		});
 
 		/*-------------------------------버튼 넣어주는 곳---------------------------------------*/
-
 
 		mainLabel.add(backButton);
 		mainLabel.add(skillButton1);
@@ -225,13 +273,12 @@ public class SkillList extends JPanel {
 		/*-------------------------------패널들 넣어주는 곳---------------------------------------*/
 		skilUpTextLabel.setFont(font);
 		skilExTextLabel.setFont(font2);
-		
-		
+
 		/*-------------------------------폰트 넣어주는 곳---------------------------------------*/
 
 		skilExLabel.add(skilExTextLabel);
 		mainPanel.setLayout(null);
-		
+
 		mainLabel.add(skilUpTextLabel);
 		mainLabel.add(skilUpLabel);
 		mainLabel.add(skillListLabel);
@@ -248,7 +295,7 @@ public class SkillList extends JPanel {
 		mf.getContentPane().setLayout(null);
 
 		mf.getContentPane().add(mainPanel);
-		
 
 	}
 }
+

@@ -20,6 +20,7 @@ public class SkillController {
 		
 		String skillScript = skill.getSkillScript();
 		
+		
 		System.out.println(skillScript);
 		
 		
@@ -28,12 +29,31 @@ public class SkillController {
 		
 		return skillScript;
 	}
+	
+public int selectSkillOpenLv(int skillCode) {
+		
+		SkillDTO skill = skillService.selectSkillScript(skillCode);
+		
+		
+		int skillOpenLv = skill.getSkillOpenLv();
+		
+		System.out.println(skillOpenLv);
+		
+		
+		
+//		String result = skill.getSkillScript();						// 스킬설명을 가져온다
+		
+		return skillOpenLv;
+	}
 
 	private String addSkillScript(String skillScript) {
 	
 		return null;
 	}
-	
+	private String selectSkillOpen(int skillOpenLv) {
+		
+		return null;
+	}
 	
 	
 }

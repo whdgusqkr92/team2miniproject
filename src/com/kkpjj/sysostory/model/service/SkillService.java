@@ -10,24 +10,38 @@ import com.kkpjj.sysostory.model.dao.SkillDAO;
 import com.kkpjj.sysostory.model.dto.SkillDTO;
 
 public class SkillService {
-	
+
 	SkillDAO skillDAO = new SkillDAO();
 
 	public SkillDTO selectSkillScript(int SkillCode) {
-		
+
 		Connection con = getConnection();
-		
+
 		SkillDTO skillScript = skillDAO.selectSkillScript(con, SkillCode);
-		
+
+
 		close(con);
-		
+
 		return skillScript;
-		
+
+	}
+
+	public SkillDTO selectSkillOpenLv(int SkillCode) {
+
+		Connection con = getConnection();
+
+
+		SkillDTO skillOpenLv = skillDAO.selectSkillScript(con, SkillCode);
+
+		close(con);
+
+		return skillOpenLv;
+
 	}
 
 	public List<SkillDTO> selectAllSkills() {
 		Connection con = getConnection();
-		
+
 		List<SkillDTO> skillList = skillDAO.selectAllSkillList(con);
 		close(con);
 
