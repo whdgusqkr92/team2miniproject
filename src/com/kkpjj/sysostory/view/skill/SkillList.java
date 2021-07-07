@@ -24,7 +24,7 @@ import com.kkpjj.sysostory.view.character.VillageView;
 
 public class SkillList extends JPanel {
 
-	private static final FieldCharacterBattle String = null;
+//	private static final FieldCharacterBattle String = null;
 	private JPanel mainPanel;
 	private JPanel skilUpPanel;
 	private JPanel skillListPanel;
@@ -45,16 +45,6 @@ public class SkillList extends JPanel {
 		
 		
 		this.mf = mf;
-		
-	
-		
-		
-		
-		
-		
-		
-		
-		
 		
 		
 		mainPanel = new JPanel();
