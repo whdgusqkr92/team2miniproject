@@ -17,11 +17,10 @@ public class Skill extends JPanel{
 	private JPanel mainPanel;
 	private JLabel jLabel;
 	Skill skill= this;
-		public Skill(JFrame mf ,JPanel mp) {
+		public Skill(JFrame mf ) {
 			this.mf = mf;
-			this.mainPanel = mp;
 			mainPanel = new JPanel();
-			mp.setBounds(100, 100, 400, 300);
+			mainPanel.setBounds(0, 0, 800, 600);
 
 			jLabel = new JLabel();
 			jLabel.setBounds(0, 0, 300, 200);
@@ -48,8 +47,9 @@ public class Skill extends JPanel{
 							n++;
 							if (n == 5) {
 							
-								new Skill(mf ,mp);
-							 mainPanel.setVisible(true);
+								new ImageIcon("iamge/bossSkill3.gif");
+								new Skill(mf);
+							 setVisible(true);
 							}
 					System.out.println("쓰래드 실행");	} catch (InterruptedException e) {
 							e.printStackTrace();

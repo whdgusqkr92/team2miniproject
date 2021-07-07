@@ -16,15 +16,14 @@ import com.kkpjj.sysostory.view.ViewUtil;
 import com.kkpjj.sysostory.view.battle.BattlePage;
 import com.kkpjj.sysostory.view.boss.FinalBossEvent;
 import com.kkpjj.sysostory.view.boss.MiddleBossEvent;
-import com.kkpjj.sysostory.view.skill.Skill;
 import com.kkpjj.sysostory.view.skill.SkillList;
 
 public class FieldCharacterBattle extends JPanel  {
 	private JFrame mf;
 	private JPanel mainPanel;
 	private JPanel fieldJPanel;
-//	private JPanel statusPanel;
-//	private JPanel mapPanel;
+	private JPanel statusPanel;
+	private JPanel mapPanel;
 	private JLabel fieldJLabel;
 	private Image Image;
 	private JPanel chPanel;
@@ -42,16 +41,15 @@ public class FieldCharacterBattle extends JPanel  {
 	
 		this.mainPanel = this;
 
-		new StatusPanel(mf, characterDTO);
-		new Skill(mf ,mainPanel);
-		
+		this.characterDTO = characterDTO;
+		this.inventoryDTO = inventoryDTO;
 
 		mainPanel = new JPanel(); // 메인 패널
 		mainPanel.setBounds(0, 0, 800, 600); // 메인 패널 사이즈
 		mainPanel.setLayout(null);
 
 		this.fieldJPanel = new JPanel(); // 필드 패널
-		fieldJPanel.setBounds(0, 0, 800, 380); // 필드 패널 사이즈
+		fieldJPanel.setBounds(0, 0, 800, 400); // 필드 패널 사이즈
 		fieldJPanel.setLayout(null);
 
 		Image = new ImageIcon("images/field/Field1.png").getImage().getScaledInstance(800, 400, 0); // 필드 이미지 생성해서 넣어준거
