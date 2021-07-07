@@ -7,6 +7,10 @@ import java.sql.Connection;
 import java.util.List;
 
 import com.kkpjj.sysostory.controller.BattleController;
+
+//import com.kkpjj.sysostory.model.dao.BattleDAO;
+import com.kkpjj.sysostory.view.boss.BossSkillEffect;
+
 import com.kkpjj.sysostory.model.dao.MonsterDAO;
 import com.kkpjj.sysostory.model.dao.SkillDAO;
 import com.kkpjj.sysostory.model.dto.CharacterDTO;

@@ -4,6 +4,11 @@ import javax.swing.JFrame;
 
 import com.kkpjj.sysostory.model.dto.CharacterDTO;
 import com.kkpjj.sysostory.model.dto.InventoryDTO;
+
+import com.kkpjj.sysostory.view.boss.BossTurn;
+import com.kkpjj.sysostory.view.boss.FinalBossEvent;
+import com.kkpjj.sysostory.view.battle.BattlePage;
+
 import com.kkpjj.sysostory.view.character.CharacterView;
 
 public class MainFrame extends JFrame {
@@ -26,7 +31,7 @@ public class MainFrame extends JFrame {
 
 //		mf.add(new StartScreen(mf));
 		
-
+//		new FinalBossEvent(mf);
 //		new EndingPage(mf, characterDTO);
 
 
