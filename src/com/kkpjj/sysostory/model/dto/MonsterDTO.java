@@ -6,14 +6,14 @@ public class MonsterDTO implements java.io.Serializable {
 	private String monName;
 	private int monHp;
 	private int monAtt;
-	private int skillAtt;
+	private double skillAtt;
 	private int monDef;
 	private int monExp;
 	private int dropGold;
 	
 	public MonsterDTO() {}
 
-	public MonsterDTO(int monCode, String monName, int monHp, int monAtt, int skillAtt, int monDef, int monExp,
+	public MonsterDTO(int monCode, String monName, int monHp, int monAtt, double skillAtt, int monDef, int monExp,
 			int dropGold) {
 		super();
 		this.monCode = monCode;
@@ -58,11 +58,11 @@ public class MonsterDTO implements java.io.Serializable {
 		this.monAtt = monAtt;
 	}
 
-	public int getSkillAtt() {
+	public double getSkillAtt() {
 		return skillAtt;
 	}
 
-	public void setSkillAtt(int skillAtt) {
+	public void setSkillAtt(double skillAtt) {
 		this.skillAtt = skillAtt;
 	}
 

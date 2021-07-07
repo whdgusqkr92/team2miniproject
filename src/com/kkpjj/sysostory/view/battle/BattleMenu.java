@@ -179,7 +179,7 @@ public class BattleMenu extends JPanel {
 		}
 
 		private void skillSubMenu() {
-			subMenuName = new String[] {"스킬 공격1", "스킬 공격2", "스킬 공격3", "스킬 공격4"};
+			subMenuName = new String[] {"플레임차지", "파이어", "회축", "페어리턴"};
 
 			subMenu2.setVisible(true);
 			subMenu3.setVisible(true);

@@ -23,18 +23,17 @@ public class BattleController {
 
 	private JFrame mf;
 	private BattlePage battlePage;
-	private BattleController bc;
 	private BattleService bs;
-	private SkillService ss;
-//	private MonsterService ms;
 	private CharacterDTO characterDTO;
 	private InventoryDTO inventoryDTO;
 	private BattleMon battleMon;
 	private BattleMenu battleMenu;
 	private String attackType;
 	private String subMenuName;
-	int numOfMon;
-	int monCode;
+	private int numOfMon;
+	private int monCode;
+	private List<MonsterDTO> monsterList;
+	private List<SkillDTO> skillList;
 
 	
 	// getCharacterDTO
@@ -58,23 +57,19 @@ public class BattleController {
 		this.battlePage = battlePage;
 		this.characterDTO = characterDTO;
 		this.inventoryDTO = inventoryDTO;
-		this.bc = this;
 		this.bs = new BattleService();
-//		this.ms = new MonsterService();
-		this.ss = new SkillService();
 	}
 
 	public void selectAllMonsters() {
 		List<MonsterDTO> monsterList = new ArrayList<>();
 		
-//		monsterList = ms.selectAllMonsters();
-		
+		this.monsterList = bs.selectAllMonsters();
 	}
 	
 	public void selectAllSkills() {
 		List<SkillDTO> skillList = new ArrayList<>();
 		
-		
+		this.skillList = bs.selectAllSkills();
 	}
 	
 	//	chrDTO
@@ -86,13 +81,14 @@ public class BattleController {
 	//	SkillService ss = new SkillService();
 	//		List<SkillDTO> skillList = ss.selectAllSkills();
 
+	// 캐릭터 생성
 	public void createChr() {
 		BattleChr battleChr = new BattleChr();
 		battlePage.add(battleChr);
 	}
 
+	// 몬스터 생성
 	public void createMon() {
-		// 몬스터 생성
 //		numOfMon = 1;	// 1 ~ 4 사이의 난수로 변경
 //		for(int i = 0; i < numOfMon; i++) {
 			//			fightMonList.add(i, Mon);
@@ -103,13 +99,14 @@ public class BattleController {
 		battlePage.add(battleMon);
 	}
 
+	// 전투 메뉴 생성
 	public void createMenu() {
-		// 전투 메뉴 생성
 		BattleMenu battleMenu = new BattleMenu(this);
 		battlePage.add(battleMenu);
 		this.battleMenu = battleMenu;
 	}
-
+	
+	// 사용자 행동 선택
 	public void selectAction(String attackType, String subMenuName) {
 		this.attackType = attackType;
 		this.subMenuName = subMenuName;
@@ -122,20 +119,35 @@ public class BattleController {
 			default : System.out.println("서브 메뉴 선택 오류");
 		}
 	}
-
+	
+	// 기본 공격 및 스킬 공격
 	public void characterAttack(int selectMonNo, int selectMonCode) {
+		MonsterDTO monsterDTO = new MonsterDTO();
+		for(int i = 0; i < monsterList.size(); i++) {
+			if(selectMonCode == monsterList.get(i).getMonCode()) {
+				monsterDTO = monsterList.get(i);
+			}
+		}
+		
+		SkillDTO skillDTO = new SkillDTO();
+		for(int i = 0; i < skillList.size(); i++) {
+			if(subMenuName == skillList.get(i).getSkillName()) {
+				skillDTO = skillList.get(i);
+			}
+		}
+		
 		int resultAtt = 0;
 		int resultDef = 0;
 		int checkMp = 0;
 
 		switch(attackType) {		// characterDTO();
 			case "attack" :
-				resultAtt = bs.chrAttack(attackType, subMenuName);
+				resultAtt = bs.chrAttack(attackType, subMenuName, characterDTO, monsterDTO);
 				break;
 			case "skill" :
-				checkMp = bs.checkMp(subMenuName); 
+				checkMp = bs.checkMp(subMenuName, characterDTO, skillDTO);
 				if(checkMp > 0) {
-					resultAtt = bs.chrAttack(attackType, subMenuName);
+					resultAtt = bs.chrAttack(attackType, subMenuName, characterDTO, monsterDTO);
 				} else {
 					createMenu();
 				}
@@ -146,9 +158,9 @@ public class BattleController {
 		if(resultAtt > 0) {
 			int remainMon = bs.isOtherMonAlive();
 			if(remainMon > 0) {
-				resultDef = bs.monAttack();
+				resultDef = bs.monAttack(characterDTO, monsterDTO);
 			} else {
-				winReward();
+				winReward(characterDTO, monsterDTO);
 			}
 		} else {
 			createMenu();
@@ -161,11 +173,19 @@ public class BattleController {
 		}
 	}
 	
-	public void winReward() {
+	// 전투 승리 시 보상
+	public void winReward(CharacterDTO characterDTO, MonsterDTO monsterDTO) {
+		int chrExp = characterDTO.getChrExp();
+		int chrMaxExp = characterDTO.getChrMaxExp();
+		int monExp = monsterDTO.getMonExp();
+		
+		chrExp += monExp;
+		
 		
 		ViewUtil.changePanel(mf, battlePage, new FieldCharacterBattle(mf, inventoryDTO, characterDTO));
 	}
 
+	// 전투 패배 시 패널티
 	public void defeatPenalty() {
 		int maxHp = 100;
 		int maxMp = 50;
@@ -181,10 +201,12 @@ public class BattleController {
 		ViewUtil.changePanel(mf, battlePage, new VillageView(mf, characterDTO));
 	}
 
+	// 아이템 사용
 	private void useItem() {
 		System.out.println("물약 사용");	// 인벤토리로 연결
 	}
 
+	// 도망가기
 	private void runAway() {
 		ViewUtil.changePanel(mf, battlePage, new FieldCharacterBattle(mf, inventoryDTO, characterDTO));
 	}
