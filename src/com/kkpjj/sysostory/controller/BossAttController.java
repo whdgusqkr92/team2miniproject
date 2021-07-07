@@ -48,10 +48,10 @@ public class BossAttController extends JPanel{
 		int ranAtt = (int) (Math.random()*10)+1 ;
 		
 		int nomalAtt = monsterDTO.getMonAtt(); //일반공격
-		int spAtt = monsterDTO.getSkillAtt();  //스킬공격계수
-		int damege = nomalAtt * ( 1 + spAtt); // 스킬 데미지
+		double spAtt = monsterDTO.getSkillAtt();  //스킬공격계수
+		double damege = nomalAtt * ( 1 + spAtt); // 스킬 데미지
 		
-		int chrHp = chr.getChrHp();
+		double chrHp = chr.getChrHp();
 		
 		System.out.println(ranAtt);
 		if(monCode == 3) {
