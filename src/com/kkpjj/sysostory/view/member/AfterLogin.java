@@ -50,14 +50,15 @@ public class AfterLogin extends JPanel{
 			}
 		});
 		
-		JButton btnNewButton_1 = new JButton("이어 하기");				/* 이어 하기 버튼 */
-		btnNewButton_1.setFont(new Font("둥근모꼴", Font.PLAIN, 24));
-		btnNewButton_1.setBounds(200, 240, 400, 80);
-		btnNewButton_1.addActionListener(new ActionListener() {
+		JButton palyLoadButton = new JButton("이어 하기");				/* 이어 하기 버튼 */
+		palyLoadButton.setFont(new Font("둥근모꼴", Font.PLAIN, 24));
+		palyLoadButton.setBounds(200, 240, 400, 80);
+		
+		palyLoadButton.addActionListener(new ActionListener() {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				System.out.println(charDTO);
+
 				ViewUtil.changePanel(mf, panel, new VillageView(mf, charDTO));
 			}
 		});
@@ -79,14 +80,14 @@ public class AfterLogin extends JPanel{
 			}
 		});
 		
-		JButton btnNewButton_3 = new JButton("회원탈퇴");				/* 회원탈퇴 버튼 */
-		btnNewButton_3.setFont(new Font("둥근모꼴", Font.PLAIN, 24));
-		btnNewButton_3.setBounds(340, 480, 130, 40);
+		JButton resignButton = new JButton("회원탈퇴");				/* 회원탈퇴 버튼 */
+		resignButton.setFont(new Font("둥근모꼴", Font.PLAIN, 24));
+		resignButton.setBounds(340, 480, 130, 40);
 		
 		
-		panel.add(btnNewButton_3);
+		panel.add(resignButton);
 		panel.add(logoutButton);
-		panel.add(btnNewButton_1);
+		panel.add(palyLoadButton);
 		panel.add(playNewButton);
 		panel.add(label);
 		mf.add(panel);

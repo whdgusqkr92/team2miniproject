@@ -39,7 +39,6 @@ public class FindPwdView extends JPanel{
 		idPanel.setLayout(null);
 		
 		JTextField idText = new JTextField();
-//		idText = new JTextField();								
 		idText.setFont(new Font("둥근모꼴", Font.PLAIN, 20));			/* 아이디 입력란 */
 		idText.setBounds(300, 120, 300, 45);
 		idText.setColumns(10);
@@ -50,7 +49,6 @@ public class FindPwdView extends JPanel{
 		namePanel.setLayout(null);
 		
 		JTextField nameText = new JTextField();
-//		nameText = new JTextField();								
 		nameText.setFont(new Font("둥근모꼴", Font.PLAIN, 20));		/* name 입력란 */
 		nameText.setBounds(300, 200, 300, 45);
 		nameText.setColumns(5);
@@ -61,7 +59,6 @@ public class FindPwdView extends JPanel{
 		emailPanel.setLayout(null);
 		
 		JTextField emailText = new JTextField();
-//		emailText = new JTextField();								
 		emailText.setFont(new Font("둥근모꼴", Font.PLAIN, 20));		/* email 입력란 */
 		emailText.setBounds(300, 280, 300, 45);
 		emailText.setColumns(10);
@@ -97,8 +94,6 @@ public class FindPwdView extends JPanel{
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-//				new StartScreen();
-//				mf.setVisible(false);
 				ViewUtil.changePanel(mf, panel, new StartScreen(mf));
 			}
 		});

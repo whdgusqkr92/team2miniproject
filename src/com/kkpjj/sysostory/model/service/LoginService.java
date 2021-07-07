@@ -57,15 +57,9 @@ public class LoginService {
 		CharacterDTO charDTO = loginDAO.searchCharacterInfo(con, memDTO);
 		
 		close(con);
+		
 		return charDTO;
 
 	}
 	
-//	public int checkCharacterNumber(String idText) {
-//		Connection con = getConnection();
-//		int searchCharacterNumber = loginDAO.searchCharacterNumber(con, idText);
-//		close(con);
-//		
-//		return searchCharacterNumber;
-//	}
 }
