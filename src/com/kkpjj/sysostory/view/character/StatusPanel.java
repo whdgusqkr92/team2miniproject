@@ -32,7 +32,6 @@ public class StatusPanel extends JPanel {
 		/* ------------------ 캐릭터 정보 DB에서 가져오기 ------------------ */
 //		chrDTO = new CharacterDTO();
 		
-
 		
 //		chrDTO.setChrCode(chrCode);
 //		chrDTO.setUserNo(userNo);
