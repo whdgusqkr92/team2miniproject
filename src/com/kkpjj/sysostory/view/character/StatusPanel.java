@@ -32,8 +32,7 @@ public class StatusPanel extends JPanel {
 		/* ------------------ 캐릭터 정보 DB에서 가져오기 ------------------ */
 //		chrDTO = new CharacterDTO();
 		
-//		int userNo = 2;		// 사용자 번호
-//		int chrCode = 1;		// 캐릭터 코드
+
 		
 //		chrDTO.setChrCode(chrCode);
 //		chrDTO.setUserNo(userNo);
@@ -75,30 +74,56 @@ public class StatusPanel extends JPanel {
 		
 		
 		// 현재 HP, 최대 HP 라벨 생성
+		JLabel hpInfo = new JLabel();
+		hpInfo.setBounds(200, 20, 400, 50);
+		hpInfo.setFont(new Font("둥근모꼴", Font.PLAIN, 28));
+		hpInfo.setForeground(Color.red);
+		hpInfo.setText("체력     ");
+		statusPanel.add(hpInfo);
+		
 		JLabel hp = new JLabel();
-		hp.setBounds(200, 20, 400, 50);
+		hp.setBounds(100, 20, 400, 50);
 		hp.setFont(new Font("둥근모꼴", Font.PLAIN, 28));
 		hp.setForeground(Color.red);
-		hp.setText("체력       " + chr.getChrHp() + " /  " + chr.getChrMaxHp());
+		hp.setText(chr.getChrHp() + " /  " + chr.getChrMaxHp());
+		hp.setHorizontalAlignment(hp.RIGHT);
 		statusPanel.add(hp);
 		
 		
 		// 현재 MP, 최대 MP 라벨 생성
+		JLabel mpInfo = new JLabel();
+		mpInfo.setBounds(200, 60, 400, 50);
+		mpInfo.setFont(new Font("둥근모꼴", Font.PLAIN, 28));
+		mpInfo.setForeground(Color.cyan);
+		mpInfo.setText("기력     ");
+		statusPanel.add(mpInfo);
+		
 		JLabel mp = new JLabel();
-		mp.setBounds(200, 60, 400, 50);
+		mp.setBounds(100, 60, 400, 50);
 		mp.setFont(new Font("둥근모꼴", Font.PLAIN, 28));
 		mp.setForeground(Color.cyan);
-		mp.setText("기력        " + chr.getChrMp() + " /   " + chr.getChrMaxMp());
+		mp.setText(chr.getChrMp() + " /  " + chr.getChrMaxMp());
+		mp.setHorizontalAlignment(mp.RIGHT);
 		statusPanel.add(mp);
 		
 		
 		// 현재 경험치, 레벨업 조건 경험치 라벨 생성
+		JLabel expInfo = new JLabel();
+		expInfo.setBounds(200, 100, 400, 50);
+		expInfo.setFont(new Font("둥근모꼴", Font.PLAIN, 28));
+		expInfo.setForeground(Color.green);
+		expInfo.setText("경험치     "); 
+		statusPanel.add(expInfo);
+		
+		
 		JLabel exp = new JLabel();
-		exp.setBounds(200, 100, 400, 50);
+		exp.setBounds(100, 100, 400, 50);
 		exp.setFont(new Font("둥근모꼴", Font.PLAIN, 28));
 		exp.setForeground(Color.green);
-		exp.setText("경험치     " + chr.getChrExp() + " /  " + chr.getChrMaxExp());
+		exp.setText(chr.getChrExp() + " /  " + chr.getChrMaxExp());
+		exp.setHorizontalAlignment(exp.RIGHT);
 		statusPanel.add(exp);
+		
 		
 		// 소지한 골드 라벨 생성
 		JLabel goldInfo = new JLabel();
@@ -109,7 +134,7 @@ public class StatusPanel extends JPanel {
 		goldInfo.setHorizontalAlignment(goldInfo.RIGHT);
 		mapPanel.add(goldInfo);
 		
-		// 소지한 골드 라벨 생성
+
 		JLabel gold = new JLabel();
 		gold.setBounds(0, 80, 200, 50);
 		gold.setFont(new Font("둥근모꼴", Font.PLAIN, 28));
