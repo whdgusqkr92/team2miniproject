@@ -35,9 +35,8 @@ public class StatusPanel extends JPanel {
 		
 //		chrDTO.setChrCode(chrCode);
 //		chrDTO.setUserNo(userNo);
-		
-		CharacterDTO chr = cc.selectCharacterInfo(chrDTO.getUserNo(), chrDTO.getChrCode());
-		
+
+		chrDTO = cc.selectCharacterInfo(chrDTO.getUserNo(), chrDTO.getChrCode());
 		
 		// 하단 상태 패널
 		statusPanel = new JPanel();
@@ -59,7 +58,7 @@ public class StatusPanel extends JPanel {
 		nickname1.setBounds(40, 25, 200, 50);
 		nickname1.setFont(new Font("둥근모꼴", Font.PLAIN, 27));
 		nickname1.setForeground(Color.white);
-		nickname1.setText(chr.getChrName());
+		nickname1.setText(chrDTO.getChrName());
 		statusPanel.add(nickname1);
 		
 		
@@ -68,7 +67,7 @@ public class StatusPanel extends JPanel {
 		level.setBounds(40, 90, 200, 50);
 		level.setFont(new Font("둥근모꼴", Font.PLAIN, 30));
 		level.setForeground(Color.orange);
-		level.setText("Lv. " + chr.getChrLevel());
+		level.setText("Lv. " + chrDTO.getChrLevel());
 		statusPanel.add(level);
 		
 		
@@ -84,7 +83,7 @@ public class StatusPanel extends JPanel {
 		hp.setBounds(100, 20, 400, 50);
 		hp.setFont(new Font("둥근모꼴", Font.PLAIN, 28));
 		hp.setForeground(Color.red);
-		hp.setText(chr.getChrHp() + " /  " + chr.getChrMaxHp());
+		hp.setText(chrDTO.getChrHp() + " /  " + chrDTO.getChrMaxHp());
 		hp.setHorizontalAlignment(hp.RIGHT);
 		statusPanel.add(hp);
 		
@@ -101,7 +100,7 @@ public class StatusPanel extends JPanel {
 		mp.setBounds(100, 60, 400, 50);
 		mp.setFont(new Font("둥근모꼴", Font.PLAIN, 28));
 		mp.setForeground(Color.cyan);
-		mp.setText(chr.getChrMp() + " /  " + chr.getChrMaxMp());
+		mp.setText(chrDTO.getChrMp() + " /  " + chrDTO.getChrMaxMp());
 		mp.setHorizontalAlignment(mp.RIGHT);
 		statusPanel.add(mp);
 		
@@ -119,7 +118,7 @@ public class StatusPanel extends JPanel {
 		exp.setBounds(100, 100, 400, 50);
 		exp.setFont(new Font("둥근모꼴", Font.PLAIN, 28));
 		exp.setForeground(Color.green);
-		exp.setText(chr.getChrExp() + " /  " + chr.getChrMaxExp());
+		exp.setText(chrDTO.getChrExp() + " /  " + chrDTO.getChrMaxExp());
 		exp.setHorizontalAlignment(exp.RIGHT);
 		statusPanel.add(exp);
 		
@@ -138,7 +137,7 @@ public class StatusPanel extends JPanel {
 		gold.setBounds(0, 80, 200, 50);
 		gold.setFont(new Font("둥근모꼴", Font.PLAIN, 28));
 		gold.setForeground(Color.yellow);
-		gold.setText(chr.getChrGold() + " G");
+		gold.setText(chrDTO.getChrGold() + " G");
 		gold.setHorizontalAlignment(gold.RIGHT);
 		mapPanel.add(gold);
 

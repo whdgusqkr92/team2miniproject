@@ -1,4 +1,3 @@
-
 package com.kkpjj.sysostory.view.skill;
 
 import java.awt.Font;
@@ -36,11 +35,11 @@ public class SkillList extends JPanel {
 	private String skillScript;
 	private InventoryDTO inventoryDTO;
 	private CharacterDTO chr; 
-	private CharacterDTO characterDTO;
+//	private CharacterDTO characterDTO;
 
 	
 	
-	public SkillList(JFrame mf) {
+	public SkillList(JFrame mf, CharacterDTO chr) {
 		
 		
 		
@@ -104,12 +103,14 @@ public class SkillList extends JPanel {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				ViewUtil.changePanel(mf, mainPanel, new VillageView(mf, chr)); // 배틀 페이지로 넘어가는거
+
+				ViewUtil.changePanel(mf, mainPanel, new VillageView(mf, chr)); 
+				
 				mainPanel.setVisible(false);
 
 			}
-		
 		});
+		
 		JButton skillButton1 = new JButton(new ImageIcon("images/skill/플레임차지아이콘.png"));
 		skillButton1.setBounds(65, 115, 140, 115);
 		skillButton1.addActionListener(new ActionListener() {

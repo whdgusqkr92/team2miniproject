@@ -4,25 +4,24 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.swing.JFrame;
+import javax.swing.JPanel;
 
 import com.kkpjj.sysostory.model.dto.CharacterDTO;
 import com.kkpjj.sysostory.model.dto.InventoryDTO;
 import com.kkpjj.sysostory.model.dto.MonsterDTO;
 import com.kkpjj.sysostory.model.dto.SkillDTO;
 import com.kkpjj.sysostory.model.service.BattleService;
-import com.kkpjj.sysostory.model.service.SkillService;
 import com.kkpjj.sysostory.view.ViewUtil;
 import com.kkpjj.sysostory.view.battle.BattleChr;
 import com.kkpjj.sysostory.view.battle.BattleMenu;
 import com.kkpjj.sysostory.view.battle.BattleMon;
-import com.kkpjj.sysostory.view.battle.BattlePage;
 import com.kkpjj.sysostory.view.character.FieldCharacterBattle;
 import com.kkpjj.sysostory.view.character.VillageView;
 
 public class BattleController {
 
 	private JFrame mf;
-	private BattlePage battlePage;
+	private JPanel battlePage;
 	private BattleService bs;
 	private CharacterDTO characterDTO;
 	private InventoryDTO inventoryDTO;
@@ -35,7 +34,7 @@ public class BattleController {
 	private List<MonsterDTO> monsterList;
 	private List<SkillDTO> skillList;
 
-	
+
 	// getCharacterDTO
 	// chrAtt,  monHp, monDef, 선택 몬스터, chrMp, skill_code(chrDTO / monDTO 필요)
 	//	int chrCode;
@@ -52,7 +51,7 @@ public class BattleController {
 	// getMonsterDTO
 	// getInventoryDTO
 
-	public BattleController(JFrame mf, BattlePage battlePage, CharacterDTO characterDTO, InventoryDTO inventoryDTO) {
+	public BattleController(JFrame mf, JPanel battlePage, CharacterDTO characterDTO, InventoryDTO inventoryDTO) {
 		this.mf = mf;
 		this.battlePage = battlePage;
 		this.characterDTO = characterDTO;
@@ -62,16 +61,16 @@ public class BattleController {
 
 	public void selectAllMonsters() {
 		List<MonsterDTO> monsterList = new ArrayList<>();
-		
+
 		this.monsterList = bs.selectAllMonsters();
 	}
-	
+
 	public void selectAllSkills() {
 		List<SkillDTO> skillList = new ArrayList<>();
-		
+
 		this.skillList = bs.selectAllSkills();
 	}
-	
+
 	//	chrDTO
 	//	monDTO
 	// 등장 확률이 0이 아닌 몬스터의 DTO를 가져오고, 몬스터를 생성(추후 구현)
@@ -89,11 +88,11 @@ public class BattleController {
 
 	// 몬스터 생성
 	public void createMon() {
-//		numOfMon = 1;	// 1 ~ 4 사이의 난수로 변경
-//		for(int i = 0; i < numOfMon; i++) {
-			//			fightMonList.add(i, Mon);
-//		}
-		
+		//		numOfMon = 1;	// 1 ~ 4 사이의 난수로 변경
+		//		for(int i = 0; i < numOfMon; i++) {
+		//			fightMonList.add(i, Mon);
+		//		}
+
 		int selectMonCode = 1;
 		MonsterDTO monsterDTO = new MonsterDTO();
 		for(int i = 0; i < monsterList.size(); i++) {
@@ -113,21 +112,21 @@ public class BattleController {
 		battlePage.add(battleMenu);
 		this.battleMenu = battleMenu;
 	}
-	
+
 	// 사용자 행동 선택
 	public void selectAction(String attackType, String subMenuName) {
 		this.attackType = attackType;
 		this.subMenuName = subMenuName;
 
 		switch(attackType) {
-			case "attack" : battleMon.selectMon(); break;
-			case "skill" : battleMon.selectMon(); break;
-			case "item" : useItem(); break;
-			case "run" : runAway(); break;
-			default : System.out.println("서브 메뉴 선택 오류");
+		case "attack" : battleMon.selectMon(); break;
+		case "skill" : battleMon.selectMon(); break;
+		case "item" : useItem(); break;
+		case "run" : runAway(); break;
+		default : System.out.println("서브 메뉴 선택 오류");
 		}
 	}
-	
+
 	// 기본 공격 및 스킬 공격
 	public void characterAttack(int selectMonNo, int selectMonCode) {
 		MonsterDTO monsterDTO = new MonsterDTO();
@@ -136,60 +135,61 @@ public class BattleController {
 				monsterDTO = monsterList.get(i);
 			}
 		}
-		
+
 		SkillDTO skillDTO = new SkillDTO();
 		for(int i = 0; i < skillList.size(); i++) {
 			if(subMenuName == skillList.get(i).getSkillName()) {
 				skillDTO = skillList.get(i);
 			}
 		}
-		
+
 		int resultAtt = 0;
 		int resultDef = 0;
 		int checkMp = 0;
 
 		switch(attackType) {		// characterDTO();
-			case "attack" :
+		case "attack" :
+			resultAtt = bs.chrAttack(attackType, subMenuName, characterDTO, monsterDTO);
+			break;
+		case "skill" :
+			checkMp = bs.checkMp(subMenuName, characterDTO, skillDTO);
+			if(checkMp > 0) {
 				resultAtt = bs.chrAttack(attackType, subMenuName, characterDTO, monsterDTO);
-				break;
-			case "skill" :
-				checkMp = bs.checkMp(subMenuName, characterDTO, skillDTO);
-				if(checkMp > 0) {
-					resultAtt = bs.chrAttack(attackType, subMenuName, characterDTO, monsterDTO);
-				} else {
-					createMenu();
-				}
-				break;
-			default : System.out.println("캐릭터 공격 error"); break;
+			} else {
+				createMenu();
+			}
+			break;
+		default : System.out.println("캐릭터 공격 error"); break;
 		}
-		
+
 		if(resultAtt > 0) {
 			int remainMon = bs.isOtherMonAlive();
 			if(remainMon > 0) {
 				resultDef = bs.monAttack(characterDTO, monsterDTO);
+
 			} else {
 				winReward(characterDTO, monsterDTO);
 			}
 		} else {
 			createMenu();
 		}
-		
+
 		if(resultDef > 0) {
 			createMenu();
 		} else {
 			defeatPenalty();
 		}
 	}
-	
+
 	// 전투 승리 시 보상
 	public void winReward(CharacterDTO characterDTO, MonsterDTO monsterDTO) {
 		int chrExp = characterDTO.getChrExp();
 		int chrMaxExp = characterDTO.getChrMaxExp();
 		int monExp = monsterDTO.getMonExp();
-		
+
 		chrExp += monExp;
-		
-		
+
+
 		ViewUtil.changePanel(mf, battlePage, new FieldCharacterBattle(mf, inventoryDTO, characterDTO));
 	}
 

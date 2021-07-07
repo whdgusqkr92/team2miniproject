@@ -1,5 +1,7 @@
 package com.kkpjj.sysostory.model.dao;
 
+import static com.kkpjj.common.JDBCTemplate.close;
+
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -12,18 +14,19 @@ import java.util.Properties;
 
 import com.kkpjj.sysostory.model.dto.CharacterDTO;
 
-import static com.kkpjj.common.JDBCTemplate.close;
+
+
 
 public class CharacterDAO {
-	
+
 	private Properties prop;
-	
+
 	public CharacterDAO() {
 		this.prop = new Properties();
-		
+
 		try {
 			prop.loadFromXML(new FileInputStream("mapper/character-query.xml"));
-			
+
 		} catch (InvalidPropertiesFormatException e) {
 			e.printStackTrace();
 		} catch (FileNotFoundException e) {
@@ -31,28 +34,28 @@ public class CharacterDAO {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		
-		
+
+
 	}
 
 	public CharacterDTO selectCharacterInfo(Connection con, int userNo, int chrCode) {
-		
+
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
 		CharacterDTO chrInfo= null;
-		
+
 		String query = prop.getProperty("selectCharacterInfo");
-		
+
 		try {
 			pstmt = con.prepareStatement(query);
 			pstmt.setInt(1, userNo);
 			pstmt.setInt(2, chrCode);
-			
+
 			rset = pstmt.executeQuery();
-			
+
 			if(rset.next()) {
 				chrInfo = new CharacterDTO();
-				
+
 				chrInfo.setChrCode(rset.getInt("CHR_CODE"));
 				chrInfo.setUserNo(rset.getInt("USER_NO"));
 				chrInfo.setChrName(rset.getString("CHR_NAME"));
@@ -72,15 +75,16 @@ public class CharacterDAO {
 				chrInfo.setChrEquipWeapon(rset.getString("EQUIP_WEAPON"));
 				chrInfo.setChrEquipArmor(rset.getString("EQUIP_ARMOR"));
 			}
-			
+
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
 			close(rset);
 			close(pstmt);
 		}
-		
+
 		return chrInfo;
 	}
+
 
 }

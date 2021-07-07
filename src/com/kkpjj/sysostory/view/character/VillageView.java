@@ -130,7 +130,7 @@ public class VillageView extends JPanel implements KeyListener {
 			} else if(e.getSource() == armorShopPanel) {
 				ViewUtil.changePanel(mf, villageView, new ArmorShopView(mf));
 			} else if(e.getSource() == moveFieldPanel) {
-//				ViewUtil.changePanel(mf, villageView, new FieldCharacterBattle(mf, inven, chr));
+				ViewUtil.changePanel(mf, villageView, new FieldCharacterBattle(mf, inven, chr));
 			}
 		}
 	}
@@ -165,19 +165,3 @@ public class VillageView extends JPanel implements KeyListener {
 	}
 	
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

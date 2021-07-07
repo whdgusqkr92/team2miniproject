@@ -15,6 +15,8 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import com.kkpjj.sysostory.controller.BossAttController;
+import com.kkpjj.sysostory.model.dto.CharacterDTO;
+import com.kkpjj.sysostory.model.dto.InventoryDTO;
 import com.kkpjj.sysostory.view.ViewUtil;
 import com.kkpjj.sysostory.view.boss.BossSkillEffect;
 import com.kkpjj.sysostory.view.story.EndingPage;
@@ -33,11 +35,14 @@ public class FinalBossEvent extends JPanel{
 	private JLabel charaLabel;
 	private JLabel bossLabel;
 
+	private InventoryDTO inventoryDTO;
+	private CharacterDTO characterDTO;
 
-	public FinalBossEvent(JFrame mf) {
+	public FinalBossEvent(JFrame mf, CharacterDTO characterDTO, InventoryDTO inventoryDTO) {
 		this.mf = mf;
-		//		this.mainpanel=this;
 		this.mainpanel = this;
+		this.characterDTO = characterDTO;
+		this.inventoryDTO = inventoryDTO;
 
 		//--------------------------배경 필드 패널 만들기------------------------------	
 
@@ -164,9 +169,8 @@ public class FinalBossEvent extends JPanel{
 		@Override
 		public void mouseClicked(MouseEvent e) {
 			
-//			new BossAttController(mf);
 												//엔딩페이지랑 일단 이었는데 실제로는 보스와 배틀 시작!!
-			ViewUtil.changePanel(mf, mainpanel, new EndingPage(mf, null)); 
+			ViewUtil.changePanel(mf, mainpanel, new FinalTurn(mf, characterDTO, inventoryDTO)); 
 
 		}
 	}

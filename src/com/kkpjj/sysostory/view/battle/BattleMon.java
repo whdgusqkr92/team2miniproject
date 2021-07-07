@@ -30,9 +30,9 @@ public class BattleMon extends JPanel {
 	private JButton selectSecondMon;
 	private JButton selectThirdMon;
 	private JButton selectFourthMon;
-	private BattlePage battlePage;
+	private JPanel battlePage;
 
-	public BattleMon(BattlePage battlePage, BattleController bc, MonsterDTO monsterDTO) {
+	public BattleMon(JPanel battlePage, BattleController bc, MonsterDTO monsterDTO) {
 		this.battlePage = battlePage;
 		this.bc = bc;
 		// 몬스터 레이아웃 설정
