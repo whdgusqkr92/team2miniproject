@@ -15,13 +15,13 @@ import com.kkpjj.sysostory.model.dto.InventoryDTO;
 public class BattlePage extends JPanel {
 
 	private JFrame mf;
-	private InventoryDTO inventoryDTO;
-	private CharacterDTO characterDTO;
+	private InventoryDTO invenDTO;
+	private CharacterDTO chrDTO;
 
-	public BattlePage(JFrame mf, InventoryDTO inventoryDTO, CharacterDTO characterDTO) {
+	public BattlePage(JFrame mf, InventoryDTO invenDTO, CharacterDTO chrDTO) {
 		this.mf = mf;
-		this.inventoryDTO = inventoryDTO;
-		this.characterDTO = characterDTO;
+		this.invenDTO = invenDTO;
+		this.chrDTO = chrDTO;
 		// 전투 메인화면 레이아웃 설정
 		initBattlePage();
 		// 캐릭터, 몬스터 생성 후 프레임에 추가
@@ -37,7 +37,7 @@ public class BattlePage extends JPanel {
 	}
 
 	private void createComponents() {
-		BattleController bc = new BattleController(mf, this, characterDTO, inventoryDTO);
+		BattleController bc = new BattleController(mf, this, chrDTO, invenDTO);
 		// getData
 		bc.selectAllMonsters();
 		bc.selectAllSkills();
