@@ -1,30 +1,21 @@
 package com.kkpjj.sysostory.view;
 
-import java.io.File;
-import java.io.IOException;
-
-import javax.sound.sampled.AudioSystem;
-import javax.sound.sampled.Clip;
-import javax.sound.sampled.LineUnavailableException;
-import javax.sound.sampled.UnsupportedAudioFileException;
 import javax.swing.JFrame;
 
 import com.kkpjj.sysostory.model.dto.CharacterDTO;
 
 import com.kkpjj.sysostory.view.member.StartScreen;
-
+import com.kkpjj.sysostory.view.skill.Skill;
+import com.kkpjj.sysostory.view.skill.SkillList;
 import com.kkpjj.sysostory.view.story.EndingPage;
+
 import com.kkpjj.sysostory.model.dto.InventoryDTO;
+
 import com.kkpjj.sysostory.view.boss.BossTurn;
-
+import com.kkpjj.sysostory.view.boss.FinalBossEvent;
 import com.kkpjj.sysostory.view.battle.BattlePage;
+
 import com.kkpjj.sysostory.view.character.CharacterView;
-import com.kkpjj.sysostory.view.character.FieldCharacterBattle;
-import com.kkpjj.sysostory.view.character.GameScreen;
-import com.kkpjj.sysostory.view.character.Sound;
-
-
-
 
 public class MainFrame extends JFrame {
 
@@ -44,19 +35,21 @@ public class MainFrame extends JFrame {
 
 
 
-//		mf.add(new StartScreen(mf));
+		mf.add(new StartScreen(mf));
 		
-
+//		new FinalBossEvent(mf);
 //		new EndingPage(mf, characterDTO);
-		new StartScreen(mf);
+
 
 
 
 //		mf.add(new CharacterView(mf, chr));
 //		new FieldCharacterBattle(mf, inventoryDTO, characterDTO);
 		
-
-
+//		new FieldCharacterBattle(mf, inventoryDTO, characterDTO);
+//		new SkillList(mf);
+//		new Skill(mf);
+		
 
 
 

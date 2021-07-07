@@ -5,18 +5,16 @@ import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
 import java.util.HashMap;
 import java.util.Map;
 
-import javax.swing.ButtonGroup;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
-import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.LineBorder;
 
 import com.kkpjj.sysostory.controller.BattleController;
+import com.kkpjj.sysostory.model.dto.MonsterDTO;
 
 // 전투 메인화면 레이아웃 설정, 캐릭터, 몬스터 생성, 배경 추가
 public class BattleMon extends JPanel {
@@ -34,7 +32,7 @@ public class BattleMon extends JPanel {
 	private JButton selectFourthMon;
 	private BattlePage battlePage;
 
-	public BattleMon(BattlePage battlePage, BattleController bc) {
+	public BattleMon(BattlePage battlePage, BattleController bc, MonsterDTO monsterDTO) {
 		this.battlePage = battlePage;
 		this.bc = bc;
 		// 몬스터 레이아웃 설정
@@ -64,55 +62,55 @@ public class BattleMon extends JPanel {
 	private void createMon() {
 		// 몬스터 생성
 		this.firstMon = new Monster(monImgAddress1);
-		firstMon.setBounds(0, 0, 64, 28);
+		firstMon.setBounds(0, 126, 64, 28);
 		firstMon.setBorderPainted(false);
-		this.secondMon = new Monster(monImgAddress2);
-		secondMon.setBounds(25, 84, 64, 28);
-		secondMon.setBorderPainted(false);
-		this.thirdMon = new Monster(monImgAddress1);
-		thirdMon.setBounds(25, 168, 64, 28);
-		thirdMon.setBorderPainted(false);
-		this.fourthMon = new Monster(monImgAddress2);
-		fourthMon.setBounds(0, 252, 64, 28);
-		fourthMon.setBorderPainted(false);
+//		this.secondMon = new Monster(monImgAddress2);
+//		secondMon.setBounds(25, 84, 64, 28);
+//		secondMon.setBorderPainted(false);
+//		this.thirdMon = new Monster(monImgAddress1);
+//		thirdMon.setBounds(25, 168, 64, 28);
+//		thirdMon.setBorderPainted(false);
+//		this.fourthMon = new Monster(monImgAddress2);
+//		fourthMon.setBounds(0, 252, 64, 28);
+//		fourthMon.setBorderPainted(false);
 
 		// 몬스터 선택 버튼 생성
 		this.selectFirstMon = new JButton();
 		selectFirstMon.setBounds(firstMon.getBounds());
 		selectFirstMon.setBorderPainted(false);
 		selectFirstMon.setContentAreaFilled(false);
-
-		this.selectSecondMon = new JButton();
-		selectSecondMon.setBounds(secondMon.getBounds());
-		selectSecondMon.setBorderPainted(false);
-		selectSecondMon.setContentAreaFilled(false);
-
-		this.selectThirdMon = new JButton();
-		selectThirdMon.setBounds(thirdMon.getBounds());
-		selectThirdMon.setBorderPainted(false);
-		selectThirdMon.setContentAreaFilled(false);
-
-		this.selectFourthMon = new JButton();
-		selectFourthMon.setBounds(fourthMon.getBounds());
-		selectFourthMon.setBorderPainted(false);
-		selectFourthMon.setContentAreaFilled(false);
+//
+//		this.selectSecondMon = new JButton();
+//		selectSecondMon.setBounds(secondMon.getBounds());
+//		selectSecondMon.setBorderPainted(false);
+//		selectSecondMon.setContentAreaFilled(false);
+//
+//		this.selectThirdMon = new JButton();
+//		selectThirdMon.setBounds(thirdMon.getBounds());
+//		selectThirdMon.setBorderPainted(false);
+//		selectThirdMon.setContentAreaFilled(false);
+//
+//		this.selectFourthMon = new JButton();
+//		selectFourthMon.setBounds(fourthMon.getBounds());
+//		selectFourthMon.setBorderPainted(false);
+//		selectFourthMon.setContentAreaFilled(false);
 
 		this.add(selectFirstMon);
-		this.add(selectSecondMon);
-		this.add(selectThirdMon);
-		this.add(selectFourthMon);
+//		this.add(selectSecondMon);
+//		this.add(selectThirdMon);
+//		this.add(selectFourthMon);
 
 		this.add(firstMon);
-		this.add(secondMon);
-		this.add(thirdMon);
-		this.add(fourthMon);
+//		this.add(secondMon);
+//		this.add(thirdMon);
+//		this.add(fourthMon);
 	}
 
 	public void selectMon() {
 		selectFirstMon.addMouseListener(new MyMouseListener(selectFirstMon, 1, 1));
-		selectSecondMon.addMouseListener(new MyMouseListener(selectSecondMon, 2, 2));
-		selectThirdMon.addMouseListener(new MyMouseListener(selectThirdMon, 3, 1));
-		selectFourthMon.addMouseListener(new MyMouseListener(selectFourthMon, 4, 2));
+//		selectSecondMon.addMouseListener(new MyMouseListener(selectSecondMon, 2, 2));
+//		selectThirdMon.addMouseListener(new MyMouseListener(selectThirdMon, 3, 1));
+//		selectFourthMon.addMouseListener(new MyMouseListener(selectFourthMon, 4, 2));
 	}
 
 	// 공격 몬스터 표시 및 선택
@@ -128,17 +126,17 @@ public class BattleMon extends JPanel {
 			this.selectMonCode = selectMonCode;
 			
 			selectFirstMon.setVisible(true);
-			selectSecondMon.setVisible(true);
-			selectThirdMon.setVisible(true);
-			selectFourthMon.setVisible(true);
+//			selectSecondMon.setVisible(true);
+//			selectThirdMon.setVisible(true);
+//			selectFourthMon.setVisible(true);
 		}
 
 		@Override
 		public void mouseReleased(MouseEvent e) {
 			selectFirstMon.setVisible(false);
-			selectSecondMon.setVisible(false);
-			selectThirdMon.setVisible(false);
-			selectFourthMon.setVisible(false);
+//			selectSecondMon.setVisible(false);
+//			selectThirdMon.setVisible(false);
+//			selectFourthMon.setVisible(false);
 
 			bc.characterAttack(selectMonNo, selectMonCode);
 			battlePage.repaint();
