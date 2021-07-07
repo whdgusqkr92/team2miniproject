@@ -51,6 +51,7 @@ public class MemberController {
 		if(result > 0) {
 			memberResultView.loginSuccess();
 //			new AfterLogin(idText.getText());
+//			int userNo= memberDTO.getUserNo();
 			
 			return 1;
 		} else {

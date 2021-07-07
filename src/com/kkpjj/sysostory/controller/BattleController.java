@@ -49,7 +49,9 @@ public class BattleController {
 	// getMonsterDTO
 	// getInventoryDTO
 
+
 	public BattleController(JFrame mf, JPanel battlePage, CharacterDTO chrDTO, InventoryDTO invenDTO) {
+
 		this.mf = mf;
 		this.battlePage = battlePage;
 		this.chrDTO = chrDTO;
@@ -162,11 +164,14 @@ public class BattleController {
 		System.out.println("MON_HP" + monHp);
 		if(monHp > 0) {
 			chrHp = bs.monAttack(chrDTO, monDTO);
+
 		} else {
 			winReward(chrDTO, monDTO);
 		}
+
 		System.out.println("CHR_HP" + chrHp);
 		if(chrHp > 0) {
+
 			createMenu();
 		} else {
 			defeatPenalty(chrDTO);
@@ -174,6 +179,7 @@ public class BattleController {
 	}
 
 	// 전투 승리 시 보상
+
 	public void winReward(CharacterDTO chrDTO, MonsterDTO monDTO) {
 		int chrGold = chrDTO.getChrGold();
 		int chrExp = chrDTO.getChrExp();
@@ -204,6 +210,7 @@ public class BattleController {
 		chrDTO.setChrHp(chrDTO.getChrMaxHp());
 		chrDTO.setChrMp(chrDTO.getChrMaxMp());
 		
+
 	}
 
 	// 전투 패배 시 패널티
