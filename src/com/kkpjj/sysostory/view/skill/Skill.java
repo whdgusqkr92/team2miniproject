@@ -1,5 +1,6 @@
 package com.kkpjj.sysostory.view.skill;
 
+import java.awt.Image;
 import java.util.logging.Logger;
 
 import javax.swing.ImageIcon;
@@ -19,16 +20,19 @@ public class Skill extends JPanel{
 	Skill skill= this;
 		public Skill(JFrame mf ) {
 			this.mf = mf;
-			mainPanel = new JPanel();
-			mainPanel.setBounds(0, 0, 800, 600);
+			this.mainPanel = this;
+			
+			mainPanel.setBounds(0, 0, 800, 380);
+			
+			
 
 			jLabel = new JLabel();
 			jLabel.setBounds(0, 0, 300, 200);
 			// -------------------------이미지 셋아이콘으로 넣기?------------------------
 			icon = new ImageIcon("image/BossSkill3.gif");
 			jLabel.setIcon(icon);
-
 			mainPanel.add(jLabel);
+			
 			
 			//			new LoginScr(loading);
 //            loading.setVisible(false);
@@ -46,10 +50,10 @@ public class Skill extends JPanel{
 							Thread.sleep(1000);
 							n++;
 							if (n == 5) {
-							
+								
 								new ImageIcon("iamge/bossSkill3.gif");
 								new Skill(mf);
-							 setVisible(true);
+								mainPanel.setVisible(true);
 							}
 					System.out.println("쓰래드 실행");	} catch (InterruptedException e) {
 							e.printStackTrace();
@@ -59,7 +63,7 @@ public class Skill extends JPanel{
 			}).start();
 
 			setVisible(true);
-			mainPanel.add(jLabel);
+			
 			
 			
 			mf.getContentPane().add(mainPanel);
