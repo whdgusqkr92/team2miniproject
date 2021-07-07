@@ -45,6 +45,7 @@ public class LoginDAO {
 		int result = 0;
 		
 		ResultSet checkNewUesrResultSet = null;
+		
 		int checkChrNumber = 0;
 		
 		String query1 = prop.getProperty("insertNickname");
@@ -78,7 +79,6 @@ public class LoginDAO {
 			e.printStackTrace();
 		} finally {
 			close(pstmt);
-//			close(con);
 		}
 		
 		return result;
@@ -89,7 +89,6 @@ public class LoginDAO {
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
 		
-		System.out.println("아이디텍스트" + idText);
 		String query = prop.getProperty("searchMemberNumber");
 		int resultIdNumber = 0;
 		
@@ -101,7 +100,6 @@ public class LoginDAO {
 			
 			while(rset.next()) {
 				resultIdNumber = rset.getInt("USER_NO");
-				System.out.println("유저넘버" + rset.getInt("USER_NO"));
 			}
 			
 		} catch (SQLException e) {
@@ -160,9 +158,13 @@ public class LoginDAO {
 		ResultSet rset = null;
 		String query = prop.getProperty("selectAllChrInfo");
 		CharacterDTO charDTO = new CharacterDTO();
+
+		int userNo = searchMemberNumber(con, memberDTO.getUserId());
+		memberDTO.setUserNo(userNo);
 		
 		try {
 			pstmt = con.prepareStatement(query);
+			pstmt.setInt(1, memberDTO.getUserNo());
 			rset = pstmt.executeQuery();
 			
 			while(rset.next()) {
@@ -193,7 +195,6 @@ public class LoginDAO {
 			close(rset);
 			close(pstmt);
 		}
-		
 		return charDTO;
 	}
 	

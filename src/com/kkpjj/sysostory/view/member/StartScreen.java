@@ -67,7 +67,6 @@ public class StartScreen extends JPanel {
 		idText.setFont(new Font("굴림", Font.PLAIN, 30));
 
 		JPasswordField pwdText = new JPasswordField(20);				/* pwd 입력란 */
-		//		JTextField pwdText = new JTextField(12);
 		pwdText.setFont(new Font("굴림", Font.PLAIN, 30));
 		pwdText.setBounds(320, 300, 300, 50);
 		
@@ -113,7 +112,6 @@ public class StartScreen extends JPanel {
 				ViewUtil.changePanel(mf, loginPanel, new JoinPage(mf));
 				
 				
-//				mf.setVisible(false);
 			}
 		});
 
@@ -125,8 +123,6 @@ public class StartScreen extends JPanel {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-//				new FindIdView();
-//				mf.setVisible(false);
 				ViewUtil.changePanel(mf, loginPanel, new FindIdView(mf));
 			}
 		});
@@ -139,8 +135,6 @@ public class StartScreen extends JPanel {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-//				new FindPwdView();
-//				mf.setVisible(false);
 				ViewUtil.changePanel(mf, loginPanel, new FindPwdView(mf));
 			}
 		});
@@ -167,11 +161,6 @@ public class StartScreen extends JPanel {
 		loginPanel.add(findPwdButton);
 		loginPanel.add(label);
 		mf.add(loginPanel);
-
-//		mf.setVisible(true);
-//		mf.setResizable(false);
-//		mf.setDefaultCloseOperation(EXIT_ON_CLOSE);
-
 
 	}
 

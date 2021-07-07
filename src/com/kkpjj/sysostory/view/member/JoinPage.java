@@ -28,7 +28,6 @@ public class JoinPage extends JPanel{
 	private JFrame mf;
 	private JTextField idText;
 	private JPasswordField pwdText;
-//	private JTextField pwdText;
 	private JTextField nameText;
 	private JTextField emailText;
 	
@@ -69,7 +68,6 @@ public class JoinPage extends JPanel{
 		pwdPanel.add(pwdLabel);
 		
 		pwdText = new JPasswordField();	
-//		pwdText = new JTextField();
 		pwdText.setFont(new Font("둥근모꼴", Font.PLAIN, 20));			/* pwd 입력란 */
 		pwdText.setBounds(300, 180, 300, 45);
 		pwdText.setColumns(12);
@@ -104,12 +102,12 @@ public class JoinPage extends JPanel{
 		emailText.setBounds(300, 340, 300, 45);
 		emailText.setColumns(10);
 		
-		JButton btnNewButton = new JButton("회원가입");				
-		btnNewButton.setFont(new Font("둥근모꼴", Font.PLAIN, 24));	/* 회원가입 버튼 */
-		btnNewButton.setBounds(250, 410, 130, 50);
+		JButton joinButton = new JButton("회원가입");				
+		joinButton.setFont(new Font("둥근모꼴", Font.PLAIN, 24));	/* 회원가입 버튼 */
+		joinButton.setBounds(250, 410, 130, 50);
 		
 		MemberController memController = new MemberController();
-		btnNewButton.addActionListener(new ActionListener() {
+		joinButton.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				String pwdString = new String(pwdText.getPassword());
@@ -141,7 +139,7 @@ public class JoinPage extends JPanel{
 		});
 		
 		panel.add(backButton);
-		panel.add(btnNewButton);
+		panel.add(joinButton);
 		panel.add(emailPanel);
 		panel.add(emailText);
 		panel.add(namePanel);

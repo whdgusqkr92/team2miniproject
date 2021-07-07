@@ -30,7 +30,6 @@ public class FindIdView extends JPanel{
 		Image background = new ImageIcon("images/login/StartScreen2.png").getImage().getScaledInstance(800, 600, 0);
 		JLabel label = new JLabel(new ImageIcon(background));
 		label.setBounds(0, 0, 800, 600);
-//		mf.getContentPane().setLayout(null);
 		
 		
 		JPanel namePanel = new JPanel();							/* name 패널 */
@@ -39,7 +38,6 @@ public class FindIdView extends JPanel{
 		namePanel.setLayout(null);
 		
 		JTextField nameText = new JTextField();
-//		nameText = new JTextField();								
 		nameText.setFont(new Font("둥근모꼴", Font.PLAIN, 20));		/* name 입력란 */
 		nameText.setBounds(300, 200, 300, 45);
 		nameText.setColumns(5);
@@ -50,7 +48,6 @@ public class FindIdView extends JPanel{
 		emailPanel.setLayout(null);
 		
 		JTextField emailText = new JTextField();
-//		emailText1 = new JTextField();								
 		emailText.setFont(new Font("둥근모꼴", Font.PLAIN, 20));		/* email 입력란 */
 		emailText.setBounds(300, 280, 300, 45);
 		emailText.setColumns(20);
