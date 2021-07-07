@@ -28,5 +28,6 @@ public class CharacterService {
 		
 		return chrInfo;
 	}
+	
 
 }
