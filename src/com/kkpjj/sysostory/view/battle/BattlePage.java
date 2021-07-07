@@ -39,8 +39,8 @@ public class BattlePage extends JPanel {
 	private void createComponents() {
 		BattleController bc = new BattleController(mf, this, characterDTO, inventoryDTO);
 		// getData
-		bc.selectAllSkills();
 		bc.selectAllMonsters();
+		bc.selectAllSkills();
 		// 캐릭터 생성
 		bc.createChr();
 		// 몬스터 생성

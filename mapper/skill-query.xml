@@ -3,18 +3,25 @@
 <properties>
 <comment/>
 	<entry key="selectSkill">
-	SELECT
-		
-		SKILL_CODE,
-		SKILL_NAME,
-		SKILL_ATT,
-		MP_CONSUM,
-		SKILL_OPEN_LV,
-		SKILL_SCRIPT
-		
-		FROM TBL_SKILL_LIST
-		WHERE SKILL_CODE = ?
+        SELECT
+               SKILL_CODE
+             , SKILL_NAME
+             , SKILL_ATT
+             , MP_CONSUM
+             , SKILL_OPEN_LV
+             , SKILL_SCRIPT
+          FROM TBL_SKILL_LIST
+		 WHERE SKILL_CODE = ?
 	</entry>
-		
 	
+	<entry key="selectAllSkillList">
+        SELECT
+               SKILL_CODE
+             , SKILL_NAME
+             , SKILL_ATT
+             , MP_CONSUM
+             , SKILL_OPEN_LV
+             , SKILL_SCRIPT
+          FROM TBL_SKILL_LIST
+	</entry>
 </properties>

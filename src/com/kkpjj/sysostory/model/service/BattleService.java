@@ -7,33 +7,51 @@ import java.sql.Connection;
 import java.util.List;
 
 import com.kkpjj.sysostory.controller.BattleController;
-import com.kkpjj.sysostory.controller.BossAttController;
 import com.kkpjj.sysostory.model.dao.BattleDAO;
-import com.kkpjj.sysostory.model.dto.MonsterDTO;
 import com.kkpjj.sysostory.view.boss.BossSkillEffect;
+
+import com.kkpjj.sysostory.model.dao.MonsterDAO;
+import com.kkpjj.sysostory.model.dao.SkillDAO;
+import com.kkpjj.sysostory.model.dto.CharacterDTO;
+import com.kkpjj.sysostory.model.dto.MonsterDTO;
+import com.kkpjj.sysostory.model.dto.SkillDTO;
+
 
 public class BattleService {
 	private BattleController bc;
-	private BattleDAO battleDAO;
+	private MonsterDAO monsterDAO;
+	private SkillDAO skillDAO;
 
 	public BattleService() {
-		this.battleDAO = new BattleDAO();
+		this.monsterDAO = new MonsterDAO();
+		this.skillDAO = new SkillDAO();
 	}
 
-	public List<MonsterDTO> fightMonster() {
+	public List<MonsterDTO> selectAllMonsters() {
 		Connection con = getConnection();
 
-		List<MonsterDTO> monsterList = battleDAO.selectAllMonList(con);
+		List<MonsterDTO> monsterList = monsterDAO.selectAllMonsters(con);
 
 		close(con);
 
 		return monsterList;
 	}
 	
-	public int checkMp(String subMenuName) {
-		int chrMp = 10;				// chracterDTO.getChrMp();
-		int mpConsume = 25;			// skillDTO.getMpConsume();
-		double skillAtt = 0.2;
+	public List<SkillDTO> selectAllSkills() {
+		Connection con = getConnection();
+		
+		List<SkillDTO> skillList = skillDAO.selectAllSkillList(con);
+		
+		close(con);
+		
+		return skillList;
+	}
+	
+	
+	public int checkMp(String subMenuName, CharacterDTO characterDTO, SkillDTO skillDTO) {
+		int chrMp = characterDTO.getChrMp();
+		int mpConsume = skillDTO.getMpConsum();
+		double skillAtt = skillDTO.getSkillAtt();
 		int result = 0;
 		
 		if(chrMp >= mpConsume) {
@@ -45,11 +63,11 @@ public class BattleService {
 		return result;
 	}
 
-	public int chrAttack(String AttackType, String subMenuName) {
-		int chrAtt = 10;			// chracterDTO.getChrAtt();
-		double skillAtt = 0.2;		// monsterDTO.getSkillAtt();
-		int monHp = 50;				// monsterDTO.getMonHp();
-		int monDef = 5;				// monsterDTO.getMonDef();
+	public int chrAttack(String AttackType, String subMenuName, CharacterDTO characterDTO, MonsterDTO monsterDTO) {
+		int chrAtt = characterDTO.getChrAtt();
+		double skillAtt = monsterDTO.getSkillAtt();
+		int monHp = monsterDTO.getMonHp();
+		int monDef = monsterDTO.getMonDef();
 
 		switch(AttackType) {
 			case "attack" : monHp -= (chrAtt - monDef); break;
@@ -61,13 +79,13 @@ public class BattleService {
 		return result;
 	}
 
-	private int isMonAlive(int hp) {
+	private int isMonAlive(int monHp) {
 		int result = 0;
 		
-		if(hp > 0) {
+		if(monHp > 0) {
 			result = 1;
 		} else {
-			hp = 0;
+			monHp = 0;
 //			result = isOtherMonAlive();
 		}
 		return result;
@@ -78,30 +96,34 @@ public class BattleService {
 		return result;
 	}
 
-	public int monAttack() {
-		int chrHp = 100;
-		int chrDef = 5;
-		String monType = "boss";
-		int monAtt = 10;
+	public int monAttack(CharacterDTO characterDTO, MonsterDTO monsterDTO) {
+		int chrHp = characterDTO.getChrHp();
+		int chrDef = characterDTO.getChrDef();
+		int monCode = monsterDTO.getMonCode();
+		int monAtt = monsterDTO.getMonAtt();
 		double monSkillAtt = 0.2;
 
-		if(monType.equals("boss")) {
+		if(monCode == 3) {
 			chrHp -= (int) (monAtt * (1 + monSkillAtt) - chrDef);
-//			new BossAttController(mf).attMiddleBoss();
-			
-		} else {
+
+
+		} else if(monCode == 0) {
+
 			chrHp -= monAtt - chrDef;			
 		}
 
-		int result = isChrAlive(chrHp);
+		int result = isChrAlive(characterDTO, chrHp);
 		return result;
 	}
 
-	private int isChrAlive(int chrHp) {
+	private int isChrAlive(CharacterDTO characterDTO, int chrHp) {
 		int result = 0;
 		
 		if(chrHp > 0) {
+			characterDTO.setChrHp(chrHp);
 			result = 1;
+		} else {
+			characterDTO.setChrHp(characterDTO.getChrMaxHp() / 10);
 		}
 		return result;
 	}
