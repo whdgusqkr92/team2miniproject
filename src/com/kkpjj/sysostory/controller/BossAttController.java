@@ -11,7 +11,6 @@ import com.kkpjj.sysostory.run.Application;
 import com.kkpjj.sysostory.view.MainFrame;
 import com.kkpjj.sysostory.view.boss.BossSkillEffect;
 import com.kkpjj.sysostory.view.character.Sound;
-import com.kkpjj.sysostory.view.character.SettingPanel.BgmOn;
 
 public class BossAttController extends JPanel{
 
@@ -32,9 +31,7 @@ public class BossAttController extends JPanel{
 		this.bossAttService = new BossAttService();
 //		
 		mf.add(mainpanel);
-		
-//		MainFrame.battlesound();
-	}
+			}
 
 	public void attFinalBoss() { //int Code
 
@@ -167,3 +164,4 @@ public class BossAttController extends JPanel{
 	}
 //}
 }
+
