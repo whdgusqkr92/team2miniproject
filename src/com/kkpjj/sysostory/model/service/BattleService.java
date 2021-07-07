@@ -7,9 +7,10 @@ import java.sql.Connection;
 import java.util.List;
 
 import com.kkpjj.sysostory.controller.BattleController;
+import com.kkpjj.sysostory.controller.BossAttController;
 import com.kkpjj.sysostory.model.dao.BattleDAO;
 import com.kkpjj.sysostory.model.dto.MonsterDTO;
-import com.kkpjj.sysostory.view.ViewUtil;
+import com.kkpjj.sysostory.view.boss.BossSkillEffect;
 
 public class BattleService {
 	private BattleController bc;
@@ -86,6 +87,8 @@ public class BattleService {
 
 		if(monType.equals("boss")) {
 			chrHp -= (int) (monAtt * (1 + monSkillAtt) - chrDef);
+//			new BossAttController(mf).attMiddleBoss();
+			
 		} else {
 			chrHp -= monAtt - chrDef;			
 		}

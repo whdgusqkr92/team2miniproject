@@ -41,7 +41,7 @@ public class FinalBossEvent extends JPanel{
 
 		//--------------------------배경 필드 패널 만들기------------------------------	
 
-		mainpanel.setBounds(0, 0, 800, 420);
+		mainpanel.setBounds(0, 0, 800, 400);
 		mainpanel.setLayout(null);
 		mf.add(mainpanel); // 생성한 패널 프레임에 추가
 		
@@ -110,7 +110,7 @@ public class FinalBossEvent extends JPanel{
 
 
 	public void paintComponent(Graphics g) {
-		g.drawImage(field,0,0,800,420,this);
+		g.drawImage(field,0,0,800,400,this);
 	}
 
 

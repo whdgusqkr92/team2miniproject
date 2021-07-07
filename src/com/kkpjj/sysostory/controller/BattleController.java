@@ -16,6 +16,7 @@ import com.kkpjj.sysostory.view.battle.BattleChr;
 import com.kkpjj.sysostory.view.battle.BattleMenu;
 import com.kkpjj.sysostory.view.battle.BattleMon;
 import com.kkpjj.sysostory.view.battle.BattlePage;
+import com.kkpjj.sysostory.view.battle.BossBattlePage;
 import com.kkpjj.sysostory.view.character.FieldCharacterBattle;
 import com.kkpjj.sysostory.view.character.VillageView;
 
@@ -63,6 +64,17 @@ public class BattleController {
 //		this.ms = new MonsterService();
 		this.ss = new SkillService();
 	}
+//	
+//	public BattleController(JFrame mf, BossBattlePage BossBattlePage, CharacterDTO characterDTO, InventoryDTO inventoryDTO) {
+//		this.mf = mf;
+//		this.battlePage = battlePage;
+//		this.characterDTO = characterDTO;
+//		this.inventoryDTO = inventoryDTO;
+//		this.bc = this;
+//		this.bs = new BattleService();
+////		this.ms = new MonsterService();
+//		this.ss = new SkillService();
+//	}
 
 	public void selectAllMonsters() {
 		List<MonsterDTO> monsterList = new ArrayList<>();
@@ -108,6 +120,7 @@ public class BattleController {
 		BattleMenu battleMenu = new BattleMenu(this);
 		battlePage.add(battleMenu);
 		this.battleMenu = battleMenu;
+		
 	}
 
 	public void selectAction(String attackType, String subMenuName) {
