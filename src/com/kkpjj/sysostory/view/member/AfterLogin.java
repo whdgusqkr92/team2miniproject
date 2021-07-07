@@ -53,12 +53,11 @@ public class AfterLogin extends JPanel{
 		JButton btnNewButton_1 = new JButton("이어 하기");				/* 이어 하기 버튼 */
 		btnNewButton_1.setFont(new Font("둥근모꼴", Font.PLAIN, 24));
 		btnNewButton_1.setBounds(200, 240, 400, 80);
-		
 		btnNewButton_1.addActionListener(new ActionListener() {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-
+				System.out.println(charDTO);
 				ViewUtil.changePanel(mf, panel, new VillageView(mf, charDTO));
 			}
 		});

@@ -26,9 +26,7 @@ public class DieText extends JPanel {
 	
 	private JLabel textLabel;
 	private JLabel textLabel2;
-	private JLabel bossLabel;
 	
-	private JButton btn;
 	private CharacterDTO characterDTO;
 	
 	public DieText(JFrame mf, JPanel mainpanel, CharacterDTO characterDTO) {
@@ -39,6 +37,7 @@ public class DieText extends JPanel {
 		
 	}
 			public void charaDie() {
+				
 				
 				Image GameOver = new ImageIcon("images/text/GameOver.png").getImage().getScaledInstance(400, 200, 0);
 				textLabel2 = new JLabel(new ImageIcon(GameOver));
@@ -68,22 +67,11 @@ public class DieText extends JPanel {
 			private class RestartActionListener extends MouseAdapter {
 	
 				@Override
-				public void mouseClicked(MouseEvent e) {
+				public void mouseReleased(MouseEvent e) {
 					
 					ViewUtil.changePanel(mf, mainpanel, new VillageView(mf, characterDTO)); //여기에 마을or필드 부르면됨.
 				
 						}
 					}
 			
-//			private class BoxActionListener extends MouseAdapter {
-//				
-//				@Override
-//				public void mouseClicked(MouseEvent e) {
-//					
-//					
-//					ViewUtil.changePanel(mf, mainpanel, new (mf)); //
-//				
-//						}
-//					}
-			
-				}
+}			

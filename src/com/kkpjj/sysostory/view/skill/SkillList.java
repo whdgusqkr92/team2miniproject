@@ -1,4 +1,3 @@
-
 package com.kkpjj.sysostory.view.skill;
 
 import java.awt.Font;
@@ -299,3 +298,4 @@ public class SkillList extends JPanel {
 
 	}
 }
+

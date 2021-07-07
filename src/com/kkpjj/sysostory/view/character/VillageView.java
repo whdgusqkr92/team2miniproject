@@ -170,19 +170,3 @@ public class VillageView extends JPanel implements KeyListener {
 	}
 	
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
