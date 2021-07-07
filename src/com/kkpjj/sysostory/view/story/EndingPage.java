@@ -41,11 +41,11 @@ public class EndingPage extends JPanel {
 		Image field = new ImageIcon("Images/field/FinalBossField.png").getImage().getScaledInstance(800, 200, 0);
 		mainpanel = new JPanel() {
 			public void paintComponent(Graphics g) {
-				g.drawImage(field,0,0,800,420,this);
+				g.drawImage(field,0,0,800,400,this);
 			}
 		};
 		
-		mainpanel.setBounds(0, 0, 800, 420);
+		mainpanel.setBounds(0, 0, 800, 400);
 		mainpanel.setLayout(null);
 		mf.add(mainpanel); // 생성한 패널 프레임에 추가
 
@@ -63,7 +63,7 @@ public class EndingPage extends JPanel {
 		//-------------------------대화 이미지1 출력------------------------------------------------	
 		Image text1 = new ImageIcon("images/text/내가지다니.png").getImage().getScaledInstance(600, 300, 0);
 		textLabel = new JLabel(new ImageIcon(text1));
-		textLabel.setBounds(0, 251, 792, 200);
+		textLabel.setBounds(0, 200, 792, 180);
 		mainpanel.add(textLabel);
 				
 		//-------------------------대화 이미지 2출력--------------------------------------------------
@@ -119,7 +119,7 @@ public class EndingPage extends JPanel {
 		Image field = new ImageIcon("Images/story/엔딩크레딧.PNG").getImage().getScaledInstance(800, 200, 0);
 		mainpanel2 = new JPanel() {
 			public void paintComponent(Graphics g) {
-				g.drawImage(field,0,0,800,420,this);
+				g.drawImage(field,0,0,800,600,this);
 			}
 		};
 		

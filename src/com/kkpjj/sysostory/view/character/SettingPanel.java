@@ -32,12 +32,10 @@ public class SettingPanel extends JPanel {
 		this.mf = mf;
 		this.mainpanel = this;
 
-
-		mainpanel.setBounds(0, 0, 800, 420);
+		mainpanel.setBounds(0, 0, 800, 400);
 		mainpanel.setLayout(null);
 		mf.add(mainpanel);
 
-		
 //		JButton saveBtn = new JButton("저장하기");
 //		saveBtn.setBounds(250, 70, 292, 47);
 //		mainpanel.add(saveBtn);

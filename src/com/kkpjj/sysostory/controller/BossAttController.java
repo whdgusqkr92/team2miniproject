@@ -24,8 +24,6 @@ public class BossAttController extends JPanel{
 	private JFrame mf;
 	private JPanel mainpanel;
 	
-
-	
 	
 	public BossAttController(JFrame mf) {
 		this.mf = mf;
@@ -33,63 +31,13 @@ public class BossAttController extends JPanel{
 		this.chr = new CharacterDTO();	
 		this.bossAttService = new BossAttService();
 //		
-		
+		mf.add(mainpanel);
 		
 //		MainFrame.battlesound();
 	}
 
 	public void attFinalBoss() { //int Code
 
-		
-		MonsterDTO monsterDTO = new MonsterDTO();
-		
-		int monCode = 3;
-		monsterDTO = bossAttService.attBoss(monCode);
-		System.out.println(monsterDTO);
-		
-		int ranAtt = (int) (Math.random()*100)+1 ;
-		
-		int nomalAtt = monsterDTO.getMonAtt(); //일반공격
-		int spAtt = monsterDTO.getSkillAtt();  //스킬공격계수
-		int damege = nomalAtt * ( 1 + spAtt); // 스킬 데미지
-		
-		int chrHp = chr.getChrHp();
-		
-//		new BossSkillEffect(mf).finalSkill1();//
-//		new BossSkillEffect(mf).middleSkill1();
-		
-		
-		System.out.println(ranAtt);
-		if(monCode == 3) {
-			
-			if(!(monsterDTO.getMonHp() == 0)) {
-				
-				if(ranAtt > 0 && ranAtt < 100 ) {      		//100프로일단 설정해놓음
-					new BossSkillEffect(mf).finalSkill2();
-					new BossSkillEffect(mf).setVisible(false);
-					
-					chrHp = chr.getChrHp() - damege;
-						
-					}else if(ranAtt == 10) {			//1프로
-						new BossSkillEffect(mf).finalSkill3();
-						new BossSkillEffect(mf).setVisible(false);
-						chrHp = chr.getChrHp() - damege;
-						
-					}else if(ranAtt >10 && ranAtt <= 200 ) {  //10프로
-						new BossSkillEffect(mf).finalSkill1();
-						new BossSkillEffect(mf).setVisible(false);
-						chrHp = chr.getChrHp() - damege;
-						
-					}else { 				 			//나머지 일반공격
-						chrHp = chr.getChrHp() - monsterDTO.getMonAtt();
-					}
-			
-				}
-		}
-	}
-	
-	
-	public void attMiddleBoss() { //int Code
 		
 		MonsterDTO monsterDTO = new MonsterDTO();
 		
@@ -105,8 +53,69 @@ public class BossAttController extends JPanel{
 		
 		int chrHp = chr.getChrHp();
 		
-//		new BossSkillEffect(mf).finalSkill1();//
+		System.out.println(ranAtt);
+		if(monCode == 3) {
+			
+			if(!(monsterDTO.getMonHp() == 0)) {
+				
+				if(ranAtt > 0 && ranAtt < 4 ) {      		//100프로일단 설정해놓음
+					new BossSkillEffect(mf).finalSkill2();
+					new BossSkillEffect(mf).setVisible(false);
+					
+					chrHp = chr.getChrHp() - damege;
+						
+					}else if(ranAtt > 3 && ranAtt < 6) {			//1프로
+						new BossSkillEffect(mf).finalSkill3();
+						new BossSkillEffect(mf).setVisible(false);
+						chrHp = chr.getChrHp() - damege;
+						
+					}else if(ranAtt >5 && ranAtt < 8 ) {  //10프로
+						new BossSkillEffect(mf).finalSkill1();
+						new BossSkillEffect(mf).setVisible(false);
+						chrHp = chr.getChrHp() - damege;
+						
+					}else { 				 			//나머지 일반공격
+						chrHp = chr.getChrHp() - monsterDTO.getMonAtt();
+					}
+				
+				new Thread(new Runnable() {
+					public void run() {
+						int cnt = 0;
+						while(true) {
+							
+						try {
+							Thread.sleep(1000);
+							cnt++;
+							if(cnt==4) {
+								attFinalBoss();
+//								attMiddleBoss();
+							}
+						} catch (InterruptedException e) {
+							e.printStackTrace();
+						}
+						}
+					}
+				}).start();
+			}
+		}
+	}
+	
+	
+	public void attMiddleBoss() { //int Code
 		
+		MonsterDTO monsterDTO = new MonsterDTO();
+		
+		int monCode = 3;
+		monsterDTO = bossAttService.attBoss(monCode);
+		System.out.println(monsterDTO);
+		
+		int ranAtt = (int) (Math.random()*10)+1 ;
+		
+//		int nomalAtt = monsterDTO.getMonAtt(); //일반공격
+//		int spAtt = monsterDTO.getSkillAtt();  //스킬공격계수
+//		int damege = nomalAtt * ( 1 + spAtt); // 스킬 데미지
+		
+		int chrHp = chr.getChrHp();
 		
 		System.out.println(ranAtt);
 		if(monCode == 3) {
@@ -117,15 +126,15 @@ public class BossAttController extends JPanel{
 					System.out.println("1번사용");
 					new BossSkillEffect(mf).middleSkill1();
 					new BossSkillEffect(mf).setVisible(false);
-					chrHp = chr.getChrHp() - damege;
-//					Sound.effSound();
+//					chrHp = chr.getChrHp() - damege;
+					Sound.effSound();
 						
 					}else if(ranAtt >3 && ranAtt <= 7 ) {  
 						System.out.println("2번사용");
 						new BossSkillEffect(mf).middleSkill2();
 						new BossSkillEffect(mf).setVisible(false);
-						chrHp = chr.getChrHp() - damege;
-//						Sound.effSound();
+//						chrHp = chr.getChrHp() - damege;
+						Sound.effSound();
 					}else { 				 			
 						chrHp = chr.getChrHp() - monsterDTO.getMonAtt();
 						System.out.println("기본공격사용");
@@ -146,6 +155,7 @@ public class BossAttController extends JPanel{
 				Thread.sleep(1000);
 				cnt++;
 				if(cnt==2) {
+//					attFinalBoss();
 					attMiddleBoss();
 				}
 			} catch (InterruptedException e) {
@@ -155,4 +165,5 @@ public class BossAttController extends JPanel{
 		}
 	}).start();
 	}
+//}
 }
