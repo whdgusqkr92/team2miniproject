@@ -3,6 +3,12 @@ package com.kkpjj.sysostory.view;
 import javax.swing.JFrame;
 
 import com.kkpjj.sysostory.model.dto.CharacterDTO;
+
+import com.kkpjj.sysostory.view.member.StartScreen;
+import com.kkpjj.sysostory.view.skill.Skill;
+import com.kkpjj.sysostory.view.skill.SkillList;
+import com.kkpjj.sysostory.view.story.EndingPage;
+
 import com.kkpjj.sysostory.model.dto.InventoryDTO;
 
 import com.kkpjj.sysostory.view.boss.BossTurn;
@@ -29,18 +35,21 @@ public class MainFrame extends JFrame {
 
 
 
-//		mf.add(new StartScreen(mf));
+		mf.add(new StartScreen(mf));
 		
 //		new FinalBossEvent(mf);
 //		new EndingPage(mf, characterDTO);
 
 
 
-		mf.add(new CharacterView(mf, chr));
+
+//		mf.add(new CharacterView(mf, chr));
 //		new FieldCharacterBattle(mf, inventoryDTO, characterDTO);
 		
-
-
+//		new FieldCharacterBattle(mf, inventoryDTO, characterDTO);
+//		new SkillList(mf);
+//		new Skill(mf);
+		
 
 
 
