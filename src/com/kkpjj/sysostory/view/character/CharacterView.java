@@ -38,15 +38,15 @@ public class CharacterView extends JPanel{
 		
 		/* -------------- 캐릭터 정보 테스트 ----------------- */
 		
-		int userNo = 2;		// 사용자 번호
-		int chrCode = 1;	// 캐릭터 코드
+		int userNo = 4;		// 사용자 번호
+		int chrCode = 2;	// 캐릭터 코드
 		
 		chrDTO.setChrCode(chrCode);
 		chrDTO.setUserNo(userNo);
 		
 //		System.out.println(cc.selectCharacterInfo(chrDTO.getChrCode(), chrDTO.getUserNo()));
 
-		CharacterDTO chr = cc.selectCharacterInfo(chrDTO.getChrCode(), chrDTO.getUserNo());
+		CharacterDTO chr = cc.selectCharacterInfo(chrDTO.getUserNo(), chrDTO.getChrCode());
 		
 //		System.out.println("공격력 : " + chr.getChrAtt());
 //		System.out.println("방어력 : " + chr.getChrDef());
@@ -110,27 +110,52 @@ public class CharacterView extends JPanel{
 		chrPanel.add(level);
 		
 		// 현재 HP, 최대 HP 라벨 생성
+		JLabel hpInfo = new JLabel();
+		hpInfo.setBounds(400, 100, 400, 50);
+		hpInfo.setFont(new Font("둥근모꼴", Font.PLAIN, 30));
+		hpInfo.setForeground(Color.white);
+		hpInfo.setText("체력      ");
+		chrPanel.add(hpInfo);
+		
 		JLabel hp = new JLabel();
-		hp.setBounds(400, 100, 400, 50);
+		hp.setBounds(300, 100, 400, 50);
 		hp.setFont(new Font("둥근모꼴", Font.PLAIN, 30));
 		hp.setForeground(Color.white);
-		hp.setText("체력        " + chr.getChrHp() + " /  " + chr.getChrMaxHp());
+		hp.setText(chr.getChrHp() + " /  " + chr.getChrMaxHp());
+		hp.setHorizontalAlignment(hp.RIGHT);
 		chrPanel.add(hp);
 		
 		// 현재 MP, 최대 MP 라벨 생성
+		JLabel mpInfo = new JLabel();
+		mpInfo.setBounds(400, 150, 400, 50);
+		mpInfo.setFont(new Font("둥근모꼴", Font.PLAIN, 30));
+		mpInfo.setForeground(Color.white);
+		mpInfo.setText("기력       ");
+		chrPanel.add(mpInfo);
+		
 		JLabel mp = new JLabel();
-		mp.setBounds(400, 150, 400, 50);
+		mp.setBounds(300, 150, 400, 50);
 		mp.setFont(new Font("둥근모꼴", Font.PLAIN, 30));
 		mp.setForeground(Color.white);
-		mp.setText("기력         " + chr.getChrMp() + " /   " + chr.getChrMaxMp());
+		mp.setText(chr.getChrMp() + " /  " + chr.getChrMaxMp());
+		mp.setHorizontalAlignment(mp.RIGHT);
 		chrPanel.add(mp);
 		
+		
 		// 현재 경험치, 레벨업 조건 경험치 라벨 생성
+		JLabel expInfo = new JLabel();
+		expInfo.setBounds(400, 200, 400, 50);
+		expInfo.setFont(new Font("둥근모꼴", Font.PLAIN, 30));
+		expInfo.setForeground(Color.white);
+		expInfo.setText("경험치      ");
+		chrPanel.add(expInfo);
+		
 		JLabel exp = new JLabel();
-		exp.setBounds(400, 200, 400, 50);
+		exp.setBounds(300, 200, 400, 50);
 		exp.setFont(new Font("둥근모꼴", Font.PLAIN, 30));
 		exp.setForeground(Color.white);
-		exp.setText("경험치      " + chr.getChrExp() + " /  " + chr.getChrMaxExp());
+		exp.setText(chr.getChrExp() + " /  " + chr.getChrMaxExp());
+		exp.setHorizontalAlignment(exp.RIGHT);
 		chrPanel.add(exp);
 	
 		// 공격력 라벨 생성
