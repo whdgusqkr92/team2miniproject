@@ -35,6 +35,8 @@ public class CharacterDAO {
 		
 	}
 
+
+
 	public CharacterDTO selectCharacterInfo(Connection con, int userNo, int chrCode) {
 		
 		PreparedStatement pstmt = null;
@@ -84,3 +86,4 @@ public class CharacterDAO {
 	}
 
 }
+
