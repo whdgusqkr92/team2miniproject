@@ -16,7 +16,6 @@ import com.kkpjj.sysostory.view.battle.BattleChr;
 import com.kkpjj.sysostory.view.battle.BattleMenu;
 import com.kkpjj.sysostory.view.battle.BattleMon;
 import com.kkpjj.sysostory.view.battle.BattlePage;
-import com.kkpjj.sysostory.view.battle.BossBattlePage;
 import com.kkpjj.sysostory.view.character.FieldCharacterBattle;
 import com.kkpjj.sysostory.view.character.VillageView;
 
@@ -60,17 +59,6 @@ public class BattleController {
 		this.inventoryDTO = inventoryDTO;
 		this.bs = new BattleService();
 	}
-//	
-//	public BattleController(JFrame mf, BossBattlePage BossBattlePage, CharacterDTO characterDTO, InventoryDTO inventoryDTO) {
-//		this.mf = mf;
-//		this.battlePage = battlePage;
-//		this.characterDTO = characterDTO;
-//		this.inventoryDTO = inventoryDTO;
-//		this.bc = this;
-//		this.bs = new BattleService();
-////		this.ms = new MonsterService();
-//		this.ss = new SkillService();
-//	}
 
 	public void selectAllMonsters() {
 		List<MonsterDTO> monsterList = new ArrayList<>();
@@ -105,8 +93,16 @@ public class BattleController {
 //		for(int i = 0; i < numOfMon; i++) {
 			//			fightMonList.add(i, Mon);
 //		}
+		
+		int selectMonCode = 1;
+		MonsterDTO monsterDTO = new MonsterDTO();
+		for(int i = 0; i < monsterList.size(); i++) {
+			if(selectMonCode == monsterList.get(i).getMonCode()) {
+				monsterDTO = monsterList.get(i);
+			}
+		}
 
-		BattleMon battleMon = new BattleMon(battlePage, this);
+		BattleMon battleMon = new BattleMon(battlePage, this, monsterDTO);
 		this.battleMon = battleMon;
 		battlePage.add(battleMon);
 	}
@@ -116,7 +112,6 @@ public class BattleController {
 		BattleMenu battleMenu = new BattleMenu(this);
 		battlePage.add(battleMenu);
 		this.battleMenu = battleMenu;
-		
 	}
 	
 	// 사용자 행동 선택

@@ -11,7 +11,6 @@ import com.kkpjj.sysostory.run.Application;
 import com.kkpjj.sysostory.view.MainFrame;
 import com.kkpjj.sysostory.view.boss.BossSkillEffect;
 import com.kkpjj.sysostory.view.character.Sound;
-import com.kkpjj.sysostory.view.character.SettingPanel.BgmOn;
 
 public class BossAttController extends JPanel{
 
@@ -32,9 +31,7 @@ public class BossAttController extends JPanel{
 		this.bossAttService = new BossAttService();
 //		
 		mf.add(mainpanel);
-		
-//		MainFrame.battlesound();
-	}
+			}
 
 	public void attFinalBoss() { //int Code
 
@@ -48,8 +45,8 @@ public class BossAttController extends JPanel{
 		int ranAtt = (int) (Math.random()*10)+1 ;
 		
 		int nomalAtt = monsterDTO.getMonAtt(); //일반공격
-		int spAtt = monsterDTO.getSkillAtt();  //스킬공격계수
-		int damege = nomalAtt * ( 1 + spAtt); // 스킬 데미지
+		double spAtt = monsterDTO.getSkillAtt();  //스킬공격계수
+		int damege = (int) (nomalAtt * ( 1 + spAtt)); // 스킬 데미지
 		
 		int chrHp = chr.getChrHp();
 		
@@ -167,3 +164,4 @@ public class BossAttController extends JPanel{
 	}
 //}
 }
+
