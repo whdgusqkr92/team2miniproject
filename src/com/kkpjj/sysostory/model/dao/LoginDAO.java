@@ -158,34 +158,33 @@ public class LoginDAO {
 	public CharacterDTO searchCharacterInfo(Connection con, MemberDTO memberDTO) {
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
-		String query = prop.getProperty("selectAllMember");
+		String query = prop.getProperty("selectAllChrInfo");
 		CharacterDTO charDTO = new CharacterDTO();
+		
 		try {
 			pstmt = con.prepareStatement(query);
 			rset = pstmt.executeQuery();
 			
-//			while(rset.next()) {
-//				private int chrCode;
-//				private int userNo;
-//				private String chrName;
-//			 	private int chrHp;
-//				private int chrMp;
-//				private int chrExp;
-//				private int chrLevel;
-//				private int chrGold;
-//				private int chrMaxHp;
-//				private int chrMaxMp;
-//				private int chrMaxExp;
-//				private int chrAtt;
-//				private int chrDef;
-//				private String chrSfx;
-//				private String chrBmg;
-//				private String chrEquipTitle;
-//				private String chrEquipWeapon;
-//				private String chrEquipArmor;
-//				charDTO.
-//				
-//			}
+			while(rset.next()) {
+				charDTO.setChrCode(rset.getInt("CHR_CODE"));
+				charDTO.setUserNo(rset.getInt("USER_NO"));
+				charDTO.setChrName(rset.getString("CHR_NAME"));
+				charDTO.setChrHp(rset.getInt("CHR_HP"));
+				charDTO.setChrMp(rset.getInt("CHR_MP"));
+				charDTO.setChrExp(rset.getInt("CHR_EXP"));
+				charDTO.setChrLevel(rset.getInt("CHR_LEVEL"));
+				charDTO.setChrGold(rset.getInt("CHR_GOLD"));
+				charDTO.setChrMaxHp(rset.getInt("MAX_HP"));
+				charDTO.setChrMaxMp(rset.getInt("MAX_MP"));
+				charDTO.setChrMaxExp(rset.getInt("MAX_EXP"));
+				charDTO.setChrAtt(rset.getInt("CHR_ATT"));
+				charDTO.setChrDef(rset.getInt("CHR_DEF"));
+				charDTO.setChrSfx(rset.getString("SFX"));
+				charDTO.setChrBmg(rset.getString("BGM"));
+				charDTO.setChrEquipTitle(rset.getString("EQUIP_TITLE"));
+				charDTO.setChrEquipWeapon(rset.getString("EQUIP_WEAPON"));
+				charDTO.setChrEquipArmor(rset.getString("EQUIP_ARMOR"));
+			}
 			
 			
 		} catch (SQLException e) {
@@ -194,8 +193,8 @@ public class LoginDAO {
 			close(rset);
 			close(pstmt);
 		}
-		return charDTO;
 		
+		return charDTO;
 	}
 	
 }

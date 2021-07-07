@@ -71,6 +71,29 @@
   	     FROM TBL_CHR_INFO
   	    WHERE USER_NO = ? 
 	</entry>
+	
+	<entry key="selectAllChrInfo">
+		SELECT 
+			CHR_CODE
+			,USER_NO
+			,CHR_NAME
+			,CHR_HP
+			,CHR_MP
+			,CHR_EXP
+			,CHR_LEVEL
+			,CHR_GOLD
+			,MAX_HP
+			,MAX_MP
+			,MAX_EXP
+			,CHR_ATT
+			,CHR_DEF
+			,SFX
+			,BGM
+			,EQUIP_TITLE
+			,EQUIP_WEAPON
+			,EQUIP_ARMOR
+	  FROM TBL_CHR_INFO
+	</entry>
 
 </properties>
 

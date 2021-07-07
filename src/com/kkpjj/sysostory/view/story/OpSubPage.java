@@ -11,6 +11,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import com.kkpjj.sysostory.controller.StoryController;
+import com.kkpjj.sysostory.model.dto.CharacterDTO;
 import com.kkpjj.sysostory.model.dto.StoryDTO;
 import com.kkpjj.sysostory.view.ViewUtil;
 import com.kkpjj.sysostory.view.character.VillageView;
@@ -20,6 +21,7 @@ public class OpSubPage extends JPanel {
 	private JFrame mf;
 	private JPanel panel1;
 	private StoryDTO storyDTO;
+	private CharacterDTO chr;
 	private StoryController storyController;
 	
 	public OpSubPage(JFrame mf) {
@@ -66,7 +68,7 @@ public class OpSubPage extends JPanel {
 		
 		@Override
 		public void mouseClicked(MouseEvent e) {
-//			 ViewUtil.changePanel(mf, panel1, new VillageView(mf));
+			 ViewUtil.changePanel(mf, panel1, new VillageView(mf, chr));
 		}
 	}
 }

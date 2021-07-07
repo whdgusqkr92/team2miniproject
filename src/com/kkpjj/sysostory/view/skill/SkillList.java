@@ -46,16 +46,6 @@ public class SkillList extends JPanel {
 		
 		this.mf = mf;
 		
-	
-		
-		
-		
-		
-		
-		
-		
-		
-		
 		
 		mainPanel = new JPanel();
 		mainPanel.setBounds(0, 0, 800, 600);

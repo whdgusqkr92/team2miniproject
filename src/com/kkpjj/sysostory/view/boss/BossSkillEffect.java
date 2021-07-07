@@ -13,7 +13,6 @@ import com.kkpjj.sysostory.controller.BossAttController;
 
 public class BossSkillEffect extends JPanel {
 
-	//	boolean isSkill = true;
 	private JFrame mf;
 	private JPanel mainpanel;
 	private JPanel subpanel;
@@ -26,7 +25,7 @@ public class BossSkillEffect extends JPanel {
 		this.mainpanel = this;
 		//		mainpanel = new JPanel();
 
-		mainpanel.setBounds(0, 0, 800, 420);
+		mainpanel.setBounds(0, 0, 800, 400);
 
 		mainpanel.setLayout(null);
 
@@ -37,43 +36,23 @@ public class BossSkillEffect extends JPanel {
 	public void finalSkill1() {
 
 		this.subpanel = new JPanel();
-		subpanel.setBounds(80, 100, 600, 350);
+		subpanel.setBounds(20, 0, 450, 330);
 		subpanel.setOpaque(false);
-		Image skill = new ImageIcon("images/skill/보스스킬1.gif").getImage().getScaledInstance(450, 350, 0);
+		Image skill = new ImageIcon("images/skill/보스스킬1.gif").getImage().getScaledInstance(450, 330, 0);
 		skillLabel = new JLabel(new ImageIcon(skill));
-		skillLabel.setBounds(0, 0, 100, 350);
+		skillLabel.setBounds(0, 0,500, 330);
 		mainpanel.add(subpanel);
 		subpanel.add(skillLabel);
-		
-//		new Thread(new Runnable() {
-//			
-//			@Override
-//			public void run() {
-//				int cnt = 0;
-//				while(true) {
-//					try {
-//						Thread.sleep(1000);
-//						cnt++;
-//						if(cnt == 3) {
-//							
-//						}
-//					} catch (InterruptedException e) {
-//						e.printStackTrace();
-//					}
-//				}
-//			}
-//		}).start();
-//		setVisible(true);
 	}
 	
 	//15
 	public void finalSkill2() {
 
 		this.subpanel = new JPanel();
-		subpanel.setBounds(0, 100, 600, 350);
-		Image skill = new ImageIcon("images/skill/보스스킬2.gif").getImage().getScaledInstance(500, 350, 0);
+		subpanel.setBounds(20, 0, 450, 330);
+		Image skill = new ImageIcon("images/skill/보스스킬2.gif").getImage().getScaledInstance(400, 330, 0);
 		skillLabel = new JLabel(new ImageIcon(skill));
-		skillLabel.setBounds(0, 0,500, 350);
+		skillLabel.setBounds(0, 0,500, 330);
 		subpanel.setOpaque(false);
 
 		mainpanel.add(subpanel);
@@ -84,11 +63,11 @@ public class BossSkillEffect extends JPanel {
 	public void finalSkill3() {
 
 		this.subpanel = new JPanel();
-		subpanel.setBounds(20, 0, 800, 420);
+		subpanel.setBounds(20, 0, 450, 330);
 		subpanel.setOpaque(false);
-		Image skill = new ImageIcon("images/skill/보스스킬3.gif").getImage().getScaledInstance(500, 350, 0);
+		Image skill = new ImageIcon("images/skill/보스스킬3.gif").getImage().getScaledInstance(400, 330, 0);
 		skillLabel = new JLabel(new ImageIcon(skill));
-		skillLabel.setBounds(0, 0, 500, 350);
+		skillLabel.setBounds(0, 0, 500, 330);
 
 		mainpanel.add(subpanel);
 		subpanel.add(skillLabel);
@@ -99,11 +78,11 @@ public class BossSkillEffect extends JPanel {
 	public void middleSkill1() {
 
 		this.subpanel = new JPanel();
-		subpanel.setBounds(80, 100, 600, 350);
+		subpanel.setBounds(80, 100, 450, 350);
 		subpanel.setOpaque(false);
 		Image skill = new ImageIcon("images/skill/중간보스스킬1.gif").getImage().getScaledInstance(450, 350, 0);
 		skillLabel = new JLabel(new ImageIcon(skill));
-		skillLabel.setBounds(0, 0, 100, 350);
+		skillLabel.setBounds(0, 0, 450, 350);
 		mainpanel.add(subpanel);
 		subpanel.add(skillLabel);
 
@@ -113,11 +92,11 @@ public class BossSkillEffect extends JPanel {
 	public void middleSkill2() {
 
 		this.subpanel = new JPanel();
-		subpanel.setBounds(80, 100, 600, 350);
+		subpanel.setBounds(80, 100, 450, 350);
 		subpanel.setOpaque(false);
 		Image skill = new ImageIcon("images/skill/중간보스스킬2.gif").getImage().getScaledInstance(450, 350, 0);
 		skillLabel = new JLabel(new ImageIcon(skill));
-		skillLabel.setBounds(0, 0, 100, 350);
+		skillLabel.setBounds(0, 0, 450, 350);
 
 		mainpanel.add(subpanel);
 		subpanel.add(skillLabel);

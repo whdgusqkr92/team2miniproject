@@ -36,11 +36,11 @@ public class BossTurn extends JPanel{
 		
 		public void paintComponent(Graphics g) {
 			
-			g.drawImage(field,0,0,800,420,this);
+			g.drawImage(field,0,0,800,400,this);
 			}
 		};
 		
-	mainpanel.setBounds(0, 0, 800, 420);
+	mainpanel.setBounds(0, 0, 800, 400);
 	mainpanel.setLayout(null);
 	mf.add(mainpanel); // 생성한 패널 프레임에 추가
 
@@ -52,7 +52,8 @@ public class BossTurn extends JPanel{
 
 	
 	
-//	new BossAttController(mf).attMiddleBoss();
+	new BossAttController(mf).attMiddleBoss();
+//	new BossAttController(mf).attFinalBoss();
 	
 
 //	new EndingPage(mf, null);

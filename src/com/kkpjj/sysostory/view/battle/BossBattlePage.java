@@ -10,15 +10,16 @@ import javax.swing.JPanel;
 import com.kkpjj.sysostory.controller.BattleController;
 import com.kkpjj.sysostory.model.dto.CharacterDTO;
 import com.kkpjj.sysostory.model.dto.InventoryDTO;
+import com.kkpjj.sysostory.view.boss.FinalBossEvent;
 
 // 전투 메인화면 레이아웃 설정, 캐릭터, 몬스터 생성, 배경 추가
-public class BattlePage extends JPanel {
+public class BossBattlePage extends JPanel {
 
 	private JFrame mf;
 	private InventoryDTO inventoryDTO;
 	private CharacterDTO characterDTO;
 
-	public BattlePage(JFrame mf, InventoryDTO inventoryDTO, CharacterDTO characterDTO) {
+	public BossBattlePage(JFrame mf, InventoryDTO inventoryDTO, CharacterDTO characterDTO) {
 		this.mf = mf;
 		this.inventoryDTO = inventoryDTO;
 		this.characterDTO = characterDTO;
@@ -37,16 +38,18 @@ public class BattlePage extends JPanel {
 	}
 
 	private void createComponents() {
-		BattleController bc = new BattleController(mf, this, characterDTO, inventoryDTO);
+//		BattleController bc = new BattleController(mf, this, characterDTO, inventoryDTO);
 		// getData
-		bc.selectAllMonsters();
-		bc.selectAllSkills();
-		// 캐릭터 생성
-		bc.createChr();
-		// 몬스터 생성
-		bc.createMon();
-		// 전투 메뉴 생성(전투 시작)
-		bc.createMenu();
+//		bc.selectAllSkills();
+//		bc.selectAllMonsters();
+//		// 캐릭터 생성
+//		bc.createChr();
+//		// 몬스터 생성
+//		bc.createMon();
+//		// 전투 메뉴 생성(전투 시작)
+//		bc.createMenu();
+		new FinalBossEvent(mf);
+		
 	}
 	
 	// 필드 배경화면 추가

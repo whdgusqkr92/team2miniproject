@@ -30,6 +30,7 @@ public class FieldCharacterBattle extends JPanel  {
 	private JLabel chLabel;
 	private Image chImage;
 	private JLabel monsterLabel;
+	
 
 	private CharacterDTO characterDTO;
 	private InventoryDTO inventoryDTO;
@@ -37,11 +38,11 @@ public class FieldCharacterBattle extends JPanel  {
 	public FieldCharacterBattle(JFrame mf, InventoryDTO inventoryDTO, CharacterDTO characterDTO) {
 
 		this.mf = mf;
+	
 		this.mainPanel = this;
+
 		this.characterDTO = characterDTO;
 		this.inventoryDTO = inventoryDTO;
-
-
 
 		mainPanel = new JPanel(); // 메인 패널
 		mainPanel.setBounds(0, 0, 800, 600); // 메인 패널 사이즈
@@ -61,11 +62,11 @@ public class FieldCharacterBattle extends JPanel  {
 		chLabel.setBounds(100, 150, 100, 100);
 
 		
-	
 
 		fieldJPanel.add(chLabel);
 		fieldJPanel.add(fieldJLabel); // 필드 라벨을 필드 패널에 넣어준거
 		mainPanel.add(fieldJPanel); // 필드 패널을 메인패널에 넣어준거
+		
 
 		/*-------------------------------버튼 생성 ---------------------------------------*/
 
@@ -88,7 +89,7 @@ public class FieldCharacterBattle extends JPanel  {
 
 		JLabel monsterLabel = new JLabel(new ImageIcon("images/monster.png")); // 버튼으로 만드려고햇는데 버튼은 이미지가 버튼 이미지까지 나와서 라벨에
 		// 이미지 넣음
-		monsterLabel.setBounds(700, 330, 60, 60);
+		monsterLabel.setBounds(700, 315, 60, 60);
 		fieldJLabel.add(monsterLabel);
 
 		JLabel monsterLabel2 = new JLabel(new ImageIcon("images/skill/monster2.png")); // 버튼으로 만드려고햇는데 버튼은 이미지가 버튼 이미지까지 나와서
@@ -164,7 +165,7 @@ public class FieldCharacterBattle extends JPanel  {
 
 		@Override
 		public void mouseReleased(MouseEvent e) {
-			ViewUtil.changePanel(mf, fieldJPanel, new SkillList(mf));						//설정 창 만들면 넣기!!
+			ViewUtil.changePanel(mf, fieldJPanel, new SettingPanel(mf));						//설정 창 만들면 넣기!!
 			mainPanel.setVisible(false);
 
 		}
@@ -176,7 +177,7 @@ public class FieldCharacterBattle extends JPanel  {
 		public void mouseReleased(MouseEvent e) {
 			ViewUtil.changePanel(mf, fieldJPanel, new VillageView(mf, characterDTO));
 			mainPanel.setVisible(false);
-
+			
 		}
 	}
 	private class SkillChange extends MouseAdapter { // 마을 라벨 누르면 마을로 패널 변경
@@ -185,7 +186,8 @@ public class FieldCharacterBattle extends JPanel  {
 		public void mouseReleased(MouseEvent e) {
 			ViewUtil.changePanel(mf, fieldJPanel, new SkillList(mf));
 			mainPanel.setVisible(false);
-
+			
+			
 		}
 	}
 //		private class InventoryChange extends MouseAdapter { 									// //인벤토리 버튼

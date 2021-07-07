@@ -13,13 +13,14 @@ import com.kkpjj.sysostory.model.dto.CharacterDTO;
 
 import com.kkpjj.sysostory.view.member.StartScreen;
 
-
+import com.kkpjj.sysostory.view.story.EndingPage;
 import com.kkpjj.sysostory.model.dto.InventoryDTO;
 import com.kkpjj.sysostory.view.boss.BossTurn;
 
 import com.kkpjj.sysostory.view.battle.BattlePage;
 import com.kkpjj.sysostory.view.character.CharacterView;
 import com.kkpjj.sysostory.view.character.FieldCharacterBattle;
+import com.kkpjj.sysostory.view.character.GameScreen;
 import com.kkpjj.sysostory.view.character.Sound;
 
 
@@ -42,8 +43,13 @@ public class MainFrame extends JFrame {
 		mf.setLayout(null);
 
 
+
 //		mf.add(new StartScreen(mf));
 		
+
+//		new EndingPage(mf, characterDTO);
+		new StartScreen(mf);
+
 
 
 		mf.add(new CharacterView(mf, chr));
@@ -53,7 +59,6 @@ public class MainFrame extends JFrame {
 
 
 
-	
 
 
 

@@ -13,12 +13,12 @@ public class Skill extends JPanel{
 	ImageIcon icon;
 	Logger loginScr;
 	private JFrame mf;
+	
 	private JPanel mainPanel;
 	private JLabel jLabel;
 	Skill skill= this;
-		public Skill(JFrame mf) {
+		public Skill(JFrame mf ) {
 			this.mf = mf;
-			
 			mainPanel = new JPanel();
 			mainPanel.setBounds(0, 0, 800, 600);
 
@@ -46,9 +46,10 @@ public class Skill extends JPanel{
 							Thread.sleep(1000);
 							n++;
 							if (n == 5) {
-							new ImageIcon("image/BossSkill3.gif");
-//								new Skill(mf);
-//								 setVisible(true);
+							
+								new ImageIcon("iamge/bossSkill3.gif");
+								new Skill(mf);
+							 setVisible(true);
 							}
 					System.out.println("쓰래드 실행");	} catch (InterruptedException e) {
 							e.printStackTrace();
