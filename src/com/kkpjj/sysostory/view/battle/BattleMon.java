@@ -24,12 +24,10 @@ public class BattleMon extends JPanel {
 	private BattleController bc;
 	private String monImgAddress1;
 	private String monImgAddress2;
-	private ButtonGroup groupMon;
 	private Monster firstMon;
 	private Monster secondMon;
 	private Monster thirdMon;
 	private Monster fourthMon;
-	private ButtonGroup groupSelectMon;
 	private JButton selectFirstMon;
 	private JButton selectSecondMon;
 	private JButton selectThirdMon;

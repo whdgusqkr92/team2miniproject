@@ -4,28 +4,28 @@
 <comment/>
 	<entry key="selectMonster">
         SELECT
-          MON_CODE
-        , MON_NAME
-        , MON_HP
-        , MON_ATT
-        , MON_SKILL_ATT
-        , MON_DEF
-        , MON_EXP
-        , DROP_GOLD
-        FROM TBL_MON_INFO
-        WHERE MON_CODE = ?
+               MON_CODE
+             , MON_NAME
+             , MON_HP
+             , MON_ATT
+             , MON_SKILL_ATT
+             , MON_DEF
+             , MON_EXP
+             , DROP_GOLD
+          FROM TBL_MON_INFO
+         WHERE MON_CODE = ?
 	</entry>
 	
 	<entry key="selectAllMonList">
         SELECT
-          MON_CODE
-        , MON_NAME
-        , MON_HP
-        , MON_ATT
-        , MON_SKILL_ATT
-        , MON_DEF
-        , MON_EXP
-        , DROP_GOLD
-        FROM TBL_MON_INFO
+               MON_CODE
+             , MON_NAME
+             , MON_HP
+             , MON_ATT
+             , MON_SKILL_ATT
+             , MON_DEF
+             , MON_EXP
+             , DROP_GOLD
+          FROM TBL_MON_INFO
 	</entry>
 </properties>
