@@ -145,7 +145,7 @@ public class FieldCharacterBattle extends JPanel  {
 
 		@Override
 		public void mouseReleased(MouseEvent e) {
-			ViewUtil.changePanel(mf, fieldJPanel, new MiddleBossEvent(mf)); // 배틀 페이지로 넘어가는거
+			ViewUtil.changePanel(mf, fieldJPanel, new MiddleBossEvent(mf,characterDTO, inventoryDTO)); // 배틀 페이지로 넘어가는거
 			mainPanel.setVisible(false);
 
 		}
@@ -155,7 +155,7 @@ public class FieldCharacterBattle extends JPanel  {
 
 		@Override
 		public void mouseReleased(MouseEvent e) {
-			ViewUtil.changePanel(mf, fieldJPanel, new FinalBossEvent(mf)); // 배틀 페이지로 넘어가는거
+			ViewUtil.changePanel(mf, fieldJPanel, new FinalBossEvent(mf, characterDTO, inventoryDTO)); // 배틀 페이지로 넘어가는거
 			mainPanel.setVisible(false);
 
 		}
@@ -184,7 +184,7 @@ public class FieldCharacterBattle extends JPanel  {
 
 		@Override
 		public void mouseReleased(MouseEvent e) {
-			ViewUtil.changePanel(mf, fieldJPanel, new SkillList(mf));
+			ViewUtil.changePanel(mf, fieldJPanel, new SkillList(mf, characterDTO));
 			mainPanel.setVisible(false);
 			
 			
@@ -216,5 +216,3 @@ public class FieldCharacterBattle extends JPanel  {
 	
 
 	//	}
-
-}

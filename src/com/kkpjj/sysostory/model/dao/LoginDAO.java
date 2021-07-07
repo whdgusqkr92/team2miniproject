@@ -120,7 +120,7 @@ public class LoginDAO {
 		
 		List<MemberDTO> memberList = null;
 		
-		String query =prop.getProperty("selectAllMember");
+		String query = prop.getProperty("selectAllMember");
 		
 		try {
 			pstmt = con.prepareStatement(query);
@@ -162,6 +162,8 @@ public class LoginDAO {
 		int userNo = searchMemberNumber(con, memberDTO.getUserId());
 		memberDTO.setUserNo(userNo);
 		
+		System.out.println(charDTO.getUserNo());
+		
 		try {
 			pstmt = con.prepareStatement(query);
 			pstmt.setInt(1, memberDTO.getUserNo());
@@ -187,7 +189,6 @@ public class LoginDAO {
 				charDTO.setChrEquipWeapon(rset.getString("EQUIP_WEAPON"));
 				charDTO.setChrEquipArmor(rset.getString("EQUIP_ARMOR"));
 			}
-			
 			
 		} catch (SQLException e) {
 			e.printStackTrace();

@@ -14,6 +14,8 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+import com.kkpjj.sysostory.model.dto.CharacterDTO;
+import com.kkpjj.sysostory.model.dto.InventoryDTO;
 import com.kkpjj.sysostory.view.ViewUtil;
 
 
@@ -26,13 +28,14 @@ public class MiddleBossEvent extends JPanel{
 	private JLabel bossLabel;
 	private JLabel textLabel;
 	private JLabel textLabel2;
+	private InventoryDTO inventoryDTO;
+	private CharacterDTO characterDTO;
 	
-	private JButton btn;
-	private JButton btn2;
-	
-	public MiddleBossEvent(JFrame mf) {
+	public MiddleBossEvent(JFrame mf, CharacterDTO characterDTO, InventoryDTO inventoryDTO) {
 		this.mf = mf;
 		this.mainpanel = this;
+		this.characterDTO = characterDTO;
+		this.inventoryDTO = inventoryDTO;
 
 	
 	//--------------------------배경 필드 패널 만들기------------------------------	
@@ -96,10 +99,9 @@ public class MiddleBossEvent extends JPanel{
 		@Override
 		public void mouseClicked(MouseEvent e) {
 			
-			ViewUtil.changePanel(mf, mainpanel, new BossTurn(mf));
+			ViewUtil.changePanel(mf, mainpanel, new BossTurn(mf, characterDTO, inventoryDTO));
 			
 			
 			}
 		}
 }
-

@@ -48,7 +48,7 @@ public class BossBattlePage extends JPanel {
 //		bc.createMon();
 //		// 전투 메뉴 생성(전투 시작)
 //		bc.createMenu();
-		new FinalBossEvent(mf);
+		new FinalBossEvent(mf, characterDTO, inventoryDTO);
 		
 	}
 	
@@ -60,4 +60,3 @@ public class BossBattlePage extends JPanel {
 		g.drawImage(bg, 0, 0, getWidth(), getHeight(), this);
 	}
 }
-
