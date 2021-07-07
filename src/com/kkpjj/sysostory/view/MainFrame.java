@@ -52,11 +52,9 @@ public class MainFrame extends JFrame {
 
 
 
-		mf.add(new CharacterView(mf, chr));
+//		mf.add(new CharacterView(mf, chr));
 //		new FieldCharacterBattle(mf, inventoryDTO, characterDTO);
 		
-
-
 
 
 
