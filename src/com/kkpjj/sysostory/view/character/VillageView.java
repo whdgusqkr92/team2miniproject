@@ -15,6 +15,7 @@ import javax.swing.JTextField;
 import com.kkpjj.sysostory.model.dto.CharacterDTO;
 import com.kkpjj.sysostory.model.dto.InventoryDTO;
 import com.kkpjj.sysostory.view.ViewUtil;
+import com.kkpjj.sysostory.view.inventory.InventoryView;
 import com.kkpjj.sysostory.view.shop.ArmorDealer;
 import com.kkpjj.sysostory.view.shop.ArmorShopView;
 import com.kkpjj.sysostory.view.shop.PotionDealer;
@@ -130,7 +131,7 @@ public class VillageView extends JPanel implements KeyListener {
 			} else if(e.getSource() == armorShopPanel) {
 				ViewUtil.changePanel(mf, villageView, new ArmorShopView(mf));
 			} else if(e.getSource() == moveFieldPanel) {
-//				ViewUtil.changePanel(mf, villageView, new FieldCharacterBattle(mf, inven, chr));
+				ViewUtil.changePanel(mf, villageView, new FieldCharacterBattle(mf, inven, chr));
 			}
 		}
 	}
@@ -145,6 +146,10 @@ public class VillageView extends JPanel implements KeyListener {
 		if(e.getKeyCode() == 69) {
 			ViewUtil.changePanel(mf, this, new CharacterView(mf, chr));
 			this.setVisible(false);
+			
+		} else if(e.getKeyCode() == 73) {
+			ViewUtil.changePanel(mf, this, new InventoryView(mf, inven, chr));
+			
 		}
 	}
 

@@ -36,6 +36,7 @@ public class StatusPanel extends JPanel {
 //		chrDTO.setChrCode(chrCode);
 //		chrDTO.setUserNo(userNo);
 		
+		
 		CharacterDTO chr = cc.selectCharacterInfo(chrDTO.getUserNo(), chrDTO.getChrCode());
 		
 		
@@ -43,7 +44,7 @@ public class StatusPanel extends JPanel {
 		statusPanel = new JPanel();
 		statusPanel.setBounds(0, 380, 560, 180);
 		mf.getContentPane().add(statusPanel);
-		statusPanel.setLayout(null);
+		statusPanel.setLayout(null); 
 		
 		// 하단 맵 정보 패널
 		mapPanel = new JPanel();

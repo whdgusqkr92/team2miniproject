@@ -16,6 +16,7 @@ import com.kkpjj.sysostory.view.boss.FinalBossEvent;
 import com.kkpjj.sysostory.view.battle.BattlePage;
 
 import com.kkpjj.sysostory.view.character.CharacterView;
+import com.kkpjj.sysostory.view.inventory.InventoryView;
 
 public class MainFrame extends JFrame {
 
@@ -28,6 +29,7 @@ public class MainFrame extends JFrame {
 		
 		mf = new JFrame();
 		chr = new CharacterDTO();
+		InventoryDTO inven = new InventoryDTO();
 
 		mf.setTitle("sysoStory");
 		mf.setSize(800, 600);
@@ -35,7 +37,8 @@ public class MainFrame extends JFrame {
 
 
 
-		mf.add(new StartScreen(mf));
+//		mf.add(new StartScreen(mf));
+		mf.add(new InventoryView(mf, inven, chr));
 		
 //		new FinalBossEvent(mf);
 //		new EndingPage(mf, characterDTO);

@@ -1,5 +1,6 @@
 package com.kkpjj.sysostory.view.inventory;
 
+import java.awt.Color;
 import java.awt.Font;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
@@ -27,77 +28,74 @@ public class InventoryView extends JPanel {
 	private InventoryView mainPage;
 	private Image img;
 	private Image img2;
-	private CharacterDTO equip;
+	private CharacterDTO chr;
 	private InventoryController ic;
+	
+	private JPanel invenPanel;
 
-	public InventoryView(JFrame mf, InventoryDTO inven, CharacterDTO equip) {
+	public InventoryView(JFrame mf, InventoryDTO inven, CharacterDTO chr) {
 
 		this.mf = mf;
+		this.chr = chr;
 		
 		
-//		mainPanel = new JPanel();
-//		mainPanel.setBounds(0, 0, 800, 600);
-//
-//		skilUpPanel = new JPanel();
-//		skilUpPanel.setBounds(50, 20, 700, 45);
-//
-//		skillListPanel = new JPanel();
-//		skillListPanel.setBounds(50, 100, 700, 300);
-//
-//		skilExPanel = new JPanel();
-//		skilExPanel.setBounds(50, 420, 700, 100);
-//
-//		Font font = new Font("궁서 보통", Font.BOLD, 30);
-//		Font font2 = new Font("궁서 보통", Font.BOLD, 15);
-//		
-//		this.sc = new SkillController();
-//
-//		/*-----------------------------------이미지 선언부-----------------------------------------*/
-//
-//		Image mainImage = new ImageIcon("images/skill/스킬 목록 배경.png").getImage().getScaledInstance(800, 600, 0);
-//
-//		Image SkilUpImage = new ImageIcon("images/skill/스킬 상단배경.png").getImage().getScaledInstance(700, 45, 0);
-//		skilUpPanel.setLayout(null);
-//
-//		Image SkilListImage = new ImageIcon("images/skill/스킬리스트.png").getImage().getScaledInstance(700, 300, 0);
-//
-//		Image exImage = new ImageIcon("images/skill/스킬설명창.png").getImage().getScaledInstance(700, 100, 0);
-//		skilExPanel.setLayout(null);
-//
-//		/*-------------------------------라벨 생성 ---------------------------------------*/
-//
-//		mainLabel = new JLabel(new ImageIcon(mainImage));
-//		mainLabel.setBounds(0, 0, 800, 600);
-//
-//		JLabel skilUpLabel = new JLabel(new ImageIcon(SkilUpImage));
-//		skilUpLabel.setBounds(50, 20, 700, 45);
-//
-//		JLabel skilUpTextLabel = new JLabel("스킬 목록");
-//		skilUpTextLabel.setBounds(325, 30, 200, 30);
-//
-//		JLabel skillListLabel = new JLabel(new ImageIcon(SkilListImage));
-//		skillListLabel.setBounds(45, 100, 700, 300);
-//
-//		JLabel skilExLabel = new JLabel(new ImageIcon(exImage));
-//		skilExLabel.setBounds(45, 420, 700, 100);
-//
-//		JLabel skilExTextLabel = new JLabel();
-//		skilExTextLabel.setBounds(0, 0, 700, 100);
-//
+		// 인벤토리 패널 선언 및 생성
+		invenPanel = new JPanel();
+		invenPanel.setBounds(0, 0, 800, 420);
+		mf.getContentPane().add(invenPanel);
+		invenPanel.setLayout(null);
+		
+		
+		// 인벤토리 패널 이름 생성
+		JLabel invenPanelName = new JLabel();
+		invenPanelName.setBounds(325, 5, 300, 50);
+		invenPanelName.setFont(new Font("둥근모꼴", Font.PLAIN, 35));
+		invenPanelName.setForeground(Color.white);
+		invenPanelName.setText("인벤토리");
+		invenPanel.add(invenPanelName);
+		
+		
+		// 나가기 버튼 추가
+		JButton backButton = new JButton(new ImageIcon("images/item/exit.png"));
+		backButton.setBounds(720, 10, 50, 50);
+		backButton.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				ViewUtil.changePanel(mf, invenPanel, new VillageView(mf, chr)); // 마을 페이지로 넘어가는거
+				invenPanel.setVisible(false);
+
+			}
+		
+		});
+		invenPanel.add(backButton);
+
+		/*-----------------------------------인벤토리 배경-----------------------------------------*/
+		
+		// 인벤토리 슬롯 배경 추가
+		Image invenListBg = new ImageIcon("images/item/inventoryList.png").getImage();
+		JLabel listBg = new JLabel(new ImageIcon(invenListBg));
+		listBg.setBounds(150, 50, 500, 250);
+		invenPanel.add(listBg);
+		
+		// 아이템 설명창 추가
+		Image exImage = new ImageIcon("images/item/아이템설명창.png").getImage().getScaledInstance(700, 100, 0);
+		JLabel exitem = new JLabel(new ImageIcon(exImage));
+		exitem.setBounds(150, 305, 500, 100);
+		invenPanel.add(exitem);
+		
+		// 인벤토리 배경 추가
+		Image invenBg = new ImageIcon("images/item/itemWindow.png").getImage();
+		JLabel bg = new JLabel(new ImageIcon(invenBg));
+		bg.setBounds(2, 2, 795, 415);
+		invenPanel.add(bg);
+		
+
+
 //		/*-------------------------------버튼 생성 ---------------------------------------*/
 //
-//		JButton backButton = new JButton(new ImageIcon("images/skill/도망가기.png"));
-//		backButton.setBounds(745, 20, 35, 35);
-//		backButton.addActionListener(new ActionListener() {
-//
-//			@Override
-//			public void actionPerformed(ActionEvent e) {
-//				ViewUtil.changePanel(mf, mainPanel, new VillageView(mf, chr)); // 배틀 페이지로 넘어가는거
-//				mainPanel.setVisible(false);
-//
-//			}
-//		
-//		});
+		
+		
 //		JButton skillButton1 = new JButton(new ImageIcon("images/skill/플레임차지아이콘.png"));
 //		skillButton1.setBounds(65, 115, 140, 115);
 //		skillButton1.addActionListener(new ActionListener() {
