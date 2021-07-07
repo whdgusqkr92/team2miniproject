@@ -23,4 +23,5 @@ public class CharacterController {
 		return chrInfo;
 	}
 
+
 }

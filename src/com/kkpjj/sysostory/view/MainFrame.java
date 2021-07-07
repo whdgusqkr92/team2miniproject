@@ -5,17 +5,18 @@ import javax.swing.JFrame;
 import com.kkpjj.sysostory.model.dto.CharacterDTO;
 
 import com.kkpjj.sysostory.view.member.StartScreen;
-import com.kkpjj.sysostory.view.skill.Skill;
+//import com.kkpjj.sysostory.view.skill.Skill;
 import com.kkpjj.sysostory.view.skill.SkillList;
 import com.kkpjj.sysostory.view.story.EndingPage;
 
 import com.kkpjj.sysostory.model.dto.InventoryDTO;
-
+import com.kkpjj.sysostory.view.boss.BossSkillEffect;
 import com.kkpjj.sysostory.view.boss.BossTurn;
 import com.kkpjj.sysostory.view.boss.FinalBossEvent;
 import com.kkpjj.sysostory.view.battle.BattlePage;
 
 import com.kkpjj.sysostory.view.character.CharacterView;
+import com.kkpjj.sysostory.view.character.FieldCharacterBattle;
 
 public class MainFrame extends JFrame {
 
@@ -35,7 +36,7 @@ public class MainFrame extends JFrame {
 
 
 
-		mf.add(new StartScreen(mf));
+//		new StartScreen(mf);
 		
 //		new FinalBossEvent(mf);
 //		new EndingPage(mf, characterDTO);
@@ -44,13 +45,13 @@ public class MainFrame extends JFrame {
 
 
 //		mf.add(new CharacterView(mf, chr));
-//		new FieldCharacterBattle(mf, inventoryDTO, characterDTO);
+		new FieldCharacterBattle(mf, inventoryDTO, characterDTO);
 		
 //		new FieldCharacterBattle(mf, inventoryDTO, characterDTO);
-//		new SkillList(mf);
+//		new SkillList(mf, characterDTO);
 //		new Skill(mf);
-		
-
+//		new BossSkillEffect(mf);
+//		new BossTurn(mf);
 
 
 		mf.setLocationRelativeTo(null);

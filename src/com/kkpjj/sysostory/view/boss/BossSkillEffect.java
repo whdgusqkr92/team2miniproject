@@ -33,7 +33,7 @@ public class BossSkillEffect extends JPanel {
 
 	}	
 
-	public void finalSkill1() {
+	public void finalSkill1 () {
 
 		this.subpanel = new JPanel();
 		subpanel.setBounds(20, 0, 450, 330);
