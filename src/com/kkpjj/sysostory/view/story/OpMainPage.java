@@ -11,6 +11,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import com.kkpjj.sysostory.controller.StoryController;
+import com.kkpjj.sysostory.model.dto.CharacterDTO;
 import com.kkpjj.sysostory.model.dto.MemberDTO;
 import com.kkpjj.sysostory.model.dto.StoryDTO;
 import com.kkpjj.sysostory.view.ViewUtil;
@@ -22,8 +23,16 @@ public class OpMainPage extends JPanel {
 	private StoryDTO storyDTO;
 	private StoryController storyController;
 	
-	public OpMainPage(JFrame mf, String idText,MemberDTO memberDTO) {
+	private String id;
+	private MemberDTO memberDTO;
+	private CharacterDTO chr;
+	
+	
+	public OpMainPage(JFrame mf, CharacterDTO chr) {
 		this.mf = mf;
+//		this.id = id;
+//		this.memberDTO = memberDTO;
+		this.chr = chr;
 		
 		storyController = new StoryController();
 		storyDTO = new StoryDTO();
@@ -62,12 +71,12 @@ public class OpMainPage extends JPanel {
 		panel1.addMouseListener(new MyMouseAdapter());
 		
 	}
-	
+
 	private class MyMouseAdapter extends MouseAdapter {
 		
 		@Override
 		public void mouseClicked(MouseEvent e) {
-			 ViewUtil.changePanel(mf, panel1, new OpSubPage(mf));
+			 ViewUtil.changePanel(mf, panel1, new OpSubPage(mf, chr));
 		}
 	}
 

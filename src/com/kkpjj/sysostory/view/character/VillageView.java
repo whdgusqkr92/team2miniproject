@@ -125,11 +125,11 @@ public class VillageView extends JPanel implements KeyListener {
 		@Override
 		public void mouseReleased(MouseEvent e) {
 			if(e.getSource() == posionShopPanel) {
-				ViewUtil.changePanel(mf, villageView, new PotionShopView(mf));
+				ViewUtil.changePanel(mf, villageView, new PotionShopView(mf, inven, chr));
 			} else if(e.getSource() == weaponShopPanel) {
-				ViewUtil.changePanel(mf, villageView, new WeaponShopView(mf));
+				ViewUtil.changePanel(mf, villageView, new WeaponShopView(mf, inven, chr));
 			} else if(e.getSource() == armorShopPanel) {
-				ViewUtil.changePanel(mf, villageView, new ArmorShopView(mf));
+				ViewUtil.changePanel(mf, villageView, new ArmorShopView(mf, inven, chr));
 			} else if(e.getSource() == moveFieldPanel) {
 				ViewUtil.changePanel(mf, villageView, new FieldCharacterBattle(mf, inven, chr));
 			}

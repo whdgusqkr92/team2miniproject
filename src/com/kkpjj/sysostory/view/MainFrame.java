@@ -2,11 +2,15 @@ package com.kkpjj.sysostory.view;
 
 import javax.swing.JFrame;
 
+import com.kkpjj.sysostory.model.dto.CharacterDTO;
+import com.kkpjj.sysostory.model.dto.InventoryDTO;
 import com.kkpjj.sysostory.view.member.StartScreen;
 
 public class MainFrame extends JFrame {
 
 	private JFrame mf;
+	private InventoryDTO inven;
+	private CharacterDTO chr;
 
 	public MainFrame() {
 		
@@ -16,6 +20,10 @@ public class MainFrame extends JFrame {
 		mf.setSize(800, 600);
 		mf.setLayout(null);
 
+//		new PotionShopView(mf, inven, chr);
+//		new ArmorShopView(mf, inven, chr);
+//		new WeaponShopView(mf, inven, chr);
+		
 		new StartScreen(mf);
 
 		mf.setLocationRelativeTo(null);
