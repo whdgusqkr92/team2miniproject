@@ -29,12 +29,12 @@ public class DieText extends JPanel {
 	
 	private CharacterDTO characterDTO;
 	
-	public DieText(JFrame mf, JPanel mainpanel, CharacterDTO characterDTO) {
+	public DieText(JPanel mainpanel, CharacterDTO characterDTO) {
 		
-		this.mf = mf;
 		this.mainpanel = mainpanel;
 		this.characterDTO = characterDTO;
-		
+		this.repaint();
+		this.revalidate();
 	}
 			public void charaDie() {
 				

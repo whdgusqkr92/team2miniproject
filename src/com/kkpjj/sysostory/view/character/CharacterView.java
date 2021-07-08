@@ -4,10 +4,13 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Image;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -38,19 +41,19 @@ public class CharacterView extends JPanel{
 		
 		/* -------------- 캐릭터 정보 테스트 ----------------- */
 		
-		int userNo = 4;		// 사용자 번호
-		int chrCode = 2;	// 캐릭터 코드
-		
-		chrDTO.setChrCode(chrCode);
-		chrDTO.setUserNo(userNo);
+//		int userNo = 4;		// 사용자 번호
+//		int chrCode = 2;	// 캐릭터 코드
+//		
+//		chrDTO.setChrCode(chrCode);
+//		chrDTO.setUserNo(userNo);
 		
 //		System.out.println(cc.selectCharacterInfo(chrDTO.getChrCode(), chrDTO.getUserNo()));
-
-		CharacterDTO chr = cc.selectCharacterInfo(chrDTO.getUserNo(), chrDTO.getChrCode());
 		
 //		System.out.println("공격력 : " + chr.getChrAtt());
 //		System.out.println("방어력 : " + chr.getChrDef());
 //		System.out.println("닉네임 : " + chr.getChrName());
+		
+		CharacterDTO chr = cc.selectCharacterInfo(chrDTO.getUserNo(), chrDTO.getChrCode());		
 		
 		// ------------------------------------------------------------
 		
@@ -60,6 +63,22 @@ public class CharacterView extends JPanel{
 		chrPanel.setBounds(0, 0, 800, 420);
 		mf.getContentPane().add(chrPanel);
 		chrPanel.setLayout(null);
+		
+		// 나가기 버튼 추가
+		JButton backButton = new JButton(new ImageIcon("images/character/exit.png"));
+		backButton.setBounds(720, 10, 50, 50);
+		backButton.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				ViewUtil.changePanel(mf, chrPanel, new VillageView(mf, chr)); // 마을 페이지로 넘어가는거
+				chrPanel.setVisible(false);
+
+			}
+		
+		});
+		chrPanel.add(backButton);
+		
 		
 		// 캐릭터 정보창 패널 생성
 		JLabel chrPanelName = new JLabel();

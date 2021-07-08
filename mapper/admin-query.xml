@@ -6,8 +6,9 @@
 		       USER_ID
 		     , USER_PWD
 		  FROM TBL_USER_INFO
-		 WHERE ADMIN = ?
-		   AND ADMIN = ?
+		 WHERE USER_GRADE = '관리자'
+		   AND USER_ID = ?
+		   AND USER_PWD = ?
 </properties>
 
 

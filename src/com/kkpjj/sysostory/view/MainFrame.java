@@ -7,6 +7,8 @@ import com.kkpjj.sysostory.view.member.StartScreen;
 public class MainFrame extends JFrame {
 
 	private JFrame mf;
+	private InventoryDTO inven;
+	private CharacterDTO chr;
 
 	public MainFrame() {
 		
@@ -15,7 +17,7 @@ public class MainFrame extends JFrame {
 		mf.setTitle("sysoStory");
 		mf.setSize(800, 600);
 		mf.setLayout(null);
-
+		
 		new StartScreen(mf);
 		
 		mf.setLocationRelativeTo(null);

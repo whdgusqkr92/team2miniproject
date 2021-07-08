@@ -15,9 +15,11 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 import com.kkpjj.sysostory.controller.LoginController;
+import com.kkpjj.sysostory.model.dto.CharacterDTO;
 import com.kkpjj.sysostory.model.dto.MemberDTO;
 import com.kkpjj.sysostory.view.ViewUtil;
 import com.kkpjj.sysostory.view.story.OpMainPage;
+import com.kkpjj.sysostory.view.story.OpSubPage;
 
 public class NickName extends JPanel{
 	
@@ -26,6 +28,8 @@ public class NickName extends JPanel{
 	
 	public NickName(JFrame mf, String idText, MemberDTO memberDTO) {
 		this.memberDTO = memberDTO;
+		
+		CharacterDTO chr = new CharacterDTO();
 		
 		JPanel panel = new JPanel();
 		panel.setBounds(0, 0, 800, 600);
@@ -58,14 +62,18 @@ public class NickName extends JPanel{
 		
 		createNicknameButton.addActionListener(new ActionListener() {
 			
-			LoginController loginController = new LoginController();
+		LoginController loginController = new LoginController();
+		
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				if(nicknameText.getText().length() > 0) {
-					int result = loginController.createNickname(nicknameText.getText(),idText, memberDTO);
-//						System.out.println(nicknameText.getText());
+
+					int result = loginController.createNickname(nicknameText.getText(), idText, memberDTO);
+
 					if(result > 0) {
-						ViewUtil.changePanel(mf, panel, new OpMainPage(mf, idText, memberDTO));
+						new OpSubPage(mf, chr);
+						ViewUtil.changePanel(mf, panel, new OpMainPage(mf, chr));
+						
 					} 
 				}
 			}

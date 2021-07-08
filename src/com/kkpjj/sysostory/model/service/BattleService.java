@@ -7,8 +7,7 @@ import java.sql.Connection;
 import java.util.List;
 
 import com.kkpjj.sysostory.controller.BattleController;
-
-
+import com.kkpjj.sysostory.controller.BossAttController;
 import com.kkpjj.sysostory.model.dao.MonsterDAO;
 import com.kkpjj.sysostory.model.dao.SkillDAO;
 import com.kkpjj.sysostory.model.dto.CharacterDTO;
@@ -73,6 +72,7 @@ public class BattleService {
 		case "attack" : monHp -= (chrAtt - monDef); break;
 		case "skill" : monHp -= (int) (chrAtt * (1 + skillAtt) - monDef); break; 
 		}
+		monDTO.setMonHp(monHp);
 		return monHp;
 	}
 
@@ -88,7 +88,7 @@ public class BattleService {
 		} else {
 			chrHp -= monAtt - chrDef;
 		}
-
+		chrDTO.setChrHp(chrHp);
 		return chrHp;
 	}
 }

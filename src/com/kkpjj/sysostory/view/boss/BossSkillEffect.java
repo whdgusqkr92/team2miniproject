@@ -13,15 +13,17 @@ import com.kkpjj.sysostory.controller.BossAttController;
 
 public class BossSkillEffect extends JPanel {
 
-	private JFrame mf;
+//	private JFrame mf;
+	private JPanel battlePage;
+	
 	private JPanel mainpanel;
 	private JPanel subpanel;
 	private JLabel skillLabel;
 	Image field = new ImageIcon("Images/field/field.png").getImage().getScaledInstance(800, 200, 0);
 
-	public BossSkillEffect(JFrame mf) {
+	public BossSkillEffect(JPanel battlePage) {
 
-		this.mf = mf;
+		this.battlePage = battlePage;
 		this.mainpanel = this;
 		//		mainpanel = new JPanel();
 
@@ -29,7 +31,7 @@ public class BossSkillEffect extends JPanel {
 
 		mainpanel.setLayout(null);
 
-		mf.add(mainpanel); // 생성한 패널 프레임에 추가
+		battlePage.add(mainpanel); // 생성한 패널 프레임에 추가
 
 	}	
 
