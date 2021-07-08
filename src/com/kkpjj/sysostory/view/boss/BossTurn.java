@@ -55,6 +55,8 @@ public class BossTurn extends JPanel{
 		mainpanel.add(bossLabel);
 		BattleController bc = new BattleController(mf, mainpanel, characterDTO, inventoryDTO);
 		bc.createChr();
+		bc.selectAllMonsters();
+		bc.createboss();
 		bc.createMenu();
 		
 		}
