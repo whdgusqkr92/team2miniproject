@@ -22,6 +22,7 @@ public class BattleMon extends JPanel {
 	private BattleController bc;
 	private String monImgAddress1;
 	private String monImgAddress2;
+	private String monImgAddress3;             //
 	private Monster firstMon;
 	private Monster secondMon;
 	private Monster thirdMon;
@@ -54,9 +55,11 @@ public class BattleMon extends JPanel {
 		Map<String, String> monList = new HashMap<>();
 		monList.put("빨간슬라임", "images/monster/mon_red_slime.png");
 		monList.put("노란슬라임", "images/monster/mon_yellow_slime.png");
+		monList.put("야스오네", "images/text/BossFace_M.png");
 
 		this.monImgAddress1 = monList.get("빨간슬라임");
 		this.monImgAddress2 = monList.get("노란슬라임");
+		this.monImgAddress3 = monList.get("야스오네");
 	}
 
 	private void createMon() {
@@ -107,7 +110,7 @@ public class BattleMon extends JPanel {
 	}
 
 	public void selectMon() {
-		selectFirstMon.addMouseListener(new MyMouseListener(selectFirstMon, 1, 1));
+		selectFirstMon.addMouseListener(new MyMouseListener(selectFirstMon, 1, 99));
 //		selectSecondMon.addMouseListener(new MyMouseListener(selectSecondMon, 2, 2));
 //		selectThirdMon.addMouseListener(new MyMouseListener(selectThirdMon, 3, 1));
 //		selectFourthMon.addMouseListener(new MyMouseListener(selectFourthMon, 4, 2));

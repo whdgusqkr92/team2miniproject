@@ -51,7 +51,7 @@ public class FinalBossEvent extends JPanel{
 		mf.add(mainpanel); // 생성한 패널 프레임에 추가
 		
 		//---------------------------주인공 얼굴------------------------------------
-		Image chara = new ImageIcon("images/text/주인공.png").getImage().getScaledInstance(100, 100, 0);
+		Image chara = new ImageIcon("images/text/Character.png").getImage().getScaledInstance(100, 100, 0);
 		charaLabel = new JLabel(new ImageIcon(chara));
 		charaLabel.setBounds(0, 180, 100, 100);
 		mainpanel.add(charaLabel);
@@ -171,6 +171,7 @@ public class FinalBossEvent extends JPanel{
 			
 												//엔딩페이지랑 일단 이었는데 실제로는 보스와 배틀 시작!!
 			ViewUtil.changePanel(mf, mainpanel, new FinalTurn(mf, characterDTO, inventoryDTO)); 
+//			ViewUtil.changePanel(mf, mainpanel, new BossAttController(battlePage, chrDTO).attFinalBoss();); 
 
 		}
 	}

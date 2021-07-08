@@ -35,9 +35,7 @@ public class CharacterDAO {
 			e.printStackTrace();
 		}
 
-
 	}
-
 
 
 	public CharacterDTO selectCharacterInfo(Connection con, int userNo, int chrCode) {

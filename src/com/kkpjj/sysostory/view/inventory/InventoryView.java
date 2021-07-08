@@ -25,9 +25,6 @@ import com.kkpjj.sysostory.view.character.VillageView;
 public class InventoryView extends JPanel {
 	
 	private JFrame mf;
-	private InventoryView mainPage;
-	private Image img;
-	private Image img2;
 	private CharacterDTO chr;
 	private InventoryController ic;
 	
