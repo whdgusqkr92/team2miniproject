@@ -7,7 +7,7 @@ import java.sql.Connection;
 import java.util.List;
 
 import com.kkpjj.sysostory.controller.BattleController;
-import com.kkpjj.sysostory.controller.BossAttController;
+import com.kkpjj.sysostory.model.dao.CharacterDAO;
 import com.kkpjj.sysostory.model.dao.MonsterDAO;
 import com.kkpjj.sysostory.model.dao.SkillDAO;
 import com.kkpjj.sysostory.model.dto.CharacterDTO;
@@ -17,10 +17,12 @@ import com.kkpjj.sysostory.model.dto.SkillDTO;
 
 public class BattleService {
 	private BattleController bc;
+	private CharacterDAO characterDAO;
 	private MonsterDAO monsterDAO;
 	private SkillDAO skillDAO;
 
 	public BattleService() {
+		this.characterDAO = new CharacterDAO();
 		this.monsterDAO = new MonsterDAO();
 		this.skillDAO = new SkillDAO();
 	}
@@ -44,7 +46,16 @@ public class BattleService {
 
 		return skillList;
 	}
-
+	
+	public int updateChrInfo(CharacterDTO chrDTO) {
+		Connection con = getConnection();
+		
+		int result = characterDAO.updateChrInfo(con, chrDTO);
+		
+		close(con);
+		
+		return result;
+	}
 
 	public int checkMp(String subMenuName, CharacterDTO chrDTO, SkillDTO skillDTO) {
 		int chrMp = chrDTO.getChrMp();
@@ -72,7 +83,8 @@ public class BattleService {
 		case "attack" : monHp -= (chrAtt - monDef); break;
 		case "skill" : monHp -= (int) (chrAtt * (1 + skillAtt) - monDef); break; 
 		}
-		monDTO.setMonHp(monHp);
+		
+		monDTO.setMonHp(monHp); 
 		return monHp;
 	}
 
@@ -88,9 +100,8 @@ public class BattleService {
 		} else {
 			chrHp -= monAtt - chrDef;
 		}
+		
 		chrDTO.setChrHp(chrHp);
 		return chrHp;
 	}
 }
-
-

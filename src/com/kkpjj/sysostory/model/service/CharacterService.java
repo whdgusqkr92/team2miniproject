@@ -11,15 +11,12 @@ import static com.kkpjj.common.JDBCTemplate.close;
 public class CharacterService {
 
 	private CharacterDAO characterDAO;
-	private CharacterDTO characterDTO;
 
 	public CharacterService() {
 		this.characterDAO = new CharacterDAO();
-		//		this.characterDTO = new CharacterDTO();
 	}
 
 	public CharacterDTO selectCharacterInfo(int userNo, int chrCode) {
-
 		Connection con = getConnection();
 
 		CharacterDTO chrInfo = characterDAO.selectCharacterInfo(con, userNo, chrCode);
@@ -28,5 +25,6 @@ public class CharacterService {
 
 		return chrInfo;
 	}
+
 }
 

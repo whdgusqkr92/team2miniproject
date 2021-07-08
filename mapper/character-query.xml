@@ -26,4 +26,25 @@
  		 WHERE USER_NO = ?
    		   AND CHR_CODE = ?
 	</entry>
+	
+	<entry key="updateCharacterInfo">
+        UPDATE 
+               TBL_CHR_INFO A
+           SET CHR_HP = ?
+     		 , CHR_MP = ?
+     		 , CHR_EXP = ?
+     		 , CHR_LEVEL = ?
+     		 , CHR_GOLD = ?
+     		 , MAX_HP = ?
+     		 , MAX_MP = ?
+     	 	 , MAX_EXP = ?
+     		 , CHR_ATT = ?
+     		 , CHR_DEF = ?
+     		 , SFX = ?
+     		 , BGM = ?
+     		 , EQUIP_TITLE = ?
+     		 , EQUIP_WEAPON = ?
+     		 , EQUIP_ARMOR = ?
+         WHERE USER_NO = ?
+	</entry>
 </properties>

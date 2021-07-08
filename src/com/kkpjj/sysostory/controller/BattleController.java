@@ -15,7 +15,6 @@ import com.kkpjj.sysostory.view.ViewUtil;
 import com.kkpjj.sysostory.view.battle.BattleChr;
 import com.kkpjj.sysostory.view.battle.BattleMenu;
 import com.kkpjj.sysostory.view.battle.BattleMon;
-import com.kkpjj.sysostory.view.boss.DieText;
 import com.kkpjj.sysostory.view.character.FieldCharacterBattle;
 import com.kkpjj.sysostory.view.character.VillageView;
 
@@ -24,7 +23,6 @@ public class BattleController {
 	private JFrame mf;
 	private JPanel battlePage;
 	private BattleService bs;
-	private BossAttController bsc;
 	private CharacterDTO chrDTO;
 	private InventoryDTO invenDTO;
 	private BattleMon battleMon;
@@ -59,8 +57,6 @@ public class BattleController {
 		this.chrDTO = chrDTO;
 		this.invenDTO = invenDTO;
 		this.bs = new BattleService();
-		
-		this.bsc = new BossAttController(battlePage,chrDTO);
 	}
 
 	public void selectAllMonsters() {
@@ -104,45 +100,6 @@ public class BattleController {
 				monDTO = monsterList.get(i);
 			}
 		}
-		
-
-		BattleMon battleMon = new BattleMon(battlePage, this, monDTO);
-		this.battleMon = battleMon;
-		battlePage.add(battleMon);
-	}
-	//-------------------중간 보스-----------------------------------------
-	public void createboss() {
-		//		numOfMon = 1;	// 1 ~ 4 사이의 난수로 변경
-		//		for(int i = 0; i < numOfMon; i++) {
-		//			fightMonList.add(i, Mon);
-		//		}
-
-		int selectMonCode = 3;
-		MonsterDTO monDTO = new MonsterDTO();
-		for(int i = 0; i < monsterList.size(); i++) {
-			if(selectMonCode == monsterList.get(i).getMonCode()) {
-				monDTO = monsterList.get(i);
-			}
-		}
-		BattleMon battleMon = new BattleMon(battlePage, this, monDTO);
-		this.battleMon = battleMon;
-		battlePage.add(battleMon);
-	}
-	//-------------------최종 보스-----------------------------------
-		public void createFboss() {
-			//		numOfMon = 1;	// 1 ~ 4 사이의 난수로 변경
-			//		for(int i = 0; i < numOfMon; i++) {
-			//			fightMonList.add(i, Mon);
-			//		}
-
-			int selectMonCode = 99;
-			MonsterDTO monDTO = new MonsterDTO();
-			for(int i = 0; i < monsterList.size(); i++) {
-				if(selectMonCode == monsterList.get(i).getMonCode()) {
-					monDTO = monsterList.get(i);
-				}
-			}
-	//------------------------------------------------------------
 
 		BattleMon battleMon = new BattleMon(battlePage, this, monDTO);
 		this.battleMon = battleMon;
@@ -179,14 +136,11 @@ public class BattleController {
 				monDTO = monsterList.get(i);
 			}
 		}
-		
-		SkillDTO skillDTO = new SkillDTO();
-		if(skillList != null) {
 
-			for(int i = 0; i < skillList.size(); i++) {
-				if(subMenuName == skillList.get(i).getSkillName()) {
-					skillDTO = skillList.get(i);
-				}
+		SkillDTO skillDTO = new SkillDTO();
+		for(int i = 0; i < skillList.size(); i++) {
+			if(subMenuName == skillList.get(i).getSkillName()) {
+				skillDTO = skillList.get(i);
 			}
 		}
 
@@ -209,10 +163,8 @@ public class BattleController {
 		}
 		System.out.println("MON_HP" + monHp);
 		if(monHp > 0) {
-			if(monDTO.getMonCode() == 3) {       //최종보스눌러도 중간보스나옴
-				bsc.attMiddleBoss(monDTO);
-			}
 			chrHp = bs.monAttack(chrDTO, monDTO);
+
 		} else {
 			winReward(chrDTO, monDTO);
 		}
@@ -242,7 +194,7 @@ public class BattleController {
 			levelup(chrDTO);			
 		}
 		
-		// DTO DB에 저장
+		bs.updateChrInfo(chrDTO);
 		
 		ViewUtil.changePanel(mf, battlePage, new FieldCharacterBattle(mf, invenDTO, chrDTO));
 	}
@@ -279,19 +231,8 @@ public class BattleController {
 		chrDTO.setChrExp(chrExp);
 		
 		// DTO DB에 저장
-		new Thread(new Runnable() {
-			public void run() {
-				while(true) {
-					try {
-						Thread.sleep(5000);
-						new DieText(battlePage, chrDTO).charaDie();
-					} catch (InterruptedException e) {
-						e.printStackTrace();
-					}
-				}
-			}
-		}).start();
-		//		ViewUtil.changePanel(mf, battlePage, new VillageView(mf, chrDTO));
+
+		ViewUtil.changePanel(mf, battlePage, new VillageView(mf, chrDTO));
 	}
 
 	// 아이템 사용
@@ -302,6 +243,7 @@ public class BattleController {
 
 	// 도망가기
 	private void runAway() {
+		// DB에 DTO 저장
 		ViewUtil.changePanel(mf, battlePage, new FieldCharacterBattle(mf, invenDTO, chrDTO));
 	}
 }
