@@ -33,14 +33,13 @@ public class AdminDAO {
 	}
 
 	public int loginAdmin(Connection con, MemberDTO memberDTO) {
-		
 		PreparedStatement pstmt = null;
 		
 		int result = 0;
-		
 		String query = prop.getProperty("loginAdmin");
 		
 		try {
+			System.out.println(memberDTO.getUserId() + memberDTO.getUserPwd());
 			pstmt = con.prepareStatement(query);
 			pstmt.setString(1, memberDTO.getUserId());
 			pstmt.setString(2, memberDTO.getUserPwd());

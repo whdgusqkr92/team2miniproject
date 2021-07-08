@@ -67,8 +67,9 @@ public class NickName extends JPanel{
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				if(nicknameText.getText().length() > 0) {
+
 					int result = loginController.createNickname(nicknameText.getText(), idText, memberDTO);
-//						System.out.println(nicknameText.getText());
+
 					if(result > 0) {
 						new OpSubPage(mf, chr);
 						ViewUtil.changePanel(mf, panel, new OpMainPage(mf, chr));

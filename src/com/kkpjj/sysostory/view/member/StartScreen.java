@@ -23,6 +23,7 @@ import com.kkpjj.sysostory.controller.MemberController;
 import com.kkpjj.sysostory.model.dto.CharacterDTO;
 import com.kkpjj.sysostory.model.dto.MemberDTO;
 import com.kkpjj.sysostory.view.ViewUtil;
+import com.kkpjj.sysostory.view.admin.loginAdminView;
 
 public class StartScreen extends JPanel {
 
@@ -141,6 +142,14 @@ public class StartScreen extends JPanel {
 
 		JButton ManagerButton = new JButton();							/* 관리자모드 접속 버튼 */
 		ManagerButton.setBounds(755, 0, 40, 41);
+		
+		ManagerButton.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				ViewUtil.changePanel(mf, loginPanel, new loginAdminView(mf));				
+			}
+		});
 
 		Image optionButton = new ImageIcon("images/login/optionbutton2.png").getImage().getScaledInstance(35, 35, 0);
 		JLabel option = new JLabel(new ImageIcon(optionButton));		/* 관리자모드 접속 아이콘 */
