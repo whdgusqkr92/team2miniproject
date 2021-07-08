@@ -30,6 +30,7 @@ public class OpSubPage extends JPanel {
 		storyController = new StoryController();
 		storyDTO = new StoryDTO();
 		
+		
 		panel1 = new JPanel();
 		panel1.setBounds(0, 0, 800, 600);
 		mf.getContentPane().add(panel1);
