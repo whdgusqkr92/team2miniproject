@@ -20,7 +20,6 @@ public class MainFrame extends JFrame {
 		
 		new StartScreen(mf);
 		
-		
 		mf.setLocationRelativeTo(null);
 		mf.setResizable(true);
 		mf.setVisible(true);
