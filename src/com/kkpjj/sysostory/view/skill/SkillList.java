@@ -44,11 +44,10 @@ public class SkillList extends JPanel {
 	private int chLv;
 	private String skillScript;
 
-	public SkillList(JFrame mf, CharacterDTO characterDTO, SkillDTO skillDTO) {
+	public SkillList(JFrame mf, CharacterDTO characterDTO) {
 
 		this.mf = mf;
 		this.characterDTO = characterDTO;
-		this.skillDTO = skillDTO;
 
 		this.chLv = characterDTO.getChrLevel();
 		

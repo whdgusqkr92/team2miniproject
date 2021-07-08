@@ -53,7 +53,7 @@ public class CharacterView extends JPanel{
 //		System.out.println("방어력 : " + chr.getChrDef());
 //		System.out.println("닉네임 : " + chr.getChrName());
 		
-		CharacterDTO chr = cc.selectCharacterInfo(chrDTO.getUserNo(), chrDTO.getChrCode());		
+//		CharacterDTO chr = cc.selectCharacterInfo(chrDTO.getUserNo(), chrDTO.getChrCode());		
 		
 		// ------------------------------------------------------------
 		
@@ -71,7 +71,7 @@ public class CharacterView extends JPanel{
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				ViewUtil.changePanel(mf, chrPanel, new VillageView(mf, chr)); // 마을 페이지로 넘어가는거
+				ViewUtil.changePanel(mf, chrPanel, new VillageView(mf, chrDTO)); // 마을 페이지로 넘어가는거
 				chrPanel.setVisible(false);
 
 			}
@@ -93,7 +93,7 @@ public class CharacterView extends JPanel{
 		nickname.setBounds(30, 180, 300, 50);
 		nickname.setFont(new Font("둥근모꼴", Font.PLAIN, 24));
 		nickname.setForeground(Color.white);
-		nickname.setText("이름     " + chr.getChrName());
+		nickname.setText("이름     " + chrDTO.getChrName());
 		chrPanel.add(nickname);
 		
 		// 칭호 라벨 생성
@@ -101,7 +101,7 @@ public class CharacterView extends JPanel{
 		title.setBounds(30, 220, 300, 50);
 		title.setFont(new Font("둥근모꼴", Font.PLAIN, 24));
 		title.setForeground(Color.white);
-		title.setText("칭호     " + titleYN(chr));
+		title.setText("칭호     " + titleYN(chrDTO));
 		chrPanel.add(title);
 		
 		// 장착한 무기 라벨 생성
@@ -109,7 +109,7 @@ public class CharacterView extends JPanel{
 		equipWeapon.setBounds(30, 260, 300, 50);
 		equipWeapon.setFont(new Font("둥근모꼴", Font.PLAIN, 24));
 		equipWeapon.setForeground(Color.white);
-		equipWeapon.setText("무기     " + chr.getChrEquipWeapon());
+		equipWeapon.setText("무기     " + chrDTO.getChrEquipWeapon());
 		chrPanel.add(equipWeapon);
 		
 		// 장착한 방어구 라벨 생성
@@ -117,7 +117,7 @@ public class CharacterView extends JPanel{
 		equipArmor.setBounds(30, 300, 300, 50);
 		equipArmor.setFont(new Font("둥근모꼴", Font.PLAIN, 24));
 		equipArmor.setForeground(Color.white);
-		equipArmor.setText("방어구   " + chr.getChrEquipArmor());
+		equipArmor.setText("방어구   " + chrDTO.getChrEquipArmor());
 		chrPanel.add(equipArmor);
 		
 		// 레벨 라벨 생성
@@ -125,7 +125,7 @@ public class CharacterView extends JPanel{
 		level.setBounds(400, 50, 300, 50);
 		level.setFont(new Font("둥근모꼴", Font.PLAIN, 30));
 		level.setForeground(Color.white);
-		level.setText("레벨          " + chr.getChrLevel());
+		level.setText("레벨          " + chrDTO.getChrLevel());
 		chrPanel.add(level);
 		
 		// 현재 HP, 최대 HP 라벨 생성
@@ -140,7 +140,7 @@ public class CharacterView extends JPanel{
 		hp.setBounds(300, 100, 400, 50);
 		hp.setFont(new Font("둥근모꼴", Font.PLAIN, 30));
 		hp.setForeground(Color.white);
-		hp.setText(chr.getChrHp() + " /  " + chr.getChrMaxHp());
+		hp.setText(chrDTO.getChrHp() + " /  " + chrDTO.getChrMaxHp());
 		hp.setHorizontalAlignment(hp.RIGHT);
 		chrPanel.add(hp);
 		
@@ -156,7 +156,7 @@ public class CharacterView extends JPanel{
 		mp.setBounds(300, 150, 400, 50);
 		mp.setFont(new Font("둥근모꼴", Font.PLAIN, 30));
 		mp.setForeground(Color.white);
-		mp.setText(chr.getChrMp() + " /  " + chr.getChrMaxMp());
+		mp.setText(chrDTO.getChrMp() + " /  " + chrDTO.getChrMaxMp());
 		mp.setHorizontalAlignment(mp.RIGHT);
 		chrPanel.add(mp);
 		
@@ -173,7 +173,7 @@ public class CharacterView extends JPanel{
 		exp.setBounds(300, 200, 400, 50);
 		exp.setFont(new Font("둥근모꼴", Font.PLAIN, 30));
 		exp.setForeground(Color.white);
-		exp.setText(chr.getChrExp() + " /  " + chr.getChrMaxExp());
+		exp.setText(chrDTO.getChrExp() + " /  " + chrDTO.getChrMaxExp());
 		exp.setHorizontalAlignment(exp.RIGHT);
 		chrPanel.add(exp);
 	
@@ -182,7 +182,7 @@ public class CharacterView extends JPanel{
 		att.setBounds(400, 250, 300, 50);
 		att.setFont(new Font("둥근모꼴", Font.PLAIN, 30));
 		att.setForeground(Color.white);
-		att.setText("공격력       " + chr.getChrAtt());
+		att.setText("공격력       " + chrDTO.getChrAtt());
 		chrPanel.add(att);
 		
 		// 방어력 라벨 생성
@@ -190,7 +190,7 @@ public class CharacterView extends JPanel{
 		def.setBounds(400, 300, 300, 50);
 		def.setFont(new Font("둥근모꼴", Font.PLAIN, 30));
 		def.setForeground(Color.white);
-		def.setText("방어력       " + chr.getChrDef());
+		def.setText("방어력       " + chrDTO.getChrDef());
 		chrPanel.add(def);
 		
 

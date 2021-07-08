@@ -2,13 +2,15 @@ package com.kkpjj.sysostory.view;
 
 import javax.swing.JFrame;
 
+import com.kkpjj.sysostory.model.dto.CharacterDTO;
+import com.kkpjj.sysostory.model.dto.InventoryDTO;
 import com.kkpjj.sysostory.view.member.StartScreen;
 
 public class MainFrame extends JFrame {
 
 	private JFrame mf;
-	private InventoryDTO inven;
-	private CharacterDTO chr;
+//	private InventoryDTO inven;
+//	private CharacterDTO chr;
 
 	public MainFrame() {
 		

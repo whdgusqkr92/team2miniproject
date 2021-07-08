@@ -29,7 +29,7 @@ public class NickName extends JPanel{
 	public NickName(JFrame mf, String idText, MemberDTO memberDTO) {
 		this.memberDTO = memberDTO;
 		
-		CharacterDTO chr = new CharacterDTO();
+//		CharacterDTO chr = new CharacterDTO();
 		
 		JPanel panel = new JPanel();
 		panel.setBounds(0, 0, 800, 600);
@@ -69,10 +69,12 @@ public class NickName extends JPanel{
 				if(nicknameText.getText().length() > 0) {
 
 					int result = loginController.createNickname(nicknameText.getText(), idText, memberDTO);
+					
+//					System.out.println("chr의 값은 : " + chr);
 
 					if(result > 0) {
-						new OpSubPage(mf, chr);
-						ViewUtil.changePanel(mf, panel, new OpMainPage(mf, chr));
+//						new OpSubPage(mf, chr);
+						ViewUtil.changePanel(mf, panel, new OpMainPage(mf, memberDTO));
 						
 					} 
 				}

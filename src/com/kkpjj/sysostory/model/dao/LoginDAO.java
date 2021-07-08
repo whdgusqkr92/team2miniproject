@@ -184,7 +184,7 @@ public class LoginDAO {
 				charDTO.setChrAtt(rset.getInt("CHR_ATT"));
 				charDTO.setChrDef(rset.getInt("CHR_DEF"));
 				charDTO.setChrSfx(rset.getString("SFX"));
-				charDTO.setChrBmg(rset.getString("BGM"));
+				charDTO.setChrBgm(rset.getString("BGM"));
 				charDTO.setChrEquipTitle(rset.getString("EQUIP_TITLE"));
 				charDTO.setChrEquipWeapon(rset.getString("EQUIP_WEAPON"));
 				charDTO.setChrEquipArmor(rset.getString("EQUIP_ARMOR"));

@@ -28,11 +28,10 @@ public class OpMainPage extends JPanel {
 	private CharacterDTO chr;
 	
 	
-	public OpMainPage(JFrame mf, CharacterDTO chr) {
+	public OpMainPage(JFrame mf, MemberDTO memberDTO) {
 		this.mf = mf;
 //		this.id = id;
-//		this.memberDTO = memberDTO;
-		this.chr = chr;
+		this.memberDTO = memberDTO;
 		
 		storyController = new StoryController();
 		storyDTO = new StoryDTO();
