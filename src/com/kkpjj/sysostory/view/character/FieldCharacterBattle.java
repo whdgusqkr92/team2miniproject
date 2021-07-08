@@ -190,6 +190,7 @@ public class FieldCharacterBattle extends JPanel  {
 			
 		}
 	}
+}
 //		private class InventoryChange extends MouseAdapter { 									// //인벤토리 버튼
 //	
 //			@Override																					
