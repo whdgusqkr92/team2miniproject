@@ -16,7 +16,7 @@ public class CharacterDTO implements java.io.Serializable {
 	private int chrAtt;
 	private int chrDef;
 	private String chrSfx;
-	private String chrBmg;
+	private String chrBgm;
 	private String chrEquipTitle;
 	private String chrEquipWeapon;
 	private String chrEquipArmor;
@@ -25,7 +25,7 @@ public class CharacterDTO implements java.io.Serializable {
 
 	public CharacterDTO(int chrCode, int userNo, String chrName, int chrHp, int chrMp, int chrExp, int chrLevel,
 			int chrGold, int chrMaxHp, int chrMaxMp, int chrMaxExp, int chrAtt, int chrDef, String chrSfx,
-			String chrBmg, String chrEquipTitle, String chrEquipWeapon, String chrEquipArmor) {
+			String chrBgm, String chrEquipTitle, String chrEquipWeapon, String chrEquipArmor) {
 		super();
 		this.chrCode = chrCode;
 		this.userNo = userNo;
@@ -41,7 +41,7 @@ public class CharacterDTO implements java.io.Serializable {
 		this.chrAtt = chrAtt;
 		this.chrDef = chrDef;
 		this.chrSfx = chrSfx;
-		this.chrBmg = chrBmg;
+		this.chrBgm = chrBgm;
 		this.chrEquipTitle = chrEquipTitle;
 		this.chrEquipWeapon = chrEquipWeapon;
 		this.chrEquipArmor = chrEquipArmor;
@@ -103,8 +103,8 @@ public class CharacterDTO implements java.io.Serializable {
 		return chrSfx;
 	}
 
-	public String getChrBmg() {
-		return chrBmg;
+	public String getChrBgm() {
+		return chrBgm;
 	}
 
 	public String getChrEquipTitle() {
@@ -175,8 +175,8 @@ public class CharacterDTO implements java.io.Serializable {
 		this.chrSfx = chrSfx;
 	}
 
-	public void setChrBmg(String chrBmg) {
-		this.chrBmg = chrBmg;
+	public void setChrBgm(String chrBgm) {
+		this.chrBgm = chrBgm;
 	}
 
 	public void setChrEquipTitle(String chrEquipTitle) {
@@ -196,7 +196,7 @@ public class CharacterDTO implements java.io.Serializable {
 		return "CharacterDTO [chrCode=" + chrCode + ", userNo=" + userNo + ", chrName=" + chrName + ", chrHp=" + chrHp
 				+ ", chrMp=" + chrMp + ", chrExp=" + chrExp + ", chrLevel=" + chrLevel + ", chrGold=" + chrGold
 				+ ", chrMaxHp=" + chrMaxHp + ", chrMaxMp=" + chrMaxMp + ", chrMaxExp=" + chrMaxExp + ", chrAtt="
-				+ chrAtt + ", chrDef=" + chrDef + ", chrSfx=" + chrSfx + ", chrBmg=" + chrBmg + ", chrEquipTitle="
+				+ chrAtt + ", chrDef=" + chrDef + ", chrSfx=" + chrSfx + ", chrBgm=" + chrBgm + ", chrEquipTitle="
 				+ chrEquipTitle + ", chrEquipWeapon=" + chrEquipWeapon + ", chrEquipArmor=" + chrEquipArmor + "]";
 	}
 
